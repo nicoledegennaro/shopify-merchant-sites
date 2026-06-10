@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wichita Furniture + The Gallery — Shopify structure options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-muted: #444;
+    --ink-soft: #6b6b6b;
+    --border: #e9eae9;
+    --soft: #f9f9f9;
+    --accent: #007558;
+    --accent-dark: #0a5d3e;
+    --accent-soft: #e8f3ee;
+    --warn: #b54708;
+    --warn-soft: #fef5e7;
+    --no: #de524e;
+    --no-soft: #fbeae9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+  section.soft { background: var(--soft); }
+  section.accent { background: var(--accent-soft); }
+
+  /* HERO */
+  .hero {
+    padding: 48px 0 64px 0;
+    background: linear-gradient(180deg, #fff 0%, var(--accent-soft) 100%);
+    border-bottom: 4px solid var(--accent);
+  }
+  .brand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+  .brand-bar img.customer-logo {
+    height: 72px;
+    width: auto;
+  }
+  .brand-bar .prepared-by {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-muted);
+    font-weight: 600;
+    text-align: right;
+  }
+  .brand-bar .prepared-by strong {
+    display: block;
+    font-size: 16px;
+    color: var(--accent);
+    margin-top: 4px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* TYPOGRAPHY */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0 0 16px 0;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--ink-muted);
+    margin: 28px 0 12px 0;
+    font-weight: 700;
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 760px;
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--ink-muted);
+    background: var(--soft);
+    font-weight: 700;
+  }
+  td.num { font-variant-numeric: tabular-nums; }
+
+  /* PILLS / TAGS */
+  .pill {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .pill.rec { background: var(--accent-soft); color: var(--accent-dark); }
+  .pill.cond { background: #eef2ff; color: #3538cd; }
+  .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    background: var(--soft);
+    color: var(--ink-muted);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  /* CARDS */
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 12px 0;
+    background: #fff;
+  }
+  .card.rec { border-left: 4px solid var(--accent); }
+  .card.cond { border-left: 4px solid #3538cd; }
+  .card h4 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .card .meta {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  /* STATS */
+  .stat {
+    padding: 18px;
+    background: var(--soft);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+  }
+  .stat .k {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .stat .v {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .stat .sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+  }
+
+  /* LISTS */
+  ul { padding-left: 22px; margin: 8px 0; }
+  ul li { margin-bottom: 6px; font-size: 14px; }
+
+  /* CALLOUTS */
+  .callout {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 18px 0;
+    font-size: 14px;
+  }
+
+  /* WHY BLOCKS */
+  .why-block {
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-top: 14px;
+  }
+  .why-block.yes {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+  }
+  .why-block.no {
+    background: var(--no-soft);
+    border-left: 3px solid var(--no);
+  }
+  .why-block h5 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 800;
+  }
+  .why-block.yes h5 { color: var(--accent-dark); }
+  .why-block.no h5 { color: var(--no); }
+  .why-block ul { padding-left: 18px; }
+  .why-block li { font-size: 13.5px; margin-bottom: 5px; }
+
+  /* FACTORS */
+  .factor {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 10px 0;
+    background: #fff;
+    font-size: 14px;
+  }
+  .factor .fnum {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-right: 8px;
+    letter-spacing: 0.8px;
+  }
+  .factor .impact {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+  }
+
+  /* LINKS */
+  a {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  a:hover { color: var(--accent-dark); }
+  a.demo-link {
+    text-decoration: underline;
+  }
+
+  /* FOOTNOTE */
+  .footnote {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 24px;
+    font-style: italic;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin: 28px 0 12px 0;
+    padding-left: 36px;
+    border-left: 2px solid var(--accent);
+  }
+  .timeline-step {
+    position: relative;
+    padding-bottom: 28px;
+  }
+  .timeline-step:last-child { padding-bottom: 0; }
+  .timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -45px;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .timeline-step.target::before {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft), 0 0 0 8px var(--accent);
+  }
+  .ts-when {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .ts-action {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .timeline-step.target .ts-action {
+    font-size: 19px;
+    color: var(--accent-dark);
+  }
+  .ts-owner {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* CRITERIA CARD (expansion store qualifying checklist) */
+  .criteria-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .criteria-card-header {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent-dark);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .criteria-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .criteria-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14.5px;
+    line-height: 1.4;
+  }
+  .criteria-row .cstatus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* APPENDIX */
+  .appendix-divider {
+    background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
+    padding: 48px 0 32px 0;
+    border-top: 2px solid var(--accent);
+    text-align: center;
+  }
+  .appendix-divider .appendix-eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .appendix-divider h2 {
+    margin: 0 auto 12px auto;
+    max-width: 700px;
+  }
+  .appendix-divider p {
+    font-size: 15px;
+    color: var(--ink-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+  section.appendix { background: var(--soft); }
+  section.appendix .section-label {
+    color: var(--ink-muted);
+  }
+  .bridge-card {
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    background: #fff;
+  }
+  .bridge-card h4 {
+    margin: 0 0 6px 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent-dark);
+  }
+  .bridge-card .uplift {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-left: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .bridge-card ul {
+    margin-top: 8px;
+  }
+  @media print {
+    section { page-break-inside: avoid; padding: 32px 0; }
+    .hero { page-break-after: always; }
+  }
+  @media (max-width: 720px) {
+    .container { padding: 0 24px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .brand-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="brand-bar">
+      <img class="customer-logo" src="data:image/png;base64,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" alt="Wichita Furniture &amp; Mattress">
+      <div class="prepared-by">Prepared by<strong>Shopify Plus</strong></div>
+    </div>
+    <div class="section-label">Wichita Furniture + The Gallery</div>
+    <h1>Choosing the right Shopify structure for two brands and what's coming next.</h1>
+    <p class="lede">Wichita Furniture is the established business — a multi-store retail furniture operation with significant in-store revenue. The Gallery is the new luxury concept — first physical store opened January 2026, online presence to be built. With at least two storefronts planned and additional sub-brands on the roadmap, this document walks through three viable Shopify contract structures and the tradeoffs of each.</p>
+  </div>
+</section>
+
+<!-- TWO BRANDS -->
+<section>
+  <div class="container">
+    <div class="section-label">Setup</div>
+    <h2>Two brands. One platform decision.</h2>
+    <p class="lede">Each brand has a distinct profile, but they share infrastructure decisions — platform, integrations, partner engagement. The right Shopify structure depends on how the two brands relate to each other operationally and financially.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Wichita Furniture</h4>
+        <div class="meta">Established · multi-store retail · STORIS today</div>
+        <ul>
+          <li>Established furniture retailer with significant in-store revenue</li>
+          <li>Currently running on STORIS for retail operations and e-commerce</li>
+          <li>Migration to Shopify in progress, with Endertech as implementation partner (STORIS ↔ Shopify integration)</li>
+          <li>Goal: a more flexible e-commerce platform that scales with brand expansion</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>The Gallery</h4>
+        <div class="meta">New luxury concept · pre-revenue online · brand-new physical store</div>
+        <ul>
+          <li>First Gallery physical store opened January 2026, located at the Wichita Furniture site</li>
+          <li>Online presence to be built — clean slate for the brand's digital experience</li>
+          <li>Additional sub-brands on the roadmap beyond Gallery</li>
+          <li>Brand identity goal: a luxury, design-led experience distinct from Wichita Furniture's mass-market positioning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>The key fork:</strong> whether Wichita Furniture and The Gallery operate as the <strong>same business entity</strong> (shared payroll, accounting, tax, bank accounts) or as <strong>fully separate businesses</strong>. That answer drives which of the three structures below is the right fit.
+    </div>
+  </div>
+</section>
+
+<!-- DECISION FACTORS -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">Decision factors</div>
+    <h2>Five inputs that shape the right structure.</h2>
+    <p class="lede">Each structure below fits a different combination of these factors. Aligning on these first ensures the contract shape matches how the business actually operates today and where it's heading.</p>
+
+    <div class="factor">
+      <span class="fnum">01</span><strong>Business entity structure</strong>
+      <div class="impact">Are Wichita Furniture and The Gallery separate business entities (different payroll, accounting, tax, bank accounts)? Separate entities point toward separate Shopify stores. Same business under one umbrella opens up a unified single-domain structure that's often operationally cleaner.</div>
+    </div>
+    <div class="factor">
+      <span class="fnum">02</span><strong>Future brand expansion</strong>
+      <div class="impact">How many sub-brands are on the roadmap beyond Wichita Furniture and The Gallery? More brands strengthens the case for a unified instance that can scale brand sections without standing up new Shopify stores each time.</div>
+    </div>
+    <div class="factor">
+      <span class="fnum">03</span><strong>Brand differentiation depth</strong>
+      <div class="impact">How visually distinct should each brand feel? Shopify themes are one-per-store, but heavily differentiated look-and-feel per brand within a single store is achievable through Liquid templates, custom sections, and brand-specific landing pages.</div>
+    </div>
+    <div class="factor">
+      <span class="fnum">04</span><strong>Implementation approach</strong>
+      <div class="impact">Partner-led (Endertech) or in-house build? The unified single-domain option benefits especially from partner expertise on SEO architecture, multi-brand Liquid setup, and STORIS connector design.</div>
+    </div>
+    <div class="factor">
+      <span class="fnum">05</span><strong>Migration scope</strong>
+      <div class="impact">What's moving over from STORIS — product catalog, customer records, historical orders, content, redirects? Migration scope shapes implementation timeline and partner engagement.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOT EXPANSION STORE -->
+<section>
+  <div class="container">
+    <div class="section-label">Why not expansion store</div>
+    <h2>Expansion store isn't a fit for Wichita Furniture + The Gallery.</h2>
+    <p class="lede">Shopify expansion stores are reserved for specific use cases — same-brand geographic extensions (e.g., a US store and a Canadian store) or B2B versions of the same brand. There are five qualifying criteria below, and <strong>all five must be met</strong>. The Wichita Furniture / Gallery pairing doesn't meet any of them, which is why expansion store isn't one of the three structural options.</p>
+
+    <div class="criteria-card">
+      <div class="criteria-card-header">D2C Expansion Store Internal Checklist — all 5 criteria must be met</div>
+      <div class="criteria-list">
+        <div class="criteria-row">
+          <span class="cstatus">✓</span>
+          <strong>Brand name must be identical in URLs and landing pages</strong>
+        </div>
+        <div class="criteria-row">
+          <span class="cstatus">✓</span>
+          <strong>Logo must be identical to main brand</strong>
+        </div>
+        <div class="criteria-row">
+          <span class="cstatus">✓</span>
+          <strong>Products must be identical to main brand</strong>
+        </div>
+        <div class="criteria-row">
+          <span class="cstatus">✓</span>
+          <strong>Store theme must be identical to main brand</strong>
+        </div>
+        <div class="criteria-row">
+          <span class="cstatus">✓</span>
+          <strong>Store must be live (in production)</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Why this pairing doesn't qualify:</strong> The Gallery is being built as a distinct brand — its own name, its own logo, its own curated luxury catalog, and its own visual identity. That's the opposite of "identical to Wichita Furniture" across every criterion. The Gallery is also pre-revenue / pre-launch online, so the "live in production" requirement isn't met either. The three structures below (two Plus stores · one Plus with multi-brand sections · Plus + Advanced) are the viable options.
+    </div>
+  </div>
+</section>
+
+<!-- THREE OPTIONS OVERVIEW -->
+<section>
+  <div class="container">
+    <div class="section-label">The three options</div>
+    <h2>Two Plus stores · One Plus, one domain · Plus + Advanced.</h2>
+    <p class="lede">Three structurally different ways to put Wichita Furniture and The Gallery on Shopify. Each has a distinct cost profile, feature ceiling, and operational shape.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Option 1: Two Plus Stores</th>
+          <th>Option 2: One Plus, One Domain <span class="pill rec">Recommended</span></th>
+          <th>Option 3: Plus + Advanced <span class="pill cond">If one domain isn't viable</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Structure</th>
+          <td>Wichita on Plus · Gallery on Plus · two separate contracts</td>
+          <td>One Plus store, one domain, multi-brand within the single instance (Cascade / Urban Planet style)</td>
+          <td>Wichita on Plus · Gallery on Advanced (standalone)</td>
+        </tr>
+        <tr>
+          <th>License</th>
+          <td>$2,300/mo + $2,300/mo = <strong>$4,600/mo</strong></td>
+          <td>$2,300/mo = <strong>$2,300/mo</strong></td>
+          <td>$2,300/mo + $299/mo = <strong>$2,599/mo</strong></td>
+        </tr>
+        <tr>
+          <th>Card processing</th>
+          <td>Plus rates on both brands</td>
+          <td>Plus rates across unified instance</td>
+          <td>Plus rates on Wichita; Advanced rates (~25bps higher) on Gallery</td>
+        </tr>
+        <tr>
+          <th>STORIS connector</th>
+          <td>Two connectors to build + maintain</td>
+          <td>One connector — feeds unified product database</td>
+          <td>Two connectors to build + maintain</td>
+        </tr>
+        <tr>
+          <th>Feature parity</th>
+          <td>Full Plus on both brands</td>
+          <td>Full Plus across all brand sections</td>
+          <td>Plus on Wichita; Gallery capped at Advanced (no Flow, no Functions, no checkout extensibility)</td>
+        </tr>
+        <tr>
+          <th>Adding sub-brands</th>
+          <td>Stand up a new Plus contract per brand</td>
+          <td>Add a brand section to the existing instance — minimal incremental work</td>
+          <td>Stand up a new Advanced (or Plus) instance per brand — duplicated stack each time</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OPTION 1 -->
+<section>
+  <div class="container">
+    <div class="section-label">Option 1</div>
+    <h2>Two Shopify Plus stores.</h2>
+    <p class="lede">Wichita Furniture and The Gallery each get their own Shopify Plus contract. Fully independent operationally and contractually, with the full Plus feature set on both stores.</p>
+
+    <div class="grid-3">
+      <div class="stat">
+        <div class="k">License</div>
+        <div class="v">$4,600/mo</div>
+        <div class="sub">2× Plus base</div>
+      </div>
+      <div class="stat">
+        <div class="k">Card processing</div>
+        <div class="v">Plus rates · both</div>
+        <div class="sub">Lowest available rate card</div>
+      </div>
+      <div class="stat">
+        <div class="k">STORIS connectors</div>
+        <div class="v">Two</div>
+        <div class="sub">One per Shopify instance</div>
+      </div>
+    </div>
+
+    <div class="why-block yes">
+      <h5>When this option fits</h5>
+      <ul>
+        <li><strong>Full Plus feature set on both brands:</strong> Flow, Functions, B2B channel, checkout extensibility, audiences, Launchpad, higher API limits — available to The Gallery from day one.</li>
+        <li><strong>Plus card rates on both brands:</strong> ~25bps lower than Gallery would pay on Advanced — material savings as the brand scales.</li>
+        <li><strong>Account-managed support on both:</strong> dedicated success team for each contract.</li>
+        <li><strong>Clean separation when entities are distinct:</strong> if Gallery is structured as a separate legal/financial entity, this is the contractually correct shape.</li>
+        <li><strong>Future-proof if Gallery scales fast:</strong> no migration needed if Gallery hits significant GMV in years 2–3.</li>
+      </ul>
+    </div>
+
+    <div class="why-block no">
+      <h5>Tradeoffs to consider</h5>
+      <ul>
+        <li><strong>$27,600/year of additional license cost vs. Option 2</strong> for a pre-revenue brand. Paying $2,300/mo to host The Gallery from day one is harder to justify before revenue exists.</li>
+        <li><strong>Operational duplication:</strong> two themes, two app stacks, two logins, two STORIS connectors, two dedicated success team relationships. More to build and more to maintain.</li>
+        <li><strong>Two STORIS connectors to build and maintain</strong> instead of one — integration logic built twice.</li>
+        <li><strong>No shared customer view:</strong> a Wichita customer who buys at The Gallery shows up as a stranger; unified marketing, loyalty, and retention require an external CDP layer.</li>
+        <li><strong>Adding "a couple more" brands compounds the problem:</strong> each new brand requires another Plus contract.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 2 -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">Option 2 · Recommended</div>
+    <h2>One Shopify Plus store. One domain. Multi-brand within a single instance.</h2>
+    <p class="lede">One Shopify Plus instance hosts Wichita Furniture, The Gallery, and future sub-brands as distinct brand sections under a unified domain. Different brand look and feel, shared backend — one cart, one checkout, one STORIS connector. Each brand operates as a section of the same store, with its own pages, navigation, and visual identity. <strong>This is the recommended path</strong> — lowest TCO, lowest operational complexity, full Plus feature set across every brand, and the cleanest fit for a multi-brand roadmap.</p>
+
+    <div class="grid-3">
+      <div class="stat">
+        <div class="k">License</div>
+        <div class="v">$2,300/mo</div>
+        <div class="sub">Single Plus contract</div>
+      </div>
+      <div class="stat">
+        <div class="k">Card processing</div>
+        <div class="v">Plus rates · unified</div>
+        <div class="sub">Lowest rate across all brand sections</div>
+      </div>
+      <div class="stat">
+        <div class="k">STORIS connectors</div>
+        <div class="v">One</div>
+        <div class="sub">Unified product database</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>See this structure in action:</strong> <a class="demo-link" href="https://cascadedesigns.com/" target="_blank" rel="noopener">Cascade Designs</a> runs six distinct brands (Therm-a-Rest, MSR, Platypus, SealLine, PackTowl, Tracks) on a single Shopify Plus instance. Each brand has its own look, feel, and dedicated section — but they all share one backend, one cart, one checkout. This is essentially what Option 2 looks like for Wichita Furniture and The Gallery: each brand is its own section of the same store.
+    </div>
+
+    <div class="why-block yes">
+      <h5>Why this is the recommended option</h5>
+      <ul>
+        <li><strong>Lowest total cost of ownership:</strong> one Plus license, one set of card rates, one connector, one app stack — meaningfully cheaper across every dimension than Options 1 or 3.</li>
+        <li><strong>One STORIS connector to build and maintain:</strong> Endertech builds the integration once, the internal team maintains one integration layer — significant time and cost savings over the 3-year horizon.</li>
+        <li><strong>One product database, one customer record, one cart:</strong> unified inventory, unified loyalty and retention, and customers can shop across brands in a single transaction.</li>
+        <li><strong>Full Plus feature set across all brand sections:</strong> Flow, Functions, checkout extensibility, audiences, B2B, Launchpad — available to every brand within the instance, including new sub-brands when added.</li>
+        <li><strong>Adding new sub-brands is light-lift:</strong> spin up a new brand section within the existing instance instead of standing up a whole new Shopify store + connector each time. Aligns directly with the multi-brand roadmap.</li>
+        <li><strong>Operational fit when entities are unified:</strong> if Wichita and Gallery share payroll, accounting, tax, and payouts, the contract structure mirrors how the business actually operates.</li>
+        <li><strong>Brand differentiation is still possible:</strong> distinct look and feel per brand section via Liquid templates, sections, and custom landing pages. The Gallery can present as luxury; Wichita as mass-market — same store, different presentation layers.</li>
+      </ul>
+    </div>
+
+    <div class="why-block no">
+      <h5>Tradeoffs to consider</h5>
+      <ul>
+        <li><strong>One Shopify theme per store:</strong> two literally distinct Shopify themes aren't possible — though look and feel per brand can be heavily differentiated via custom Liquid templates and sections.</li>
+        <li><strong>One ad account per integration:</strong> single Facebook, single Instagram, single Google Ads connection per Shopify store. If brands need separate ad accounts, this is a real constraint.</li>
+        <li><strong>SEO migration requires careful architecture:</strong> moving Wichita Furniture content under a unified domain structure requires careful URL architecture and 301 redirects. Best supported by an experienced implementation partner.</li>
+        <li><strong>Brand distinction risk:</strong> if The Gallery is intended to feel fully independent of Wichita Furniture, sharing a domain may dilute that positioning.</li>
+        <li><strong>Breaks down if entities are separate:</strong> different payroll, tax, payouts, and bank accounts make co-hosting on one Shopify instance impractical — in that case, fall back to Option 3.</li>
+        <li><strong>Future divestiture is more complex:</strong> if Gallery is ever spun off or sold, untangling it from a unified instance is harder than separating two standalone stores.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 3 -->
+<section>
+  <div class="container">
+    <div class="section-label">Option 3 · Recommended if one domain isn't viable</div>
+    <h2>Wichita on Plus. The Gallery on Advanced.</h2>
+    <p class="lede">The fallback if Option 2 doesn't work — most commonly because Wichita Furniture and The Gallery operate as separate business entities (different payroll, accounting, tax, bank accounts). Wichita Furniture runs on Shopify Plus with the full toolkit it needs to support STORIS integration. The Gallery runs on Advanced — a lighter investment appropriate for a pre-revenue brand standing on its own, with the option to upgrade to Plus when it scales.</p>
+
+    <div class="grid-3">
+      <div class="stat">
+        <div class="k">License</div>
+        <div class="v">$2,599/mo</div>
+        <div class="sub">$2,300 Plus + $299 Advanced</div>
+      </div>
+      <div class="stat">
+        <div class="k">Card processing</div>
+        <div class="v">Plus + Advanced rates</div>
+        <div class="sub">Gallery pays ~25bps premium until it upgrades</div>
+      </div>
+      <div class="stat">
+        <div class="k">STORIS connectors</div>
+        <div class="v">Two</div>
+        <div class="sub">One per Shopify instance</div>
+      </div>
+    </div>
+
+    <div class="why-block yes">
+      <h5>When this option fits</h5>
+      <ul>
+        <li><strong>Brands are separate business entities:</strong> different payroll, accounting, tax, bank accounts — Option 2 (one domain) isn't practical, so two separate Shopify instances are required.</li>
+        <li><strong>Right-sized investment for The Gallery:</strong> a pre-revenue brand on a $299/mo plan vs. $2,300/mo saves ~$24,000/year while the brand finds its footing.</li>
+        <li><strong>Wichita Furniture gets the full Plus toolkit:</strong> API rate limits for STORIS sync, lower card rates, checkout extensibility, audiences, Flow — everything the established brand needs.</li>
+        <li><strong>Advanced is self-serve:</strong> Gallery can enroll directly with no Plus commitment for the new brand.</li>
+        <li><strong>Clear upgrade path:</strong> when Gallery scales, migrate it to Plus.</li>
+        <li><strong>Lowest "keep them separate" cost:</strong> $2,001/mo less than Option 1.</li>
+      </ul>
+    </div>
+
+    <div class="why-block no">
+      <h5>Tradeoffs to consider</h5>
+      <ul>
+        <li><strong>$3,588/year more expensive than Option 2 on license alone</strong> — and the gap widens as Gallery generates revenue (the Advanced ~25bps card-rate premium compounds on top).</li>
+        <li><strong>The Gallery is feature-limited from day one:</strong> no Flow (no marketing automation), no Functions (no custom checkout/discount/delivery logic), no B2B channel, no checkout extensibility (no upsells at checkout), no Launchpad.</li>
+        <li><strong>Card rate premium on Gallery transactions:</strong> ~25bps higher than Plus — eats into the license savings as Gallery GMV grows.</li>
+        <li><strong>Lower API rate limits on Advanced:</strong> if Gallery also needs STORIS sync, throughput caps may throttle the integration.</li>
+        <li><strong>Two STORIS connectors to maintain:</strong> same operational duplication as Option 1 — no implementation cost saving.</li>
+        <li><strong>Adding more sub-brands repeats the pattern:</strong> each new brand requires another standalone instance with its own connector.</li>
+        <li><strong>No shared customer view between brands:</strong> same retention and marketing limitations as Option 1.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING COMPARISON -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">Pricing comparison</div>
+    <h2>What it costs across the three options.</h2>
+    <p class="lede">License only — card processing is variable and tracks online GMV. Annual figures shown.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Option 1: Two Plus</th>
+          <th>Option 2: One Plus / One Domain</th>
+          <th>Option 3: Plus + Advanced</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Monthly license</strong></td>
+          <td class="num">$4,600/mo</td>
+          <td class="num">$2,300/mo</td>
+          <td class="num">$2,599/mo</td>
+        </tr>
+        <tr>
+          <td><strong>Annual license</strong></td>
+          <td class="num">$55,200/yr</td>
+          <td class="num">$27,600/yr</td>
+          <td class="num">$31,188/yr</td>
+        </tr>
+        <tr>
+          <td><strong>Delta vs. Option 2</strong></td>
+          <td class="num">+$27,600/yr</td>
+          <td class="num">—</td>
+          <td class="num">+$3,588/yr</td>
+        </tr>
+        <tr>
+          <td><strong>Card rate on Gallery transactions</strong></td>
+          <td class="num">Plus (~2.25% + 30¢)</td>
+          <td class="num">Plus (~2.25% + 30¢)</td>
+          <td class="num">Advanced (~2.5% + 30¢) — +25bps</td>
+        </tr>
+        <tr>
+          <td><strong>STORIS connector builds</strong></td>
+          <td>2 — duplicated work</td>
+          <td>1 — unified</td>
+          <td>2 — duplicated work</td>
+        </tr>
+        <tr>
+          <td><strong>Adding a 3rd sub-brand</strong></td>
+          <td class="num">+$2,300/mo per brand</td>
+          <td class="num">No new license cost</td>
+          <td class="num">+$299/mo (or +$2,300 if it needs Plus)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Option 3 vs. Option 2 — the cost story</h3>
+    <p style="font-size:14px;">Option 3 is $3,588/yr more expensive than Option 2 on license alone. Once The Gallery generates real revenue, the Advanced card-rate premium (~25bps) compounds on top of that — making Option 3 meaningfully more expensive than Option 2 while still capping Gallery's features at the Advanced ceiling. Option 3 is only worth it when separate-entity structure rules out Option 2.</p>
+
+    <p class="footnote">Card processing rates directional — final rates depend on contract terms. VPF (variable platform fee) details below. All figures USD, list pricing as of June 2026.</p>
+  </div>
+</section>
+
+<!-- WHY PLUS FOR WICHITA FURNITURE -->
+<section>
+  <div class="container">
+    <div class="section-label">Why Plus for Wichita Furniture</div>
+    <h2>Plus is our enterprise plan for established, large retailers.</h2>
+    <p class="lede">Shopify Plus is purpose-built for established multi-channel retailers operating at scale — businesses with significant revenue, ERP integrations, multi-brand operations, and the need for custom commerce logic and marketing automation. Shopify Advanced sits one tier below, positioned for small single-brand DTC merchants — typically under ~$2M GMV, with one storefront, no B2B, and no custom commerce logic. Wichita Furniture's profile puts it firmly in the Plus tier: established multi-channel retailer, STORIS ERP integration, multi-brand roadmap, and marketing-led operations.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>What Advanced is built for</h4>
+        <div class="meta">The small-shop ceiling</div>
+        <ul>
+          <li>Single-brand DTC merchants, typically &lt;$2M GMV</li>
+          <li>One storefront — no multi-brand support</li>
+          <li>Standard checkout — no customization at checkout</li>
+          <li>No Shopify Flow (manual ops + basic apps only)</li>
+          <li>No Shopify Functions (no custom commerce logic)</li>
+          <li>No B2B channel</li>
+          <li>API rate limits sized for a single-store operation</li>
+          <li>Self-serve / pooled support — no dedicated success team</li>
+          <li>Higher card rates (~2.5% + 30¢ online vs. Plus's ~2.25%)</li>
+        </ul>
+      </div>
+      <div class="card rec">
+        <h4>What Wichita Furniture needs</h4>
+        <div class="meta">Plus-tier requirements</div>
+        <ul>
+          <li><strong>Higher API rate limits</strong> — STORIS sync requires throughput Advanced can't deliver reliably at scale. This is the single most important reason Plus is the right plan for Wichita.</li>
+          <li><strong>Lower card processing rates</strong> — material savings on every transaction once online scales (cost math below)</li>
+          <li><strong>Checkout extensibility</strong> — upsells at checkout, post-purchase upsells, custom checkout flows. Furniture is high-AOV with strong related-item potential. <a class="demo-link" href="https://www.branchfurniture.com/collections/fixed-height-desks/products/artisan-desk?variant=41371133313059" target="_blank" rel="noopener">See Branch Furniture's cart upsells in action →</a> (add the Artisan Desk to cart to see the related-item upsell — Plus-only)</li>
+          <li><strong>Shopify Audiences</strong> — marketing teams use Audiences for targeting and acquisition lift. Plus-only.</li>
+          <li><strong>Shopify Flow</strong> — automation across returns, fraud, fulfillment, segmentation triggers, and marketing</li>
+          <li><strong>Shopify Functions</strong> — custom discount logic, checkout customization, delivery rules</li>
+          <li><strong>Dedicated success team</strong> — account-managed support through migration and beyond</li>
+          <li><strong>Headroom for additional sub-brands</strong> — Advanced doesn't support multi-brand operations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      Wichita Furniture is exactly the profile Plus is built for — an established, large multi-channel retailer with an ERP integration, a multi-brand roadmap, and a marketing-led operating model. The right question isn't "can we save on license cost?" — it's "what does the business need to support its operations and what's coming next, and which plan delivers that?" Plus is the plan that fits the business.
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">Path to close</div>
+    <h2>From pricing review to contract signed — target close Saturday, June 27.</h2>
+    <p class="lede">Clear runway from today through close. The Letter of Intent goes out today as a non-binding milestone that captures intent to move forward, so the structural and contract work can proceed in parallel.</p>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="ts-when">Today · Tue Jun 9</div>
+        <div class="ts-action">Pricing review and structure walkthrough — this document.</div>
+        <div class="ts-owner"><strong>Wichita + Shopify Plus</strong> · align on plan tier, three structural options, and what the cost math looks like at scale.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="ts-when">Today · Tue Jun 9</div>
+        <div class="ts-action">Letter of Intent sent to Wichita Furniture.</div>
+        <div class="ts-owner"><strong>Shopify Plus</strong> · non-binding LOI — captures intent to move forward, no commercial commitment yet, unlocks parallel work on contract drafting.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="ts-when">This week · by Fri Jun 12</div>
+        <div class="ts-action">Choose a structural option (1, 2, or 3).</div>
+        <div class="ts-owner"><strong>Wichita</strong> · confirm business entity structure and align on the right contract shape — drives the contract draft sent next week.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="ts-when">Next week · Week of Jun 15</div>
+        <div class="ts-action">Plus contract sent for review.</div>
+        <div class="ts-owner"><strong>Shopify Plus</strong> · drafted contract reflecting the selected structure and negotiated terms, sent to Wichita's stakeholders for review.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="ts-when">Jun 15 – Jun 26</div>
+        <div class="ts-action">Contract review (~10 days) + open items wrapped up in parallel.</div>
+        <div class="ts-owner"><strong>Wichita + Endertech</strong> · contract review alongside finalizing implementation scope with Endertech, migration plan from STORIS, and brand differentiation approach for The Gallery.</div>
+      </div>
+      <div class="timeline-step target">
+        <div class="ts-when">Target close · Sat Jun 27</div>
+        <div class="ts-action">Contract signed.</div>
+        <div class="ts-owner"><strong>Wichita</strong> · Plus contract executed, dedicated success team assigned, kickoff scheduled with Shopify Plus team and Endertech.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      The LOI today and the contract next week run on parallel tracks — no need to wait on one to start the other. That's what keeps the 6/27 close date realistic even with a structural decision still to lock in this week.
+    </div>
+  </div>
+</section>
+
+<!-- APPENDIX DIVIDER -->
+<div class="appendix-divider">
+  <div class="container">
+    <div class="appendix-eyebrow">Appendix</div>
+    <h2>The cost math and how Plus features bridge the gap.</h2>
+    <p>Detail on the published rate-card cost comparison between Plus and Advanced at $5M GMV, and how Plus's revenue-driving features more than offset the modest cost premium.</p>
+  </div>
+</div>
+
+<!-- APPENDIX: THE COST MATH AT $5M -->
+<section class="appendix">
+  <div class="container">
+    <div class="section-label">Appendix · The cost math</div>
+    <h2>At $5M GMV, Plus costs ~$11.5K more than Advanced on the published rate card.</h2>
+    <p class="lede">Plus carries a higher base license ($27,600/year) versus the Advanced plan ($3,588/year) — a $24,012 license premium. Plus's lower card processing rate (2.25% standard vs. Advanced's 2.5%) saves $12,500/year at $5M GMV on standard card transactions. Net: <strong>Plus costs ~$11,500/year more than Advanced at $5M online GMV</strong>. The crossover point where Plus becomes cheaper on pure license + processing is ~$9.6M.</p>
+
+    <div class="grid-3">
+      <div class="stat">
+        <div class="k">Plus — Standard Card</div>
+        <div class="v">2.25% + 30¢</div>
+        <div class="sub">Online card-not-present</div>
+      </div>
+      <div class="stat">
+        <div class="k">Plus — Amex &amp; Commercial</div>
+        <div class="v">2.95% + 30¢</div>
+        <div class="sub">Online card-not-present</div>
+      </div>
+      <div class="stat">
+        <div class="k">Advanced — Standard Card</div>
+        <div class="v">2.5% + 30¢</div>
+        <div class="sub">Differential: 25bps standard</div>
+      </div>
+    </div>
+
+    <h3>Annual total at $5M online GMV: license + card processing</h3>
+    <table style="background:#fff;">
+      <thead>
+        <tr>
+          <th></th>
+          <th>License</th>
+          <th>Card processing on $5M</th>
+          <th>Annual total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Advanced plan</strong></td>
+          <td class="num">$3,588</td>
+          <td class="num">$125,000 (2.5%)</td>
+          <td class="num">$128,588</td>
+        </tr>
+        <tr style="background:var(--accent-soft);">
+          <td><strong>Plus plan</strong></td>
+          <td class="num">$27,600</td>
+          <td class="num">$112,500 (2.25%)</td>
+          <td class="num"><strong>$140,100</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Plus delta</strong></td>
+          <td class="num" style="color:var(--no);">+$24,012 license</td>
+          <td class="num" style="color:var(--accent);">−$12,500 processing</td>
+          <td class="num" style="color:var(--no);"><strong>+$11,512 more on Plus</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>The crossover point:</strong> Plus's $24K license premium and the 25bps card-rate savings cross at <strong>~$9.6M online GMV</strong> ($24,012 ÷ 0.25% = $9.6M). Below $9.6M, Advanced is cheaper on a license + processing basis alone. Above $9.6M, Plus is cheaper — and Plus's advantage grows with every additional dollar of GMV.
+    </div>
+
+    <div class="callout">
+      <strong>How VPF affects this math:</strong> Plus charges the higher of <strong>$2,300/mo base</strong> OR <strong>0.4% of monthly GMV</strong> (the "variable platform fee," or VPF). At $5M annual GMV, 0.4% × $5M = $20,000 — less than the $27,600 base. <strong>VPF does not apply at $5M.</strong> The base license is what you pay either way.
+    </div>
+
+    <p class="footnote">Assumptions: Plus online rates 2.25% + 30¢ (Standard Card) and 2.95% + 30¢ (Amex &amp; Commercial); Advanced plan online rate 2.5% + 30¢ (Standard Card). 30¢ per-transaction fee identical on both plans (cancels in comparison). Card processing math at $5M models standard card transactions only — a higher Amex / Commercial mix widens the differential and moves the breakeven down. Excludes in-person processing (in-person rates also favor Plus). Plus rates can negotiate lower than 2.25% for higher-volume contracts — final rates depend on contract terms.</p>
+  </div>
+</section>
+
+<!-- APPENDIX: BRIDGING THE GAP -->
+<section class="appendix">
+  <div class="container">
+    <div class="section-label">Appendix · Bridging the gap</div>
+    <h2>How Plus features drive revenue that exceeds the cost premium.</h2>
+    <p class="lede">The $11,500/year cost gap at $5M is modest in absolute terms — and small compared to the incremental revenue Plus's features generate when actively used. The conversation isn't about saving on license. It's about unlocking revenue and capability that the Advanced plan can't deliver. Here's how the gap is bridged.</p>
+
+    <div class="bridge-card">
+      <h4>1. Checkout extensibility — cart upsells <span class="uplift">~$50K/yr at 1% AOV lift</span></h4>
+      <p style="margin:6px 0 0 0;font-size:14px;">Cart upsells (companion/recommended products surfaced at checkout) routinely lift average order value 3–10% in furniture and home retail. Furniture is a high-AOV category with strong related-item attach potential (chair → ottoman, sofa → side table, bed → mattress).</p>
+      <ul>
+        <li>At $5M GMV, even a <strong>1% AOV lift = ~$50,000/year</strong> incremental revenue</li>
+        <li>A 3% lift = ~$150,000/year; a 5% lift = ~$250,000/year</li>
+        <li>Plus-only — Advanced has no checkout extensibility</li>
+        <li><a class="demo-link" href="https://www.branchfurniture.com/collections/fixed-height-desks/products/artisan-desk?variant=41371133313059" target="_blank" rel="noopener">See Branch Furniture's cart upsells in action →</a></li>
+      </ul>
+    </div>
+
+    <div class="bridge-card">
+      <h4>2. Shopify Flow — automation &amp; cart abandonment recovery <span class="uplift">~$100K/yr potential</span></h4>
+      <p style="margin:6px 0 0 0;font-size:14px;">Automated cart abandonment recovery workflows typically recover 5–12% of abandoned sessions. For a high-AOV considered-purchase category like furniture (where customers research and compare before buying), this is especially meaningful.</p>
+      <ul>
+        <li>On $5M online GMV, even a <strong>2–3% recovery uplift = ~$100,000+/year</strong> incremental revenue</li>
+        <li>Beyond abandonment: automated returns workflows, fraud routing, segmentation triggers, post-purchase nurture</li>
+        <li>Plus-only — Advanced requires manual ops or third-party automation tools (with their own subscription costs)</li>
+      </ul>
+    </div>
+
+    <div class="bridge-card">
+      <h4>3. Shopify Audiences — improved marketing ROAS <span class="uplift">~$150K/yr at 15% CPA lift</span></h4>
+      <p style="margin:6px 0 0 0;font-size:14px;">Audiences uses Shopify-wide buyer signal data to improve ad targeting on Meta and Google. Plus customers report 10–25% CPA improvements, especially for high-AOV brands where the value of better targeting is amplified.</p>
+      <ul>
+        <li>On $1M ad spend (typical for a $5M DTC operation), even a <strong>15% CPA improvement = ~$150,000/year</strong> freed for additional acquisition (or equivalent revenue from same spend)</li>
+        <li>Compounds with The Gallery launch — better targeting from day one on the luxury sub-brand</li>
+        <li>Plus-only</li>
+      </ul>
+    </div>
+
+    <div class="bridge-card">
+      <h4>4. Shopify Functions — custom commerce logic at checkout</h4>
+      <p style="margin:6px 0 0 0;font-size:14px;">Functions enables custom delivery options, conditional financing, and custom discount logic at the most conversion-sensitive moment in the funnel.</p>
+      <ul>
+        <li>Custom delivery options at checkout: white-glove delivery, scheduled delivery, room-of-choice — meaningful conversion drivers for furniture at high AOV</li>
+        <li>Conditional financing offers surfaced at checkout (relevant given Wichita's existing financing partnerships)</li>
+        <li>Custom discount logic: bundle pricing, loyalty multipliers, threshold-triggered promotions</li>
+        <li>Plus-only — Advanced has standard checkout only</li>
+      </ul>
+    </div>
+
+    <div class="bridge-card">
+      <h4>5. Higher API rate limits — STORIS reliability &amp; revenue protection</h4>
+      <p style="margin:6px 0 0 0;font-size:14px;">Reliable inventory sync between STORIS and Shopify directly protects revenue. Overselling incidents (selling items that aren't actually in stock) lead to cancelled orders, customer service costs, and brand trust erosion — outsized impact in high-AOV furniture where each lost sale is meaningful.</p>
+      <ul>
+        <li>Plus's higher API throughput supports near-real-time inventory sync with STORIS</li>
+        <li>Advanced's lower API limits can cause sync delays, increasing overselling risk during traffic spikes (holiday, promotions)</li>
+        <li>Revenue protection isn't always visible on the P&amp;L — but the avoided cost of cancelled orders and damaged trust is real</li>
+      </ul>
+    </div>
+
+    <div class="bridge-card">
+      <h4>6. Dedicated success team — strategic guidance</h4>
+      <p style="margin:6px 0 0 0;font-size:14px;">Plus customers get strategic counsel and access to Shopify's expertise network — particularly valuable during a complex multi-brand migration like Wichita Furniture + The Gallery.</p>
+      <ul>
+        <li>Strategic guidance on roadmap opportunities (Shop Pay, B2B channel, headless commerce if relevant)</li>
+        <li>Direct access to Shopify product and engineering teams for complex implementation questions</li>
+        <li>Helps avoid costly platform missteps in a phase where they'd be most expensive to undo</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <strong>The bottom line:</strong> the $11,500/year cost gap at $5M GMV is typically <em>eclipsed within the first 1–2 months</em> of running on Plus when these features are actively used. Even modest performance against industry benchmarks on any one of cart upsells, abandonment recovery, or Audiences ROAS generates incremental revenue that's a multiple of the entire annual cost premium. The conversation isn't about saving on license cost — it's about unlocking revenue and capability that Advanced can't deliver.
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

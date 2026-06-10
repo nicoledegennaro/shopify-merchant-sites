@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catbird × Shopify Plus — Pricing, Partner, Tech, Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2a2a2a;
+    --ink-muted: #5b5b5b;
+    --ink-soft: #8b8b8b;
+    --border: #e8e3d8;
+    --soft: #f9f7f3;
+    --softer: #f4f0e8;
+    --cream: #faf6ee;
+    --accent: #6f7637;
+    --accent-dark: #4f5527;
+    --accent-soft: #eef0e2;
+    --warn: #b54708;
+    --warn-soft: #fef5e7;
+    --no: #b42318;
+    --no-soft: #fee4e2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+  section.soft { background: var(--soft); }
+  section.cream { background: var(--cream); }
+  section.accent { background: var(--accent-soft); }
+
+  /* HERO */
+  .hero {
+    padding: 56px 0 72px 0;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--soft) 100%);
+    border-bottom: 3px solid var(--accent);
+  }
+  .brand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-bar .customer-mark {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--ink);
+  }
+  .brand-bar .customer-mark img.catbird-wordmark {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+  .brand-bar .customer-mark .x-shopify {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--ink-muted);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .brand-bar .prepared-by {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-muted);
+    font-weight: 600;
+    text-align: right;
+  }
+  .brand-bar .prepared-by strong {
+    display: block;
+    font-size: 14px;
+    color: var(--accent);
+    margin-top: 4px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* TYPOGRAPHY */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    line-height: 1.1;
+    margin: 0 0 16px 0;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink-muted);
+    margin: 28px 0 12px 0;
+    font-weight: 700;
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 800px;
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 14px;
+    background: #fff;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ink-muted);
+    background: var(--softer);
+    font-weight: 700;
+  }
+  td.num { font-variant-numeric: tabular-nums; }
+
+  /* CARDS */
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+    margin: 12px 0;
+    background: #fff;
+  }
+  .card.rec { border-left: 4px solid var(--accent); }
+  .card h4 {
+    margin: 0 0 8px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .card .meta {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+
+  /* STATS */
+  .stat {
+    padding: 18px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat .k {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .stat .v {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .stat .sub {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+  }
+
+  /* LISTS */
+  ul { padding-left: 22px; margin: 8px 0; }
+  ul li { margin-bottom: 6px; font-size: 14px; }
+
+  /* CALLOUTS */
+  .callout {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 18px 0;
+    font-size: 14px;
+  }
+  .callout.warn { background: var(--warn-soft); border-color: var(--warn); }
+
+  /* APP STACK BLOCKS */
+  .app-group {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+    margin: 12px 0;
+  }
+  .app-group h4 {
+    margin: 0 0 4px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .app-group .group-meta {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+  }
+  .app-table {
+    width: 100%;
+    margin: 0;
+  }
+  .app-table td {
+    padding: 8px 14px 8px 0;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .app-table tr:last-child td { border-bottom: none; }
+  .app-table td.app-name {
+    font-weight: 700;
+    color: var(--ink);
+    width: 28%;
+  }
+  .app-table td.app-purpose {
+    color: var(--ink-muted);
+  }
+  .pill {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .pill.exist { background: var(--accent-soft); color: var(--accent-dark); }
+  .pill.new { background: #eef2ff; color: #3538cd; }
+  .pill.eval { background: var(--warn-soft); color: var(--warn); }
+  .pill.retire { background: var(--no-soft); color: var(--no); }
+  .pill.post { background: var(--softer); color: var(--ink-muted); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin: 28px 0 12px 0;
+    padding-left: 36px;
+    border-left: 2px solid var(--accent);
+  }
+  .timeline-step {
+    position: relative;
+    padding-bottom: 26px;
+  }
+  .timeline-step:last-child { padding-bottom: 0; }
+  .timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -45px;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .timeline-step.milestone::before {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft), 0 0 0 8px var(--accent);
+  }
+  .timeline-step.dependency::before {
+    background: var(--warn);
+    border-color: var(--warn);
+    box-shadow: 0 0 0 4px var(--warn-soft);
+  }
+  .timeline-step.target::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft), 0 0 0 8px var(--accent);
+  }
+  .ts-when {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .timeline-step.dependency .ts-when { color: var(--warn); }
+  .ts-action {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .timeline-step.target .ts-action,
+  .timeline-step.milestone .ts-action {
+    font-size: 19px;
+    color: var(--accent-dark);
+  }
+  .ts-owner {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+  .ts-owner strong { color: var(--ink); }
+
+  /* VPF CALCULATOR PREVIEW */
+  .vpf-band {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .vpf-band .band-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .vpf-band strong { font-size: 16px; }
+
+  /* FOOTNOTE */
+  .footnote {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 24px;
+    font-style: italic;
+  }
+
+  /* LINKS */
+  a { color: var(--accent-dark); font-weight: 600; }
+  a:hover { color: var(--accent); }
+
+  @media print {
+    section { page-break-inside: avoid; padding: 32px 0; }
+    .hero { page-break-after: always; }
+  }
+  @media (max-width: 720px) {
+    .container { padding: 0 24px; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .brand-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="brand-bar">
+      <div class="customer-mark"><img class="catbird-wordmark" src="data:image/webp;base64,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" alt="Catbird"><span class="x-shopify">× Shopify Plus</span></div>
+      <div class="prepared-by">Prepared by<strong>Nicole DeGennaro</strong></div>
+    </div>
+    <div class="section-label">What we know</div>
+    <h1>Magento to Shopify Plus — what we know.</h1>
+    <p class="lede">Catbird's DTC storefront moves from Magento to Shopify Plus, sequenced behind the NetSuite + NewStore cutover and ready ahead of Valentine's 2027. <strong>TCO, pricing, partner scope, tech, and timeline</strong> — all in one place.</p>
+  </div>
+</section>
+
+<!-- ENGAGEMENT AT A GLANCE -->
+<section>
+  <div class="container">
+    <div class="section-label">Engagement at a glance</div>
+    <h2>The parameters we're aligning on.</h2>
+    <p class="lede">Your current performance baseline, the catalog and customer footprint to migrate, and the launch window we're targeting.</p>
+
+    <div class="grid-3">
+      <div class="stat">
+        <div class="k">Current platform</div>
+        <div class="v">Magento</div>
+        <div class="sub">Migrating to Shopify Plus</div>
+      </div>
+      <div class="stat">
+        <div class="k">Active SKUs to migrate</div>
+        <div class="v">~27,057</div>
+        <div class="sub">Charms, chains, finished jewelry</div>
+      </div>
+      <div class="stat">
+        <div class="k">Customer accounts</div>
+        <div class="v">~315,615</div>
+        <div class="sub">To migrate from Magento</div>
+      </div>
+      <div class="stat">
+        <div class="k">AOV</div>
+        <div class="v">$312</div>
+        <div class="sub">1.6 items per order · $466 CLV</div>
+      </div>
+      <div class="stat">
+        <div class="k">Conversion rate</div>
+        <div class="v">1.52%</div>
+        <div class="sub">Baseline — Plus toolkit (checkout extensibility, audiences, Functions) supports lift</div>
+      </div>
+      <div class="stat">
+        <div class="k">Target go-live</div>
+        <div class="v">Late Jan 2027</div>
+        <div class="sub">Sequenced to avoid late-July sale + Q4 peak; ready ahead of Valentine's</div>
+      </div>
+    </div>
+
+    <h3>What this engagement covers</h3>
+    <ul>
+      <li><strong>The shift:</strong> Magento Commerce → Shopify Plus for the DTC storefront. NetSuite, SuperSync, Deposco, and NewStore POS all stay as-is.</li>
+      <li><strong>The sequencing:</strong> NetSuite + NewStore cutover on <strong>July 14, 2026</strong>. Shopify development picks up once that stabilizes — sequenced away from the late-July sale and Q4 peak.</li>
+      <li><strong>The partner:</strong> Lazer Technologies is the leading proposal — 200+ engineer Shopify Plus partner with direct Magento → Shopify experience (Reebok, Champion, Zala). Selection still being finalized; if a different partner is chosen, scope and pricing below will shift.</li>
+      <li><strong>The launch window:</strong> Late January 2027, ahead of Valentine's. 2 weeks of hypercare included; optional 4-week extended hypercare available.</li>
+      <li><strong>What we're solving:</strong> a more flexible storefront, fewer apps to manage, cleaner NetSuite integration via SuperSync, and Plus-native tooling for configurator-driven products (Confetti, Memento, engraving).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TOTAL COST OF OWNERSHIP -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">Total cost of ownership</div>
+    <h2>Cost-savings is a TCO question — not just license.</h2>
+    <p class="lede">The fair comparison is the all-in cost of Magento today vs. all-in Shopify Plus — across license, payments, implementation, integrations, apps, and ongoing dev. Most of the savings come from native Shopify replacing standalone apps + reduced ongoing dev dependence, not the license itself.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Current state — Magento</h4>
+        <div class="meta">The "from" side of the TCO comparison</div>
+        <ul>
+          <li><strong>Magento Commerce license + hosting</strong> — annual platform cost</li>
+          <li><strong>Magento dev team / agency</strong> — ongoing engineering investment to keep the site shipping</li>
+          <li><strong>Maintenance, security, performance work</strong> — patches, upgrades, performance tooling (e.g., Yottaa)</li>
+          <li><strong>App stack</strong> — itemized monthly spend across Searchspring, Customily, Klaviyo, Attentive, Yotpo, Narvar, Avalara, Forter, Ketch, Klarna, BlogMX, Mandrill, etc.</li>
+          <li><strong>Payment processing</strong> — current annual processing cost + chargeback / fraud losses</li>
+          <li><strong>International / multicurrency</strong> — current cross-border setup cost</li>
+        </ul>
+      </div>
+
+      <div class="card rec">
+        <h4>Future state — Shopify Plus</h4>
+        <div class="meta">The "to" side of the TCO comparison</div>
+        <ul>
+          <li><strong>Plus license</strong> — $2,300/mo minimum (unlocked with 3-year commit) or 0.4% VPF, whichever is higher</li>
+          <li><strong>Shopify Payments</strong> — 2.25% + 30¢ standard / 2.95% + 30¢ Amex &amp; Commercial</li>
+          <li><strong>Lazer implementation</strong> — one-time $329,500 ($40K Discovery + $289,500 build); optional $48K extended hypercare; optional $16K/mo retainer</li>
+          <li><strong>Consolidated app stack</strong> — Yottaa, BlogMX, and Mandrill retired (replaced by Shopify native capabilities); continued vendors (Klaviyo, Attentive, Yotpo, Narvar, Klarna, Forter, Ketch, Avalara) carry forward</li>
+          <li><strong>New vendors</strong> — Clutch (gift cards), Feedonomics (feeds), Matrixify (migration), Swym (wishlists), Global-e (international/MOR)</li>
+          <li><strong>Dedicated Shopify Plus success team</strong> — included; reduces ongoing agency dependence vs. Magento</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Where TCO savings typically come from on a Magento → Plus migration</h3>
+    <ul>
+      <li><strong>Native Shopify capabilities replacing standalone apps:</strong> Yottaa (site speed) → Shopify theme performance; BlogMX → Shopify native blog; Mandrill → Klaviyo/NetSuite/Narvar transactional email routing. Removed monthly app spend stacks up over a 3-year horizon.</li>
+      <li><strong>Lower payment processing rates at volume:</strong> Plus's 2.25% standard rate is typically meaningfully lower than what Magento merchants run today through standalone processors — and negotiable lower with annual volume commits.</li>
+      <li><strong>Reduced ongoing dev / agency reliance:</strong> Functions, Cart Transform, Flow, and the Shopify admin let the e-commerce team ship without engineering on most workflows. Customers commonly reduce agency retainer spend post-launch as the team takes more ownership.</li>
+      <li><strong>Multi-year commits:</strong> 2- and 3-year contracts unlock additional pricing flexibility — worth exploring once Catbird's appetite is confirmed.</li>
+    </ul>
+
+    <h3>Hidden costs to budget for in the future state</h3>
+    <ul>
+      <li><strong>Loyalty platform</strong> — Yotpo or comparable (omnichannel earn/burn, free shipping perks). Out of the initial Lazer scope; launch targeted for the quarter following Shopify go-live.</li>
+      <li><strong>Mobile app</strong> — out of this engagement; budget if it re-enters the roadmap.</li>
+      <li><strong>B2B / Wholesale</strong> — Shopify B2B is included on Plus, but the engineering and merchandising work to configure it is a separate engagement.</li>
+      <li><strong>Build-Your-Own Engagement Ring configurator</strong> — full configurator and visualization, planned for 2027 as a follow-on engagement.</li>
+      <li><strong>Expanded omnichannel + POS integration</strong> — BOPIS at all locations and the NewStore ↔ Shopify connector are deferred to future projects.</li>
+    </ul>
+
+    <p class="footnote">Plus + merchant services pricing and the Lazer implementation scope are broken out below — together, they're the total cost of running Catbird on Shopify Plus.</p>
+  </div>
+</section>
+
+<!-- PRICING: PLUS + MERCHANT SERVICES -->
+<section>
+  <div class="container">
+    <div class="section-label">Pricing — Shopify Plus + merchant services</div>
+    <h2>What Plus costs, and how merchant services rates work.</h2>
+    <p class="lede">Shopify Plus is our enterprise plan for established retailers operating at scale. License pricing is structured as the higher of a base fee or a variable platform fee (VPF) based on GMV. Card processing rates are tiered by card type.</p>
+
+    <div class="grid-2">
+      <div class="card rec">
+        <h4>Shopify Plus license</h4>
+        <div class="meta">Standard 1-year US Plus contract</div>
+        <ul>
+          <li><strong>Base license:</strong> $2,300/mo ($27,600/year) — the floor</li>
+          <li><strong>Variable Platform Fee (VPF):</strong> 0.4% of monthly GMV — applies when 0.4% × GMV exceeds the base</li>
+          <li><strong>You pay the higher of the two,</strong> not both. Below ~$6.9M annual GMV (~$575K/month), you pay just the base. Above, VPF replaces the base and scales with revenue.</li>
+          <li><strong>Multi-year commits:</strong> 2- and 3-year contracts unlock additional pricing flexibility — worth exploring once Catbird's appetite is confirmed.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Shopify Payments — merchant services rates</h4>
+        <div class="meta">Online card-not-present, Shopify Payments</div>
+        <table class="app-table">
+          <tr>
+            <td class="app-name">Standard Card</td>
+            <td class="app-purpose"><strong>2.25% + $0.30</strong> per transaction</td>
+          </tr>
+          <tr>
+            <td class="app-name">Amex &amp; Commercial</td>
+            <td class="app-purpose"><strong>2.95% + $0.30</strong> per transaction</td>
+          </tr>
+        </table>
+        <p style="font-size:13px;color:var(--ink-muted);margin-top:14px;">Shopify Payments is the named gateway in the Lazer SOW — fully integrated with Plus, no separate processor relationship to manage post-launch.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Open input we'll need together:</strong> annual GMV is the single biggest input to finalizing both the Plus license math (whether VPF applies) and the payment-processing commit. AOV is in hand at $312 — order volume is the gap. Once we have annualized GMV, we can lock the final pricing model.
+    </div>
+  </div>
+</section>
+
+<!-- VPF EXPLAINED -->
+<section class="cream">
+  <div class="container">
+    <div class="section-label">Variable Platform Fee (VPF)</div>
+    <h2>Plus license scales with revenue — here's how it works.</h2>
+    <p class="lede">Shopify Plus charges the <strong>higher</strong> of two amounts: a flat base license ($2,300/month) or a percentage of monthly GMV (0.4%). At low GMV, the base applies and Plus is a fixed cost. As revenue grows, VPF takes over and license scales with the business — but it's never both at once.</p>
+
+    <div class="grid-3">
+      <div class="stat">
+        <div class="k">Base license</div>
+        <div class="v">$2,300/mo</div>
+        <div class="sub">$27,600/year · the floor</div>
+      </div>
+      <div class="stat">
+        <div class="k">VPF rate</div>
+        <div class="v">0.4%</div>
+        <div class="sub">Of monthly GMV</div>
+      </div>
+      <div class="stat">
+        <div class="k">VPF kicks in at</div>
+        <div class="v">~$6.9M GMV/yr</div>
+        <div class="sub">Where 0.4% × annual GMV equals $27,600</div>
+      </div>
+    </div>
+
+    <h3>How it plays out at different GMV bands</h3>
+
+    <div class="vpf-band">
+      <div class="band-label">Below ~$6.9M annual GMV</div>
+      <strong>You pay $2,300/mo base.</strong> VPF (0.4% × monthly GMV) is less than $2,300 — base license applies. License is a flat cost regardless of monthly fluctuations.
+    </div>
+    <div class="vpf-band">
+      <div class="band-label">~$6.9M – ~$10M annual GMV</div>
+      <strong>VPF starts to exceed base.</strong> You pay 0.4% of monthly GMV. At $10M annual GMV, license is ~$40,000/year (vs. $27,600 base). Plus continues to deliver value (lower card rates, full feature set, dedicated success team) that compounds with revenue.
+    </div>
+    <div class="vpf-band">
+      <div class="band-label">$10M+ annual GMV</div>
+      <strong>VPF scales linearly with revenue.</strong> At $20M GMV, license is ~$80,000/year; at $50M, ~$200,000/year. Even at high GMV, the per-dollar cost is 0.4% of license + 2.25% of processing — a meaningful improvement over Magento + standalone processing for any merchant Catbird's size.
+    </div>
+
+    <div class="callout">
+      <strong>What this means in practice:</strong> we'll walk through the VPF calculator together once we have your annualized GMV — the calculator shows the actual monthly and yearly license figures for your specific revenue band so you can see exactly where the math lands for Catbird vs. the abstract bands above.
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER IMPLEMENTATION -->
+<section>
+  <div class="container">
+    <div class="section-label">Partner implementation — Lazer SOW (under review)</div>
+    <h2>What Lazer is proposing, in cost and scope.</h2>
+    <p class="lede">Partner selection is still being finalized — Lazer is the leading proposal under review, with other partners potentially still in consideration. The cost and scope below reflect Lazer's current SOW: full Magento → Shopify Plus migration, configurator framework, NetSuite/SuperSync integration, and data migration. Out of scope (per the SOW): POS for initial launch, B2B/Wholesale, mobile app, and loyalty (loyalty is a post-launch decision). <strong>If a different partner is selected, scope and pricing here will shift accordingly.</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Start date</th>
+          <th>Duration</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Phase 1 — Discovery &amp; Planning</strong></td>
+          <td>August 31, 2026</td>
+          <td>4 weeks</td>
+          <td class="num">$40,000</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2 — Implementation</strong></td>
+          <td>September 28, 2026</td>
+          <td>17 weeks (includes holiday accommodation)</td>
+          <td class="num">$289,500</td>
+        </tr>
+        <tr style="background:var(--softer);">
+          <td><strong>Total — Build</strong></td>
+          <td>—</td>
+          <td>21 weeks</td>
+          <td class="num"><strong>$329,500</strong></td>
+        </tr>
+        <tr>
+          <td>Extended Hypercare (optional)</td>
+          <td>Post-launch</td>
+          <td>+4 weeks beyond 2-week base</td>
+          <td class="num">$48,000</td>
+        </tr>
+        <tr>
+          <td>Ongoing Retainer (optional)</td>
+          <td>Post-hypercare</td>
+          <td>Monthly</td>
+          <td class="num">$16,000/mo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>In scope</h3>
+    <ul>
+      <li>Mobile-first Shopify theme build (Shopify 2.0 Liquid — not headless)</li>
+      <li>Configurator framework: Confetti + Memento charm builders, engraving (with emoji subset), add-on chains and charms — administered via Shopify metaobjects/metafields so Catbird's team can manage rules without engineering</li>
+      <li>NetSuite integration through existing SuperSync middleware (Shopify ↔ SuperSync ↔ NetSuite, with Deposco WMS accessed through NetSuite)</li>
+      <li>Data migration: ~27K SKUs + ~315K customer accounts + order history</li>
+      <li>Native Shopify promotions + Shopify Functions for discount logic</li>
+      <li>Search and merchandising (vendor TBD in Discovery: Searchspring vs. Shopify Search &amp; Discovery)</li>
+      <li>SEO migration (URL architecture + 301 redirects from Magento)</li>
+      <li>SIT + UAT + launch readiness + 2 weeks base hypercare</li>
+    </ul>
+
+    <h3>Out of scope (per SOW)</h3>
+    <ul>
+      <li><strong>POS / NewStore integration</strong> — deferred to a future project; Lazer's strategy is to stabilize the July 14 ERP cutover before introducing Shopify development. BOPIS at Williamsburg + Soho stores included via NetSuite-side fulfillment routing.</li>
+      <li><strong>B2B / Wholesale</strong> — future engagement</li>
+      <li><strong>Mobile app</strong> — out of scope</li>
+      <li><strong>Loyalty platform</strong> — post-launch decision (Yotpo or comparable, omnichannel earn/burn, free shipping perks); launch targeted for the quarter following Shopify go-live</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- TECH REQUIREMENTS SUMMARY -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">Tech requirements</div>
+    <h2>The architecture, in one read.</h2>
+    <p class="lede">Catbird's post-replatform stack keeps NetSuite as the system of record and SuperSync as the only middleware. Shopify becomes the storefront, payments engine, and configurator host. Several decisions remain open and will be locked in during Discovery.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Confirmed architecture</h4>
+        <div class="meta">From the Lazer SOW</div>
+        <ul>
+          <li><strong>Storefront:</strong> Shopify Plus, mobile-first Shopify 2.0 Liquid theme (not headless)</li>
+          <li><strong>ERP:</strong> NetSuite — system of record for inventory, pricing, orders, fulfillment decisions</li>
+          <li><strong>Middleware / IPaaS:</strong> SuperSync — bridges Shopify ↔ NetSuite, only middleware in the integration path</li>
+          <li><strong>WMS:</strong> Deposco — accessed through NetSuite (not direct)</li>
+          <li><strong>POS:</strong> NewStore — staying off Shopify for initial launch (future project)</li>
+          <li><strong>Payments:</strong> Shopify Payments (named in SOW)</li>
+          <li><strong>International:</strong> Global-e (multicurrency + Merchant of Record) — recommended vendor</li>
+          <li><strong>Tax:</strong> Avalara via Shopify extension at checkout</li>
+          <li><strong>Configurators:</strong> Confetti + Memento built on metaobjects + metafields + Cart Transform Functions; engraving with emoji subset; add-on chains/charms via metaobject configuration</li>
+          <li><strong>BOPIS:</strong> Williamsburg + Soho locations at checkout (orders identified for in-store fulfillment via NetSuite routing)</li>
+        </ul>
+      </div>
+
+      <div class="card rec">
+        <h4>Open decisions (locked during Discovery)</h4>
+        <div class="meta">Tech decisions still to be made</div>
+        <ul>
+          <li><strong>Search provider:</strong> Continue with Searchspring or migrate to Shopify Search &amp; Discovery (native)</li>
+          <li><strong>Visualizer:</strong> Customily evaluation — build vs. buy decision</li>
+          <li><strong>Engraving rulesets + emoji subset:</strong> final scope to be defined</li>
+          <li><strong>Customer password migration:</strong> reset vs. carry over</li>
+          <li><strong>Historical order data depth:</strong> how many years to import</li>
+          <li><strong>NetSuite integration data structure:</strong> SuperSync data contract documentation and adaptation scope</li>
+          <li><strong>Asset storage location:</strong> Shopify-native vs. external CDN</li>
+          <li><strong>BI / Looker connection:</strong> TBD pending NetSuite cutover</li>
+          <li><strong>Lead time data source:</strong> where surface lead times for configured products</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>Critical dependency for the entire program:</strong> the <strong>NetSuite + NewStore cutover on July 14, 2026</strong> needs to complete and stabilize before Shopify development begins. SuperSync data structures need to be ready before integration work starts. Any slip on the July 14 date cascades into the Shopify development window and tightens the runway to the Valentine's go-live. Worth aligning on: confirmation that the July 14 date is firm and tracking on plan, and how the team owning the NetSuite + NewStore implementation is staffed against the timeline.
+    </div>
+  </div>
+</section>
+
+<!-- APPS PLANNED -->
+<section>
+  <div class="container">
+    <div class="section-label">App stack</div>
+    <h2>Apps planned for launch — what's coming, what's new, what's leaving.</h2>
+    <p class="lede">As proposed in the Lazer SOW. Existing vendors Catbird relies on today carry forward where possible. Several legacy vendors are retired because Shopify natively covers what they did. New vendors fill specific gaps for the migration.</p>
+
+    <div class="app-group">
+      <h4>Existing vendors carried forward <span class="pill exist">Existing</span></h4>
+      <div class="group-meta">Catbird-managed today, continuing on Shopify</div>
+      <table class="app-table">
+        <tr><td class="app-name">Avalara</td><td class="app-purpose">Tax calculation at checkout (via Shopify extension)</td></tr>
+        <tr><td class="app-name">Narvar</td><td class="app-purpose">Returns processing, tracking emails, in-store return support — portal external to Shopify</td></tr>
+        <tr><td class="app-name">Yotpo</td><td class="app-purpose">Product review collection and display</td></tr>
+        <tr><td class="app-name">Trustpilot</td><td class="app-purpose">Store reviews</td></tr>
+        <tr><td class="app-name">Forter</td><td class="app-purpose">Fraud detection</td></tr>
+        <tr><td class="app-name">Ketch</td><td class="app-purpose">Consent management</td></tr>
+        <tr><td class="app-name">Klarna</td><td class="app-purpose">Buy Now Pay Later</td></tr>
+        <tr><td class="app-name">Klaviyo</td><td class="app-purpose">ESP — marketing campaigns, lifecycle flows, back-in-stock, transactional email consolidation where feasible</td></tr>
+        <tr><td class="app-name">Attentive</td><td class="app-purpose">SMS marketing</td></tr>
+      </table>
+    </div>
+
+    <div class="app-group">
+      <h4>Under evaluation <span class="pill eval">Decision in Discovery</span></h4>
+      <div class="group-meta">Final choice locked in during Phase 1</div>
+      <table class="app-table">
+        <tr><td class="app-name">Searchspring vs. Shopify Search &amp; Discovery</td><td class="app-purpose">Search, filtering, autocomplete, recommendations — decision in Discovery based on merchandising needs</td></tr>
+        <tr><td class="app-name">Customily</td><td class="app-purpose">Product customizer / visualizer — build vs. buy evaluation</td></tr>
+      </table>
+    </div>
+
+    <div class="app-group">
+      <h4>New vendors <span class="pill new">New</span></h4>
+      <div class="group-meta">Brought in for the migration</div>
+      <table class="app-table">
+        <tr><td class="app-name">Clutch</td><td class="app-purpose">Omnichannel gift card platform</td></tr>
+        <tr><td class="app-name">Feedonomics</td><td class="app-purpose">Product feeds (Google Shopping, Meta, etc.)</td></tr>
+        <tr><td class="app-name">Matrixify</td><td class="app-purpose">Bulk data import / export (migration support)</td></tr>
+        <tr><td class="app-name">Dropworks (Send a Hint)</td><td class="app-purpose">"Send a Hint" gifting feature</td></tr>
+      </table>
+    </div>
+
+    <div class="app-group">
+      <h4>Recommended additions <span class="pill new">Recommended</span></h4>
+      <div class="group-meta">Lazer's recommendations to round out the stack</div>
+      <table class="app-table">
+        <tr><td class="app-name">Swym</td><td class="app-purpose">Customer wishlists</td></tr>
+        <tr><td class="app-name">Global-e</td><td class="app-purpose">Cross-border commerce and Merchant of Record</td></tr>
+        <tr><td class="app-name">Rewind (optional)</td><td class="app-purpose">Automated backup and restore</td></tr>
+      </table>
+    </div>
+
+    <div class="app-group">
+      <h4>Retired vendors <span class="pill retire">Retired</span></h4>
+      <div class="group-meta">Replaced by Shopify-native capabilities</div>
+      <table class="app-table">
+        <tr><td class="app-name">Yottaa (site speed)</td><td class="app-purpose">Replaced by Shopify theme performance</td></tr>
+        <tr><td class="app-name">BlogMX (blog &amp; articles)</td><td class="app-purpose">Replaced by Shopify native blog</td></tr>
+        <tr><td class="app-name">Mandrill (transactional email)</td><td class="app-purpose">Retired — transactional email routes through Klaviyo, NetSuite, or Narvar</td></tr>
+      </table>
+    </div>
+
+    <div class="app-group">
+      <h4>Post-launch / future roadmap <span class="pill post">Post-launch</span></h4>
+      <div class="group-meta">Out of scope for this engagement; planned follow-ons</div>
+      <table class="app-table">
+        <tr><td class="app-name">Loyalty program</td><td class="app-purpose">Yotpo or comparable — omnichannel earn/burn, tier structure, free shipping perks. Investigation begins in parallel with migration; launch targeted for quarter following Shopify go-live.</td></tr>
+        <tr><td class="app-name">A/B Testing</td><td class="app-purpose">Selection and integration of a testing platform — post-launch</td></tr>
+        <tr><td class="app-name">Build-Your-Own Engagement Ring</td><td class="app-purpose">Full configurator and visualization, building on the launch foundation — planned for 2027</td></tr>
+        <tr><td class="app-name">B2B / Logo Engraving</td><td class="app-purpose">Shopify B2B configuration for corporate engraving and merchandise orders — future</td></tr>
+        <tr><td class="app-name">Expanded omnichannel BOPIS</td><td class="app-purpose">BOPIS at all locations pulling from store inventory — future</td></tr>
+        <tr><td class="app-name">NewStore + Shopify connector</td><td class="app-purpose">Unified view of in-store and online purchases in the customer account — future</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="cream">
+  <div class="container">
+    <div class="section-label">Suggested timeline</div>
+    <h2>From this week to launch — anchored on July signing, August 31 kickoff.</h2>
+    <p class="lede">The path from today through Catbird's August 31 kickoff and on to Valentine's-season go-live. Pre-kickoff milestones are sequenced to give Catbird time to lock in the partner choice (still under evaluation — Lazer is the leading proposal, others may still be in consideration), validate tech needs, finalize the app stack, and get the LOI + Plus contract in place before Discovery starts. Implementation dates below assume the Lazer SOW; if a different partner is selected, the Aug 31 / Sept 28 dates may shift.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-step">
+        <div class="ts-when">This week · June 10–13, 2026</div>
+        <div class="ts-action">Pricing review, VPF walkthrough, tech requirements alignment.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird + Shopify Plus team · <strong>Notes:</strong> walk through Plus license + merchant services rates, model the VPF math at Catbird's GMV, confirm the tech architecture and integration approach, and align on the path from contract through the August 31 kickoff.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">By Mon June 23, 2026</div>
+        <div class="ts-action">Implementation partner selected.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird · <strong>Notes:</strong> the partner choice anchors the build scope and the implementation timeline. The Plus commercial work is shaped around the selected partner's SOW; confirming the partner before contract drafting keeps scope and pricing aligned.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">By Fri June 26, 2026</div>
+        <div class="ts-action">Tech needs validated.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Shopify Plus SE + Lazer + Catbird engineering · <strong>Notes:</strong> confirm the NetSuite integration approach (existing SuperSync instance, no new middleware), POS-out-of-scope for initial launch, search/visualizer evaluation timing, and data migration scope (historical order depth, customer password strategy). Output: a signed-off technical requirements checklist.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">By Tue June 30, 2026</div>
+        <div class="ts-action">App stack finalized.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird + Lazer · <strong>Notes:</strong> Confirm Searchspring vs. Shopify Search &amp; Discovery direction (this is the single biggest open app decision and affects the build path). Confirm Customily evaluation outcome. Lock in the new-vendor list (Clutch, Feedonomics, Matrixify, Swym, Global-e).</div>
+      </div>
+
+      <div class="timeline-step milestone">
+        <div class="ts-when">Early July 2026 · Target Wed July 1</div>
+        <div class="ts-action">Letter of Intent (LOI) signed.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird CFO · <strong>Notes:</strong> Non-binding LOI captures intent to move forward. No commercial commitment yet — just intent.</div>
+      </div>
+
+      <div class="timeline-step milestone">
+        <div class="ts-when">By Fri July 10, 2026</div>
+        <div class="ts-action">Shopify Plus contract signed.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird (CFO + legal) · Shopify commercial · <strong>Notes:</strong> Contract reflects negotiated terms (multi-year commit option). Target: signed before the NetSuite cutover so all paperwork is in place before technical work begins.</div>
+      </div>
+
+      <div class="timeline-step dependency">
+        <div class="ts-when">Tue July 14, 2026 · Hard date</div>
+        <div class="ts-action">NetSuite + NewStore cutover.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird (independent of Shopify) · <strong>Notes:</strong> the gating dependency for everything downstream. SuperSync data structures need to be operational before integration work begins. If the cutover date slips, the Shopify development window tightens — worth keeping a contingency conversation alive between Catbird's ERP team and Lazer.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">Mid-late July → Mid-August 2026</div>
+        <div class="ts-action">Cutover stabilization period — NetSuite operating cleanly before Shopify development begins.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird + NetSuite implementation team · <strong>Notes:</strong> Lazer's strategy is to wait for ERP cutover to stabilize. Avoids late-July summer sale interference. Use this window for any final pre-kickoff prep on Catbird's side (asset prep, content gathering, stakeholder map for the Shopify side).</div>
+      </div>
+
+      <div class="timeline-step milestone">
+        <div class="ts-when">Mon August 31, 2026 · Kickoff</div>
+        <div class="ts-action">Lazer Phase 1 — Discovery &amp; Planning begins.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Lazer + Catbird · <strong>Notes:</strong> 4-week discovery phase. Architecture overview, configurator framework design, search/visualizer decisions, data migration plan, integration data structures. $40,000. Shopify SE engaged for review checkpoints.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">Mon September 28, 2026</div>
+        <div class="ts-action">Lazer Phase 2 — Implementation begins.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Lazer + Catbird · <strong>Notes:</strong> 17 weeks (includes holiday accommodation). Theme build, configurator implementation, NetSuite integration, data migration, native promotions + Functions, SEO migration. $289,500.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">November 2026 → January 2027</div>
+        <div class="ts-action">SIT, UAT, fixes, training, launch prep.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Lazer (planning, defect resolution) + Catbird (driving SIT execution + priorities) · <strong>Notes:</strong> Holiday freeze runs roughly mid-November to mid-January — integration build must wrap before peak retail or runway tightens. UAT cycles aligned with project milestones.</div>
+      </div>
+
+      <div class="timeline-step target">
+        <div class="ts-when">Late January 2027 · Target go-live</div>
+        <div class="ts-action">Catbird is live on Shopify Plus.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Lazer + Catbird + Shopify · <strong>Notes:</strong> Sequenced to be live and stable ahead of Valentine's Day (Feb 14), the critical Q1 jewelry season. 2-week hypercare (included) + optional extended 4-week hypercare ($48K) at Catbird's election.</div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="ts-when">Feb 14, 2027</div>
+        <div class="ts-action">Valentine's Day — first peak season on Shopify Plus.</div>
+        <div class="ts-owner"><strong>Owner:</strong> Catbird operations · <strong>Notes:</strong> Critical revenue period for Catbird. Go-live timing exists to give 2–4 weeks of stable operation before peak. Shopify dedicated success team engaged for monitoring during the season.</div>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <strong>Open inputs we'll align on together:</strong>
+      <ul style="margin:8px 0 0 0;">
+        <li>Annual GMV — drives the Plus license + Payments commit math</li>
+        <li>Decision committee composition — who else is involved in the platform + commercial sign-off</li>
+        <li>Confirmation of the implementation partner selection — anchors the build scope and the SOW our commercial work is shaped around</li>
+        <li>Confirmation that the July 14 NetSuite + NewStore cutover is tracking on plan</li>
+        <li>Current annual Magento + agency + app spend — the "from" side of the 3-year TCO model</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

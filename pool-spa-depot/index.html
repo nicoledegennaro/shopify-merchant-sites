@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pool & Spa Depot × Shopify — Call 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pool-blue: #0088cc;
+    --pool-blue-dark: #006fa6;
+    --pool-blue-light: #e6f4fb;
+    --dark: #2b2b2d;
+    --dark-2: #3d3d38;
+    --ink: #2b2b2d;
+    --muted: #606669;
+    --line: #e6e6e6;
+    --bg: #ffffff;
+    --bg-alt: #f7f7f7;
+    --accent-red: #D90000;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* TOP NAVBAR — modeled after poolandspadepot.com */
+  .topbar {
+    background: var(--dark);
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 0;
+    text-align: center;
+  }
+  .topbar a { color: var(--pool-blue); text-decoration: none; margin-left: 4px; }
+  nav.main {
+    background: #fff;
+    border-bottom: 4px solid var(--pool-blue);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    background: var(--pool-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .brand-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+  .brand-name .x { color: var(--pool-blue); margin: 0 6px; }
+  .brand-tag {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 3px;
+  }
+  nav.main ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav.main ul a {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--dark);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  nav.main ul a:hover {
+    color: var(--pool-blue);
+    border-bottom-color: var(--pool-blue);
+  }
+
+  /* HERO */
+  .hero {
+    background:
+      linear-gradient(135deg, rgba(0,136,204,0.92) 0%, rgba(0,111,166,0.88) 100%),
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+      #0088cc;
+    color: #fff;
+    padding: 80px 32px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 50' preserveAspectRatio='none'><path d='M0,30 C300,60 600,0 900,30 C1050,45 1150,20 1200,30 L1200,50 L0,50 Z' fill='%23ffffff'/></svg>") no-repeat;
+    background-size: 100% 100%;
+  }
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 54px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero h1 .accent { color: #fff; opacity: 0.9; font-weight: 400; }
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.95);
+    max-width: 720px;
+    margin: 0 auto 32px;
+    line-height: 1.5;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .hero-meta-item {
+    text-align: left;
+    border-left: 3px solid rgba(255,255,255,0.4);
+    padding: 4px 0 4px 16px;
+  }
+  .hero-meta-item .k {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 3px;
+  }
+  .hero-meta-item .v {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* SECTION FRAMEWORK */
+  section {
+    padding: 64px 32px;
+  }
+  section.alt { background: var(--bg-alt); }
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--pool-blue);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--dark);
+    text-align: center;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--pool-blue);
+    margin: 0 auto 20px;
+  }
+  .section-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto 48px;
+    font-size: 15px;
+  }
+
+  /* AGENDA */
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .agenda-card {
+    background: #fff;
+    border-top: 4px solid var(--pool-blue);
+    padding: 24px 18px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .agenda-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+  .agenda-card .step {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--pool-blue);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .agenda-card .time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .agenda-card .title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+  }
+  .agenda-card .desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* WHAT SHOPIFY BRINGS — capability grid */
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .cap-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 32px 26px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .cap-card:hover {
+    border-color: var(--pool-blue);
+    transform: translateY(-2px);
+  }
+  .cap-card .icon {
+    width: 50px;
+    height: 50px;
+    background: var(--pool-blue-light);
+    color: var(--pool-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+  .cap-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin: 0 0 12px;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+  }
+  .cap-card p {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* CURRENT STATE — table-like rows */
+  .state-list {
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+  .state-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .state-row:last-child { border-bottom: none; }
+  .state-row:nth-child(odd) { background: #fafafa; }
+  .state-row .label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--pool-blue);
+    letter-spacing: 0.5px;
+  }
+  .state-row .desc {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .correction-note {
+    background: var(--pool-blue-light);
+    border-left: 4px solid var(--pool-blue);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--dark);
+  }
+  .correction-note strong { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* TOPICS — accordion-style groups */
+  .topic-group {
+    background: #fff;
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .topic-group-header {
+    background: var(--dark);
+    color: #fff;
+    padding: 14px 24px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topic-group-header .num {
+    background: var(--pool-blue);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .topic-q {
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    line-height: 1.55;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .topic-q:last-child { border-bottom: none; }
+  .topic-q::before {
+    content: '?';
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: var(--pool-blue);
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 1px;
+  }
+  .topic-q .lead {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* NEXT STEPS — checklist style */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .step-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .step-card .step-num {
+    width: 42px;
+    height: 42px;
+    background: var(--pool-blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 auto 16px;
+  }
+  .step-card h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin: 0 0 10px;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+  }
+  .step-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* CTA strip before footer */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--pool-blue) 0%, var(--pool-blue-dark) 100%);
+    color: #fff;
+    padding: 56px 32px;
+    text-align: center;
+  }
+  .cta-strip h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    letter-spacing: 0.5px;
+  }
+  .cta-strip p {
+    font-size: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 0.95;
+  }
+
+  /* FOOTER — dark, modeled after their site */
+  footer {
+    background: var(--dark);
+    color: #b8b8b8;
+    padding: 48px 32px 32px;
+    font-size: 13px;
+  }
+  footer .footer-grid {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  footer h5 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #fff;
+    margin: 0 0 14px;
+  }
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  footer ul li { margin-bottom: 6px; }
+  footer .brand-foot {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  footer .brand-foot .x { color: var(--pool-blue); margin: 0 6px; }
+  footer .copyright {
+    max-width: 1140px;
+    margin: 24px auto 0;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+  }
+
+  @media (max-width: 960px) {
+    .agenda-grid, .cap-grid, .steps { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 38px; }
+    nav.main ul { display: none; }
+    .state-row { grid-template-columns: 1fr; gap: 8px; }
+    footer .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP UTILITY BAR -->
+<div class="topbar">
+  Prepared for Pool & Spa Depot · Discovery & Solution Walkthrough
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main">
+  <div class="brand">
+    <div class="brand-logo">P&S</div>
+    <div>
+      <div class="brand-name">Pool & Spa Depot <span class="x">×</span> Shopify</div>
+      <div class="brand-tag">Call 2 · Working Session</div>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#shopify">Why Shopify</a></li>
+    <li><a href="#customers">Customers</a></li>
+    <li><a href="#current">Where You Are</a></li>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#next">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Custom Commerce Built For You</div>
+  <h1>Pool & Spa Depot<br><span class="accent">on Shopify</span></h1>
+  <p class="hero-sub">A working session to align on where you are today, where Shopify fits, and what we'll build together — sized to your operations, your peak season, and your team's bandwidth.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><div class="k">Date</div><div class="v">Thursday, May 28</div></div>
+  </div>
+</div>
+
+<!-- AGENDA -->
+<section id="agenda">
+  <div class="container">
+    <div class="section-eyebrow">Today's Plan</div>
+    <h2 class="section-title">Agenda</h2>
+    <div class="section-divider"></div>
+
+    <div class="agenda-grid">
+      <div class="agenda-card">
+        <div class="step">01</div>
+        <div class="time">5 min</div>
+        <div class="title">Welcome & Recap</div>
+        <div class="desc">Quick round-the-room and confirm we got Call 1 right — WooCommerce + Counterpoint + Retail Dimensions today.</div>
+      </div>
+      <div class="agenda-card">
+        <div class="step">02</div>
+        <div class="time">10 min</div>
+        <div class="title">Unified Backend</div>
+        <div class="desc">Replacing WooCommerce + Counterpoint with a single Shopify platform — one source of truth across web, POS, and inventory.</div>
+      </div>
+      <div class="agenda-card">
+        <div class="step">03</div>
+        <div class="time">10 min</div>
+        <div class="title">Real-Time Inventory</div>
+        <div class="desc">Live stock across the warehouse and all 9 retail locations. Serialized hot tubs, saunas, cold plunges — without clunky middleware.</div>
+      </div>
+      <div class="agenda-card">
+        <div class="step">04</div>
+        <div class="time">10 min</div>
+        <div class="title">National Growth & Marketing</div>
+        <div class="desc">Built-in marketing tools, Shop Pay accelerated checkout, and Shop Pay Installments for $15K–$20K AOV products.</div>
+      </div>
+      <div class="agenda-card">
+        <div class="step">05</div>
+        <div class="time">15 min</div>
+        <div class="title">Implementation & Next Steps</div>
+        <div class="desc">Partner intro, post-peak migration window, and what we deliver before Call 3.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT SHOPIFY BRINGS -->
+<section id="shopify" class="alt">
+  <div class="container">
+    <div class="section-eyebrow">Built For Specialty Retail</div>
+    <h2 class="section-title">Why Shopify for Pool & Spa Depot</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">A unified platform purpose-built for retailers running brick-and-mortar and high-ticket e-commerce side by side.</p>
+
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="icon">01</div>
+        <h3>One Backend, Store + Online</h3>
+        <p>A single source of truth across all 9 locations and your e-commerce site. Inventory, customers, and orders live in one system — no middleware, no nightly syncs, no data lag.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">02</div>
+        <h3>Real-Time Multi-Location Inventory</h3>
+        <p>Show accurate stock at every store, not just the warehouse. Enables ship-from-store, buy-online-pickup-in-store, and accurate availability for serialized products — natively.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">03</div>
+        <h3>Built for High-Ticket Conversion</h3>
+        <p>Shop Pay accelerates checkout with industry-leading conversion lift. Shopify Installments offers BNPL for $15K–$20K products, keeping high-AOV customers from dropping off.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">04</div>
+        <h3>Serialized Inventory, Native</h3>
+        <p>Track individual units by serial number end-to-end — purchase, delivery, warranty registration, and service history. Critical for hot tubs, saunas, cold plunges, and above-ground pools.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">05</div>
+        <h3>AI Commerce & Discoverability</h3>
+        <p>Native ChatGPT shopping integration, schema-rich product data for search visibility, and Shopify Magic to help your team produce product content at scale.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">06</div>
+        <h3>Built to Scale Nationally</h3>
+        <p>When you're ready to expand beyond KY/TN/AL, the same platform handles multi-region tax, shipping zones, currency, and international storefronts. No re-platforming required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER EXAMPLES -->
+<section id="customers">
+  <div class="container">
+    <div class="section-eyebrow">Retailers Already Running This Play</div>
+    <h2 class="section-title">Customer Examples</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">Specialty retailers running multi-location, high-consideration, and high-AOV businesses on Shopify today. Neena — these are the references your owners asked for to get comfortable with scale.</p>
+
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="icon">★</div>
+        <h3>Trevi Pools</h3>
+        <p><strong>Pool industry peer.</strong> Pool retailer running Shopify across e-commerce and brick-and-mortar — same product category, same high-ticket dynamics, same serialized equipment challenges. The closest 1:1 reference we'll bring Thursday.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">★</div>
+        <h3>Simon Pearce</h3>
+        <p><strong>13 retail locations, unified.</strong> High-consideration handcrafted goods retailer running e-commerce, POS, and B2B on one Shopify backend. Real-time inventory across every store and the warehouse — exactly the model we'd build for you.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">★</div>
+        <h3>Bambi Baby</h3>
+        <p><strong>+30% conversion and AOV.</strong> Multi-location baby furniture retailer — higher-consideration purchases, big-ticket items, Shopify POS unifying the in-store and online experience. Conversion and AOV both lifted after consolidating.</p>
+      </div>
+      <div class="cap-card">
+        <div class="icon">★</div>
+        <h3>49-Location Bike Shop + 2 Online Shops</h3>
+        <p><strong>Multi-location at national scale.</strong> 49 brick-and-mortar locations plus two e-commerce storefronts, all running on Shopify with real-time inventory visibility. Shows the platform handles materially larger footprints than where you are today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE YOU ARE TODAY -->
+<section id="current" class="alt">
+  <div class="container">
+    <div class="section-eyebrow">Summary From Call 1</div>
+    <h2 class="section-title">Where You Are Today</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">Our understanding from our last conversation. This is the basis for the recommendations we'll walk through.</p>
+
+    <div class="correction-note">
+      <strong>Please correct anything we got wrong.</strong> Everything below is what we heard on Call 1 — we want to start from your reality, not our notes.
+    </div>
+
+    <div class="state-list">
+      <div class="state-row">
+        <div class="label">The Business</div>
+        <div class="desc">$75M company, founded 1996, 9 brick-and-mortar locations across KY / TN / AL. Vertically integrated, including in-house hot tub manufacturing.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Online Channel</div>
+        <div class="desc">Approximately $500K in online revenue last year — significant room to grow as a share of total business.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Storefront</div>
+        <div class="desc">WordPress + Elementor + WooCommerce. New site launched April 1, 2026.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Point of Sale</div>
+        <div class="desc">Counterpoint (NCR). Vendor has reduced ongoing investment, creating a need to evaluate a replacement in the next 12–24 months.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Integration Layer</div>
+        <div class="desc">Retail Dimensions middleware connecting Counterpoint to WooCommerce. Pain points raised: ongoing support overhead and data processing delays.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Inventory Visibility</div>
+        <div class="desc">Website currently displays main warehouse stock only — does not reflect availability at the 9 retail locations.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Payments</div>
+        <div class="desc">Stripe for online transactions today.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Key Product Categories</div>
+        <div class="desc">High-ticket serialized items: hot tubs, saunas, cold plunges, above-ground pools (typical AOV $15K–$20K) plus chemicals, accessories, and parts.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Team</div>
+        <div class="desc">Planning to hire dedicated e-commerce expertise.</div>
+      </div>
+      <div class="state-row">
+        <div class="label">Timing</div>
+        <div class="desc">Peak season runs April–June. Migration window is being scoped for after peak.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section id="topics">
+  <div class="container">
+    <div class="section-eyebrow">Technical Discovery</div>
+    <h2 class="section-title">Topics for the Tech Disco</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">The areas we'd like to walk through together on the technical discovery — sized to the four pillars from our follow-up, with extra time reserved for the three priority areas Shelby flagged.</p>
+
+    <div class="topic-group" style="border-left: 4px solid var(--pool-blue); background: var(--pool-blue-light);">
+      <div class="topic-group-header" style="color: var(--pool-blue-dark);"><span class="num" style="background: var(--pool-blue-dark);">★</span>Priority Areas — Shelby's Three to Dig In On</div>
+      <p style="margin: 0 0 16px 0; color: #555; font-size: 0.95rem;">Three areas Shelby flagged as most important to walk through on the technical discovery. We'd like to spend meaningful time on each.</p>
+      <div class="topic-q"><div><span class="lead">Counterpoint data extraction.</span> Getting clean customer and serial history out of Counterpoint — warranty registration, original owner, service history embedded across years of records.</div></div>
+      <div class="topic-q"><div><span class="lead">Freight logistics for high-ticket nationwide.</span> Shipping $15K–$20K hot tubs nationally — freight quoting, LTL carrier relationships, white-glove delivery, and damage handling.</div></div>
+      <div class="topic-q"><div><span class="lead">Services scope — contracting and repair.</span> Whether field services (install contracting, in-home repair, warranty service) sit on this platform or stay separate.</div></div>
+    </div>
+
+    <div class="topic-group">
+      <div class="topic-group-header"><span class="num">1</span>Point of Sale & Multi-Location</div>
+      <div class="topic-q"><div><span class="lead">POS replacement timeline.</span> Counterpoint sunset planning and how we phase the rollout across the warehouse and 9 retail locations.</div></div>
+      <div class="topic-q"><div><span class="lead">High-ticket sales journey.</span> The end-to-end flow for a hot tub sale — showroom, delivery, install, warranty registration.</div></div>
+      <div class="topic-q"><div><span class="lead">Multi-location inventory.</span> Real-time visibility and transfers across stores and the warehouse.</div></div>
+      <div class="topic-q"><div><span class="lead">Fulfillment model.</span> Role of stores vs. warehouse in fulfilling online orders.</div></div>
+    </div>
+
+    <div class="topic-group">
+      <div class="topic-group-header"><span class="num">2</span>E-Commerce & High-AOV Conversion</div>
+      <div class="topic-q"><div><span class="lead">Online order mix.</span> Where revenue sits today across accessories, chemicals, and big-ticket items.</div></div>
+      <div class="topic-q"><div><span class="lead">High-AOV checkout experience.</span> How Shop Pay and Shop Pay Installments support large purchases, plus cart recovery for high-value carts.</div></div>
+      <div class="topic-q"><div><span class="lead">Freight at checkout.</span> Quoting and presentation of freight for large items in the buying flow.</div></div>
+      <div class="topic-q"><div><span class="lead">12-month growth vision.</span> What success looks like a year post-launch.</div></div>
+    </div>
+
+    <div class="topic-group">
+      <div class="topic-group-header"><span class="num">3</span>Data, Systems & Migration</div>
+      <div class="topic-q"><div><span class="lead">Connected systems.</span> ERP, accounting, shipping, CRM, and email systems in the broader stack.</div></div>
+      <div class="topic-q"><div><span class="lead">Catalog and serialized inventory.</span> Total SKU count and the serialized portion (hot tubs, saunas, cold plunges).</div></div>
+      <div class="topic-q"><div><span class="lead">Data quality and migration scope.</span> Readiness of Counterpoint data and the work needed before migration.</div></div>
+      <div class="topic-q"><div><span class="lead">Retail Dimensions middleware.</span> Current pain points and what we'd want to replace or simplify.</div></div>
+    </div>
+
+    <div class="topic-group">
+      <div class="topic-group-header"><span class="num">4</span>Decision Process & Path Forward</div>
+      <div class="topic-q"><div><span class="lead">Decision criteria and owners.</span> Who's involved in the platform decision and what matters most.</div></div>
+      <div class="topic-q"><div><span class="lead">Implementation partner.</span> Approach to selecting and working with a Shopify Plus partner.</div></div>
+      <div class="topic-q"><div><span class="lead">Budget and business case.</span> Where the budget conversation is today and how we can help support it.</div></div>
+      <div class="topic-q"><div><span class="lead">Timeline through peak.</span> Working backward from April–June peak to a realistic implementation window.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section id="next" class="alt">
+  <div class="container">
+    <div class="section-eyebrow">What We'll Deliver</div>
+    <h2 class="section-title">Proposed Next Steps</h2>
+    <div class="section-divider"></div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Partner Intro</h4>
+        <p>Warm intro to a Shopify Plus implementation partner with Counterpoint migration and multi-location experience — the team that would own the post-peak migration window with you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Tailored Demo (Call 3)</h4>
+        <p>Working demo on your catalog: serialized hot tub flow, multi-location stock display, Shop Pay Installments at $15K–$20K AOV, and Counterpoint → Shopify POS workflows.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Cost Comparison</h4>
+        <p>Side-by-side TCO: current stack (WooCommerce + Counterpoint + Retail Dimensions + Stripe) vs unified Shopify backend.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Post-Peak Timeline</h4>
+        <p>Draft migration plan that respects April–June peak and lands the launch with your new e-commerce hire in seat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="brand-foot">Pool & Spa Depot <span class="x">×</span> Shopify</div>
+      <p style="margin: 0; line-height: 1.55;">Discovery & Solution Walkthrough — Call 2.<br>Prepared in advance to make our time together more useful.</p>
+    </div>
+    <div>
+      <h5>This Document</h5>
+      <ul>
+        <li><a href="#agenda" style="color: #b8b8b8; text-decoration: none;">Agenda</a></li>
+        <li><a href="#shopify" style="color: #b8b8b8; text-decoration: none;">Why Shopify</a></li>
+        <li><a href="#customers" style="color: #b8b8b8; text-decoration: none;">Customer Examples</a></li>
+        <li><a href="#current" style="color: #b8b8b8; text-decoration: none;">Where You Are Today</a></li>
+        <li><a href="#topics" style="color: #b8b8b8; text-decoration: none;">Topics to Cover</a></li>
+        <li><a href="#next" style="color: #b8b8b8; text-decoration: none;">Next Steps</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    Prepared for Pool & Spa Depot · Shopify · May 2026
+  </div>
+</footer>
+
+</body>
+</html>
