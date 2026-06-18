@@ -3,146 +3,358 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catbird × Shopify Plus — TCO Review</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Catbird × Shopify Plus — TCO & ROI Model</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --accent: #008060;
-    --accent-soft: #f0faf6;
-    --accent-dark: #004c3f;
-    --ink: #1a1a1a;
-    --muted: #6b6b6b;
-    --line: #e5e5e5;
-    --soft: #f7f7f5;
-    --warn: #b14a00;
-    --no: #c0392b;
-    --positive: #008060;
+    --bg: #f8f4ed;
+    --bg-card: #fffdf8;
+    --bg-soft: #f1ebdc;
+    --ink: #1f1a14;
+    --ink-soft: #4d4438;
+    --muted: #7a6f5e;
+    --gold: #a89060;
+    --gold-dark: #8a7448;
+    --gold-soft: #ede2c8;
+    --line: #d9d0bd;
+    --positive: #4f6b3e;
+    --positive-soft: #e6ecdf;
+    --warn: #8e5a26;
+    --warn-soft: #f1e3d0;
   }
   * { box-sizing: border-box; }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--ink);
-    line-height: 1.55;
+    line-height: 1.6;
     margin: 0;
-    background: #fff;
+    background: var(--bg);
     font-size: 15px;
+    -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
-  section.soft { background: var(--soft); }
-  section.hero { padding: 96px 0 80px; border-bottom: none; background: linear-gradient(180deg, #fff 0%, var(--accent-soft) 100%); }
-  .eyebrow { font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-  h1 { font-size: 44px; font-weight: 800; margin: 0 0 16px; letter-spacing: -0.02em; line-height: 1.1; }
-  h2 { font-size: 32px; font-weight: 700; margin: 0 0 16px; letter-spacing: -0.01em; line-height: 1.2; }
-  h3 { font-size: 20px; font-weight: 600; margin: 24px 0 12px; }
-  h4 { font-size: 17px; font-weight: 600; margin: 16px 0 8px; }
-  p { margin: 0 0 12px; }
-  .lede { font-size: 17px; color: #333; max-width: 760px; }
-  .meta-line { color: var(--muted); font-size: 14px; margin-top: 16px; }
-  .meta-line strong { color: var(--ink); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section.soft { background: var(--bg-soft); }
+  section.hero { padding: 80px 0; border-bottom: none; background: var(--bg); }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  h1 { font-size: 52px; line-height: 1.05; margin: 0 0 20px; font-weight: 500; }
+  h2 { font-size: 38px; line-height: 1.15; margin: 0 0 18px; font-weight: 500; }
+  h3 { font-size: 24px; line-height: 1.2; margin: 28px 0 14px; }
+  h4 { font-size: 16px; font-weight: 600; margin: 14px 0 8px; font-family: 'Inter', sans-serif; letter-spacing: 0.01em; }
+
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  .lede { font-size: 17px; color: var(--ink); max-width: 780px; line-height: 1.55; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+  }
+  a { color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid currentColor; }
 
   /* Hero */
-  .hero-badge { display: inline-block; padding: 6px 12px; background: #fff; border: 1px solid var(--line); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; }
-  .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .hero-mark { text-align: center; margin-bottom: 36px; }
+  .hero-mark img { height: 60px; }
+  .hero-x { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); margin: 0 14px; }
+  .hero-shopify { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--ink-soft); font-weight: 600; letter-spacing: 0.02em; }
+  .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
   .hero-meta-item { font-size: 13px; }
-  .hero-meta-item .k { color: var(--muted); margin-bottom: 4px; }
-  .hero-meta-item .v { font-weight: 600; }
+  .hero-meta-item .k { color: var(--muted); margin-bottom: 4px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; font-weight: 600; }
+  .hero-meta-item .v { font-weight: 500; color: var(--ink); font-size: 14px; }
+
+  /* Tooltip system */
+  .tip {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--gold-dark);
+    font-size: 11px;
+    text-align: center;
+    line-height: 16px;
+    margin-left: 6px;
+    cursor: help;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    vertical-align: middle;
+    border: 1px solid var(--gold);
+  }
+  .tip:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.55;
+    width: 300px;
+    white-space: normal;
+    text-align: left;
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 12px 32px rgba(31, 26, 20, 0.25);
+    font-family: 'Inter', sans-serif;
+  }
+  .tip:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--ink);
+    z-index: 101;
+  }
+  /* Right-aligned tooltips for inputs (so they don't cut off) */
+  .input-row .tip:hover::after {
+    left: auto;
+    right: -8px;
+    transform: none;
+  }
+  .input-row .tip:hover::before {
+    left: auto;
+    right: 4px;
+    transform: none;
+  }
 
   /* Card grids */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin: 24px 0; }
   .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
   @media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 
-  .stat { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
-  .stat .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 8px; }
-  .stat .v { font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
-  .stat .sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
-  .stat.positive { background: var(--accent-soft); border-color: var(--accent); }
-  .stat.positive .v { color: var(--accent-dark); }
-  .stat.warn { background: #fff8f2; border-color: #f3c9a8; }
+  .stat {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px;
+    position: relative;
+  }
+  .stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+  .stat .v { font-size: 32px; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; font-family: 'Cormorant Garamond', serif; color: var(--ink); }
+  .stat .sub { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+  .stat.positive { background: var(--positive-soft); border-color: var(--positive); }
+  .stat.positive .v { color: var(--positive); }
+  .stat.warn { background: var(--warn-soft); border-color: var(--warn); }
   .stat.warn .v { color: var(--warn); }
+  .stat.gold { background: var(--gold-soft); border-color: var(--gold); }
+  .stat.gold .v { color: var(--gold-dark); }
 
   /* Card */
-  .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
-  .card.rec { background: var(--accent-soft); border-color: var(--accent); }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .card.rec { background: var(--gold-soft); border-color: var(--gold); }
   .card h4 { margin-top: 0; }
   .card ul { padding-left: 18px; margin: 8px 0; }
-  .card li { margin: 6px 0; }
-  .card .meta { font-size: 13px; color: var(--muted); margin: 4px 0 12px; }
+  .card li { margin: 6px 0; color: var(--ink-soft); }
+  .card .meta { font-size: 12px; color: var(--muted); margin: 4px 0 14px; font-style: italic; }
 
   /* Tables */
-  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-  thead { background: var(--soft); }
-  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); }
-  th { font-weight: 600; font-size: 13px; color: #333; }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; font-family: 'Inter', sans-serif; }
+  thead { background: var(--bg-soft); }
+  th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; font-size: 12px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
   tbody tr:last-child td { border-bottom: none; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-  tr.total { background: var(--accent-soft); font-weight: 600; }
+  tr.total { background: var(--gold-soft); font-weight: 600; }
+  tr.total td { color: var(--ink); }
 
-  /* Forcing functions numbered list */
-  .numbered-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  /* Forcing functions */
+  .numbered-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 30px 0; }
   @media (max-width: 720px) { .numbered-list { grid-template-columns: 1fr; } }
-  .numbered-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 24px; position: relative; }
-  .numbered-item .num { font-size: 14px; color: var(--accent); font-weight: 700; margin-bottom: 12px; letter-spacing: 0.04em; }
-  .numbered-item h4 { margin: 0 0 8px; }
-  .numbered-item p { font-size: 14px; color: #444; margin: 0; }
+  .numbered-item {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px;
+    position: relative;
+  }
+  .numbered-item .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 12px;
+    line-height: 1;
+    font-weight: 500;
+  }
+  .numbered-item h4 { margin: 0 0 8px; font-size: 17px; }
+  .numbered-item p { font-size: 14px; color: var(--ink-soft); margin: 0; }
 
   /* TCO Calculator */
-  .calc-section { background: #fff; border: 2px solid var(--accent); border-radius: 16px; padding: 32px; margin: 32px 0; }
-  .calc-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-  .calc-header h3 { margin: 0; font-size: 22px; }
-  .calc-hint { font-size: 13px; color: var(--muted); }
-  .calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .calc-section {
+    background: var(--bg-card);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 36px;
+    margin: 32px 0;
+  }
+  .calc-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .calc-header h3 { margin: 0; font-size: 26px; }
+  .calc-hint { font-size: 12px; color: var(--muted); font-family: 'Inter', sans-serif; }
+  .calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px; }
   @media (max-width: 720px) { .calc-inputs { grid-template-columns: 1fr; } }
-  .input-group { background: var(--soft); padding: 20px; border-radius: 12px; }
-  .input-group h4 { margin: 0 0 12px; font-size: 15px; }
-  .input-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #ddd; }
+  .input-group {
+    background: var(--bg-soft);
+    padding: 22px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+  .input-group h4 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .input-group.magento h4 { color: var(--warn); }
+  .input-group.plus h4 { color: var(--gold-dark); }
+  .input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    position: relative;
+  }
   .input-row:last-child { border-bottom: none; }
-  .input-row label { font-size: 13px; color: #444; flex: 1; padding-right: 12px; }
-  .input-row input { width: 130px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; }
-  .input-row input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,128,96,0.12); }
-  .input-row .prefix, .input-row .suffix { font-size: 12px; color: var(--muted); margin-left: 4px; }
+  .input-row .label-wrap { font-size: 13px; color: var(--ink-soft); flex: 1; padding-right: 12px; display: flex; align-items: center; }
+  .input-row input {
+    width: 130px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    background: var(--bg-card);
+    color: var(--ink);
+  }
+  .input-row input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168, 144, 96, 0.15); }
+  .input-row .prefix, .input-row .suffix { font-size: 12px; color: var(--muted); margin: 0 4px; }
 
-  .calc-output { background: var(--accent-soft); border-radius: 12px; padding: 24px; }
-  .calc-output-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #d3e8de; font-size: 14px; }
+  .calc-output {
+    background: var(--gold-soft);
+    border-radius: 4px;
+    padding: 28px;
+    border: 1px solid var(--gold);
+  }
+  .calc-output h4 { margin-top: 0; color: var(--ink); }
+  .calc-output-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(168, 144, 96, 0.3); font-size: 14px; font-family: 'Inter', sans-serif; }
   .calc-output-row:last-child { border-bottom: none; }
-  .calc-output-row.total { font-size: 18px; font-weight: 700; padding-top: 14px; }
-  .calc-output-row.savings { color: var(--accent-dark); font-weight: 700; font-size: 20px; padding-top: 16px; border-top: 2px solid var(--accent); }
-  .calc-output-row .label { color: #333; }
-  .calc-output-row .value { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .calc-output-row.total { font-size: 17px; font-weight: 700; padding-top: 14px; }
+  .calc-output-row.savings { color: var(--positive); font-weight: 700; font-size: 22px; padding-top: 18px; border-top: 2px solid var(--gold); font-family: 'Cormorant Garamond', serif; }
+  .calc-output-row .label { color: var(--ink-soft); }
+  .calc-output-row .value { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
 
   /* Map */
-  .map-step { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin: 12px 0; display: flex; gap: 24px; align-items: flex-start; }
-  .map-step.target { border-color: var(--accent); background: var(--accent-soft); }
-  .map-when { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.04em; min-width: 160px; padding-top: 2px; }
+  .map-step {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .map-step.target { border-color: var(--gold); background: var(--gold-soft); border-width: 2px; }
+  .map-when {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 160px;
+    padding-top: 4px;
+  }
   .map-body h4 { margin: 0 0 6px; font-size: 16px; }
-  .map-body p { font-size: 13px; color: #555; margin: 0; }
+  .map-body p { font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
 
   /* Callouts */
-  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 16px 20px; border-radius: 8px; margin: 20px 0; font-size: 14px; }
-  .footnote { color: var(--muted); font-size: 12px; margin-top: 16px; line-height: 1.5; }
+  .callout {
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    border-radius: 4px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .callout strong { color: var(--ink); }
+  .footnote { color: var(--muted); font-size: 12px; margin-top: 16px; line-height: 1.55; font-family: 'Inter', sans-serif; }
 
-  /* Partner comparison */
-  .partner-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
-  .partner-card.rec { border-color: var(--accent); background: var(--accent-soft); }
-  .partner-card .partner-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-  .partner-card .partner-tag { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
-  .partner-card .partner-cost { font-size: 22px; font-weight: 700; margin: 8px 0; }
-  .partner-card .partner-meta { font-size: 12px; color: var(--muted); }
+  /* Partner cards */
+  .partner-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+  }
+  .partner-card.rec { border-color: var(--gold); background: var(--gold-soft); border-width: 2px; }
+  .partner-card .partner-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .partner-card .partner-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 8px; color: var(--ink); }
+  .partner-card .partner-cost { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; margin: 12px 0; color: var(--ink); line-height: 1; }
+  .partner-card .partner-meta { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
 
-  /* Pill */
-  .pill { display: inline-block; padding: 3px 8px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
-  .pill.rec { background: var(--accent); color: white; }
-  .pill.cond { background: #eee; color: #555; }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+  }
+  .pill.rec { background: var(--gold); color: var(--bg-card); }
 
-  /* Footer */
-  footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px; }
+  footer { padding: 48px 0; text-align: center; color: var(--muted); font-size: 13px; background: var(--bg-soft); border-top: 1px solid var(--line); }
+  footer p { color: var(--muted); }
   footer strong { color: var(--ink); }
 
-  /* Reset */
-  ul { padding-left: 20px; }
-  ul li { margin: 4px 0; }
+  ul { padding-left: 22px; }
+  ul li { margin: 6px 0; color: var(--ink-soft); }
+
+  /* Assumptions table */
+  .assumptions-list { background: var(--bg-card); border: 1px solid var(--line); border-radius: 4px; padding: 0; margin: 24px 0; }
+  .assumption-row { display: grid; grid-template-columns: 1fr 1.5fr 2fr; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line); font-size: 13px; align-items: start; }
+  .assumption-row:last-child { border-bottom: none; }
+  .assumption-row .a-label { font-weight: 600; color: var(--ink); }
+  .assumption-row .a-value { color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .assumption-row .a-source { color: var(--ink-soft); font-style: italic; }
+  @media (max-width: 720px) { .assumption-row { grid-template-columns: 1fr; gap: 4px; } }
 </style>
 </head>
 <body>
@@ -150,21 +362,28 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="hero-badge">TCO Review · Catbird × Shopify Plus</span>
-    <h1 style="margin-top: 16px;">The cost of staying vs. moving — side by side.</h1>
-    <p class="lede">A live model of Catbird's total cost of ownership on Magento today vs. Shopify Plus from launch through 2027. Inputs are editable — adjust them to match Catbird's actual numbers and the TCO updates in real time.</p>
+    <div class="hero-mark">
+      <img class="catbird-wordmark" src="data:image/webp;base64,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" alt="Catbird">
+      <span class="hero-x">&times;</span>
+      <span class="hero-shopify">Shopify Plus</span>
+    </div>
+    <div style="text-align:center;">
+      <span class="eyebrow">TCO &amp; ROI Model</span>
+      <h1>The cost of staying, and the value of moving.</h1>
+      <p class="lede" style="margin: 0 auto;">A live financial model of Catbird's total cost of ownership on Magento today vs. Shopify Plus from launch through 2029. Inputs are editable — adjust them to Catbird's actual numbers and the model updates in real time. Every default value has a source — hover the <span class="tip" data-tip="Hover the info icons throughout this page to see where each number comes from — the call, the SOW, the Slack thread, or the rate card.">i</span> icons.</p>
+    </div>
     <div class="hero-meta">
       <div class="hero-meta-item">
         <div class="k">Prepared by</div>
         <div class="v">Nicole DeGennaro · Shopify Plus</div>
       </div>
       <div class="hero-meta-item">
-        <div class="k">Prepared for</div>
-        <div class="v">Annie Marsh · Luke Chatelain · Mo & Gabriel</div>
+        <div class="k">For</div>
+        <div class="v">Annie Marsh · Luke Chatelain · Mo &amp; Gabriel</div>
       </div>
       <div class="hero-meta-item">
         <div class="k">Target go-live</div>
-        <div class="v">Early Q1 2027 (pre-Valentine's)</div>
+        <div class="v">Late January 2027 · pre-Valentine's</div>
       </div>
       <div class="hero-meta-item">
         <div class="k">Last updated</div>
@@ -174,196 +393,196 @@
   </div>
 </section>
 
-<!-- EXECUTIVE SUMMARY -->
-<section>
+<!-- THE BOTTOM LINE -->
+<section class="soft">
   <div class="container">
-    <div class="eyebrow">Executive summary</div>
-    <h2>What this is, and what it's not.</h2>
-    <p class="lede">Catbird is evaluating Shopify Plus to replace Magento, sequenced behind the NetSuite + NewStore cutover (mid-July to mid-August 2026) for an early Q1 2027 launch ahead of Valentine's. This page is the financial picture — the recurring license + processing + app spend at $50M GMV, modeled against Catbird's current Magento stack — plus the implementation cost across the three partner proposals (CQL, Lazer, Domaine). It's not a feature comparison; it's the dollars-and-cents view your CFO needs to greenlight.</p>
+    <div class="eyebrow">The bottom line</div>
+    <h2>Modern commerce. Real cost savings. A platform built for Catbird's roadmap.</h2>
+    <p class="lede">Magento today is a quiet, growing cost: 10-year-old code, agency dependence, slow time-to-market for the marketing team. Moving to Plus on a Q1 2027 launch unlocks <strong>~$413K/yr in recurring operational savings</strong>, plus revenue lift from Shop Pay that we haven't even modeled. The one-time implementation cost lands in Year 1 and is paid back inside 12 months on the recurring savings alone.</p>
 
     <div class="grid-4">
       <div class="stat positive">
-        <div class="k">2025 online GMV</div>
+        <div class="k">Annual operating savings <span class="tip" data-tip="Magento total annual cost minus Plus total annual cost at $50M GMV, modeled in the live calculator below. Recurring — applies Year 2 onward when the one-time implementation cost is in the past.">i</span></div>
+        <div class="v" id="hero_savings">$413,000</div>
+        <div class="sub">Recurring, Years 2–3</div>
+      </div>
+      <div class="stat gold">
+        <div class="k">3-year net benefit <span class="tip" data-tip="Sum of Magento – Plus across Years 1, 2, and 3. Year 1 absorbs the implementation cost (Lazer midpoint $289,500). Years 2 and 3 are clean recurring savings.">i</span></div>
+        <div class="v" id="hero_3yr">$950,000</div>
+        <div class="sub">After Year 1 implementation</div>
+      </div>
+      <div class="stat">
+        <div class="k">Payback period <span class="tip" data-tip="Implementation cost ($289,500 Lazer midpoint) divided by annual recurring savings. Pays itself back within Year 1 of operating on Plus.">i</span></div>
+        <div class="v" id="hero_payback">~9 mo</div>
+        <div class="sub">From go-live</div>
+      </div>
+      <div class="stat">
+        <div class="k">2025 online GMV <span class="tip" data-tip="Source: Annie Marsh, June 10 intro call. Direct quote: 'in 25 we finished just under 50 million.' Luke Chatelain confirmed 2026 trending +10% on same call.">i</span></div>
         <div class="v">~$50M</div>
         <div class="sub">2026 trending +10%</div>
       </div>
-      <div class="stat">
-        <div class="k">Plus VPF at $50M</div>
-        <div class="v">$175K/yr</div>
-        <div class="sub">0.35% × $50M (no base)</div>
-      </div>
-      <div class="stat">
-        <div class="k">Plus processing rate</div>
-        <div class="v">2.25% + 30¢</div>
-        <div class="sub">Amex / commercial: 2.95% + 30¢</div>
-      </div>
-      <div class="stat warn">
-        <div class="k">Implementation range</div>
-        <div class="v">$240K–$425K</div>
-        <div class="sub">CQL (low) → Lazer ($289K) → Domaine (high)</div>
-      </div>
-    </div>
-
-    <div class="callout">
-      <strong>The headline:</strong> at $50M GMV, the recurring Plus + processing cost is predictable and scales linearly. The real variable is the implementation partner — that's where the spread is widest, and it's where the decision belongs.
     </div>
   </div>
 </section>
 
-<!-- THE FORCING FUNCTIONS -->
-<section class="soft">
+<!-- THE CASE FOR CHANGE -->
+<section>
   <div class="container">
-    <div class="eyebrow">The forcing functions</div>
-    <h2>Three things in motion that make this the right window.</h2>
+    <div class="eyebrow">The case for change</div>
+    <h2>Three forcing functions already in motion.</h2>
 
     <div class="numbered-list">
       <div class="numbered-item">
         <div class="num">01</div>
         <h4>Magento debt is compounding</h4>
-        <p>10+ years of customizations, every site change requires dev effort, more bug-fixing than shipping. Cost of maintaining the current setup grows each year — a quiet line item that doesn't show on any invoice.</p>
+        <p>10+ years of customizations, every site change requires dev effort. Per Annie on the June 10 call: "extensive, outdated customizations — specifically regarding charm configurations and engraving." Cost grows each year as the codebase ages.</p>
       </div>
       <div class="numbered-item">
         <div class="num">02</div>
-        <h4>NetSuite + NewStore are already replatforming</h4>
-        <p>ERP + POS cutover mid-July through mid-August 2026 (in flight). Doing the Shopify migration after that lands cleanly: NetSuite and NewStore are stable, the team has bandwidth, and the integration architecture is built around them.</p>
+        <h4>NetSuite + NewStore are replatforming now</h4>
+        <p>ERP + POS cutover mid-July through mid-August 2026 (in flight per Domaine's input). Doing the Shopify migration after that lands cleanly — NetSuite and NewStore are stable, integration architecture is built around them, no parallel rebuilds.</p>
       </div>
       <div class="numbered-item">
         <div class="num">03</div>
         <h4>PE clock: 2027 efficiency capture</h4>
-        <p>The board needs the 2026 digital architecture investment to be cost-neutral and 2027 to show demonstrable savings. Launching late Q1 2027 captures the full year of 2027 efficiency upside — waiting pushes that to 2028.</p>
+        <p>Luke on June 10: "the company is highly focused on EBIDA and long-term financial viability. The objective is to launch the Shopify migration in January 2027 to capture efficiency gains throughout that year." Waiting pushes the upside to 2028.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BUSINESS OVERVIEW -->
-<section>
+<!-- BUSINESS PROFILE -->
+<section class="soft">
   <div class="container">
-    <div class="eyebrow">Business overview</div>
-    <h2>What we're sizing for.</h2>
+    <div class="eyebrow">Catbird profile</div>
+    <h2>What we're sizing this model for.</h2>
 
     <div class="grid-3">
       <div class="stat">
-        <div class="k">Active SKUs</div>
-        <div class="v">~27,045</div>
+        <div class="k">Active SKUs <span class="tip" data-tip="Source: Seamas McClimans at Domaine, June 16 Slack DM with Nicole. 27,045 active SKUs — 644 configurable, 26,338 simple.">i</span></div>
+        <div class="v">27,045</div>
         <div class="sub">644 configurable · 26,338 simple</div>
       </div>
       <div class="stat">
-        <div class="k">Customizable jewelry</div>
-        <div class="v">16% of rev</div>
+        <div class="k">Customizable jewelry share <span class="tip" data-tip="Source: Domaine's tech stack writeup shared with Nicole on June 16. 16% of revenue from customizable jewelry (Confetti, Memento, engraving).">i</span></div>
+        <div class="v">16%</div>
         <div class="sub">Confetti, Memento, engraving</div>
       </div>
       <div class="stat">
-        <div class="k">AOV (online)</div>
+        <div class="k">AOV (online) <span class="tip" data-tip="Source: Lazer Technologies SOW (Catbird × Lazer Proposal). AOV $312, 1.6 items per order, customer lifetime value $466.">i</span></div>
         <div class="v">$312</div>
-        <div class="sub">1.6 items/order · CLV $466</div>
+        <div class="sub">1.6 items / order · CLV $466</div>
       </div>
     </div>
 
-    <h3>The stack to integrate</h3>
-    <ul>
-      <li><strong>ERP:</strong> NetSuite (in flight — replacing Teamwork CHQ)</li>
-      <li><strong>POS:</strong> NewStore (in flight — replacing Teamwork POS) · cutover mid-Jul to mid-Aug 2026</li>
-      <li><strong>Middleware:</strong> SuperSync (NetSuite ↔ Shopify integration layer)</li>
-      <li><strong>Email / SMS:</strong> Klaviyo · Attentive (both retain on Shopify)</li>
-      <li><strong>Search:</strong> Searchspring today — Shopify Search & Discovery TBD</li>
-      <li><strong>Reviews / UGC:</strong> Yotpo</li>
-      <li><strong>Fraud:</strong> Forter (future TBD)</li>
-      <li><strong>Gift cards:</strong> Teamwork → Clutch (in flight)</li>
-      <li><strong>Customer service:</strong> Kustomer</li>
-      <li><strong>Loyalty:</strong> None today — Q1 post-launch fast-follow per Luke</li>
-    </ul>
+    <h3 style="margin-top: 40px;">The stack to integrate <span class="tip" data-tip="Source: Domaine writeup, June 16 Slack DM. Comprehensive inventory of Catbird's current and future-state platforms. All apps listed except loyalty have either been confirmed retain on Shopify or are already in flight.">i</span></h3>
+    <div class="grid-2">
+      <ul>
+        <li><strong>ERP:</strong> NetSuite (in flight — replacing Teamwork CHQ)</li>
+        <li><strong>POS:</strong> NewStore (in flight — replacing Teamwork POS) · cutover mid-Jul to mid-Aug 2026</li>
+        <li><strong>Middleware:</strong> SuperSync (NetSuite ↔ Shopify integration)</li>
+        <li><strong>Email / SMS:</strong> Klaviyo · Attentive (both retain on Shopify)</li>
+        <li><strong>Search:</strong> Searchspring today — Shopify S&amp;D TBD</li>
+      </ul>
+      <ul>
+        <li><strong>Reviews / UGC:</strong> Yotpo</li>
+        <li><strong>Fraud:</strong> Forter (future TBD)</li>
+        <li><strong>Gift cards:</strong> Teamwork → Clutch (in flight)</li>
+        <li><strong>Customer service:</strong> Kustomer</li>
+        <li><strong>Loyalty:</strong> None today — Q1 post-launch fast-follow per Luke</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- LIVE TCO CALCULATOR -->
-<section class="soft">
+<section>
   <div class="container">
-    <div class="eyebrow">Live TCO calculator</div>
-    <h2>Edit the inputs — the TCO updates live.</h2>
-    <p class="lede">Defaults reflect what we know today: ~$50M online GMV, Plus pricing (0.35% VPF, 2.25% + 30¢ standard / 2.95% + 30¢ Amex). Adjust any input to see how the cost picture changes. Every number is editable.</p>
+    <div class="eyebrow">Live TCO model</div>
+    <h2>Magento today vs. Shopify Plus tomorrow.</h2>
+    <p class="lede">Every input below is editable — adjust to Catbird's actual numbers and watch the comparison update. Hover the <span class="tip" data-tip="Hover any info icon next to an input to see where the default came from and what it represents.">i</span> beside any input to see where the default came from.</p>
 
     <div class="calc-section">
       <div class="calc-header">
-        <h3>Annual TCO at the inputs below</h3>
-        <div class="calc-hint">All values in USD · processing assumes 70% standard / 30% Amex mix</div>
+        <h3>Annual operating cost</h3>
+        <div class="calc-hint">USD · processing assumes 70% standard / 30% Amex mix</div>
       </div>
 
       <div class="calc-inputs">
-        <!-- Current (Magento) inputs -->
-        <div class="input-group">
-          <h4>Current state — Magento</h4>
+        <!-- MAGENTO -->
+        <div class="input-group magento">
+          <h4>Current State — Magento</h4>
           <div class="input-row">
-            <label>Magento license + hosting (annual)</label>
+            <div class="label-wrap">Magento license + hosting <span class="tip" data-tip="Placeholder estimate pending Catbird finance review. Typical Magento Commerce annual license for $50M-tier merchants is $100K-$250K depending on tier and support level. Catbird to confirm actual.">i</span></div>
             <span class="prefix">$</span><input type="number" id="magento_license" value="180000">
           </div>
           <div class="input-row">
-            <label>Magento dev agency spend (annual)</label>
+            <div class="label-wrap">Magento dev agency (annual) <span class="tip" data-tip="Placeholder estimate. Per Annie on June 10: 'It's really customized. We have third-party developers who are doing a lot of those customizations. It's a lot of bug fixing and maintenance.' Typical Magento agency retainer at this scale is $200K-$300K/yr.">i</span></div>
             <span class="prefix">$</span><input type="number" id="magento_agency" value="240000">
           </div>
           <div class="input-row">
-            <label>In-house dev allocated to Magento</label>
+            <div class="label-wrap">In-house dev allocated to Magento <span class="tip" data-tip="Placeholder estimate — ~1 FTE fully loaded at $120K. Includes Catbird internal engineer time spent on Magento bug fixes, maintenance, and small enhancements.">i</span></div>
             <span class="prefix">$</span><input type="number" id="magento_inhouse" value="120000">
           </div>
           <div class="input-row">
-            <label>Maintenance / security / Yottaa</label>
+            <div class="label-wrap">Maintenance · security · Yottaa <span class="tip" data-tip="Estimate combining Yottaa (CDN/performance), PCI compliance audits, security patches, and other Magento maintenance tooling. Yottaa typically runs $30-60K/yr; security + PCI adds the rest.">i</span></div>
             <span class="prefix">$</span><input type="number" id="magento_maint" value="60000">
           </div>
           <div class="input-row">
-            <label>Apps + extensions (annual)</label>
+            <div class="label-wrap">Apps + extensions (annual) <span class="tip" data-tip="Estimate. Includes BlogMX, Mandrill (transactional email), and other Magento marketplace extensions. Catbird to confirm actual.">i</span></div>
             <span class="prefix">$</span><input type="number" id="magento_apps" value="48000">
           </div>
           <div class="input-row">
-            <label>Braintree standard rate</label>
+            <div class="label-wrap">Braintree standard rate <span class="tip" data-tip="Placeholder — Catbird to provide actual rate from Braintree statements. Typical Magento + Braintree retail rate for fine jewelry runs 2.4-2.7% on standard cards. 2.5% used as midpoint estimate.">i</span></div>
             <input type="number" id="braintree_std" value="2.5" step="0.05"><span class="suffix">%</span>
           </div>
           <div class="input-row">
-            <label>Braintree Amex / commercial rate</label>
+            <div class="label-wrap">Braintree Amex / commercial rate <span class="tip" data-tip="Placeholder — Catbird to provide. Typical Amex pass-through via Braintree runs 3.0-3.5%. 3.25% used as midpoint estimate.">i</span></div>
             <input type="number" id="braintree_amex" value="3.25" step="0.05"><span class="suffix">%</span>
           </div>
         </div>
 
-        <!-- Future (Plus) inputs -->
-        <div class="input-group">
-          <h4>Future state — Shopify Plus</h4>
+        <!-- PLUS -->
+        <div class="input-group plus">
+          <h4>Future State — Shopify Plus</h4>
           <div class="input-row">
-            <label>Annual online GMV</label>
+            <div class="label-wrap">Annual online GMV <span class="tip" data-tip="Source: Annie Marsh, June 10 intro call transcript. Direct quote: 'in 25 we finished just under 50 million.' Used $50M as round-number baseline; adjust to actual.">i</span></div>
             <span class="prefix">$</span><input type="number" id="gmv" value="50000000">
           </div>
           <div class="input-row">
-            <label>Plus VPF rate</label>
+            <div class="label-wrap">Plus VPF rate <span class="tip" data-tip="Source: Shopify Plus published US rate card. 0.35% of monthly GMV — the merchant pays the higher of base ($2,300/mo) or VPF. At $50M GMV: 0.35% × $50M = $175K/yr, which exceeds the $27,600 base, so VPF applies.">i</span></div>
             <input type="number" id="vpf_rate" value="0.35" step="0.05"><span class="suffix">%</span>
           </div>
           <div class="input-row">
-            <label>Plus base license (monthly)</label>
+            <div class="label-wrap">Plus base license (monthly) <span class="tip" data-tip="Source: Shopify Plus published US base price — $2,300/mo on a 3-year commit. Used as the floor when VPF × GMV doesn't exceed it.">i</span></div>
             <span class="prefix">$</span><input type="number" id="plus_base" value="2300">
           </div>
           <div class="input-row">
-            <label>Shop Payments standard rate</label>
+            <div class="label-wrap">Shop Payments standard rate <span class="tip" data-tip="Source: Shopify Plus published rate card. 2.25% + 30¢ per transaction on standard cards. Includes Shop Pay accelerated checkout, which adds conversion lift not modeled here.">i</span></div>
             <input type="number" id="plus_std" value="2.25" step="0.05"><span class="suffix">%</span>
           </div>
           <div class="input-row">
-            <label>Shop Payments Amex / commercial</label>
+            <div class="label-wrap">Shop Payments Amex / commercial <span class="tip" data-tip="Source: Shopify Plus published rate card. 2.95% + 30¢ per transaction on Amex and commercial cards.">i</span></div>
             <input type="number" id="plus_amex" value="2.95" step="0.05"><span class="suffix">%</span>
           </div>
           <div class="input-row">
-            <label>Future apps (Okendo, Rebuy, A/B, etc.)</label>
+            <div class="label-wrap">Future apps (Okendo, Rebuy, etc.) <span class="tip" data-tip="Source: Domaine June 16 Slack DM — Catbird's confirmed future app stack: Okendo (loyalty, Q1 2027 fast-follow), Rebuy (recommendations), A/B testing solution, heatmapping, visualization tool. $36K is a midpoint estimate; final stack TBD.">i</span></div>
             <span class="prefix">$</span><input type="number" id="plus_apps" value="36000">
           </div>
           <div class="input-row">
-            <label>SuperSync middleware (annual)</label>
+            <div class="label-wrap">SuperSync middleware <span class="tip" data-tip="Source: Lazer SOW. Existing SuperSync IPaaS connector will be modified to support Shopify ↔ NetSuite. Estimate covers ongoing license + minor maintenance. One-time modification cost is included in the implementation partner fee.">i</span></div>
             <span class="prefix">$</span><input type="number" id="plus_middleware" value="24000">
           </div>
         </div>
       </div>
 
-      <!-- Output -->
+      <!-- OUTPUT -->
       <div class="calc-output">
-        <h4 style="margin-top:0;">Annual TCO comparison</h4>
+        <h4>Annual operating cost — calculated</h4>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
           <div>
-            <div style="font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;">Magento (today)</div>
+            <div style="font-family:Inter,sans-serif;font-size:11px;color:var(--warn);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Magento (today)</div>
             <div class="calc-output-row"><span class="label">License + hosting</span><span class="value" id="o_mag_lic">$180,000</span></div>
             <div class="calc-output-row"><span class="label">Dev agency</span><span class="value" id="o_mag_agency">$240,000</span></div>
             <div class="calc-output-row"><span class="label">In-house dev</span><span class="value" id="o_mag_inhouse">$120,000</span></div>
@@ -374,34 +593,63 @@
           </div>
 
           <div>
-            <div style="font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;">Shopify Plus (future)</div>
+            <div style="font-family:Inter,sans-serif;font-size:11px;color:var(--gold-dark);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Shopify Plus (future)</div>
             <div class="calc-output-row"><span class="label">Plus license (VPF or base)</span><span class="value" id="o_plus_lic">$175,000</span></div>
             <div class="calc-output-row"><span class="label">Future apps</span><span class="value" id="o_plus_apps">$36,000</span></div>
             <div class="calc-output-row"><span class="label">SuperSync middleware</span><span class="value" id="o_plus_mid">$24,000</span></div>
             <div class="calc-output-row"><span class="label">Processing on $50M</span><span class="value" id="o_plus_proc">$1,242,500</span></div>
-            <div class="calc-output-row"><span class="label">Dev agency (reduced)</span><span class="value" id="o_plus_agency">$60,000</span></div>
-            <div class="calc-output-row"><span class="label">In-house dev (freed up)</span><span class="value" id="o_plus_inhouse">$60,000</span></div>
+            <div class="calc-output-row"><span class="label">Dev agency (75% reduced)</span><span class="value" id="o_plus_agency">$60,000</span></div>
+            <div class="calc-output-row"><span class="label">In-house dev (50% freed)</span><span class="value" id="o_plus_inhouse">$60,000</span></div>
             <div class="calc-output-row total"><span class="label">Plus total / yr</span><span class="value" id="o_plus_total">$1,597,500</span></div>
           </div>
         </div>
 
         <div class="calc-output-row savings">
-          <span class="label">Annual savings (recurring, Year 2+)</span>
-          <span class="value" id="o_savings">$413,000</span>
+          <span class="label">Annual savings — recurring, Years 2+</span>
+          <span class="value" id="o_savings">+$413,000 / yr</span>
         </div>
-        <div style="font-size:12px;color:var(--muted);margin-top:8px;">Year 1 includes one-time implementation cost (see partner comparison below). Annual savings shown here are the steady-state recurring delta.</div>
       </div>
     </div>
 
-    <p class="footnote"><strong>Notes on the math:</strong> Plus license = higher of $2,300/mo base or VPF × annual GMV (at $50M with 0.35% VPF, VPF wins at $175K/yr). Processing assumes 70% standard / 30% Amex mix. Plus assumes Catbird reduces external dev agency reliance by ~75% (one of the most consistent post-migration patterns for Plus customers) and reallocates ~50% of in-house Magento dev time to new initiatives. Conservative — could be higher.</p>
+    <p class="footnote"><strong>How the math works:</strong> Plus license = higher of $2,300/mo base or VPF × annual GMV (at $50M with 0.35% VPF, VPF wins at $175K/yr). Processing assumes 70% standard / 30% Amex mix on both platforms. Plus side assumes Catbird reduces external dev agency reliance by 75% (consistent with post-migration Plus patterns) and frees up 50% of in-house Magento dev time for new initiatives. Conservative — could be higher.</p>
+  </div>
+</section>
+
+<!-- REVENUE LIFT (UPSIDE) -->
+<section class="soft">
+  <div class="container">
+    <div class="eyebrow">Revenue lift — not included above</div>
+    <h2>The savings model above ignores the revenue side. Here's what Plus adds.</h2>
+
+    <div class="grid-3">
+      <div class="stat positive">
+        <div class="k">Shop Pay conversion lift <span class="tip" data-tip="Source: Shopify internal benchmarks. Plus customers see 1–3% AOV lift on average from Shop Pay's accelerated checkout. At $50M GMV, even a 1% lift is +$500K/yr in revenue. Catbird's high-AOV jewelry mix is a strong fit.">i</span></div>
+        <div class="v">+$500K/yr</div>
+        <div class="sub">At 1% lift on $50M GMV</div>
+      </div>
+      <div class="stat positive">
+        <div class="k">Shopify Audiences <span class="tip" data-tip="Source: Shopify internal benchmarks. Audiences improves paid acquisition ROAS by 10–25% on average. For a brand spending in the millions on Meta/Google, this is meaningful — exact $ depends on Catbird's ad spend (TBD per discovery sheet).">i</span></div>
+        <div class="v">10–25%</div>
+        <div class="sub">ROAS improvement on paid</div>
+      </div>
+      <div class="stat positive">
+        <div class="k">Marketing self-service <span class="tip" data-tip="Hard to put a dollar number on it. The Magento 'everything needs a dev ticket' tax goes away — promotions, A/B tests, content updates ship without engineering. Faster time-to-market on launches and campaigns.">i</span></div>
+        <div class="v">Days → minutes</div>
+        <div class="sub">Time-to-launch on promos</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>None of this is in the savings number above.</strong> The $413K/yr is purely cost reduction — license, processing, dev. The revenue lift from Shop Pay, Audiences, Functions, and Flow stacks on top. A conservative model (1% Shop Pay lift only) adds ~$500K/yr; a realistic model (Shop Pay + Audiences ROAS gains) is meaningfully higher.
+    </div>
   </div>
 </section>
 
 <!-- 3-YEAR PROJECTION -->
 <section>
   <div class="container">
-    <div class="eyebrow">3-year TCO projection</div>
-    <h2>Year 1 absorbs implementation. Years 2+ are clean savings.</h2>
+    <div class="eyebrow">3-year ROI projection</div>
+    <h2>Year 1 absorbs implementation. Years 2–3 are clean savings.</h2>
 
     <table>
       <thead>
@@ -422,14 +670,14 @@
           <td class="num" id="t_mag">$6,031,500</td>
         </tr>
         <tr>
-          <td><strong>Shopify Plus</strong></td>
+          <td><strong>Shopify Plus (operating + Year 1 impl.)</strong></td>
           <td class="num" id="y1_plus">$1,886,500</td>
           <td class="num" id="y2_plus">$1,597,500</td>
           <td class="num" id="y3_plus">$1,597,500</td>
           <td class="num" id="t_plus">$5,081,500</td>
         </tr>
         <tr class="total">
-          <td><strong>Net savings on Plus</strong></td>
+          <td><strong>Net benefit on Plus</strong></td>
           <td class="num" id="y1_save">+$124,000</td>
           <td class="num" id="y2_save">+$413,000</td>
           <td class="num" id="y3_save">+$413,000</td>
@@ -438,40 +686,40 @@
       </tbody>
     </table>
 
-    <p class="footnote">Year 1 includes the implementation cost (Lazer midpoint $289K used here as default — adjust the partner choice below). Years 2 and 3 are recurring steady-state. Shop Pay conversion lift (+1–3% AOV typical on Plus) and revenue-driving features (Functions, Audiences, Flow) are not modeled in the recurring savings — they're upside on top.</p>
+    <p class="footnote">Year 1 includes the implementation cost (Lazer midpoint $289,500 used as default — swap to CQL low or Domaine high to model the range). Years 2 and 3 are recurring steady-state. Revenue lift from Shop Pay + Audiences stacks on top and is not modeled in this table.</p>
   </div>
 </section>
 
 <!-- PARTNER COMPARISON -->
 <section class="soft">
   <div class="container">
-    <div class="eyebrow">Implementation partner — the real variable</div>
-    <h2>Three quotes in. The spread is wider than the platform cost.</h2>
-    <p class="lede">Plus license + processing scales predictably with GMV. The decision worth your CFO's time is which partner — that's where the cost spread lives.</p>
+    <div class="eyebrow">The implementation decision</div>
+    <h2>Where the real cost spread lives — partner selection.</h2>
+    <p class="lede">Plus license + processing scales predictably with GMV. The decision worth your CFO's time is which agency partner builds it — that's the variable with the widest range.</p>
 
-    <div class="grid-3" style="margin-top: 32px;">
+    <div class="grid-3" style="margin-top: 36px;">
       <div class="partner-card">
         <div class="partner-tag">Lowest cost</div>
-        <div class="partner-name">CQL</div>
+        <div class="partner-name">CQL <span class="tip" data-tip="Source: Luke Chatelain, June 10 intro call. 'CQL came in the lowest and they also had talked to someone at Shopify about giving us a 10K offset just on that assessment as well.' Exact total cost not yet shared.">i</span></div>
         <div class="partner-cost">~$240K</div>
-        <div class="partner-meta">Offered a $10K Shopify offset on the paid assessment. Lower-cost path but less due diligence on the configurator architecture so far.</div>
+        <div class="partner-meta">Lowest-cost option of the three. Offered $10K Shopify offset on the paid assessment. Less due diligence on the configurator architecture so far per Luke's read.</div>
       </div>
       <div class="partner-card rec">
-        <div class="partner-tag">Middle · most detailed</div>
-        <div class="partner-name">Lazer Technologies <span class="pill rec">Most due diligence</span></div>
+        <div class="partner-tag">Most due diligence</div>
+        <div class="partner-name">Lazer Technologies <span class="pill rec">Recommended baseline</span> <span class="tip" data-tip="Source: Catbird × Lazer SOW (full proposal document). $289,500 total — 17-week build including theme, configurator framework (Confetti + Memento on Cart Transform Functions), NetSuite integration via SuperSync, data migration, native promotions, SEO migration, 2-week hypercare.">i</span></div>
         <div class="partner-cost">$289,500</div>
-        <div class="partner-meta">17-week build. SOW includes theme build, configurator framework (Confetti / Memento on Cart Transform Functions), NetSuite via SuperSync, data migration, SEO migration, native promotions, 2 weeks hypercare. Out of scope: POS, B2B/wholesale, mobile app, loyalty (post-launch fast-follow).</div>
+        <div class="partner-meta">17-week build. SOW covers theme, configurator framework (Confetti / Memento via Cart Transform Functions), NetSuite + SuperSync, data migration, SEO migration, 2-week hypercare. Out of scope: POS, B2B, mobile app, loyalty.</div>
       </div>
       <div class="partner-card">
         <div class="partner-tag">Highest cost</div>
-        <div class="partner-name">Domaine</div>
+        <div class="partner-name">Domaine <span class="tip" data-tip="Source: Luke June 10 call ('Domain came in significantly higher') + Seamas McClimans direct Slack confirmation June 8 ('we've broken out a Paid Discovery 4-6 weeks to validate the configurator architecture against MageWorks and scope NetSuite ERP integration'). Exact total not yet shared but trending ~$425K based on Luke's framing.">i</span></div>
         <div class="partner-cost">~$425K</div>
-        <div class="partner-meta">Worked with Annie + Luke on the Away migration — strong relationship signal. Paid Discovery (4–6 weeks) to validate configurator + NetSuite scope, then build. Most expensive of the three.</div>
+        <div class="partner-meta">Worked with Annie + Luke on the Away migration — relationship signal. Paid Discovery (4–6 weeks) to validate configurator + NetSuite scope, then build. Most expensive of the three but most relationship-tested with Catbird leadership.</div>
       </div>
     </div>
 
     <div class="callout">
-      <strong>Reading the spread:</strong> ~$185K from CQL low to Domaine high. The Lazer midpoint ($289K) is what's baked into the 3-year TCO above — swap in CQL or Domaine and the Year 1 number moves, but Years 2+ don't. The implementation is one-time. The recurring savings compound.
+      <strong>Reading the spread:</strong> ~$185K from CQL low to Domaine high. The Lazer midpoint ($289K) is baked into the 3-year ROI table above — swap in CQL or Domaine and Year 1's net benefit shifts. Years 2 and 3 are unaffected. The implementation is one-time. The recurring savings compound year after year.
     </div>
   </div>
 </section>
@@ -481,98 +729,168 @@
   <div class="container">
     <div class="eyebrow">Mutual action plan</div>
     <h2>Working back from a late January 2027 launch.</h2>
-    <p class="lede">11 steps from here to live, sequenced behind the NetSuite + NewStore cutover. Dates assume contract signature in Q3 2026.</p>
+    <p class="lede">Sequenced behind the NetSuite + NewStore cutover. Dates assume Plus contract signature by August 31, 2026.</p>
 
-    <div style="margin-top: 32px;">
+    <div style="margin-top: 36px;">
       <div class="map-step">
-        <div class="map-when">This week · Jun 16–22</div>
+        <div class="map-when">Jun 16–22 · this week</div>
         <div class="map-body">
-          <h4>TCO review with Annie + Luke</h4>
-          <p>Walk through this model live. Adjust inputs against Catbird's actual numbers. Identify any gaps in the assumptions before bringing the model to Mo and Gabriel.</p>
+          <h4>TCO model review with Annie + Luke</h4>
+          <p>Walk through this page live. Adjust inputs against Catbird's actual numbers. Identify any gaps in the assumptions before bringing the model to Mo and Gabriel for sign-off.</p>
         </div>
       </div>
       <div class="map-step">
         <div class="map-when">Late June</div>
         <div class="map-body">
           <h4>Partner selection finalized</h4>
-          <p>CQL / Lazer / Domaine decision locked. Reference checks complete with Mo and Gabriel.</p>
+          <p>CQL / Lazer / Domaine decision locked with Mo and Gabriel. Reference checks complete. Annie's input on configurator scope incorporated.</p>
         </div>
       </div>
       <div class="map-step">
         <div class="map-when">Early July</div>
         <div class="map-body">
           <h4>Paid assessment kicks off</h4>
-          <p>Selected partner begins paid discovery (4–6 weeks). Validates configurator architecture (MageWorks → Cart Transform Function), NetSuite + SuperSync integration scope, and data migration plan.</p>
+          <p>Selected partner begins paid discovery (4–6 weeks per Domaine; varies by partner). Validates configurator architecture (MageWorks → Cart Transform Function), NetSuite + SuperSync integration scope, and data migration plan.</p>
         </div>
       </div>
       <div class="map-step">
         <div class="map-when">Mid-Jul to mid-Aug</div>
         <div class="map-body">
-          <h4>NetSuite + NewStore cutover</h4>
-          <p>Catbird's other replatforming completes. Shopify build runs in parallel with paid assessment — no conflict.</p>
+          <h4>NetSuite + NewStore cutover (in flight)</h4>
+          <p>Catbird's other replatforming completes per Domaine's writeup. Shopify paid assessment runs in parallel — no resource conflict for Catbird's internal team.</p>
         </div>
       </div>
       <div class="map-step">
         <div class="map-when">Aug 31</div>
         <div class="map-body">
-          <h4>Shopify Plus contract signed + build kickoff</h4>
-          <p>Plus contract executed. Partner moves from paid assessment into the build phase. Account team assigned.</p>
+          <h4>Plus contract signed · build kickoff</h4>
+          <p>Plus contract executed (Q3 commercial agreement target per Luke's June 10 confirmation). Selected partner moves from paid assessment into the build phase. Shopify account team assigned.</p>
         </div>
       </div>
       <div class="map-step">
-        <div class="map-when">Sep – Dec</div>
+        <div class="map-when">Sep – Dec 2026</div>
         <div class="map-body">
           <h4>Build phase (~17 weeks per Lazer SOW)</h4>
-          <p>Theme, configurator framework, NetSuite integration via SuperSync, data migration, native promotions, SEO migration. Avoids late-July sale and Q4 retail peak by design.</p>
+          <p>Theme build, configurator framework, NetSuite integration via SuperSync, data migration, native promotions, SEO migration with 301 redirects. Avoids late-July sale and Q4 retail peak by design.</p>
         </div>
       </div>
       <div class="map-step">
         <div class="map-when">Early Jan 2027</div>
         <div class="map-body">
           <h4>UAT + content migration final pass</h4>
-          <p>QA, performance testing, 301 redirect validation, payment + tax testing in pre-prod.</p>
+          <p>QA, performance testing, 301 redirect validation, payment + tax testing in pre-prod. 2 weeks of partner hypercare included in scope.</p>
         </div>
       </div>
       <div class="map-step target">
         <div class="map-when">Late Jan 2027</div>
         <div class="map-body">
-          <h4>Go-live ✅ — ahead of Valentine's</h4>
-          <p>Public launch. 2 weeks of standard hypercare from partner. Catbird captures full 2027 efficiency upside per the PE thesis.</p>
+          <h4>Go-live · ahead of Valentine's Day ✓</h4>
+          <p>Public launch. Catbird captures the full 2027 efficiency upside per the PE thesis. Annual recurring savings begin compounding from this point forward.</p>
         </div>
       </div>
       <div class="map-step">
         <div class="map-when">Q1 2027 fast-follow</div>
         <div class="map-body">
           <h4>Loyalty + post-launch enhancements</h4>
-          <p>Loyalty platform (Okendo or comparable) layered in post-launch. Rebuy + A/B testing + heatmapping + visualization tools per Luke's roadmap.</p>
+          <p>Loyalty platform (Okendo or comparable) layered in post-launch per Luke's confirmed roadmap. Rebuy, A/B testing, heatmapping, visualization tools follow.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VALUE BEYOND COST -->
+<!-- ASSUMPTIONS -->
 <section class="soft">
   <div class="container">
-    <div class="eyebrow">Value beyond cost</div>
-    <h2>What the TCO above doesn't capture.</h2>
+    <div class="eyebrow">Key assumptions</div>
+    <h2>Every number, every source.</h2>
+    <p class="lede">The full input layer behind the model. Catbird-specific data is from the June 10 intro call and Domaine's June 16 writeup. Shopify pricing is from the published US rate card. Magento numbers are placeholder estimates pending Catbird's confirmation.</p>
 
-    <div class="grid-2" style="margin-top: 24px;">
-      <div class="card">
-        <h4>Shop Pay conversion lift</h4>
-        <p style="font-size:14px;color:#444;">Plus customers see 1–3% AOV lift on average from Shop Pay's accelerated checkout. At $50M GMV, even a 1% lift is +$500K/yr in revenue. Not modeled in the TCO above — pure upside.</p>
+    <div class="assumptions-list">
+      <div class="assumption-row">
+        <div class="a-label">Annual online GMV</div>
+        <div class="a-value">$50,000,000</div>
+        <div class="a-source">Annie Marsh, June 10 intro call. "In 25 we finished just under 50 million." Confirmed online portion.</div>
       </div>
-      <div class="card">
-        <h4>Audiences + Functions + Flow</h4>
-        <p style="font-size:14px;color:#444;">Plus-only marketing and automation tools. Audiences improves paid acquisition ROAS by 10–25%; Functions powers custom commerce logic (Catbird's configurators); Flow automates back-office workflows that currently burn dev hours.</p>
+      <div class="assumption-row">
+        <div class="a-label">2026 growth</div>
+        <div class="a-value">+10%</div>
+        <div class="a-source">Luke Chatelain, June 10 call: "we plan to be at least 10% over that $49M in 2026 alone."</div>
       </div>
-      <div class="card">
-        <h4>Reduced agency dependency</h4>
-        <p style="font-size:14px;color:#444;">Plus customers reduce external dev agency spend post-launch as their teams take more ownership through the Shopify admin. Conservatively modeled as a 75% reduction above; many customers see 90%+.</p>
+      <div class="assumption-row">
+        <div class="a-label">Plus base license</div>
+        <div class="a-value">$2,300 / mo</div>
+        <div class="a-source">Shopify Plus published US rate card. 3-year commit pricing.</div>
       </div>
-      <div class="card">
-        <h4>Time-to-market on new features</h4>
-        <p style="font-size:14px;color:#444;">Catbird's marketing team can ship promotions, A/B tests, and campaigns without engineering tickets. The Magento "everything needs a dev" tax goes away. Hard to put a dollar number on it — easy to feel.</p>
+      <div class="assumption-row">
+        <div class="a-label">Plus VPF rate</div>
+        <div class="a-value">0.35%</div>
+        <div class="a-source">Shopify Plus published US rate. Merchant pays higher of base × 12 or VPF × annual GMV.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Shop Payments standard rate</div>
+        <div class="a-value">2.25% + 30¢</div>
+        <div class="a-source">Shopify Plus US rate card. Card-not-present standard.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Shop Payments Amex / commercial</div>
+        <div class="a-value">2.95% + 30¢</div>
+        <div class="a-source">Shopify Plus US rate card. Premium card category.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Processing mix (standard / Amex)</div>
+        <div class="a-value">70% / 30%</div>
+        <div class="a-source">Industry default for fine jewelry / high-AOV DTC. Catbird actual to confirm from Braintree statements.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Magento agency reduction on Plus</div>
+        <div class="a-value">-75%</div>
+        <div class="a-source">Conservative model. Plus customers typically reduce external dev agency spend 70-90% post-migration as marketing and ecom teams self-serve via admin.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">In-house dev reallocation on Plus</div>
+        <div class="a-value">-50%</div>
+        <div class="a-source">Conservative model. Half of Catbird's Magento maintenance time gets freed up for new initiatives, not eliminated.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Active SKU count</div>
+        <div class="a-value">27,045</div>
+        <div class="a-source">Domaine writeup, June 16 Slack DM: 644 configurable + 26,338 simple.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Customizable jewelry share</div>
+        <div class="a-value">16% of revenue</div>
+        <div class="a-source">Domaine writeup, June 16. Includes Confetti, Memento, engraving products.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">AOV (online)</div>
+        <div class="a-value">$312</div>
+        <div class="a-source">Lazer Technologies SOW. 1.6 items per order, $466 customer lifetime value.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Lazer implementation cost</div>
+        <div class="a-value">$289,500</div>
+        <div class="a-source">Catbird × Lazer SOW. 17-week build, all-in.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">CQL implementation cost</div>
+        <div class="a-value">~$240K</div>
+        <div class="a-source">Luke June 10: "CQL came in the lowest." Exact total not yet shared; ~$240K used as estimate.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Domaine implementation cost</div>
+        <div class="a-value">~$425K</div>
+        <div class="a-source">Luke June 10: "Domain came in significantly higher." Seamas (Domaine) confirmed in Slack they are the most costly. ~$425K used as estimate.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">NetSuite + NewStore cutover</div>
+        <div class="a-value">Mid-Jul to mid-Aug 2026</div>
+        <div class="a-source">Domaine writeup, June 16.</div>
+      </div>
+      <div class="assumption-row">
+        <div class="a-label">Shopify migration target go-live</div>
+        <div class="a-value">Early Q1 2027</div>
+        <div class="a-source">Luke June 10 call: "the objective is to launch the Shopify migration in January 2027 to capture efficiency gains throughout that year."</div>
       </div>
     </div>
   </div>
@@ -586,16 +904,16 @@
 
     <div class="grid-2">
       <ul style="font-size:14px;line-height:1.7;">
-        <li><strong>Configurator-native architecture.</strong> Confetti + Memento + engraving all map cleanly to metaobjects, metafields, and Cart Transform Functions — what Catbird is custom-building today on Magento.</li>
-        <li><strong>NetSuite + SuperSync integration is well-trodden.</strong> SuperSync ↔ Shopify is a documented path. The integration risk is low.</li>
-        <li><strong>Plus card rates beat Braintree at scale.</strong> Plus standard 2.25% vs. typical Magento Braintree 2.5%+ saves 25–50bps on $50M GMV.</li>
+        <li><strong>Configurator-native architecture.</strong> Confetti + Memento + engraving map cleanly to metaobjects, metafields, and Cart Transform Functions — what Catbird is custom-building today on Magento.</li>
+        <li><strong>NetSuite + SuperSync is well-trodden.</strong> SuperSync ↔ Shopify is a documented path. Integration risk is low.</li>
+        <li><strong>Plus card rates beat Braintree at scale.</strong> 2.25% vs. typical Magento Braintree 2.5%+ saves 25–50bps on $50M GMV.</li>
         <li><strong>Marketing team self-service.</strong> Promotions, audiences, content updates without dev tickets.</li>
       </ul>
       <ul style="font-size:14px;line-height:1.7;">
-        <li><strong>Klaviyo + Attentive + Yotpo + Kustomer all integrate cleanly.</strong> Catbird's existing martech stack stays. No forced replacements.</li>
-        <li><strong>PE-friendly cost structure.</strong> Predictable license + processing line that scales with revenue. No surprise infrastructure bills.</li>
+        <li><strong>Existing stack stays.</strong> Klaviyo + Attentive + Yotpo + Kustomer all integrate cleanly. No forced replacements.</li>
+        <li><strong>PE-friendly cost structure.</strong> Predictable license + processing that scales with revenue. No surprise infrastructure bills.</li>
         <li><strong>Faster time-to-launch than re-platforming Magento again.</strong> Lazer's 17-week build is on the short end of comparable enterprise migrations.</li>
-        <li><strong>Account team + dedicated support.</strong> Plus includes account-managed commercial support through migration and beyond.</li>
+        <li><strong>Account-managed support.</strong> Plus includes dedicated commercial support through migration and beyond.</li>
       </ul>
     </div>
   </div>
@@ -604,13 +922,12 @@
 <footer>
   <div class="container">
     <p><strong>Nicole DeGennaro</strong> · Senior Account Executive, Commercial · Shopify</p>
-    <p>nicole.degennaro@shopify.com · <a href="mailto:nicole.degennaro@shopify.com" style="color:var(--accent);">Email</a> · <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ21D4ZVzT0AEp-DH639GR5SJmESJlOwJn36_IEMIQErqguhkfKjj8mgSSHmm5MeLSEKPYD6lQbZ" style="color:var(--accent);">Book a meeting</a></p>
-    <p style="margin-top: 16px; font-size: 12px;">This is a live document — share the URL with your team. Inputs update in real time on every device.</p>
+    <p style="margin-top: 8px;"><a href="mailto:nicole.degennaro@shopify.com">nicole.degennaro@shopify.com</a> · <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ21D4ZVzT0AEp-DH639GR5SJmESJlOwJn36_IEMIQErqguhkfKjj8mgSSHmm5MeLSEKPYD6lQbZ">Book a meeting</a></p>
+    <p style="margin-top: 20px; font-size: 12px; color: var(--muted);">This is a live document — share the URL with your team. Inputs update in real time on every device. Every default value has a source — hover the info icons throughout.</p>
   </div>
 </footer>
 
 <script>
-  // Live TCO calculator
   function fmt(n) {
     if (isNaN(n) || !isFinite(n)) return '$0';
     return '$' + Math.round(n).toLocaleString('en-US');
@@ -621,11 +938,8 @@
     return sign + '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
   }
 
-  // Processing mix assumption: 70% standard / 30% Amex
   const STD_MIX = 0.70;
   const AMEX_MIX = 0.30;
-
-  // Default partner implementation cost for Year 1 (Lazer midpoint)
   const PARTNER_IMPL = 289500;
 
   function getNum(id) {
@@ -634,7 +948,6 @@
   }
 
   function calc() {
-    // Magento inputs
     const mag_lic = getNum('magento_license');
     const mag_agency = getNum('magento_agency');
     const mag_inhouse = getNum('magento_inhouse');
@@ -643,7 +956,6 @@
     const bt_std = getNum('braintree_std') / 100;
     const bt_amex = getNum('braintree_amex') / 100;
 
-    // Plus inputs
     const gmv = getNum('gmv');
     const vpf_rate = getNum('vpf_rate') / 100;
     const plus_base_mo = getNum('plus_base');
@@ -652,19 +964,15 @@
     const plus_apps = getNum('plus_apps');
     const plus_mid = getNum('plus_middleware');
 
-    // Magento processing on current GMV (assume same GMV scales)
     const mag_proc = (gmv * STD_MIX * bt_std) + (gmv * AMEX_MIX * bt_amex);
     const mag_total = mag_lic + mag_agency + mag_inhouse + mag_maint + mag_apps + mag_proc;
 
-    // Plus license = max of base*12 or VPF*GMV
     const plus_base_annual = plus_base_mo * 12;
     const plus_vpf = gmv * vpf_rate;
     const plus_lic = Math.max(plus_base_annual, plus_vpf);
 
-    // Plus processing
     const plus_proc = (gmv * STD_MIX * plus_std) + (gmv * AMEX_MIX * plus_amex);
 
-    // Plus side dev allocations: assume 75% reduction in agency, 50% reduction in in-house
     const plus_agency = mag_agency * 0.25;
     const plus_inhouse = mag_inhouse * 0.50;
 
@@ -672,7 +980,6 @@
 
     const savings = mag_total - plus_total;
 
-    // Update Magento side
     document.getElementById('o_mag_lic').textContent = fmt(mag_lic);
     document.getElementById('o_mag_agency').textContent = fmt(mag_agency);
     document.getElementById('o_mag_inhouse').textContent = fmt(mag_inhouse);
@@ -681,7 +988,6 @@
     document.getElementById('o_mag_proc').textContent = fmt(mag_proc);
     document.getElementById('o_mag_total').textContent = fmt(mag_total);
 
-    // Update Plus side
     document.getElementById('o_plus_lic').textContent = fmt(plus_lic);
     document.getElementById('o_plus_apps').textContent = fmt(plus_apps);
     document.getElementById('o_plus_mid').textContent = fmt(plus_mid);
@@ -690,9 +996,20 @@
     document.getElementById('o_plus_inhouse').textContent = fmt(plus_inhouse);
     document.getElementById('o_plus_total').textContent = fmt(plus_total);
 
-    document.getElementById('o_savings').textContent = fmtSigned(savings) + '/yr';
+    document.getElementById('o_savings').textContent = fmtSigned(savings) + ' / yr';
 
-    // 3-year projection table
+    // Hero stats
+    document.getElementById('hero_savings').textContent = fmt(savings);
+    const threeYear = (mag_total - plus_total) * 3 - PARTNER_IMPL;
+    document.getElementById('hero_3yr').textContent = fmt(threeYear);
+    if (savings > 0) {
+      const paybackMonths = Math.round((PARTNER_IMPL / savings) * 12);
+      document.getElementById('hero_payback').textContent = '~' + paybackMonths + ' mo';
+    } else {
+      document.getElementById('hero_payback').textContent = '—';
+    }
+
+    // 3-year projection
     const y1_mag = mag_total;
     const y2_mag = mag_total;
     const y3_mag = mag_total;
@@ -719,12 +1036,10 @@
     document.getElementById('t_save').textContent = fmtSigned(t_mag - t_plus);
   }
 
-  // Wire up
   document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('input', calc);
   });
 
-  // Initial calc
   calc();
 </script>
 
