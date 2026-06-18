@@ -355,6 +355,105 @@
   .assumption-row .a-value { color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 600; }
   .assumption-row .a-source { color: var(--ink-soft); font-style: italic; }
   @media (max-width: 720px) { .assumption-row { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Tabs */
+  .tabs-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0 32px;
+  }
+  .tabs-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 18px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active {
+    color: var(--gold-dark);
+    border-bottom-color: var(--gold);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .vpf-result-card {
+    background: var(--gold-soft);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 32px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .vpf-result-card .vpf-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .vpf-result-card .vpf-figure {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    color: var(--gold-dark);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .vpf-result-card .vpf-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .vpf-band {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media (max-width: 720px) { .vpf-band { grid-template-columns: 1fr; } }
+  .vpf-band .band {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .vpf-band .band.active { border-color: var(--gold); background: var(--gold-soft); }
+  .vpf-band .band-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .vpf-band .band-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .vpf-band .band-sub { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
 </style>
 </head>
 <body>
@@ -392,6 +491,20 @@
     </div>
   </div>
 </section>
+
+
+<!-- TAB NAVIGATION -->
+<nav class="tabs-nav">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-tab="tco">TCO &amp; ROI</button>
+    <button class="tab-btn" data-tab="pricing">Pricing</button>
+    <button class="tab-btn" data-tab="map">Mutual Action Plan</button>
+    <button class="tab-btn" data-tab="vpf">VPF Calculator</button>
+  </div>
+</nav>
+
+<!-- TCO & ROI TAB CONTENT -->
+<div class="tab-content active" id="tab-tco">
 
 <!-- THE BOTTOM LINE -->
 <section class="soft">
@@ -1017,6 +1130,149 @@
   </div>
 </section>
 
+
+</div><!-- /#tab-tco -->
+
+<!-- PRICING TAB CONTENT -->
+<div class="tab-content" id="tab-pricing">
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Shopify Plus pricing</div>
+    <h2>What Plus actually costs, at Catbird's scale.</h2>
+    <p class="lede">The pricing from our last conversation, refined for Catbird's $50M GMV band. Hover the info icons for sourcing.</p>
+
+    <div class="grid-3" style="margin-top: 32px;">
+      <div class="stat gold">
+        <div class="k">Plus base license <span class="tip" data-tip="Source: Shopify Plus US rate card. $2,300/mo on a 3-year commit. Acts as a floor when VPF doesn't exceed it.">i</span></div>
+        <div class="v">$2,300 / mo</div>
+        <div class="sub">$27,600/yr · the floor</div>
+      </div>
+      <div class="stat gold">
+        <div class="k">VPF rate <span class="tip" data-tip="Source: Shopify Plus US rate card. Variable Platform Fee — 0.35% of monthly GMV. Merchant pays the higher of base or VPF.">i</span></div>
+        <div class="v">0.35%</div>
+        <div class="sub">Of monthly GMV</div>
+      </div>
+      <div class="stat gold">
+        <div class="k">VPF kicks in at <span class="tip" data-tip="Calculated: $27,600 base ÷ 0.35% VPF rate. Above this annual GMV, VPF exceeds the base and applies.">i</span></div>
+        <div class="v">~$7.9M GMV / yr</div>
+        <div class="sub">Where 0.35% × annual GMV = $27,600</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 32px;">
+      <strong>For Catbird at $50M GMV:</strong> 0.35% × $50M = <strong>$175,000/yr license</strong>. VPF applies (well above the $27,600 base). At the 2026 projection of $55M, license becomes $192,500/yr.
+    </div>
+
+    <h3 style="margin-top: 48px;">Card processing rates</h3>
+    <div class="grid-2" style="margin-top: 16px;">
+      <div class="card">
+        <h4>Standard cards (Visa / Mastercard / Discover)</h4>
+        <div class="meta">Online card-not-present</div>
+        <p style="font-size: 28px; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--ink); margin: 8px 0;">2.25% + 30¢</p>
+        <p style="font-size: 13px; color: var(--ink-soft);">Includes Shop Pay accelerated checkout (50% better conversion than guest checkout). Catbird's 84% volume share runs through this rate.</p>
+      </div>
+      <div class="card">
+        <h4>Amex / commercial cards</h4>
+        <div class="meta">Online card-not-present</div>
+        <p style="font-size: 28px; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--ink); margin: 8px 0;">2.95% + 30¢</p>
+        <p style="font-size: 13px; color: var(--ink-soft);">Catbird's 16% Amex mix runs through this rate — lower than typical fine-jewelry mix, which is favorable for processing costs.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 48px;">How Catbird's processing math works at $50M</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Card type</th>
+          <th class="num">Volume share</th>
+          <th class="num">$ on $50M GMV</th>
+          <th class="num">Rate</th>
+          <th class="num">Annual processing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Standard cards</strong></td>
+          <td class="num">84%</td>
+          <td class="num">$42M</td>
+          <td class="num">2.25% + 30¢</td>
+          <td class="num">$945,000</td>
+        </tr>
+        <tr>
+          <td><strong>Amex / commercial</strong></td>
+          <td class="num">16%</td>
+          <td class="num">$8M</td>
+          <td class="num">2.95% + 30¢</td>
+          <td class="num">$236,000</td>
+        </tr>
+        <tr class="total">
+          <td><strong>Combined processing</strong></td>
+          <td class="num">100%</td>
+          <td class="num">$50M</td>
+          <td class="num">~2.36% blended</td>
+          <td class="num"><strong>~$1,181,000</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="footnote">Per-transaction 30¢ fee not included in the dollar totals (depends on order count). At Catbird's AOV of $325, that's an additional ~$140K/yr in per-transaction fees. Compare to Braintree's current processing in the live TCO model.</p>
+
+    <h3 style="margin-top: 48px;">Multi-year commitment</h3>
+    <div class="callout">
+      The $2,300/mo base is unlocked on a <strong>3-year commit</strong>. For a January 2027 launch and a PE-friendly cost structure, the 3-year term aligns with the efficiency-capture thesis: lock the base rate, scale GMV, watch the per-dollar cost compress year over year.
+    </div>
+
+    <h3 style="margin-top: 48px;">Total Plus cost at Catbird's GMV bands</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>GMV band</th>
+          <th class="num">License (higher of base or VPF)</th>
+          <th class="num">Processing (84/16 mix)</th>
+          <th class="num">Total / yr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>$30M</td>
+          <td class="num">$105,000 (VPF)</td>
+          <td class="num">$708,000</td>
+          <td class="num">$813,000</td>
+        </tr>
+        <tr>
+          <td>$40M</td>
+          <td class="num">$140,000 (VPF)</td>
+          <td class="num">$944,000</td>
+          <td class="num">$1,084,000</td>
+        </tr>
+        <tr class="total">
+          <td><strong>$50M · 2025 actual</strong></td>
+          <td class="num"><strong>$175,000 (VPF)</strong></td>
+          <td class="num"><strong>$1,181,000</strong></td>
+          <td class="num"><strong>$1,356,000</strong></td>
+        </tr>
+        <tr>
+          <td>$55M · 2026 projected</td>
+          <td class="num">$192,500 (VPF)</td>
+          <td class="num">$1,299,100</td>
+          <td class="num">$1,491,600</td>
+        </tr>
+        <tr>
+          <td>$75M · scale scenario</td>
+          <td class="num">$262,500 (VPF)</td>
+          <td class="num">$1,771,500</td>
+          <td class="num">$2,034,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div><!-- /#tab-pricing -->
+
+<!-- MUTUAL ACTION PLAN TAB CONTENT -->
+<div class="tab-content" id="tab-map">
+
 <!-- DETAILED TIMELINE TO 7/30 CLOSE -->
 <section class="soft">
   <div class="container">
@@ -1131,6 +1387,159 @@
     </div>
   </div>
 </section>
+
+
+</div><!-- /#tab-map -->
+
+<!-- VPF CALCULATOR TAB CONTENT -->
+<div class="tab-content" id="tab-vpf">
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Live VPF calculator</div>
+    <h2>Variable Platform Fee — at any GMV.</h2>
+    <p class="lede">Plus charges the <strong>higher</strong> of two amounts: a flat base license ($2,300/month) or a percentage of monthly GMV (0.35%). At low GMV the base applies. As revenue grows, VPF takes over. Adjust the inputs to see how the math plays out at any volume.</p>
+
+    <div class="calc-section">
+      <div class="calc-header">
+        <h3>Calculate your Plus license cost</h3>
+        <div class="calc-hint">All inputs editable · updates in real time</div>
+      </div>
+
+      <div class="calc-inputs">
+        <div class="input-group plus">
+          <h4>Inputs</h4>
+          <div class="input-row">
+            <div class="label-wrap">Annual GMV <span class="tip" data-tip="Total online GMV for the year. Catbird's 2025 actual: $50M. 2026 projected: $55M.">i</span></div>
+            <span class="prefix">$</span><input type="number" id="vpf_gmv" value="50000000">
+          </div>
+          <div class="input-row">
+            <div class="label-wrap">VPF rate <span class="tip" data-tip="Shopify Plus published US VPF rate: 0.35%. Used to calculate the variable portion of the license.">i</span></div>
+            <input type="number" id="vpf_calc_rate" value="0.35" step="0.05"><span class="suffix">%</span>
+          </div>
+          <div class="input-row">
+            <div class="label-wrap">Base license (monthly) <span class="tip" data-tip="Shopify Plus published US base: $2,300/mo on a 3-year commit. The license floor — applies when VPF × GMV doesn't exceed it.">i</span></div>
+            <span class="prefix">$</span><input type="number" id="vpf_base" value="2300">
+          </div>
+        </div>
+
+        <div class="input-group plus">
+          <h4>Calculated</h4>
+          <div class="input-row">
+            <div class="label-wrap">Base license (annual)</div>
+            <span style="font-variant-numeric: tabular-nums; font-weight: 600;" id="vpf_base_annual">$27,600</span>
+          </div>
+          <div class="input-row">
+            <div class="label-wrap">VPF × GMV (annual)</div>
+            <span style="font-variant-numeric: tabular-nums; font-weight: 600;" id="vpf_vpf_amount">$175,000</span>
+          </div>
+          <div class="input-row">
+            <div class="label-wrap">Which applies?</div>
+            <span style="font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gold-dark);" id="vpf_which">VPF (higher)</span>
+          </div>
+          <div class="input-row">
+            <div class="label-wrap">VPF breakeven point</div>
+            <span style="font-variant-numeric: tabular-nums; font-weight: 600;" id="vpf_breakeven">$7.9M annual GMV</span>
+          </div>
+          <div class="input-row">
+            <div class="label-wrap">Effective rate at this GMV</div>
+            <span style="font-variant-numeric: tabular-nums; font-weight: 600;" id="vpf_effective_rate">0.35%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="vpf-result-card">
+        <div class="vpf-headline">Annual Plus license</div>
+        <div class="vpf-figure" id="vpf_total">$175,000</div>
+        <div class="vpf-sub" id="vpf_total_sub">VPF applies · $14,583 / mo equivalent</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 56px;">How VPF plays out across GMV bands</h3>
+
+    <div class="vpf-band">
+      <div class="band" id="band_low">
+        <div class="band-label">Below $7.9M annual</div>
+        <div class="band-value">Base applies</div>
+        <div class="band-sub">$2,300/mo base · $27,600/yr. Flat regardless of monthly fluctuations.</div>
+      </div>
+      <div class="band" id="band_mid">
+        <div class="band-label">$7.9M – $10M annual</div>
+        <div class="band-value">VPF takes over</div>
+        <div class="band-sub">At $10M: $35,000/yr license (vs. $27,600 base). VPF exceeds base.</div>
+      </div>
+      <div class="band active" id="band_high">
+        <div class="band-label">$10M+ annual · Catbird's band</div>
+        <div class="band-value">VPF scales linearly</div>
+        <div class="band-sub">At $50M: $175K/yr. At $100M: $350K/yr. Rate stays at 0.35% no matter how big.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 32px;">
+      <strong>Why this is good news for Catbird:</strong> the rate stays at 0.35% as Catbird scales. You pay more in absolute dollars because you're selling more — but the percentage never moves against you. Most enterprise platforms scale their cut as you grow. Plus doesn't.
+    </div>
+
+    <h3 style="margin-top: 48px;">License cost at sample GMV bands</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Annual GMV</th>
+          <th class="num">Base × 12</th>
+          <th class="num">0.35% × GMV</th>
+          <th class="num">Which applies</th>
+          <th class="num">Annual license</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>$3M</td>
+          <td class="num">$27,600</td>
+          <td class="num">$10,500</td>
+          <td class="num">Base</td>
+          <td class="num">$27,600</td>
+        </tr>
+        <tr>
+          <td>$7.9M · breakeven</td>
+          <td class="num">$27,600</td>
+          <td class="num">$27,650</td>
+          <td class="num">VPF (just)</td>
+          <td class="num">$27,650</td>
+        </tr>
+        <tr>
+          <td>$20M</td>
+          <td class="num">$27,600</td>
+          <td class="num">$70,000</td>
+          <td class="num">VPF</td>
+          <td class="num">$70,000</td>
+        </tr>
+        <tr class="total">
+          <td><strong>$50M · Catbird 2025</strong></td>
+          <td class="num">$27,600</td>
+          <td class="num"><strong>$175,000</strong></td>
+          <td class="num"><strong>VPF</strong></td>
+          <td class="num"><strong>$175,000</strong></td>
+        </tr>
+        <tr>
+          <td>$55M · 2026 projected</td>
+          <td class="num">$27,600</td>
+          <td class="num">$192,500</td>
+          <td class="num">VPF</td>
+          <td class="num">$192,500</td>
+        </tr>
+        <tr>
+          <td>$75M · scale scenario</td>
+          <td class="num">$27,600</td>
+          <td class="num">$262,500</td>
+          <td class="num">VPF</td>
+          <td class="num">$262,500</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+</div><!-- /#tab-vpf -->
 
 <footer>
   <div class="container">
@@ -1276,6 +1685,51 @@
   });
 
   calc();
+
+  // VPF calculator (independent of main TCO calc)
+  function vpfCalc() {
+    const gmv = getNum('vpf_gmv');
+    const rate = getNum('vpf_calc_rate') / 100;
+    const baseMo = getNum('vpf_base');
+    const baseAnnual = baseMo * 12;
+    const vpfAmount = gmv * rate;
+    const winner = Math.max(baseAnnual, vpfAmount);
+    const isVpf = vpfAmount > baseAnnual;
+    const breakeven = baseAnnual / rate;
+    const effectiveRate = (winner / gmv) * 100;
+
+    document.getElementById('vpf_base_annual').textContent = fmt(baseAnnual);
+    document.getElementById('vpf_vpf_amount').textContent = fmt(vpfAmount);
+    document.getElementById('vpf_which').textContent = isVpf ? 'VPF (higher)' : 'Base (higher)';
+    document.getElementById('vpf_breakeven').textContent = '$' + (breakeven / 1e6).toFixed(1) + 'M annual GMV';
+    document.getElementById('vpf_effective_rate').textContent = effectiveRate.toFixed(2) + '%';
+    document.getElementById('vpf_total').textContent = fmt(winner);
+    document.getElementById('vpf_total_sub').textContent = (isVpf ? 'VPF applies' : 'Base applies') + ' · ' + fmt(winner / 12) + ' / mo equivalent';
+
+    // Highlight active band
+    document.getElementById('band_low').classList.toggle('active', gmv < breakeven);
+    document.getElementById('band_mid').classList.toggle('active', gmv >= breakeven && gmv < 10000000);
+    document.getElementById('band_high').classList.toggle('active', gmv >= 10000000);
+  }
+  ['vpf_gmv', 'vpf_calc_rate', 'vpf_base'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', vpfCalc);
+  });
+  vpfCalc();
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.tab-content').forEach(c => {
+        c.classList.toggle('active', c.id === 'tab-' + tab);
+      });
+      // Scroll to top of tab content
+      window.scrollTo({ top: document.querySelector('.tabs-nav').offsetTop, behavior: 'smooth' });
+    });
+  });
+
 </script>
 
 </body>
