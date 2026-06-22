@@ -215,22 +215,21 @@
   @media (max-width: 720px) { .calc-inputs { grid-template-columns: 1fr; } }
 
   /* Side-by-side comparison table */
-  .compare-table { margin-bottom: 36px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-  .compare-head { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; padding: 14px 22px; background: var(--bg-card); border-bottom: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .compare-table { margin-bottom: 36px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .compare-head { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px; padding: 18px 26px; background: var(--bg-soft); border-bottom: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
   .compare-head .ch-mag { color: var(--warn); }
   .compare-head .ch-plus { color: var(--gold-dark); }
-  .compare-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; align-items: center; padding: 12px 22px; border-bottom: 1px dashed var(--line); min-height: 60px; }
+  .compare-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px; align-items: center; padding: 16px 26px; border-bottom: 1px solid var(--line); min-height: 64px; transition: background 0.15s ease; }
   .compare-row:last-child { border-bottom: none; }
-  .compare-row.shared { background: rgba(168, 144, 96, 0.08); }
-  .compare-row .cr-label { font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; }
+  .compare-row:hover { background: var(--bg-soft); }
+  .compare-row .cr-label { font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; }
   .compare-row .cr-cell { display: flex; align-items: center; justify-content: flex-start; gap: 4px; }
-  .compare-row .cr-cell.shared-cell { grid-column: 2 / span 2; justify-content: flex-start; }
-  .compare-row input { width: 130px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; background: var(--bg-card); color: var(--ink); }
+  .compare-row input { width: 130px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; background: var(--bg-card); color: var(--ink); }
   .compare-row input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168, 144, 96, 0.15); }
-  .compare-row .prefix, .compare-row .suffix { font-size: 12px; color: var(--muted); }
-  .compare-row .none { font-size: 12px; color: var(--muted); font-style: italic; }
-  .compare-row .elim { font-size: 13px; color: var(--positive); font-weight: 600; }
-  @media (max-width: 720px) { .compare-head, .compare-row { grid-template-columns: 1fr; } .compare-row { padding: 16px 22px; } .compare-row .cr-cell.shared-cell { grid-column: auto; } }
+  .compare-row .prefix, .compare-row .suffix { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .compare-row .none { font-size: 13px; color: var(--muted); font-style: italic; }
+  .compare-row .elim { font-size: 13px; color: var(--positive); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  @media (max-width: 720px) { .compare-head, .compare-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 22px; } }
   .input-group {
     background: var(--bg-soft);
     padding: 22px;
@@ -629,8 +628,9 @@
         </div>
 
         <div class="compare-row">
-          <div class="cr-label">% of volume on Amex <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. 16% Amex / 84% standard cards — lower than typical fine-jewelry mix, favorable for processing costs. Used on both sides.">i</span></div>
-          <div class="cr-cell shared-cell"><input type="number" id="amex_mix" value="16" step="1"><span class="suffix">%</span> <span class="none" style="margin-left: 12px;">applied to both columns</span></div>
+          <div class="cr-label">% of volume on Amex <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. 16% Amex / 84% standard cards — lower than typical fine-jewelry mix. Applies to both sides.">i</span></div>
+          <div class="cr-cell"><input type="number" id="amex_mix" value="16" step="1"><span class="suffix">%</span></div>
+          <div class="cr-cell"><input type="number" id="amex_mix_r" value="16" step="1"><span class="suffix">%</span></div>
         </div>
 
         <div class="compare-row">
@@ -639,9 +639,10 @@
           <div class="cr-cell"><input type="number" id="vpf_rate" value="0.35" step="0.05"><span class="suffix">%</span></div>
         </div>
 
-        <div class="compare-row shared">
+        <div class="compare-row">
           <div class="cr-label">Annual GMV <span class="tip" data-tip="Catbird's 2025 actual: $50M. Drives the processing math on both sides.">i</span></div>
-          <div class="cr-cell shared-cell"><span class="prefix">$</span><input type="number" id="gmv" value="50000000"> <span class="none" style="margin-left: 12px;">shared — drives both sides</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="gmv" value="50000000"></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="gmv_r" value="50000000"></div>
         </div>
 
         <div class="compare-row">
@@ -1549,8 +1550,21 @@
     document.getElementById('combined_benefit').textContent = fmtSigned(combinedBenefit) + ' / yr';
   }
 
+  // Sync mirror inputs (Amex mix, GMV — shown on both sides)
+  function syncPair(srcId, mirrorId) {
+    const src = document.getElementById(srcId);
+    const mirror = document.getElementById(mirrorId);
+    if (!src || !mirror) return;
+    src.addEventListener('input', () => { mirror.value = src.value; calc(); });
+    mirror.addEventListener('input', () => { src.value = mirror.value; calc(); });
+  }
+  syncPair('amex_mix', 'amex_mix_r');
+  syncPair('gmv', 'gmv_r');
+
   document.querySelectorAll('input[type="number"]').forEach(input => {
-    input.addEventListener('input', calc);
+    if (!input.id.endsWith('_r')) {
+      input.addEventListener('input', calc);
+    }
   });
 
   calc();
