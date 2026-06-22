@@ -499,7 +499,6 @@
     <button class="tab-btn active" data-tab="tco">TCO &amp; ROI</button>
     <button class="tab-btn" data-tab="pricing">Pricing</button>
     <button class="tab-btn" data-tab="map">Mutual Action Plan</button>
-    <button class="tab-btn" data-tab="vpf">VPF Calculator</button>
     <button class="tab-btn" data-tab="appendix">Appendix</button>
   </div>
 </nav>
@@ -554,6 +553,11 @@
     <div class="eyebrow">Live TCO model</div>
     <h2>Magento today vs. Shopify Plus.</h2>
     <p class="lede" style="font-size: 18px;">Edit any number. The page updates live.</p>
+
+    <div style="background: var(--positive-soft); border-left: 4px solid var(--positive); padding: 20px 24px; border-radius: 4px; margin: 24px 0 32px;">
+      <div style="font-family: Inter, sans-serif; font-size: 12px; color: var(--positive); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 8px;">Processing — already saving</div>
+      <div style="font-size: 16px; color: var(--ink); line-height: 1.55;">Shopify Plus rack rates (<strong>2.25% standard · 2.95% Amex</strong>) are lower than Braintree today (<strong>2.5% standard · 3.25% Amex</strong>). Catbird saves on every transaction from day one — before any other lever.</div>
+    </div>
 
     <div class="calc-section">
       <div class="calc-header">
@@ -659,7 +663,7 @@
             <div class="calc-output-row"><span class="label">Future apps</span><span class="value" id="o_plus_apps">$36,000</span></div>
             <div class="calc-output-row"><span class="label">SuperSync middleware</span><span class="value" id="o_plus_mid">$24,000</span></div>
             <div class="calc-output-row"><span class="label">Processing on $50M</span><span class="value" id="o_plus_proc">$1,242,500</span></div>
-            <div class="calc-output-row"><span class="label">Dev agency (75% reduced)</span><span class="value" id="o_plus_agency">$60,000</span></div>
+            <div class="calc-output-row"><span class="label">Dev agency (eliminated)</span><span class="value" id="o_plus_agency">$0</span></div>
             <div class="calc-output-row"><span class="label">In-house dev (50% freed)</span><span class="value" id="o_plus_inhouse">$60,000</span></div>
             <div class="calc-output-row total"><span class="label">Plus total / yr</span><span class="value" id="o_plus_total">$1,597,500</span></div>
             <div class="calc-output-row" style="margin-top: 8px; color: var(--ink-soft);"><span class="label">+ Lazer implementation <span style="font-size: 11px; color: var(--muted);">(one-time, Year 1)</span></span><span class="value" id="o_plus_impl">$289,500</span></div>
@@ -870,6 +874,26 @@
       The $2,300/mo base is unlocked on a <strong>3-year commit</strong>. For a January 2027 launch and a PE-friendly cost structure, the 3-year term aligns with the efficiency-capture thesis: lock the base rate, scale GMV, watch the per-dollar cost compress year over year.
     </div>
 
+    <h3 style="margin-top: 48px;">Commercial levers — what we can submit for approval</h3>
+    <p style="font-size: 14px; color: var(--ink-soft);">Discount approvals run on the Shopify quarter. For a Q3 close, we submit when Q3 funds open July 1. Here are the levers on the table — each subject to approval, none promised today.</p>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card">
+        <h4>Software cost credits</h4>
+        <p style="font-size: 13px;">A set number of free months on the Plus base license, applied at signing. Most common Q3 lever for net-new Plus deals at Catbird's GMV band.</p>
+      </div>
+      <div class="card">
+        <h4>VPF reduction</h4>
+        <p style="font-size: 13px;">A reduction off the 0.35% Variable Platform Fee for the term of the contract. Compounds with GMV growth — most valuable if Catbird scales beyond $50M.</p>
+      </div>
+      <div class="card">
+        <h4>Rate analysis</h4>
+        <p style="font-size: 13px;">Shopify reviews Braintree statements to evaluate the standard 2.25% / 2.95% rates. <strong>Note:</strong> Catbird is already saving on processing at rack — a formal rate review is unlikely to move the number further and may not be the right lever here.</p>
+      </div>
+    </div>
+
+    <p class="footnote" style="margin-top: 16px;">None of the above is a discount Shopify is offering today. They are the categories of approval Shopify can submit on Catbird's behalf at the start of Q3. The headline savings on this page are calculated against published rack rates — anything above is upside.</p>
+
     <h3 style="margin-top: 48px;">Total Plus cost at Catbird's GMV bands</h3>
     <table>
       <thead>
@@ -977,11 +1001,29 @@
       </div>
 
       <div class="map-step target">
-        <div class="map-when">Wed Jul 30</div>
+        <div class="map-when">Wed Jul 30 · target</div>
         <div class="map-body">
           <h4>Contract signed ✓</h4>
           <p>Contract executed. Shopify account team assigned. Selected partner moves from paid assessment into full build.</p>
         </div>
+      </div>
+
+      <div class="map-step">
+        <div class="map-when">Fri Aug 30 · latest</div>
+        <div class="map-body">
+          <h4>Absolute latest signature window</h4>
+          <p>Per the discovery sheet, Aug 30 is the latest date a signed contract still hits the late-January 2027 launch. The Jul 30 target gives a month of buffer for legal, finance, and board review.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin: 32px 0; background: var(--gold-soft); border-color: var(--gold);">
+        <h4 style="margin-top: 0;">Things to confirm with Catbird this week</h4>
+        <ul style="font-size: 14px; margin: 8px 0 0;">
+          <li>Was Annie part of the original Magento purchase process? If so, what did the contracting timeline look like?</li>
+          <li>Beyond Catbird leadership — who else needs to be a stakeholder? (board, legal, security, IT)</li>
+          <li>What does internal contract / security review typically take?</li>
+          <li>Any standard security or DPA documentation we can get a head start on now?</li>
+        </ul>
       </div>
 
       <h3 style="margin-top: 56px;">Post-close — build to launch</h3>
@@ -1312,10 +1354,7 @@
 </section>
 
 
-</div><!-- /#tab-appendix -->
-
-<!-- VPF CALCULATOR TAB CONTENT -->
-<div class="tab-content" id="tab-vpf">
+<!-- VPF CALCULATOR (moved from standalone tab) -->
 
 <section>
   <div class="container">
@@ -1462,7 +1501,7 @@
   </div>
 </section>
 
-</div><!-- /#tab-vpf -->
+</div><!-- /#tab-appendix -->
 
 <footer>
   <div class="container">
@@ -1519,7 +1558,7 @@
 
     const plus_proc = (gmv * STD_MIX * plus_std) + (gmv * AMEX_MIX * plus_amex);
 
-    const plus_agency = mag_agency * 0.25;
+    const plus_agency = 0;
     const plus_inhouse = mag_inhouse * 0.50;
 
     const plus_total = plus_lic + plus_apps + plus_mid + plus_proc + plus_agency + plus_inhouse;
