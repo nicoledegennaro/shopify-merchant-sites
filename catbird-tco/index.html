@@ -538,29 +538,37 @@
   </div>
 </section>
 
-<!-- THE CASE FOR CHANGE -->
+<!-- CURRENT STATE -->
 <section>
   <div class="container">
-    <div class="eyebrow">The case for change</div>
-    <h2>Three forcing functions already in motion.</h2>
+    <div class="eyebrow">Current state</div>
+    <h2>Where Catbird stands today.</h2>
+    <p class="lede">Magento Open Source, 10+ years of customizations, $50M GMV. NetSuite (ERP) and NewStore (POS) replatform Aug 2026. Shopify is the front-end migration that lines up cleanly after.</p>
 
-    <div class="numbered-list">
-      <div class="numbered-item">
-        <div class="num">01</div>
-        <h4>Magento debt is compounding</h4>
-        <p>10+ years of customizations, every site change requires dev effort. Per Catbird on the intro discussion: "extensive, outdated customizations — specifically regarding charm configurations and engraving." Cost grows each year as the codebase ages.</p>
+    <div class="grid-4" style="margin-top: 32px;">
+      <div class="stat">
+        <div class="k">2025 online GMV</div>
+        <div class="v">~$50M</div>
+        <div class="sub">2026 trending +10%</div>
       </div>
-      <div class="numbered-item">
-        <div class="num">02</div>
-        <h4>NetSuite + NewStore are replatforming now</h4>
-        <p>ERP + POS cutover targeting 2nd week of August 2026 (in flight per Catbird's TCO Discovery update). Doing the Shopify migration after that lands cleanly — NetSuite and NewStore are stable, integration architecture is built around them, no parallel rebuilds.</p>
+      <div class="stat">
+        <div class="k">Active SKUs</div>
+        <div class="v">27,045</div>
+        <div class="sub">644 configurable</div>
       </div>
-      <div class="numbered-item">
-        <div class="num">03</div>
-        <h4>PE clock: 2027 efficiency capture</h4>
-        <p>Catbird: "the company is highly focused on EBIDA and long-term financial viability. The objective is to launch the Shopify migration in January 2027 to capture efficiency gains throughout that year." Waiting pushes the upside to 2028.</p>
+      <div class="stat warn">
+        <div class="k">Magento run rate</div>
+        <div class="v">~$2.0M / yr</div>
+        <div class="sub">License + dev + processing</div>
+      </div>
+      <div class="stat warn">
+        <div class="k">Cart abandonment</div>
+        <div class="v">65%</div>
+        <div class="sub">~19K shoppers / month</div>
       </div>
     </div>
+
+    <p class="footnote" style="margin-top: 24px;">Full data set, monthly GMV breakdown, stack inventory, and source for every number → <strong>Appendix</strong> tab.</p>
   </div>
 </section>
 
@@ -681,24 +689,34 @@
           <span class="label">Annual savings — recurring, Years 2+</span>
           <span class="value" id="o_savings">+$413,000 / yr</span>
         </div>
+
+        <div style="margin-top: 24px; padding: 20px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <div style="font-family: Inter, sans-serif; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px;">Year 1 one-time implementation</div>
+              <div style="font-size: 14px; color: var(--ink-soft);">Lazer SOW · 17-week build, all-in <span class="tip" data-tip="Source: Catbird × Lazer Statement of Work. $289,500 fixed-fee, 17-week build. Covers theme, configurator framework, NetSuite + SuperSync integration, data migration, native promotions, SEO migration with 301 redirects. Two weeks of partner hypercare locked for go-live.">i</span></div>
+            </div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums;">$289,500</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <p class="footnote"><strong>How the math works:</strong> Plus license = higher of $2,300/mo base or VPF × annual GMV (at $50M with 0.35% VPF, VPF wins at $175K/yr). Processing splits Catbird's GMV by the Amex mix you set above (default 84% standard / 16% Amex, per Catbird's confirmation). Plus side assumes Catbird reduces external dev agency reliance by 75% (consistent with post-migration Plus patterns). Conservative — could be higher.</p>
+    <p class="footnote"><strong>How the math works:</strong> Plus license = higher of $2,300/mo base or VPF × annual GMV (at $50M with 0.35% VPF, VPF wins at $175K/yr). Processing splits Catbird's GMV by the Amex mix above (default 84% standard / 16% Amex, per Catbird's confirmation). Plus side assumes Catbird reduces external dev agency reliance by 75% — conservative; could be higher. Lazer implementation is a one-time Year 1 cost; the recurring savings figure above is steady-state Years 2+.</p>
   </div>
 </section>
 
-<!-- REVENUE LIFT (UPSIDE) -->
+<!-- ROI -->
 <section class="soft">
   <div class="container">
-    <div class="eyebrow">Revenue lift — not included in savings above</div>
-    <h2>The savings model above ignores the revenue side. Model it here.</h2>
-    <p class="lede">The TCO calculator only tracks cost reduction. Plus also drives revenue — here's the upside, with editable inputs so you can model conservative or aggressive scenarios.</p>
+    <div class="eyebrow">ROI</div>
+    <h2>Three-year picture: savings, revenue lift, and payback.</h2>
+    <p class="lede">The TCO calculator above tracks operating cost. Plus also lifts revenue (Shop Pay, Audiences). Model both, see what stacks.</p>
 
     <div class="calc-section" style="margin-top: 32px;">
       <div class="calc-header">
         <h3>Annual revenue lift</h3>
-        <div class="calc-hint">All values editable · stacks on top of the TCO savings</div>
+        <div class="calc-hint">All values editable · stacks on top of TCO savings</div>
       </div>
 
       <div class="calc-inputs">
@@ -735,7 +753,6 @@
         </div>
       </div>
 
-      <!-- Total revenue lift -->
       <div class="calc-output">
         <h4>Total annual revenue lift</h4>
         <div class="calc-output-row"><span class="label">Shop Pay conversion uplift</span><span class="value" id="rev_shoppay">+$500,000</span></div>
@@ -751,24 +768,8 @@
       </div>
     </div>
 
-    <div class="grid-2" style="margin-top: 32px;">
-      <div class="card">
-        <h4>Plus-only features driving the lift</h4>
-        <p style="font-size: 14px;">Shop Pay accelerated checkout (50% better conversion than guest checkout). Functions for custom commerce logic. Flow for marketing automation. Audiences for paid acquisition targeting.</p>
-      </div>
-      <div class="card">
-        <h4>Marketing self-service <span class="tip" data-tip="Hard to put a dollar number on it. The Magento 'everything needs a dev ticket' tax goes away — promotions, A/B tests, content updates ship without engineering. Faster time-to-market on launches and campaigns.">i</span></h4>
-        <p style="font-size: 14px;">Promotions, A/B tests, content updates ship without engineering tickets. Magento's "everything needs a dev" tax goes away. Hard to monetize directly, but it's the productivity argument Catbird's marketing team cares about most.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 3-YEAR PROJECTION -->
-<section>
-  <div class="container">
-    <div class="eyebrow">3-year ROI projection</div>
-    <h2>Year 1 absorbs implementation. Years 2–3 are clean savings.</h2>
+    <h3 style="margin-top: 56px;">3-year projection</h3>
+    <p style="font-size: 14px; color: var(--ink-soft);">Year 1 absorbs the Lazer implementation cost ($289,500). Years 2 and 3 are clean recurring savings. Revenue lift stacks on top and is not modeled in the table below — see it above.</p>
 
     <table>
       <thead>
@@ -789,7 +790,7 @@
           <td class="num" id="t_mag">$6,031,500</td>
         </tr>
         <tr>
-          <td><strong>Shopify Plus (operating + Year 1 impl.)</strong></td>
+          <td><strong>Shopify Plus (operating + Lazer Year 1)</strong></td>
           <td class="num" id="y1_plus">$1,886,500</td>
           <td class="num" id="y2_plus">$1,597,500</td>
           <td class="num" id="y3_plus">$1,597,500</td>
@@ -804,34 +805,8 @@
         </tr>
       </tbody>
     </table>
-
-    <p class="footnote">Year 1 includes the implementation cost (Lazer midpoint $289,500 used as default — swap to CQL low or Domaine high to model the range). Years 2 and 3 are recurring steady-state. Revenue lift from Shop Pay + Audiences stacks on top and is not modeled in this table.</p>
   </div>
 </section>
-
-<!-- WHY SHOPIFY PLUS — short and direct -->
-<section>
-  <div class="container">
-    <div class="eyebrow">Why Shopify Plus</div>
-    <h2>What this platform unlocks for Catbird.</h2>
-
-    <div class="grid-2">
-      <ul style="font-size:14px;line-height:1.7;">
-        <li><strong>Configurator-native.</strong> Confetti + Memento + engraving map to metaobjects + Cart Transform Functions.</li>
-        <li><strong>NetSuite + SuperSync, well-trodden.</strong> Documented integration path. Low risk.</li>
-        <li><strong>Better card rates at scale.</strong> 25–50bps savings vs. Braintree on $50M GMV.</li>
-        <li><strong>Marketing self-service.</strong> Promotions and content updates without dev tickets.</li>
-      </ul>
-      <ul style="font-size:14px;line-height:1.7;">
-        <li><strong>Existing stack stays.</strong> Klaviyo, Attentive, Yotpo, Kustomer all plug in cleanly.</li>
-        <li><strong>PE-friendly cost structure.</strong> Predictable, scales with revenue.</li>
-        <li><strong>Fast time-to-launch.</strong> 17-week build, short end of enterprise norms.</li>
-        <li><strong>Account-managed support.</strong> Dedicated commercial support through migration.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 
 </div><!-- /#tab-tco -->
 
