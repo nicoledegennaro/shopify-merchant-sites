@@ -213,6 +213,24 @@
   .calc-hint { font-size: 12px; color: var(--muted); font-family: 'Inter', sans-serif; }
   .calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px; }
   @media (max-width: 720px) { .calc-inputs { grid-template-columns: 1fr; } }
+
+  /* Side-by-side comparison table */
+  .compare-table { margin-bottom: 36px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .compare-head { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; padding: 14px 22px; background: var(--bg-card); border-bottom: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .compare-head .ch-mag { color: var(--warn); }
+  .compare-head .ch-plus { color: var(--gold-dark); }
+  .compare-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; align-items: center; padding: 12px 22px; border-bottom: 1px dashed var(--line); min-height: 60px; }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.shared { background: rgba(168, 144, 96, 0.08); }
+  .compare-row .cr-label { font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; }
+  .compare-row .cr-cell { display: flex; align-items: center; justify-content: flex-start; gap: 4px; }
+  .compare-row .cr-cell.shared-cell { grid-column: 2 / span 2; justify-content: flex-start; }
+  .compare-row input { width: 130px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; background: var(--bg-card); color: var(--ink); }
+  .compare-row input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168, 144, 96, 0.15); }
+  .compare-row .prefix, .compare-row .suffix { font-size: 12px; color: var(--muted); }
+  .compare-row .none { font-size: 12px; color: var(--muted); font-style: italic; }
+  .compare-row .elim { font-size: 13px; color: var(--positive); font-weight: 600; }
+  @media (max-width: 720px) { .compare-head, .compare-row { grid-template-columns: 1fr; } .compare-row { padding: 16px 22px; } .compare-row .cr-cell.shared-cell { grid-column: auto; } }
   .input-group {
     background: var(--bg-soft);
     padding: 22px;
@@ -561,95 +579,75 @@
         <div class="calc-hint">USD · processing mix is editable (Catbird-confirmed: 84% std / 16% Amex)</div>
       </div>
 
-      <div class="calc-inputs">
-        <!-- MAGENTO -->
-        <div class="input-group magento">
-          <h4>Current State — Magento</h4>
-          <div class="input-row">
-            <div class="label-wrap">License + hosting <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. $165,000/yr.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="magento_license" value="165000">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Apps + extensions (annual) <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. $84,000/yr — Magento marketplace extensions (BlogMX, Mandrill, others).">i</span></div>
-            <span class="prefix">$</span><input type="number" id="magento_apps" value="84000">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Maintenance · security · Yottaa <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. Catbird noted 'included above' — bundled inside the $450K dev agency figure. Set to 0 here to avoid double-counting.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="magento_maint" value="0">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Dev agency (annual) <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. $450,000/yr. Catbird confirmed this number includes in-house dev allocated to Magento and ongoing maintenance/security — those are bundled here, not double-counted below.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="magento_agency" value="450000">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">In-house dev <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. Catbird noted 'included above' — bundled inside the $450K dev agency figure to avoid double-counting. Set to 0 here.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="magento_inhouse" value="0">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Standard card rate (Braintree) <span class="tip" data-tip="Catbird to provide actual rate from Braintree statements (finance to share). Typical Magento + Braintree retail rate for fine jewelry runs 2.4-2.7% on standard cards. 2.5% used as midpoint estimate.">i</span></div>
-            <input type="number" id="braintree_std" value="2.5" step="0.05"><span class="suffix">%</span>
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Amex / commercial rate (Braintree) <span class="tip" data-tip="Catbird to provide actual rate from Braintree statements. Typical Amex pass-through via Braintree runs 3.0-3.5%. 3.25% used as midpoint estimate.">i</span></div>
-            <input type="number" id="braintree_amex" value="3.25" step="0.05"><span class="suffix">%</span>
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">% of volume on Amex <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. 16% Amex / 84% standard cards. Catbird's Amex mix is lower than typical fine-jewelry brands (often 25-30%) — this materially affects processing costs in Catbird's favor.">i</span></div>
-            <input type="number" id="amex_mix" value="16" step="1"><span class="suffix">%</span>
-          </div>
-          <div class="input-row" style="opacity: 0.45;">
-            <div class="label-wrap" style="color: var(--muted);">Annual GMV — shared</div>
-            <span style="font-size: 12px; color: var(--muted); font-style: italic;">edit on Plus side →</span>
-          </div>
-          <div class="input-row" style="opacity: 0.45;">
-            <div class="label-wrap" style="color: var(--muted);">Implementation (one-time)</div>
-            <span style="font-size: 12px; color: var(--muted); font-style: italic;">—</span>
-          </div>
+      <div class="compare-table">
+        <div class="compare-head">
+          <div>Line item</div>
+          <div class="ch-mag">Magento (today)</div>
+          <div class="ch-plus">Shopify Plus (future)</div>
         </div>
 
-        <!-- PLUS -->
-        <div class="input-group plus">
-          <h4>Future State — Shopify Plus</h4>
-          <div class="input-row">
-            <div class="label-wrap">License — base (monthly) <span class="tip" data-tip="Source: Shopify Plus published US base price — $2,300/mo on a 3-year commit. Used as the floor when VPF × GMV doesn't exceed it.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="plus_base" value="2300">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Future apps (Okendo, Rebuy, etc.) <span class="tip" data-tip="Source: partner discussions — Catbird's confirmed future app stack: Okendo (loyalty, Q1 2027 fast-follow), Rebuy (recommendations), A/B testing solution, heatmapping, visualization tool. $36K is a midpoint estimate; final stack TBD.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="plus_apps" value="36000">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">SuperSync middleware <span class="tip" data-tip="Source: Lazer SOW. Existing SuperSync IPaaS connector will be modified to support Shopify ↔ NetSuite. Estimate covers ongoing license + minor maintenance.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="plus_middleware" value="24000">
-          </div>
-          <div class="input-row" style="opacity: 0.55;">
-            <div class="label-wrap" style="color: var(--muted);">Dev agency <span class="tip" data-tip="Catbird's $450K Magento dev agency line is eliminated on Plus — marketing self-serves day-to-day work via admin without dev tickets.">i</span></div>
-            <span style="font-size: 13px; color: var(--positive); font-weight: 600;">eliminated</span>
-          </div>
-          <div class="input-row" style="opacity: 0.55;">
-            <div class="label-wrap" style="color: var(--muted);">In-house dev <span class="tip" data-tip="Bundled into the Magento dev agency line above. Effectively $0 on both sides today.">i</span></div>
-            <span style="font-size: 13px; color: var(--muted); font-style: italic;">bundled — $0</span>
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Standard card rate (Shop Payments) <span class="tip" data-tip="Source: Shopify Plus published rate card. 2.25% + 30¢ per transaction on standard cards. Includes Shop Pay accelerated checkout.">i</span></div>
-            <input type="number" id="plus_std" value="2.25" step="0.05"><span class="suffix">%</span>
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Amex / commercial rate (Shop Payments) <span class="tip" data-tip="Source: Shopify Plus published rate card. 2.95% + 30¢ per transaction on Amex and commercial cards.">i</span></div>
-            <input type="number" id="plus_amex" value="2.95" step="0.05"><span class="suffix">%</span>
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">VPF rate <span class="tip" data-tip="Source: Shopify Plus published US rate card. 0.35% of monthly GMV — the merchant pays the higher of base or VPF. At $50M GMV, VPF wins.">i</span></div>
-            <input type="number" id="vpf_rate" value="0.35" step="0.05"><span class="suffix">%</span>
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Annual GMV (shared) <span class="tip" data-tip="Drives processing math on both sides. Catbird 2025 actual: $50M.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="gmv" value="50000000">
-          </div>
-          <div class="input-row">
-            <div class="label-wrap">Lazer implementation (one-time) <span class="tip" data-tip="Source: Catbird × Lazer Statement of Work. $289,500 fixed-fee, 17-week build. Covers theme, configurator framework, NetSuite + SuperSync integration, data migration, native promotions, SEO migration with 301 redirects. One-time Year 1 cost — not part of annual recurring.">i</span></div>
-            <span class="prefix">$</span><input type="number" id="plus_impl" value="289500">
-          </div>
+        <div class="compare-row">
+          <div class="cr-label">License <span class="tip" data-tip="Magento: $165K/yr per Catbird's TCO Discovery sheet. Plus: $2,300/mo base on a 3-year commit; merchant pays the higher of base × 12 or VPF × annual GMV.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="magento_license" value="165000"></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_base" value="2300"><span class="suffix">/mo</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Apps + extensions <span class="tip" data-tip="Magento: $84K/yr (BlogMX, Mandrill, others). Plus: $36K midpoint for the confirmed future stack — Okendo, Rebuy, A/B, heatmapping, visualization tool. Final stack TBD.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="magento_apps" value="84000"></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_apps" value="36000"></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Maintenance / middleware <span class="tip" data-tip="Magento: maintenance + Yottaa is bundled into the dev agency line per Catbird's note ($0 here, not double-counted). Plus: SuperSync middleware to integrate with NetSuite.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="magento_maint" value="0"></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_middleware" value="24000"></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Dev agency <span class="tip" data-tip="Magento: $450K/yr for ongoing site changes (Catbird's biggest single Magento line). Plus: eliminated — marketing self-serves via admin without dev tickets.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="magento_agency" value="450000"></div>
+          <div class="cr-cell"><span class="elim">eliminated</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">In-house dev <span class="tip" data-tip="Bundled into the dev agency line above on both sides — set to $0 to avoid double-counting.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="magento_inhouse" value="0"></div>
+          <div class="cr-cell"><span class="none">bundled — $0</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Standard card rate <span class="tip" data-tip="Magento via Braintree: 2.5% midpoint (Catbird to share actual rate from statements). Plus via Shop Payments: 2.25% + 30¢ published rate.">i</span></div>
+          <div class="cr-cell"><input type="number" id="braintree_std" value="2.5" step="0.05"><span class="suffix">%</span></div>
+          <div class="cr-cell"><input type="number" id="plus_std" value="2.25" step="0.05"><span class="suffix">%</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Amex / commercial rate <span class="tip" data-tip="Magento via Braintree: 3.25% midpoint. Plus via Shop Payments: 2.95% + 30¢ published rate.">i</span></div>
+          <div class="cr-cell"><input type="number" id="braintree_amex" value="3.25" step="0.05"><span class="suffix">%</span></div>
+          <div class="cr-cell"><input type="number" id="plus_amex" value="2.95" step="0.05"><span class="suffix">%</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">% of volume on Amex <span class="tip" data-tip="Source: Catbird's TCO Discovery sheet. 16% Amex / 84% standard cards — lower than typical fine-jewelry mix, favorable for processing costs. Used on both sides.">i</span></div>
+          <div class="cr-cell shared-cell"><input type="number" id="amex_mix" value="16" step="1"><span class="suffix">%</span> <span class="none" style="margin-left: 12px;">applied to both columns</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">VPF rate <span class="tip" data-tip="Plus only. 0.35% of monthly GMV — merchant pays the higher of base or VPF.">i</span></div>
+          <div class="cr-cell"><span class="none">—</span></div>
+          <div class="cr-cell"><input type="number" id="vpf_rate" value="0.35" step="0.05"><span class="suffix">%</span></div>
+        </div>
+
+        <div class="compare-row shared">
+          <div class="cr-label">Annual GMV <span class="tip" data-tip="Catbird's 2025 actual: $50M. Drives the processing math on both sides.">i</span></div>
+          <div class="cr-cell shared-cell"><span class="prefix">$</span><input type="number" id="gmv" value="50000000"> <span class="none" style="margin-left: 12px;">shared — drives both sides</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Implementation (one-time) <span class="tip" data-tip="Plus only. Catbird × Lazer SOW: $289,500 fixed-fee, 17-week build. One-time Year 1 cost — not part of annual recurring.">i</span></div>
+          <div class="cr-cell"><span class="none">—</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_impl" value="289500"></div>
         </div>
       </div>
 
