@@ -510,17 +510,17 @@
     <div class="grid-3">
       <div class="stat positive">
         <div class="k">Annual operating savings <span class="tip" data-tip="Magento total annual cost minus Plus total annual cost at $50M GMV, modeled in the live calculator below. Recurring — applies Year 2 onward when the one-time implementation cost is in the past.">i</span></div>
-        <div class="v" id="hero_savings">$413,000</div>
+        <div class="v" id="hero_savings">$593,000</div>
         <div class="sub">Recurring, Years 2–3</div>
       </div>
       <div class="stat gold">
         <div class="k">3-year net benefit <span class="tip" data-tip="Sum of Magento – Plus across Years 1, 2, and 3. Year 1 absorbs the implementation cost (Lazer midpoint $289,500). Years 2 and 3 are clean recurring savings.">i</span></div>
-        <div class="v" id="hero_3yr">$950,000</div>
+        <div class="v" id="hero_3yr">$1,489,500</div>
         <div class="sub">After Year 1 implementation</div>
       </div>
       <div class="stat">
         <div class="k">Payback period <span class="tip" data-tip="Implementation cost ($289,500 Lazer midpoint) divided by annual recurring savings. Pays itself back within Year 1 of operating on Plus.">i</span></div>
-        <div class="v" id="hero_payback">~9 mo</div>
+        <div class="v" id="hero_payback">~6 mo</div>
         <div class="sub">From go-live</div>
       </div>
     </div>
@@ -643,13 +643,14 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
           <div>
             <div style="font-family:Inter,sans-serif;font-size:11px;color:var(--warn);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Magento (today)</div>
-            <div class="calc-output-row"><span class="label">License + hosting</span><span class="value" id="o_mag_lic">$180,000</span></div>
-            <div class="calc-output-row"><span class="label">Dev agency</span><span class="value" id="o_mag_agency">$240,000</span></div>
-            <div class="calc-output-row"><span class="label">In-house dev</span><span class="value" id="o_mag_inhouse">$120,000</span></div>
-            <div class="calc-output-row"><span class="label">Maintenance + Yottaa</span><span class="value" id="o_mag_maint">$60,000</span></div>
-            <div class="calc-output-row"><span class="label">Apps + extensions</span><span class="value" id="o_mag_apps">$48,000</span></div>
-            <div class="calc-output-row"><span class="label">Processing on $50M</span><span class="value" id="o_mag_proc">$1,362,500</span></div>
-            <div class="calc-output-row total"><span class="label">Magento total / yr</span><span class="value" id="o_mag_total">$2,010,500</span></div>
+            <div class="calc-output-row"><span class="label">License + hosting</span><span class="value" id="o_mag_lic">$165,000</span></div>
+            <div class="calc-output-row"><span class="label">Apps + extensions</span><span class="value" id="o_mag_apps">$84,000</span></div>
+            <div class="calc-output-row"><span class="label">Maintenance + Yottaa</span><span class="value" id="o_mag_maint">$0</span></div>
+            <div class="calc-output-row"><span class="label">Dev agency</span><span class="value" id="o_mag_agency">$450,000</span></div>
+            <div class="calc-output-row"><span class="label">In-house dev</span><span class="value" id="o_mag_inhouse">$0</span></div>
+            <div class="calc-output-row"><span class="label">Processing on $50M</span><span class="value" id="o_mag_proc">$1,310,000</span></div>
+            <div class="calc-output-row total"><span class="label">Magento total / yr</span><span class="value" id="o_mag_total">$2,009,000</span></div>
+            <div class="calc-output-row" style="margin-top: 8px; color: var(--muted);"><span class="label">+ Implementation <span style="font-size: 11px;">(one-time)</span></span><span class="value">—</span></div>
           </div>
 
           <div>
@@ -657,17 +658,17 @@
             <div class="calc-output-row"><span class="label">Plus license (VPF or base)</span><span class="value" id="o_plus_lic">$175,000</span></div>
             <div class="calc-output-row"><span class="label">Future apps</span><span class="value" id="o_plus_apps">$36,000</span></div>
             <div class="calc-output-row"><span class="label">SuperSync middleware</span><span class="value" id="o_plus_mid">$24,000</span></div>
-            <div class="calc-output-row"><span class="label">Processing on $50M</span><span class="value" id="o_plus_proc">$1,242,500</span></div>
             <div class="calc-output-row"><span class="label">Dev agency (eliminated)</span><span class="value" id="o_plus_agency">$0</span></div>
-            <div class="calc-output-row"><span class="label">In-house dev (50% freed)</span><span class="value" id="o_plus_inhouse">$60,000</span></div>
-            <div class="calc-output-row total"><span class="label">Plus total / yr</span><span class="value" id="o_plus_total">$1,597,500</span></div>
+            <div class="calc-output-row"><span class="label">In-house dev (50% freed)</span><span class="value" id="o_plus_inhouse">$0</span></div>
+            <div class="calc-output-row"><span class="label">Processing on $50M</span><span class="value" id="o_plus_proc">$1,181,000</span></div>
+            <div class="calc-output-row total"><span class="label">Plus total / yr</span><span class="value" id="o_plus_total">$1,416,000</span></div>
             <div class="calc-output-row" style="margin-top: 8px; color: var(--ink-soft);"><span class="label">+ Lazer implementation <span style="font-size: 11px; color: var(--muted);">(one-time, Year 1)</span></span><span class="value" id="o_plus_impl">$289,500</span></div>
           </div>
         </div>
 
         <div class="calc-output-row savings">
           <span class="label" style="font-size: 18px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-family: Inter, sans-serif;">Catbird saves / year</span>
-          <span class="value" id="o_savings">+$413,000 / yr</span>
+          <span class="value" id="o_savings">+$593,000 / yr</span>
         </div>
       </div>
     </div>
