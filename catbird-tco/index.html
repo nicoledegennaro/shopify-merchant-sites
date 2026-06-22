@@ -147,7 +147,7 @@
     position: relative;
   }
   .stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
-  .stat .v { font-size: 32px; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; font-family: 'Cormorant Garamond', serif; color: var(--ink); }
+  .stat .v { font-size: 48px; font-weight: 600; line-height: 1.0; letter-spacing: -0.02em; font-family: 'Cormorant Garamond', serif; color: var(--ink); }
   .stat .sub { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
   .stat.positive { background: var(--positive-soft); border-color: var(--positive); }
   .stat.positive .v { color: var(--positive); }
@@ -264,8 +264,8 @@
   .calc-output h4 { margin-top: 0; color: var(--ink); }
   .calc-output-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(168, 144, 96, 0.3); font-size: 14px; font-family: 'Inter', sans-serif; }
   .calc-output-row:last-child { border-bottom: none; }
-  .calc-output-row.total { font-size: 17px; font-weight: 700; padding-top: 14px; }
-  .calc-output-row.savings { color: var(--positive); font-weight: 700; font-size: 22px; padding-top: 18px; border-top: 2px solid var(--gold); font-family: 'Cormorant Garamond', serif; }
+  .calc-output-row.total { font-size: 20px; font-weight: 700; padding-top: 14px; }
+  .calc-output-row.savings { color: var(--positive); font-weight: 600; font-size: 36px; padding-top: 24px; border-top: 3px solid var(--gold); font-family: 'Cormorant Garamond', serif; line-height: 1.1; letter-spacing: -0.01em; }
   .calc-output-row .label { color: var(--ink-soft); }
   .calc-output-row .value { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
 
@@ -469,7 +469,7 @@
     <div style="text-align:center;">
       <span class="eyebrow">TCO &amp; ROI Model</span>
       <h1>Magento today vs. Shopify Plus tomorrow.</h1>
-      <p class="lede" style="margin: 0 auto;">Live numbers. Editable inputs. Sources on hover. <span class="tip" data-tip="Hover the info icons throughout this page to see where each number comes from — the call, the SOW, the discussion, or the rate card.">i</span></p>
+      <p class="lede" style="margin: 0 auto; font-size: 19px;">Live numbers. Editable inputs. Sources on hover.</p>
     </div>
     <div class="hero-meta">
       <div class="hero-meta-item">
@@ -511,7 +511,7 @@
 <section class="soft">
   <div class="container">
     <div class="eyebrow">The bottom line</div>
-    <h2>The headline numbers.</h2>
+    <h2>The bottom line.</h2>
 
     <div class="grid-3">
       <div class="stat positive">
@@ -552,8 +552,8 @@
 <section>
   <div class="container">
     <div class="eyebrow">Live TCO model</div>
-    <h2>Magento today vs. Shopify Plus tomorrow.</h2>
-    <p class="lede">Every input below is editable — adjust to Catbird's actual numbers and watch the comparison update. Hover the <span class="tip" data-tip="Hover any info icon next to an input to see where the default came from and what it represents.">i</span> beside any input to see where the default came from.</p>
+    <h2>Magento today vs. Shopify Plus.</h2>
+    <p class="lede" style="font-size: 18px;">Edit any number. The page updates live.</p>
 
     <div class="calc-section">
       <div class="calc-header">
@@ -630,6 +630,10 @@
             <div class="label-wrap">SuperSync middleware <span class="tip" data-tip="Source: Lazer SOW. Existing SuperSync IPaaS connector will be modified to support Shopify ↔ NetSuite. Estimate covers ongoing license + minor maintenance. One-time modification cost is included in the implementation partner fee.">i</span></div>
             <span class="prefix">$</span><input type="number" id="plus_middleware" value="24000">
           </div>
+          <div class="input-row">
+            <div class="label-wrap">Lazer implementation (one-time) <span class="tip" data-tip="Source: Catbird × Lazer Statement of Work. $289,500 fixed-fee, 17-week build. Covers theme, configurator framework, NetSuite + SuperSync integration, data migration, native promotions, SEO migration with 301 redirects. Two weeks of partner hypercare locked for go-live. One-time Year 1 cost — not part of annual recurring.">i</span></div>
+            <span class="prefix">$</span><input type="number" id="plus_impl" value="289500">
+          </div>
         </div>
       </div>
 
@@ -658,27 +662,18 @@
             <div class="calc-output-row"><span class="label">Dev agency (75% reduced)</span><span class="value" id="o_plus_agency">$60,000</span></div>
             <div class="calc-output-row"><span class="label">In-house dev (50% freed)</span><span class="value" id="o_plus_inhouse">$60,000</span></div>
             <div class="calc-output-row total"><span class="label">Plus total / yr</span><span class="value" id="o_plus_total">$1,597,500</span></div>
+            <div class="calc-output-row" style="margin-top: 8px; color: var(--ink-soft);"><span class="label">+ Lazer implementation <span style="font-size: 11px; color: var(--muted);">(one-time, Year 1)</span></span><span class="value" id="o_plus_impl">$289,500</span></div>
           </div>
         </div>
 
         <div class="calc-output-row savings">
-          <span class="label">Annual savings — recurring, Years 2+</span>
+          <span class="label" style="font-size: 18px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-family: Inter, sans-serif;">Catbird saves / year</span>
           <span class="value" id="o_savings">+$413,000 / yr</span>
-        </div>
-
-        <div style="margin-top: 24px; padding: 20px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px;">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
-            <div>
-              <div style="font-family: Inter, sans-serif; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px;">Year 1 one-time implementation</div>
-              <div style="font-size: 14px; color: var(--ink-soft);">Lazer SOW · 17-week build, all-in <span class="tip" data-tip="Source: Catbird × Lazer Statement of Work. $289,500 fixed-fee, 17-week build. Covers theme, configurator framework, NetSuite + SuperSync integration, data migration, native promotions, SEO migration with 301 redirects. Two weeks of partner hypercare locked for go-live.">i</span></div>
-            </div>
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums;">$289,500</div>
-          </div>
         </div>
       </div>
     </div>
 
-    <p class="footnote"><strong>How the math works:</strong> Plus license = higher of $2,300/mo base or VPF × annual GMV (at $50M with 0.35% VPF, VPF wins at $175K/yr). Processing splits Catbird's GMV by the Amex mix above (default 84% standard / 16% Amex, per Catbird's confirmation). Plus side assumes Catbird reduces external dev agency reliance by 75% — conservative; could be higher. Lazer implementation is a one-time Year 1 cost; the recurring savings figure above is steady-state Years 2+.</p>
+
   </div>
 </section>
 
@@ -686,8 +681,8 @@
 <section class="soft">
   <div class="container">
     <div class="eyebrow">ROI</div>
-    <h2>Three-year picture: savings, revenue lift, and payback.</h2>
-    <p class="lede">The TCO calculator above tracks operating cost. Plus also lifts revenue (Shop Pay, Audiences). Model both, see what stacks.</p>
+    <h2>Three-year picture.</h2>
+    <p class="lede" style="font-size: 18px;">Cost savings is only half the story. Plus also lifts revenue.</p>
 
     <div class="calc-section" style="margin-top: 32px;">
       <div class="calc-header">
@@ -734,12 +729,12 @@
         <div class="calc-output-row"><span class="label">Shop Pay conversion uplift</span><span class="value" id="rev_shoppay">+$500,000</span></div>
         <div class="calc-output-row"><span class="label">Audiences ROAS uplift</span><span class="value" id="rev_audiences">+$375,000</span></div>
         <div class="calc-output-row savings">
-          <span class="label">Total revenue lift / yr</span>
+          <span class="label" style="font-size: 18px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-family: Inter, sans-serif;">Revenue lift / year</span>
           <span class="value" id="rev_total">+$875,000</span>
         </div>
-        <div style="font-size: 13px; color: var(--ink-soft); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(168, 144, 96, 0.3);">
-          <strong style="color: var(--ink);">Combined annual benefit (TCO savings + revenue lift):</strong>
-          <span id="combined_benefit" style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--positive); margin-left: 8px; font-variant-numeric: tabular-nums;">+$1,288,000</span>
+        <div style="margin-top: 24px; padding-top: 24px; border-top: 3px solid var(--gold); text-align: center;">
+          <div style="font-family: Inter, sans-serif; font-size: 14px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px;">Combined annual benefit — savings + revenue lift</div>
+          <div id="combined_benefit" style="font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 600; color: var(--positive); font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -0.02em;">+$1,288,000</div>
         </div>
       </div>
     </div>
@@ -1488,8 +1483,6 @@
     return sign + '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
   }
 
-  const PARTNER_IMPL = 289500;
-
   function getNum(id) {
     const v = parseFloat(document.getElementById(id).value);
     return isNaN(v) ? 0 : v;
@@ -1515,6 +1508,7 @@
     const plus_amex = getNum('plus_amex') / 100;
     const plus_apps = getNum('plus_apps');
     const plus_mid = getNum('plus_middleware');
+    const plus_impl = getNum('plus_impl');
 
     const mag_proc = (gmv * STD_MIX * bt_std) + (gmv * AMEX_MIX * bt_amex);
     const mag_total = mag_lic + mag_agency + mag_inhouse + mag_maint + mag_apps + mag_proc;
@@ -1547,15 +1541,16 @@
     document.getElementById('o_plus_agency').textContent = fmt(plus_agency);
     document.getElementById('o_plus_inhouse').textContent = fmt(plus_inhouse);
     document.getElementById('o_plus_total').textContent = fmt(plus_total);
+    document.getElementById('o_plus_impl').textContent = fmt(plus_impl);
 
     document.getElementById('o_savings').textContent = fmtSigned(savings) + ' / yr';
 
     // Hero stats
     document.getElementById('hero_savings').textContent = fmt(savings);
-    const threeYear = (mag_total - plus_total) * 3 - PARTNER_IMPL;
+    const threeYear = (mag_total - plus_total) * 3 - plus_impl;
     document.getElementById('hero_3yr').textContent = fmt(threeYear);
     if (savings > 0) {
-      const paybackMonths = Math.round((PARTNER_IMPL / savings) * 12);
+      const paybackMonths = Math.round((plus_impl / savings) * 12);
       document.getElementById('hero_payback').textContent = '~' + paybackMonths + ' mo';
     } else {
       document.getElementById('hero_payback').textContent = '—';
@@ -1567,7 +1562,7 @@
     const y3_mag = mag_total;
     const t_mag = y1_mag + y2_mag + y3_mag;
 
-    const y1_plus = plus_total + PARTNER_IMPL;
+    const y1_plus = plus_total + plus_impl;
     const y2_plus = plus_total;
     const y3_plus = plus_total;
     const t_plus = y1_plus + y2_plus + y3_plus;
