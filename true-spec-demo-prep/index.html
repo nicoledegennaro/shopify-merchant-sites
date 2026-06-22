@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>True Spec Golf — Demo Prep · Mon Jun 22, 12pm EDT</title>
+<title>True Spec Golf × Shopify — Path Forward</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -24,59 +24,57 @@
   * { box-sizing: border-box; }
   body { font-family: 'Inter', -apple-system, sans-serif; color: var(--ink); margin: 0; background: var(--bg); line-height: 1.55; font-size: 15px; }
   .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
   section.soft { background: var(--bg-soft); }
-  section.hero { padding: 64px 0 48px; border-bottom: 3px solid var(--ink); }
-  h1 { font-size: 38px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.02em; line-height: 1.1; }
-  h2 { font-size: 26px; font-weight: 700; margin: 0 0 14px; letter-spacing: -0.01em; }
-  h3 { font-size: 18px; font-weight: 700; margin: 24px 0 10px; }
+  section.hero { padding: 80px 0 64px; border-bottom: 3px solid var(--ink); }
+  h1 { font-size: 42px; font-weight: 800; margin: 0 0 14px; letter-spacing: -0.02em; line-height: 1.1; }
+  h2 { font-size: 28px; font-weight: 700; margin: 0 0 16px; letter-spacing: -0.01em; }
+  h3 { font-size: 18px; font-weight: 700; margin: 28px 0 12px; }
   h4 { font-size: 14px; font-weight: 700; margin: 12px 0 6px; text-transform: uppercase; letter-spacing: 0.06em; }
-  p { margin: 0 0 12px; color: var(--ink-soft); }
-  .lede { font-size: 16px; color: var(--ink); max-width: 720px; }
-  .eyebrow { font-size: 11px; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px; }
-  .meta-row { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  .lede { font-size: 16px; color: var(--ink); max-width: 760px; line-height: 1.6; }
+  .eyebrow { font-size: 11px; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+  .meta-row { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 13px; }
   .meta-item .k { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 4px; }
   .meta-item .v { color: var(--ink); font-weight: 600; }
-
-  .quote-block { background: var(--bg-soft); border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 15px; line-height: 1.6; color: var(--ink); }
-  .quote-block em { color: var(--muted); font-style: normal; font-size: 13px; display: block; margin-top: 8px; }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 20px 0; }
   @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
 
-  .stat-card { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 18px; }
+  .stat-card { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 20px; }
   .stat-card.gold { background: var(--accent-soft); border-color: var(--accent); }
   .stat-card.shopify { background: var(--shopify-soft); border-color: var(--shopify); }
   .stat-card.warn { background: var(--warn-soft); border-color: var(--warn); }
-  .stat-card .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 6px; }
-  .stat-card .v { font-size: 22px; font-weight: 800; line-height: 1.1; color: var(--ink); letter-spacing: -0.01em; }
-  .stat-card .sub { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  .stat-card .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 8px; }
+  .stat-card .v { font-size: 24px; font-weight: 800; line-height: 1.1; color: var(--ink); letter-spacing: -0.01em; }
+  .stat-card .sub { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
 
-  .agenda-list { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0; margin: 18px 0; }
-  .agenda-item { display: grid; grid-template-columns: 60px 1fr 100px; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line); align-items: center; }
+  .agenda-list { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0; margin: 22px 0; }
+  .agenda-item { display: grid; grid-template-columns: 50px 1fr; gap: 20px; padding: 18px 22px; border-bottom: 1px solid var(--line); align-items: start; }
   .agenda-item:last-child { border-bottom: none; }
-  .agenda-num { font-size: 20px; font-weight: 800; color: var(--accent); font-family: 'Inter', sans-serif; letter-spacing: -0.02em; }
-  .agenda-body h4 { margin: 0 0 4px; text-transform: none; letter-spacing: 0; font-size: 15px; }
+  .agenda-num { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; padding-top: 2px; }
+  .agenda-body h4 { margin: 0 0 6px; text-transform: none; letter-spacing: 0; font-size: 15px; }
   .agenda-body p { margin: 0; font-size: 13px; color: var(--ink-soft); }
-  .agenda-time { font-size: 12px; color: var(--muted); font-weight: 600; text-align: right; }
 
   /* Current state diagram */
-  .diagram { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 28px; margin: 24px 0; overflow-x: auto; }
+  .diagram { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 32px; margin: 28px 0; overflow-x: auto; }
   .diagram-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
   .system-box { background: var(--warn-soft); border: 2px solid var(--warn); border-radius: 6px; padding: 14px 18px; min-width: 140px; text-align: center; }
   .system-box .name { font-weight: 700; font-size: 14px; color: var(--ink); }
   .system-box .role { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
   .arrow { font-size: 22px; color: var(--muted); font-weight: 700; }
   .system-box.shopify { background: var(--shopify-soft); border-color: var(--shopify); }
-  .diagram-aside { margin-top: 24px; padding-top: 18px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--muted); }
-  .diagram-aside strong { color: var(--ink); }
+  .diagram-aside { margin-top: 28px; padding-top: 22px; border-top: 1px dashed var(--line); }
+  .diagram-aside h4 { margin-top: 0; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; }
 
   /* Timeline */
-  .timeline-phased { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .timeline-phased { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin: 28px 0; }
   @media (max-width: 768px) { .timeline-phased { grid-template-columns: 1fr; } }
-  .phase { background: var(--bg); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 6px; padding: 20px; }
+  .phase { background: var(--bg); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 6px; padding: 22px; }
+  .phase.target { border-top-color: var(--shopify); background: var(--shopify-soft); }
   .phase-num { font-size: 11px; color: var(--accent-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+  .phase.target .phase-num { color: var(--shopify); }
   .phase h4 { margin: 4px 0 10px; font-size: 16px; text-transform: none; letter-spacing: 0; }
   .phase-when { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
   .phase ul { padding-left: 16px; margin: 0; }
@@ -84,23 +82,22 @@
 
   /* Tables */
   table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-  th { background: var(--bg-soft); padding: 12px 14px; text-align: left; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--line); }
-  td { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  th { background: var(--bg-soft); padding: 13px 16px; text-align: left; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--line); }
+  td { padding: 13px 16px; border-bottom: 1px solid var(--line); }
   tbody tr:last-child td { border-bottom: none; }
 
   /* Callouts */
-  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 16px 22px; border-radius: 0 6px 6px 0; margin: 22px 0; font-size: 14px; }
+  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 18px 24px; border-radius: 0 6px 6px 0; margin: 24px 0; font-size: 14px; }
   .callout.shopify { background: var(--shopify-soft); border-left-color: var(--shopify); }
   .callout strong { color: var(--ink); }
 
   ul.tight { padding-left: 18px; margin: 6px 0; }
-  ul.tight li { margin: 4px 0; font-size: 14px; color: var(--ink-soft); }
+  ul.tight li { margin: 5px 0; font-size: 14px; color: var(--ink-soft); }
 
-  .footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: 12px; background: var(--bg-soft); border-top: 1px solid var(--line); }
+  .footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 12px; background: var(--bg-soft); border-top: 1px solid var(--line); }
 
   .badge { display: inline-block; padding: 2px 8px; background: var(--accent); color: white; border-radius: 100px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-left: 6px; }
   .badge.shopify { background: var(--shopify); }
-  .badge.warn { background: var(--warn); }
   .badge.new { background: var(--shopify); }
 </style>
 </head>
@@ -109,119 +106,93 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="eyebrow">Demo prep · 1-pager</span>
-    <h1>True Spec Golf × Shopify — Demo</h1>
-    <p class="lede">Monday, June 22, 12:00pm EDT. Walking through how Shopify POS has changed since 2018 and what a path forward could look like, sized to True Spec's bandwidth — not Shopify's calendar.</p>
+    <span class="eyebrow">True Spec Golf × Shopify</span>
+    <h1>A path forward for True Spec on Shopify POS.</h1>
+    <p class="lede">Walking through how Shopify POS has changed since 2018, where the gaps from True Spec's last evaluation are closed, and a scoped path to a decision by end of Q3 2026.</p>
     <div class="meta-row">
-      <div class="meta-item"><div class="k">Audience</div><div class="v">Matt Foster (VP Ops) · Andrew Bickett</div></div>
-      <div class="meta-item"><div class="k">Shopify team</div><div class="v">Nicole · Shelby (SE)</div></div>
-      <div class="meta-item"><div class="k">Time</div><div class="v">30–45 min</div></div>
-      <div class="meta-item"><div class="k">Goal</div><div class="v">Agree on a paid Boston POC</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- OPENER -->
-<section>
-  <div class="container">
-    <span class="eyebrow">Opener · 2 min</span>
-    <h2>How to start the call.</h2>
-    <p>Match Matt's tone — pragmatic, technical, not interested in marketing fluff. Acknowledge what they showed you in the discovery, then frame the demo around their specific gaps, not Shopify's product roadmap.</p>
-
-    <div class="quote-block">
-      "Quick thanks for the screen-share last week, Matt — really helpful to see how ADS handles the spec capture, the fitter selection, and the way you've stitched SKU Vault, Salesforce, and ShipStation together. That gave Shelby and me a clear picture of what's working and where the seams are.
-      <br><br>
-      Today we want to show three things, all directly mapped to what you walked us through. One: how custom spec data is captured natively on Shopify POS today — that gap from 2018 is closed. Two: how attribute-driven pricing and the payment-link workflow you said you wanted actually work. Three: a customer doing what True Spec could do — Chris Cote's Golf, custom fittings on Shopify POS.
-      <br><br>
-      At the end I'll give you a concrete next step that doesn't ask you to commit to anything beyond a small, scoped piece of work. Sound good?"
-      <em>Wait for Matt to confirm. Adjust if Andrew has anything specific to add.</em>
+      <div class="meta-item"><div class="k">Prepared for</div><div class="v">Matt Foster, VP Operations · Andrew Bickett</div></div>
+      <div class="meta-item"><div class="k">Prepared by</div><div class="v">Nicole DeGennaro · Shopify</div></div>
+      <div class="meta-item"><div class="k">Target contract close</div><div class="v">End of Q3 2026 · Sept 30</div></div>
+      <div class="meta-item"><div class="k">Updated</div><div class="v">June 22, 2026</div></div>
     </div>
   </div>
 </section>
 
 <!-- WHAT WE'LL COVER -->
-<section class="soft">
+<section>
   <div class="container">
-    <span class="eyebrow">Agenda</span>
-    <h2>What we're covering.</h2>
+    <span class="eyebrow">Today</span>
+    <h2>What we'd like to walk through together.</h2>
+    <p class="lede">Every section maps to something specific True Spec shared on the discovery call. None of this is a product roadmap pitch — it's a side-by-side of where ADS works today, where Shopify POS has matured, and what's worth testing.</p>
 
     <div class="agenda-list">
       <div class="agenda-item">
         <div class="agenda-num">01</div>
         <div class="agenda-body">
           <h4>Custom spec capture on POS line items <span class="badge shopify">Native</span></h4>
-          <p>Length, swing weight, CPM, adapter settings, movable weights — captured per line item, no Google Sheets, no manual re-entry. Every spec field from ADS maps to a POS attribute.</p>
+          <p>Length, swing weight, CPM, adapter settings, movable weights — captured per line item natively. Every spec field that lives in ADS today maps to a POS attribute, no Google Sheets, no manual re-entry.</p>
         </div>
-        <div class="agenda-time">8 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">02</div>
         <div class="agenda-body">
           <h4>Attribute-driven pricing via Cart Transform Functions</h4>
-          <p>The "expedition fee based on club count" automation Matt described — runs natively at checkout, not as a manual ADS toggle.</p>
+          <p>Expedition fees, head/shaft/grip combo pricing, friends-and-family logic — run natively at checkout rather than as a manual ADS step.</p>
         </div>
-        <div class="agenda-time">5 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">03</div>
         <div class="agenda-body">
-          <h4>Payment link via text / email — Matt's #1 wish</h4>
-          <p>Fitter creates a draft order with full spec sheet, texts payment link to customer, customer pays from phone. Solves the "I fit this guy yesterday and can't get him on the phone" problem.</p>
+          <h4>Payment link via text or email</h4>
+          <p>Fitter creates a draft order with the full spec sheet, texts a payment link directly to the customer. Customer pays from their phone. Closes the "we fit them, they want to buy, we can't get them on the phone" gap.</p>
         </div>
-        <div class="agenda-time">5 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">04</div>
         <div class="agenda-body">
           <h4>Per-fitter + per-location attribution <span class="badge shopify">POS v11</span></h4>
-          <p>Brian Gulino vs. Cody Busco at Boston — Staff panel in POS v11 makes the fitter attribution + location budget tracking a first-class flow. Reports break this out without a Salesforce push.</p>
+          <p>Fitter and location selected on the order, native commission and budget reporting in Shopify admin — no Salesforce push required to get the reporting out.</p>
         </div>
-        <div class="agenda-time">5 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">05</div>
         <div class="agenda-body">
           <h4>Cross-location pickup + inventory transfers <span class="badge new">Spring '26</span></h4>
-          <p>The studio + HQ split-shipment workflow you described — natively handled in POS now, including itemized transfer manifests. Replaces a chunk of the SKU Vault + ShipStation middleware.</p>
+          <p>Studio + HQ split-shipment workflow handled natively in POS now, including itemized transfer manifests. Replaces a meaningful chunk of cross-system reconciliation.</p>
         </div>
-        <div class="agenda-time">5 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">06</div>
         <div class="agenda-body">
-          <h4>Chris Cote's Golf case study</h4>
-          <p>Custom fitter with similar workflow. Built custom POS apps on Shopify via Riess Group (now CQL). Results: 50% reduction in custom club order processing time. ~10 hrs/week saved.</p>
+          <h4>Chris Cote's Golf — comparable customer reference</h4>
+          <p>Connecticut-based custom golf fitter, built custom POS apps on Shopify POS for their fitting workflow. 50% reduction in custom club order processing time. ~10 hrs/week saved.</p>
         </div>
-        <div class="agenda-time">7 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">07</div>
         <div class="agenda-body">
-          <h4>Multi-Entity Selling — unified admin across all 4 brands <span class="badge new">Spring '26 · Plus</span></h4>
-          <p>Net-new Plus feature: operate multiple legal entities (True Spec / Fairway Jockey / Mirror / McLaren) as separate legal entities under one Shopify store. Solves the multi-brand consolidation problem that didn't have a clean answer 6 months ago.</p>
+          <h4>Multi-Entity Selling — all 4 brands, one admin <span class="badge new">Spring '26 · Plus</span></h4>
+          <p>Operate True Spec, Fairway Jockey, Mirror Golf, and McLaren Golf as separate legal entities under one Shopify store with separate Shopify Payments accounts. Net-new feature that didn't exist 6 months ago.</p>
         </div>
-        <div class="agenda-time">5 min</div>
       </div>
       <div class="agenda-item">
         <div class="agenda-num">08</div>
         <div class="agenda-body">
-          <h4>Next step ask</h4>
-          <p>The Boston POC pitch + reference call with Cote's team. Concrete, scoped, low commitment.</p>
+          <h4>The path to Q3 close</h4>
+          <p>A scoped Boston proof-of-concept inside the contract, with multiple decision gates and no commitment beyond the next phase at each gate.</p>
         </div>
-        <div class="agenda-time">5 min</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CURRENT STATE SLIDE -->
-<section>
+<!-- CURRENT STATE -->
+<section class="soft">
   <div class="container">
-    <span class="eyebrow">Current state · slide</span>
+    <span class="eyebrow">Where True Spec is today</span>
     <h2>Four brands. Four systems. One operations layer.</h2>
-    <p class="lede">True Spec's stack today — what was shared on the June 15 discovery call. The case for change starts by mapping out the seams.</p>
+    <p class="lede">True Spec's stack today — based on the discovery walkthrough. The case for change starts by mapping the seams between the systems True Spec operates today.</p>
 
-    <!-- Stack diagram -->
     <div class="diagram">
       <h4 style="margin-top: 0; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px;">True Spec POS — operational stack</h4>
       <div class="diagram-row">
@@ -246,13 +217,13 @@
         </div>
       </div>
 
-      <div class="diagram-row" style="margin-top: 18px; font-size: 13px; color: var(--muted);">
-        Plus, outside this stack: <strong style="color: var(--ink); margin: 0 8px;">Avalara</strong> (tax) · <strong style="color: var(--ink); margin-right: 8px;">External Stripe-style payment portal</strong>
+      <div class="diagram-row" style="margin-top: 22px; font-size: 13px; color: var(--muted);">
+        Plus, outside this stack: <strong style="color: var(--ink); margin: 0 8px;">Avalara</strong> (tax) · <strong style="color: var(--ink); margin-right: 8px;">External payment portal</strong>
       </div>
 
       <div class="diagram-aside">
-        <h4 style="margin-top: 0; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px;">Already on Shopify Advanced (ecom only)</h4>
-        <div class="diagram-row" style="justify-content: flex-start; margin-top: 8px;">
+        <h4>Already on Shopify Advanced (ecom only)</h4>
+        <div class="diagram-row" style="justify-content: flex-start; margin-top: 10px;">
           <div class="system-box shopify" style="min-width: 120px;">
             <div class="name">Fairway Jockey</div>
             <div class="role">Pure ecom</div>
@@ -269,7 +240,7 @@
       </div>
     </div>
 
-    <h3>Scale · what works · where it breaks</h3>
+    <h3>Scale · what works · where the seams show</h3>
     <div class="grid-3">
       <div>
         <h4>Scale</h4>
@@ -277,8 +248,8 @@
           <li>41 domestic locations</li>
           <li>International partners</li>
           <li>9 full-time builders at HQ</li>
-          <li>$3.2M inventory in Scottsdale</li>
-          <li>70K+ spec combinations on True Spec, millions on Fairway Jockey</li>
+          <li>~$3.2M inventory in Scottsdale</li>
+          <li>70K+ spec combinations on True Spec; significantly more on Fairway Jockey</li>
         </ul>
       </div>
       <div>
@@ -287,31 +258,85 @@
           <li>ADS handles the custom-spec workflow end-to-end</li>
           <li>Salesforce is the single source for accounting + commission reporting</li>
           <li>Avalara handles state-by-state tax</li>
-          <li>3 of 4 brands already on Shopify Advanced for ecom</li>
+          <li>Three of four brands already on Shopify Advanced for ecom</li>
         </ul>
       </div>
       <div>
-        <h4>Where it breaks</h4>
+        <h4>Where the seams show</h4>
         <ul class="tight">
-          <li>"Phantom orders" — ShipStation can't write back to Shopify, orders sit unfulfilled</li>
-          <li>Multi-system reconciliation (4 brands × 4+ systems)</li>
-          <li>Split-shipment errors → occasional double-ships</li>
-          <li>No way to text / email a payment link to a customer post-fitting</li>
-          <li>Tax discrepancies between Avalara + Shopify</li>
+          <li>"Phantom" orders — ShipStation can't write back to Shopify, orders sit unfulfilled</li>
+          <li>Multi-system reconciliation across 4 brands × 4+ systems</li>
+          <li>Manual split-shipment routing — occasional double-ships</li>
+          <li>No native way to text or email a payment link post-fitting</li>
+          <li>Tax discrepancies between Avalara and Shopify for the ecom brands</li>
         </ul>
       </div>
     </div>
+  </div>
+</section>
 
-    <p class="footer" style="text-align: left; background: transparent; border: none; padding: 8px 0 0; font-size: 12px; color: var(--muted);">Source: True Spec internal walkthrough, June 15, 2026 · Matt Foster, VP Operations</p>
+<!-- SPRING 26 RELEVANT -->
+<section>
+  <div class="container">
+    <span class="eyebrow">What just shipped</span>
+    <h2>Three things in the Spring '26 release that change the picture.</h2>
+    <p class="lede">Shopify ships major POS updates twice a year. The Spring '26 "Everywhere" release shipped June 17 — three updates in this release land directly on what True Spec described as friction in the current ADS workflow.</p>
+
+    <div class="grid-3">
+      <div class="stat-card shopify">
+        <div class="k">Spring '26 · Plus</div>
+        <div class="v" style="font-size: 18px;">Multi-Entity Selling</div>
+        <div class="sub">Operate multiple legal entities — True Spec, Fairway Jockey, Mirror, McLaren — under one Shopify store with separate Shopify Payments accounts. The multi-brand consolidation problem that didn't have a clean answer six months ago has one now.</div>
+      </div>
+      <div class="stat-card shopify">
+        <div class="k">Spring '26 · POS v11</div>
+        <div class="v" style="font-size: 18px;">−73 sec / complex cart</div>
+        <div class="sub">Cart stays visible throughout checkout. Multi-select line items. Dedicated panel for customer + staff attribution. Built for complex carts with custom data — exactly the fitting workflow True Spec runs.</div>
+      </div>
+      <div class="stat-card shopify">
+        <div class="k">Spring '26</div>
+        <div class="v" style="font-size: 18px;">Native transfer manifests</div>
+        <div class="sub">Studio + HQ split-shipment workflow handled inside POS now. Itemized transfer manifests with origin, destination, transfer details. Replaces a meaningful chunk of the SKU Vault + ShipStation reconciliation.</div>
+      </div>
+    </div>
+
+    <div class="callout shopify">
+      <strong>The "why now" piece:</strong> Multi-Entity Selling shipped five days ago and is uniquely tailored to True Spec's four-brand structure. It removes the operational tradeoff that previously made the case for staying split across systems.
+    </div>
+  </div>
+</section>
+
+<!-- CHRIS COTE'S CASE STUDY -->
+<section class="soft">
+  <div class="container">
+    <span class="eyebrow">A comparable customer</span>
+    <h2>Chris Cote's Golf Shop — built the True Spec pattern on Shopify POS.</h2>
+    <p class="lede">Connecticut-based custom golf fitter — 2 retail stores, 2 pro shops, 75+ driving range stalls, seasonal pop-ups. Partnered with Riess Group (now CQL) to build custom POS apps for their fitting workflow on Shopify POS.</p>
+
+    <table>
+      <thead><tr><th>Detail</th><th>What it tells us</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Previous platform</strong></td><td>QuickBooks POS (discontinued)</td></tr>
+        <tr><td><strong>Implementation partner</strong></td><td>Riess Group, now CQL</td></tr>
+        <tr><td><strong>Custom build</strong></td><td>Custom POS apps to manage custom club orders digitally — replacing paper + Dropbox workflow</td></tr>
+        <tr><td><strong>Outcome 1</strong></td><td><strong>Custom club order processing time cut by 50%</strong></td></tr>
+        <tr><td><strong>Outcome 2</strong></td><td><strong>~10 hours per week saved</strong> across instructor notifications, custom orders, customer data entry, and reporting</td></tr>
+        <tr><td><strong>Full case study</strong></td><td><a href="https://www.shopify.com/case-studies/chris-cote-golf" style="color: var(--accent-dark);">shopify.com/case-studies/chris-cote-golf</a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>The relevance for True Spec:</strong> Cote's operates at meaningfully smaller scale. If the same pattern produced 50% processing-time savings and 10 hours/week back at their volume, the math scales accordingly at 41 locations + $3.2M inventory + four brands.
+    </div>
   </div>
 </section>
 
 <!-- TENTATIVE TIMELINE -->
-<section class="soft">
+<section>
   <div class="container">
-    <span class="eyebrow">Tentative timeline · slide</span>
-    <h2>What a yes could look like.</h2>
-    <p class="lede">From this demo to a green-lit rollout — with multiple decision gates along the way. No commitment to anything beyond the next phase at each gate.</p>
+    <span class="eyebrow">Path forward</span>
+    <h2>From today to a contract decision — by end of Q3.</h2>
+    <p class="lede">Four phases. Each phase ends in a decision gate. No commitment to anything beyond the next phase at each gate. Target contract close: <strong>September 30, 2026</strong> — end of Q3.</p>
 
     <div class="timeline-phased">
       <div class="phase">
@@ -319,240 +344,115 @@
         <h4>Evaluate</h4>
         <div class="phase-when">Jun 22 — today</div>
         <ul>
-          <li>Today's demo</li>
-          <li>Follow-ups async</li>
-          <li>Reference call with Chris Cote's Golf (offered)</li>
+          <li>Today's walkthrough</li>
+          <li>Reference call with Chris Cote's team (offered)</li>
+          <li>Any follow-up questions handled async</li>
         </ul>
       </div>
       <div class="phase">
         <div class="phase-num">Phase 2</div>
         <h4>Scope</h4>
-        <div class="phase-when">July</div>
+        <div class="phase-when">Late June – July</div>
         <ul>
-          <li>Architecture session: Shelby + True Spec dev</li>
-          <li>Scope Boston POC (~$25–40K)</li>
-          <li>No funding commitment yet</li>
+          <li>Architecture session with Shopify SE + True Spec dev</li>
+          <li>Scope Boston proof-of-concept</li>
+          <li>Partner selection (CQL likely, given Cote's track record)</li>
+          <li>Multi-entity setup scoped for all 4 brands</li>
         </ul>
       </div>
       <div class="phase">
         <div class="phase-num">Phase 3</div>
-        <h4>Build &amp; Test</h4>
-        <div class="phase-when">Aug – Nov 2026</div>
+        <h4>Contract review</h4>
+        <div class="phase-when">August – mid-September</div>
         <ul>
-          <li>Boston POC build (~6 wks)</li>
-          <li>Live use period (~4 wks) with Brian + Cody</li>
-          <li>Side-by-side comparison vs. ADS</li>
+          <li>Plus contract drafted with multi-entity terms</li>
+          <li>Boston POC built into the SOW (~6 wks build, paid)</li>
+          <li>Legal + internal review</li>
+          <li>Redlines exchanged, terms locked</li>
         </ul>
       </div>
-      <div class="phase">
-        <div class="phase-num">Phase 4</div>
-        <h4>Decide</h4>
-        <div class="phase-when">Q1 2027</div>
+      <div class="phase target">
+        <div class="phase-num">Phase 4 · Target</div>
+        <h4>Plus contract signed ✓</h4>
+        <div class="phase-when">By Sept 30 · end of Q3</div>
         <ul>
-          <li>POC review: real fitter feedback</li>
-          <li>Real $$$ + spec-capture data</li>
-          <li>Go / no-go on broader rollout</li>
+          <li>Contract executed</li>
+          <li>Boston POC kicks off post-close</li>
+          <li>Q3 commercial terms locked in</li>
         </ul>
       </div>
     </div>
 
-    <h3>Decision gates</h3>
+    <h3>Decision gates along the way</h3>
     <table>
       <thead>
         <tr><th>After</th><th>True Spec decides</th></tr>
       </thead>
       <tbody>
-        <tr><td>Phase 1 (today)</td><td>Whether POC is worth scoping</td></tr>
-        <tr><td>Phase 2</td><td>Whether to fund the Boston POC</td></tr>
-        <tr><td>Phase 3</td><td>Whether to roll out broader, based on side-by-side fitter feedback</td></tr>
+        <tr><td>Phase 1 (today)</td><td>Whether a paid POC is worth scoping</td></tr>
+        <tr><td>Phase 2</td><td>Whether the architecture + commercial direction is the right fit</td></tr>
+        <tr><td>Phase 3</td><td>Whether the final contract terms reflect what True Spec needs</td></tr>
+        <tr><td>Phase 4</td><td>Signature ✓</td></tr>
       </tbody>
     </table>
 
-    <h3>If green-lit at Phase 4</h3>
+    <h3>Post-close — what comes after Q3</h3>
     <ul class="tight">
-      <li><strong>2027 H1:</strong> Phased rollout planning across the 4-brand architecture</li>
-      <li><strong>2027 H2 → 2028:</strong> Sequential rollout — True Spec POS first, then Mirror + McLaren consolidation, then Fairway Jockey ecom integration</li>
-      <li><strong>3-year horizon:</strong> Single unified Shopify admin, all 4 brands, all 41 locations + international</li>
+      <li><strong>Q4 2026:</strong> Boston POC build + live use period — Brian + Cody as the test fitters</li>
+      <li><strong>Q1 2027:</strong> Side-by-side POC review (Shopify POS vs. ADS), real fitter feedback, real transaction data</li>
+      <li><strong>2027 H2 onward:</strong> Phased rollout — True Spec POS first, then Mirror + McLaren consolidation, then Fairway Jockey ecom integration</li>
+      <li><strong>3-year horizon:</strong> Single unified Shopify admin across all four brands and all 41 locations</li>
     </ul>
 
     <div class="callout">
-      <strong>The framing for Matt:</strong> this timeline is True Spec's, not Shopify's. Each gate is a True Spec decision. POC is small + paid + revertible. No multi-year contract talk until Phase 4.
+      <strong>The framing matters:</strong> this timeline is True Spec's, paced to True Spec's team capacity. Each gate is a True Spec decision. The contract close target is end of Q3 because Q3 commercial terms are advantageous — not because anything in the build needs to happen on that timeline.
     </div>
   </div>
 </section>
 
 <!-- THE NEXT STEP -->
-<section>
+<section class="soft">
   <div class="container">
-    <span class="eyebrow">The ask</span>
-    <h2>Good next step — paid Boston POC.</h2>
-    <p class="lede">Concrete, scoped, low commitment. The ask that respects Matt's "ADS works, why disrupt it" instinct while giving him real data to evaluate.</p>
+    <span class="eyebrow">Proposed next step</span>
+    <h2>Architecture scoping session — within two weeks.</h2>
+    <p class="lede">The next concrete step is a working session between True Spec's developer and Shopify's Solutions Engineering team to scope what a Boston POC would look like — architecture only, no commitment beyond that meeting.</p>
 
     <div class="grid-2">
       <div>
-        <h3>Why a paid POC, why Boston</h3>
+        <h3>Why Boston for the POC</h3>
         <ul class="tight">
-          <li>Boston has 2 fitters (Brian + Cody) — small enough to control</li>
+          <li>Two fitters (Brian + Cody) — small enough to control, big enough to be real</li>
           <li>Real fitting workflow, real customer transactions, real spec capture</li>
-          <li>Matt and his developer can stay close to it</li>
-          <li>If POS doesn't beat ADS on the fitter experience, the case dies and you've spent ~6 weeks, not 6 months</li>
+          <li>Self-contained: if Shopify POS doesn't beat ADS on the fitter experience, the case dies and ~6 weeks have been spent, not 6 months</li>
         </ul>
       </div>
       <div>
-        <h3>Scope</h3>
+        <h3>POC scope</h3>
         <ul class="tight">
           <li>One Boston studio configured on Shopify POS</li>
           <li>Custom POS app for spec capture — Cart Transform Function + line item properties</li>
-          <li>Built by Shopify partner (CQL is obvious fit — Cote's track record)</li>
-          <li>Read-only stubs to ADS / SKU Vault / Salesforce (nothing in production breaks)</li>
-          <li>4–6 weeks build · 4 weeks live use · structured comparison at the end</li>
+          <li>Read-only stubs to ADS / SKU Vault / Salesforce — nothing in production breaks</li>
+          <li>4–6 weeks build, 4 weeks live use, structured comparison vs. ADS at the end</li>
+          <li>Built by Shopify partner — CQL is the strongest fit given the Cote's track record</li>
         </ul>
       </div>
     </div>
 
-    <div class="stat-card gold" style="margin: 24px 0;">
-      <div class="k">Investment</div>
+    <div class="stat-card gold" style="margin: 28px 0;">
+      <div class="k">POC investment</div>
       <div class="v">~$25–40K</div>
-      <div class="sub">CQL or comparable partner. Modest. Defensible to leadership as a de-risk before any broader commitment.</div>
+      <div class="sub">Built into the Plus SOW. Defensible as a de-risk before any rollout commitment beyond Boston.</div>
     </div>
 
-    <h3>The ask at the close of the demo</h3>
-    <div class="quote-block">
-      "Two things. One: would you and your developer be open to a working session with Shelby to scope what a Boston POC would look like? Just architecture, no commitment yet. Two: before that, would a 30-min reference call with Chris Cote's team be useful? They'd tell you straight what worked and what didn't in their build — peer to peer, not a vendor pitch."
-      <em>The reference call is the unlock. Matt trusts peer "here's what broke" over vendor "here's what works."</em>
-    </div>
-
-    <h3>Anticipated objections — quick responses</h3>
-    <table>
-      <thead><tr><th>If Matt says</th><th>You say</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>"We don't see the ROI yet on switching."</td>
-          <td>"Not asking you to switch today. POC on one location, fitters compare side by side. If POS doesn't beat ADS on the fitter experience, the case for switching doesn't get made. We earn it."</td>
-        </tr>
-        <tr>
-          <td>"ADS works. Why disrupt it?"</td>
-          <td>"The case isn't 'ADS is broken.' It's 'how many systems are you reconciling.' Across 4 brands × 4+ systems, unification compounds. POC tests whether the unification is worth the disruption."</td>
-        </tr>
-        <tr>
-          <td>"Our developer bootstraps in Azure cheap."</td>
-          <td>"Best of both: keep your developer doing what he does well, but on Shopify's API surface — better documented, more stable, unlocks the Plus partner ecosystem when you need it."</td>
-        </tr>
-        <tr>
-          <td>"What about the $200K integration cost we'd spend?"</td>
-          <td>"POC on one location is $25–40K, not $200K. Consolidated admin saves on integration cost going forward (no ADS-ShipStation phantom orders to maintain). Net cost is lower over 3 years."</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- SPRING 26 RELEVANT CALLOUTS -->
-<section class="soft">
-  <div class="container">
-    <span class="eyebrow">Spring '26 · POS callouts</span>
-    <h2>What just shipped that matters for True Spec.</h2>
-    <p class="lede">Shopify's Spring '26 "Everywhere" Edition dropped June 17 — five days before this demo. Three releases directly land on True Spec's stated pain points.</p>
-
-    <div class="grid-3">
-      <div class="stat-card shopify">
-        <div class="k"><span class="badge shopify">Plus exclusive</span> Multi-Entity Selling</div>
-        <div class="v" style="font-size: 18px;">4 brands, 1 admin</div>
-        <div class="sub">Operate multiple legal entities — True Spec, Fairway Jockey, Mirror, McLaren — under one Shopify store with separate Shopify Payments accounts. Solves the multi-brand consolidation problem that didn't have a clean answer 6 months ago.</div>
-      </div>
-      <div class="stat-card shopify">
-        <div class="k">POS v11 speed</div>
-        <div class="v" style="font-size: 18px;">−73 sec / complex cart</div>
-        <div class="sub">Cart stays visible throughout checkout. Multi-select line items. Customers + Staff panel for attribution. Built for complex carts with custom data — exactly True Spec's fitting workflow.</div>
-      </div>
-      <div class="stat-card shopify">
-        <div class="k">Cross-location pickup + transfer manifests</div>
-        <div class="v" style="font-size: 18px;">Native in POS</div>
-        <div class="sub">Studio + HQ split-shipment workflow handled inside POS now. Itemized transfer manifests with origin, destination, transfer details. Replaces a meaningful chunk of the SKU Vault + ShipStation middleware.</div>
-      </div>
-    </div>
-
-    <div class="callout shopify">
-      <strong>The "why now" argument:</strong> Multi-Entity Selling shipped 5 days ago and is uniquely tailored to True Spec's 4-brand structure. Lead the demo with this if there's any signal Matt or Andrew cares about the multi-brand unification story.
-    </div>
-  </div>
-</section>
-
-<!-- CHEAT SHEET -->
-<section>
-  <div class="container">
-    <span class="eyebrow">Cheat sheet</span>
-    <h2>True Spec facts at the ready.</h2>
-
-    <div class="grid-2">
-      <div>
-        <h3>Their business</h3>
-        <table>
-          <tbody>
-            <tr><td><strong>Parent</strong></td><td>4 brands under one parent</td></tr>
-            <tr><td><strong>True Spec Golf</strong></td><td>Brick-and-mortar custom fitting, 41 domestic locations + international partners</td></tr>
-            <tr><td><strong>Fairway Jockey</strong></td><td>Pure ecom — millions of SKU combinations</td></tr>
-            <tr><td><strong>Mirror Golf</strong></td><td>Mostly ecom + some offline fittings</td></tr>
-            <tr><td><strong>McLaren Golf</strong></td><td>Mostly ecom, plans for offline fittings</td></tr>
-            <tr><td><strong>True Spec retail rev</strong></td><td>~$19–20M annual</td></tr>
-            <tr><td><strong>HQ</strong></td><td>Scottsdale, AZ — fulfillment center, 9 builders</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div>
-        <h3>Specific things Matt said</h3>
-        <table>
-          <tbody>
-            <tr><td><strong>On ADS</strong></td><td>"Built ads to get away from [Google Sheets]"</td></tr>
-            <tr><td><strong>On Shopify 2018</strong></td><td>"There was no way at the time" to handle custom specs</td></tr>
-            <tr><td><strong>On payment link</strong></td><td>"I would love to just be able to text him or email him a link and say, 'Hey, pay here, get your order placed'" — #1 wish</td></tr>
-            <tr><td><strong>On split shipments</strong></td><td>"There have certainly been times where we have sold a hat or something out of studio and then double ship the customer the hat"</td></tr>
-            <tr><td><strong>On the CEO's ask</strong></td><td>Wants to sell custom clubs on TrueSpecGolf.com — held back by Fairway Jockey cannibalization concern</td></tr>
-            <tr><td><strong>On boss / leadership</strong></td><td>"They are very old school... we're lucky that we even have computers at this point"</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <h3>Chris Cote's Golf — the proof point</h3>
-    <table>
-      <thead><tr><th>Detail</th><th>Value</th></tr></thead>
-      <tbody>
-        <tr><td>Business</td><td>Connecticut-based custom golf fitter — 2 retail stores, 2 pro shops, 75+ driving range stalls, seasonal pop-ups</td></tr>
-        <tr><td>Previous platform</td><td>QuickBooks POS (discontinued, prompted the migration)</td></tr>
-        <tr><td>Partner</td><td>Riess Group (now CQL)</td></tr>
-        <tr><td>Custom build</td><td>Custom POS apps for managing custom club orders digitally — replacing paper / Dropbox</td></tr>
-        <tr><td>Outcome 1</td><td><strong>Custom club order processing time cut by 50%</strong></td></tr>
-        <tr><td>Outcome 2</td><td><strong>~10 hours per week saved</strong> across instructor notifications, custom orders, customer data entry, reporting</td></tr>
-        <tr><td>Link</td><td><a href="https://www.shopify.com/case-studies/chris-cote-golf">shopify.com/case-studies/chris-cote-golf</a></td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <strong>The parallel to draw out loud:</strong> Cote's operates at maybe 5% of True Spec's scale. If 5% scale produces 50% processing-time savings, 10 hrs/week back — the math scales accordingly at 41 locations + $3.2M inventory + 4 brands.
-    </div>
-  </div>
-</section>
-
-<!-- POST DEMO -->
-<section class="soft">
-  <div class="container">
-    <span class="eyebrow">After the demo</span>
-    <h2>Within 24 hours.</h2>
-    <ul class="tight">
-      <li>Send Matt + Andrew the Chris Cote's case study link</li>
-      <li>Short recap of what Shelby demoed</li>
-      <li>If POC interest signaled — scoped paid POC proposal for one Boston location</li>
-      <li>Open invitation for Matt to ask follow-ups async</li>
-    </ul>
+    <h3>Before the architecture session — optional</h3>
+    <p>Happy to facilitate a 30-minute reference call with Chris Cote's team — peer to peer, not a vendor pitch. They'd share what worked and what didn't in their custom POS build. If useful, it can land in the next week.</p>
   </div>
 </section>
 
 <div class="footer">
   <div class="container">
     <p><strong>Nicole DeGennaro</strong> · Senior Account Executive, Commercial · Shopify · nicole.degennaro@shopify.com</p>
-    <p style="margin-top: 8px;">Single-page demo prep for True Spec Golf · Mon Jun 22, 2026</p>
+    <p style="margin-top: 8px;">Prepared for True Spec Golf · June 22, 2026</p>
   </div>
 </div>
 
