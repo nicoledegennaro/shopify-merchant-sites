@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True Spec Golf × Shopify — Problem Statement & Tailored Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2620; --muted:#5d6b62; --soft:#8a978e;
+    --green:#1b4332; --green2:#2d6a4f; --accent:#40916c;
+    --line:#e3e8e3; --bg:#fbfcfb; --card:#ffffff; --cream:#f4f7f3;
+    --warn:#9a6700; --warn-bg:#fbf6e9;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 40px;}
+  /* HEADER */
+  .top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--green);padding:30px 0 16px;}
+  .mark{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--green);}
+  .mark .x{color:var(--soft);font-weight:500;}
+  .prep{text-align:right;font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);font-weight:600;}
+  .prep strong{display:block;color:var(--accent);font-size:12.5px;letter-spacing:0;text-transform:none;margin-top:3px;}
+  h1{font-family:'Fraunces',serif;font-size:33px;font-weight:600;margin:22px 0 6px;letter-spacing:-.01em;}
+  .sub{font-size:13.5px;color:var(--muted);max-width:760px;margin:0;}
+  .eyebrow{font-size:10.5px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:26px 0 10px;}
+  /* ALIGNED STRIP */
+  .aligned{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:14px 18px;font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .aligned b{color:var(--ink);}
+  .aligned div{margin:3px 0;}
+  /* CARDS */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .card{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;background:var(--card);}
+  .card h3{font-size:14px;margin:0 0 7px;color:var(--green);font-weight:700;}
+  .card .pain{font-size:12px;color:var(--muted);margin:0 0 7px;}
+  .card .sol{font-size:12.5px;color:var(--ink);margin:0;}
+  .card .pain b,.card .sol b{font-weight:700;}
+  .tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-right:5px;vertical-align:1px;}
+  .tag.p{background:#fdecea;color:#b4231a;}
+  .tag.s{background:#e7f3ec;color:var(--green2);}
+  /* OBJECTIONS */
+  .obj{background:var(--warn-bg);border:1px solid #efe2c4;border-radius:8px;padding:13px 18px;margin-top:4px;}
+  .obj div{font-size:12px;color:var(--ink);margin:5px 0;}
+  .obj b{color:var(--warn);}
+  /* TWO COL */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .two h3{font-size:12.5px;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin:0 0 8px;font-weight:700;}
+  ul{margin:0;padding-left:18px;}
+  li{font-size:12px;color:var(--muted);margin-bottom:5px;}
+  li b{color:var(--ink);}
+  .steps li{color:var(--ink);}
+  footer{border-top:1px solid var(--line);margin-top:26px;padding:14px 0 30px;font-size:11px;color:var(--muted);}
+  footer b{color:var(--ink);}
+  footer a{color:var(--green2);font-weight:600;text-decoration:none;}
+  @page{size:Letter;margin:13mm;}
+  @media print{
+    .wrap{padding:0;max-width:100%;}
+    .top{padding-top:0;}
+    .card,.obj,.aligned,.two{break-inside:avoid;page-break-inside:avoid;}
+    h1,.eyebrow,h3{break-after:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="mark">True Spec Golf <span class="x">× Shopify</span></div>
+    <div class="prep">Prepared by<strong>Nicole DeGennaro · Shopify</strong></div>
+  </div>
+
+  <h1>Your problem statement, solved.</h1>
+  <p class="sub">A Shopify solution mapped to the four-to-five pinch points you and Matt raised across our June 3, 15, and 22 sessions — built so nothing that works today gets disrupted.</p>
+
+  <div class="aligned">
+    <div><b>Parent:</b> EB Golf Media LLC — True Spec Golf (B&amp;M custom fitting: 41 US locations, ~$19–20M retail, 9 builders) + Fairway Jockey, Mirror Golf &amp; McLaren Golf (already on Shopify Advanced).</div>
+    <div><b>Today's fitting/POS stack:</b> ADS → SKU Vault → Salesforce → ShipStation + Avalara + external payment portal.</div>
+    <div><b>Our framing:</b> not "rip out ADS" — solve the pinch points and unify the four brands, with ADS untouched until a proof-of-concept earns the change.</div>
+  </div>
+
+  <div class="eyebrow">Your problem statement → the solution</div>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Fitter productivity &amp; native spec capture</h3>
+      <p class="pain"><span class="tag p">Pain</span>Specs (length, swing weight, CPM, adapter, movable weights) are the heart of the business. Manual entry into Sheets + Shopify caused errors — the reason ADS exists. Anything slowing the fitter slows revenue.</p>
+      <p class="sol"><span class="tag s">Solution</span>Shopify POS now captures spec data <b>natively on line items</b> — one screen, no Sheets. Spring '26 POS v11 is <b>~73s faster per complex cart</b>. Chris Cote's Golf runs this exact workflow today.</p>
+    </div>
+    <div class="card">
+      <h3>2. No post-fitting payment link <span style="font-weight:600;color:var(--soft);font-size:11px;">(Matt's #1)</span></h3>
+      <p class="pain"><span class="tag p">Pain</span>Fitters lose deals when they can't reach a customer by phone after a fitting; ADS can't send a payment link.</p>
+      <p class="sol"><span class="tag s">Solution</span>Shopify POS sends a <b>text/email payment link in under 30 seconds</b>; the customer pays on their phone via Shop Pay — recovering deals that slip today.</p>
+    </div>
+    <div class="card">
+      <h3>3. The operational-complexity tax</h3>
+      <p class="pain"><span class="tag p">Pain</span>4+ systems × 4 brands → thousands of phantom open POs, SKU Vault not flowing back to Shopify, manual split-shipments, double-ships, constant reconciliation, no single customer source of truth.</p>
+      <p class="sol"><span class="tag s">Solution</span>Consolidate all four brands into <b>one Shopify admin</b> (Spring '26 Multi-Entity Selling), per-location rules/staff/bank accounts, Avalara native. Cote's saw <b>~50% less custom-order time</b>, <b>~10 hrs/wk</b> back.</p>
+    </div>
+    <div class="card">
+      <h3>4. Don't disrupt what works</h3>
+      <p class="pain"><span class="tag p">Pain</span>ADS works. The team isn't looking for another long redesign.</p>
+      <p class="sol"><span class="tag s">Solution</span>A self-contained <b>Boston proof-of-concept</b> with read-only stubs to ADS, SKU Vault &amp; Salesforce (inventory sync; ADS order → Shopify draft order for payment). Nothing in today's flow changes during the POC.</p>
+    </div>
+    <div class="card" style="grid-column:1 / -1;">
+      <h3>5. Four brands &amp; the online custom-club ambition</h3>
+      <p class="pain"><span class="tag p">Pain</span>Brands are siloed, and selling custom clubs online has stalled over Fairway Jockey cannibalization concerns.</p>
+      <p class="sol"><span class="tag s">Solution</span>One unified admin gives shared customer data &amp; reporting, a <b>controlled path to sell custom clubs online without cannibalizing Fairway Jockey</b>, plus Shop App reorders and Shopify Audiences (Plus) for higher-intent acquisition.</p>
+    </div>
+  </div>
+
+  <div class="eyebrow">Addressing what came up on the demo</div>
+  <div class="obj">
+    <div><b>Hardware across 41 locations:</b> POS is a tablet app, but the POC needs only a handful of devices in Boston — not all 55–58 fitters on day one. We'll cost low-cost tablets (and a BYOD path) explicitly in the TCO, not assume iPads everywhere.</div>
+    <div><b>ADS integration:</b> inventory syncs via API from SKU Vault; ADS orders flow into Shopify as draft orders via webhook for payment/invoicing; Avalara stays for tax. Shelby is researching middleware options.</div>
+    <div><b>"Worth it at an 89% close rate?":</b> agreed — the payment-link gap is a small slice. The real value is <b>consolidation</b>: unifying four brands, enabling online custom-club sales, cleaner reporting, and removing manual reconciliation.</div>
+  </div>
+
+  <div class="two" style="margin-top:22px;">
+    <div>
+      <h3>To put real numbers to it (from Matt)</h3>
+      <ul>
+        <li><b>ADS costs</b> — monthly fees, POS vs. backend, dev/server.</li>
+        <li><b>Card rates</b> today + external payment-portal fees.</li>
+        <li><b>Ecom GMV</b> for Fairway Jockey, Mirror, McLaren (have True Spec retail ~$19–20M).</li>
+        <li><b>Legal structure</b> — four entities or one under EB Golf Media? (multi-entity vs. multi-store).</li>
+        <li><b>Apps</b> in the Advanced stores that must carry over.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Recommended next steps</h3>
+      <ul class="steps">
+        <li><b>Reference call</b> with Chris Cote's Golf / CQL — same fitting workflow, honest build story. Fastest unlock.</li>
+        <li><b>TCO</b> — Matt's inputs → side-by-side (ADS + Advanced × 3 vs. unified Plus).</li>
+        <li><b>Architecture session</b> — Shelby + your developer to scope the Boston POC.</li>
+        <li><b>Target:</b> Plus signature by end of Q3 → POC Q4 2026 → side-by-side vs. ADS Q1 2027.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <b>Nicole DeGennaro</b> · Senior Account Executive, Shopify · with Shelby Skinner, Solutions Engineering &nbsp;|&nbsp;
+    <a href="https://www.shopify.com/case-studies/chris-cote-golf">Cote's Golf case study</a> ·
+    <a href="https://www.shopify.com/pos">Shopify POS</a> ·
+    <a href="https://www.shopify.com/editions/spring2026">Spring '26 Editions</a>
+  </footer>
+
+</div>
+</body>
+</html>
