@@ -24,7 +24,7 @@
   .prep{text-align:right;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:600;}
   .prep strong{display:block;color:var(--accent);font-size:12px;letter-spacing:0;text-transform:none;margin-top:3px;}
   h1{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin:18px 0 5px;letter-spacing:-.01em;}
-  .sub{font-size:13px;color:var(--muted);max-width:780px;margin:0;}
+  .sub{font-size:13px;color:var(--muted);max-width:790px;margin:0;}
   .step{display:inline-block;font-family:'Fraunces',serif;font-size:15px;color:var(--accent);font-weight:600;margin-right:6px;}
   .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:15px 0 7px;display:flex;align-items:baseline;}
   .lede2{font-size:12.5px;color:var(--muted);margin:0 0 8px;}
@@ -79,26 +79,26 @@
   </div>
 
   <h1>The problem, how we'd solve it, and the numbers.</h1>
-  <p class="sub">Centered on the problem statement you and Matt laid out — the cost of running fitting on a custom-built system, how Shopify POS solves it, and what it costs.</p>
+  <p class="sub">Centered on the problem statement you and Matt laid out — the cost of running fitting on a custom POS front-end, how Shopify POS solves it with ADS staying as your ERP, and what it costs.</p>
 
-  <div class="eyebrow"><span class="step">01</span> The problem — the cost of a custom-built system</div>
-  <p class="lede2">True Spec's fitting business — 41 locations — runs entirely on a custom-built POS (ADS); the Shopify Advanced store is just a small merch shop. ADS exists for one reason: years ago Shopify POS couldn't capture fitting specs on line items, so fitters were stuck in Google Sheets and you built your own system to escape it. That fix now carries ongoing cost and risk:</p>
+  <div class="eyebrow"><span class="step">01</span> The problem — a custom POS front-end you own forever</div>
+  <p class="lede2">True Spec's fitting runs on a custom-built POS front-end, with ADS as the ERP / system of record behind it (your Shopify Advanced store is just merch). ADS exists for one reason: years ago Shopify POS couldn't capture fitting specs on line items, so fitters were stuck in Google Sheets and you built your own front-end to escape it. That custom layer now carries ongoing cost and risk:</p>
   <div class="bens prob">
-    <div><b>Every upgrade is yours to build</b> — new features, fixes, and integrations are all custom dev work, on your timeline and budget. Tech debt compounds year over year.</div>
-    <div><b>A brittle, stitched-together stack</b> — ADS + SKU Vault + Salesforce + ShipStation + Avalara + an external payment portal → phantom POs, split-shipments, double-ships, constant reconciliation, no single customer record.</div>
-    <div><b>Security &amp; PCI sit with you</b> — a custom payment path is yours to patch, certify, and keep compliant.</div>
-    <div><b>You miss the platform's innovation</b> — every Shopify POS release (payment links, Tap to Pay, endless aisle, the Spring '26 updates) is something you'd have to build yourself, if at all.</div>
+    <div><b>Every POS upgrade is yours to build</b> — improving the fitting/checkout experience is custom dev work, on your timeline and budget. Tech debt compounds year over year.</div>
+    <div><b>You miss the platform's POS innovation</b> — payment links, Tap to Pay, endless aisle, the Spring '26 updates — each is something you'd have to build yourself, if at all.</div>
+    <div><b>No native post-fitting payment link</b> — deals slip when a fitter can't reach a customer by phone after the fitting.</div>
+    <div><b>Security &amp; PCI on the payment path sit with you</b> — a custom checkout is yours to patch, certify, and keep compliant.</div>
   </div>
 
-  <div class="eyebrow"><span class="step">02</span> How we'd solve it — come back to a platform that maintains itself</div>
-  <p class="lede2">The reason you left is gone: Shopify POS now captures custom specs natively on line items — Chris Cote's Golf runs exactly this fitting workflow today. So you can drop the custom-system burden and let the platform do the upkeep.</p>
+  <div class="eyebrow"><span class="step">02</span> How we'd solve it — modern POS up front, ADS still your ERP</div>
+  <p class="lede2">The reason you left is gone: Shopify POS now captures custom specs natively on line items — Chris Cote's Golf runs exactly this fitting workflow today. Put Shopify POS on the fitting front-end and keep ADS as your system of record — the in-tandem setup Matt described on the demo, not a rip-and-replace.</p>
   <div class="bens sol">
-    <div><b>Native spec capture on POS line items</b> — the Google-sheet workaround that forced the ADS build is solved; POS v11 is ~73s faster per complex cart.</div>
-    <div><b>No more building your own upgrades</b> — platform improvements, security, and PCI are handled, and new POS features ship to you automatically.</div>
-    <div><b>Fitting + checkout in one system</b> — ends the phantom POs, double-ships, and reconciliation the stitched stack creates.</div>
+    <div><b>Native spec capture on POS line items</b> — the Google-sheet workaround that forced the custom build is solved; POS v11 is ~73s faster per complex cart.</div>
+    <div><b>A platform-maintained front-end</b> — upgrades, security/PCI, and new POS features ship to you automatically, instead of custom dev.</div>
     <div><b>Payment links + lower card rates</b> — recover post-fitting deals; POS Pro included across all 41 locations on Plus.</div>
+    <div><b>ADS stays your ERP</b> — Shopify POS syncs to it (inventory + orders/payments), so nothing in your back office gets ripped out.</div>
   </div>
-  <div class="callout"><b>Why Plus, and why it's low-lift:</b> POS Pro is included on Plus at every location — à la carte that's ~$89/mo per store (~$44K/yr across your 41) — so the $2,300/mo license covers POS everywhere, plus upgrades, security, and the lowest card rates. You already run Shopify for merch, so it's a familiar platform. Phased and non-disruptive: <b>stand up POS for fitting (read-only sync to ADS / SKU Vault) → pilot a few locations side-by-side → roll out across all 41, retiring ADS on your timeline.</b></div>
+  <div class="callout"><b>Why Plus, and the honest catch:</b> POS Pro is included on Plus at every location — à la carte ~$89/mo per store (~$44K/yr across 41) — so the $2,300/mo license covers POS everywhere, plus upgrades, security, and the lowest card rates. The real build is a <b>custom ADS↔Shopify integration</b> (inventory in, orders/payments back to ADS) — a scoped one-time dev cost, included below. Phased and non-disruptive: stand up POS for fitting → pilot a few locations side-by-side → roll out across all 41.</div>
 
   <div class="eyebrow"><span class="step">+</span> New in Spring '26 POS — included, not custom-built</div>
   <div class="bens sol">
@@ -109,46 +109,48 @@
   </div>
 
   <div class="eyebrow"><span class="step">03</span> The money</div>
-  <div class="banner"><b>Illustrative model</b> — figures use industry benchmarks and what you shared on our calls. Tell me which numbers to swap in (below) and the math holds.</div>
+  <div class="banner"><b>Illustrative model</b> — figures use industry benchmarks and what you shared on our calls. The ADS↔Shopify integration scope is the key variable; tell me which numbers to swap in (below) and the math holds.</div>
   <table>
-    <thead><tr><th>Annual cost</th><th class="n">Today (ADS + Advanced merch)</th><th class="n">Shopify POS (Plus)</th></tr></thead>
+    <thead><tr><th>Annual cost</th><th class="n">Today</th><th class="n">With Shopify POS (Plus)</th></tr></thead>
     <tbody>
-      <tr><td>ADS dev + maintenance <span style="color:var(--soft)">(custom system)</span></td><td class="n">$60,000</td><td class="n">$30,000 <span style="color:var(--soft)">reduced</span></td></tr>
+      <tr><td>ADS (ERP / system of record)</td><td class="n">$60,000</td><td class="n">$60,000 <span style="color:var(--soft)">stays</span></td></tr>
       <tr><td>Card processing <span style="color:var(--soft)">(~$19.5M volume)</span></td><td class="n">$565,500 <span style="color:var(--soft)">@2.9%</span></td><td class="n">$487,500 <span style="color:var(--soft)">@2.5%</span></td></tr>
+      <tr><td>ADS ↔ Shopify integration upkeep</td><td class="n">—</td><td class="n">$10,000 <span style="color:var(--soft)">new</span></td></tr>
       <tr><td>Platform license <span style="color:var(--soft)">(Plus adds POS Pro, all 41)</span></td><td class="n">$4,800 <span style="color:var(--soft)">Advanced</span></td><td class="n">$27,600 <span style="color:var(--soft)">Plus</span></td></tr>
-      <tr class="row-tot"><td>Annual operating total</td><td class="n">$630,300</td><td class="n">$545,100</td></tr>
-      <tr class="row-tot"><td>Recurring operating savings / yr</td><td class="n"></td><td class="n save">+$85,200</td></tr>
-      <tr class="oneoff"><td>+ One-time: implementation (setup + ADS integration)</td><td class="n">—</td><td class="n">$30,000</td></tr>
+      <tr class="row-tot"><td>Annual operating total</td><td class="n">$630,300</td><td class="n">$585,100</td></tr>
+      <tr class="row-tot"><td>Recurring operating savings / yr</td><td class="n"></td><td class="n save">+$45,200</td></tr>
+      <tr class="oneoff"><td>+ One-time: implementation + custom ADS↔Shopify integration</td><td class="n">—</td><td class="n">$45,000</td></tr>
       <tr class="oneoff"><td>+ One-time: POS hardware (~58 fitters)</td><td class="n">—</td><td class="n">$11,000</td></tr>
     </tbody>
   </table>
-  <div class="callout warn"><b>The cost that isn't in the table:</b> on ADS, staying current is continuous custom dev — every new feature, integration, and security patch is your build and your budget, and tech debt compounds. On Plus, upgrades, PCI/security, and new POS features are included. That "keep-up" cost grows every year you stay custom — and it's the real reason to move.</div>
 
   <div class="two">
     <div>
       <h3>Operating savings / yr</h3>
-      <div class="li"><span>ADS custom dev/maintenance reduced ~50%</span><b class="g">+$30,000</b></div>
       <div class="li"><span>Card processing (2.9% → 2.5%)</span><b class="g">+$78,000</b></div>
       <div class="li"><span>Ops time — 10 hrs/wk (Cote's, @$40/hr)</span><b class="g">+$20,800</b></div>
       <div class="li"><span>Less: incremental license (Advanced → Plus)</span><b>−$22,800</b></div>
-      <div class="li" style="border-bottom:none;"><span><b>Net recurring savings</b></span><b class="g">≈ $106,000</b></div>
+      <div class="li"><span>Less: ADS↔Shopify integration upkeep (new)</span><b>−$10,000</b></div>
+      <div class="li" style="border-bottom:none;"><span><b>Net recurring savings</b></span><b class="g">≈ $66,000</b></div>
     </div>
     <div>
       <h3>Revenue lift / yr <span style="font-weight:500;color:var(--soft);text-transform:none;letter-spacing:0;">(conservative)</span></h3>
       <div class="li"><span>Recovered post-fitting deals via payment links</span><b class="g">+$75,000</b></div>
       <div class="li"><span>Endless aisle — ship out-of-stock from full catalog</span><b class="g">upside</b></div>
       <div class="li" style="border-bottom:none;"><span>Faster checkout → more fitting capacity</span><b>upside</b></div>
-      <p class="note" style="margin-top:7px;">Cote's Golf: ~50% less custom-order processing time on this workflow.</p>
+      <p class="note" style="margin-top:7px;">Revenue lift alone roughly covers the Year-1 build. Cote's Golf: ~50% less custom-order processing time.</p>
     </div>
   </div>
 
+  <div class="callout warn"><b>The cost that isn't in the table:</b> ADS stays your ERP, but the custom <em>front-end</em> doesn't have to be. On a custom POS, every new capability — payment links, Tap to Pay, endless aisle, the next release — is your build and your budget, and tech debt compounds. On Shopify POS it's included. That avoided "keep-up" cost grows every year.</div>
+
   <div class="bl">
-    <div class="stat"><div class="k">Net recurring savings</div><div class="v">~$106K<span style="font-size:14px">/yr</span></div><div class="s">Before revenue lift &amp; avoided build cost</div></div>
-    <div class="stat"><div class="k">Year-1 one-time cost</div><div class="v">~$41K</div><div class="s">$30K setup + $11K hardware</div></div>
-    <div class="stat"><div class="k">Payback</div><div class="v">~5 mo</div><div class="s">Savings cover implementation</div></div>
+    <div class="stat"><div class="k">Net recurring savings</div><div class="v">~$66K<span style="font-size:14px">/yr</span></div><div class="s">Before revenue lift</div></div>
+    <div class="stat"><div class="k">Year-1 one-time cost</div><div class="v">~$56K</div><div class="s">$45K build/integration + $11K hardware</div></div>
+    <div class="stat"><div class="k">Payback</div><div class="v">&lt;1 yr</div><div class="s">Faster once revenue lift is counted</div></div>
   </div>
 
-  <div class="inputs"><b>If it's worth a look:</b> let me know which numbers to swap in — your ADS dev + maintenance spend, card rate + payment-portal fees, and annual card volume — and we can review the real TCO together.</div>
+  <div class="inputs"><b>If it's worth a look:</b> let me know which numbers to swap in — the ADS↔Shopify integration scope, your card rate + payment-portal fees, and annual card volume — and we can review the real TCO together.</div>
 
   <footer>
     <b>Nicole DeGennaro</b> · Senior Account Executive, Shopify · with Shelby Skinner, Solutions Engineering &nbsp;|&nbsp;
