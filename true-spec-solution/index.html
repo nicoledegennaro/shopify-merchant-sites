@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>True Spec Golf × Shopify — Shopify POS TCO & Benefits</title>
+<title>True Spec Golf × Shopify — Problem, Solution & TCO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
     --green:#1b4332; --green2:#2d6a4f; --accent:#40916c;
     --line:#e3e8e3; --card:#ffffff; --cream:#f4f7f3;
     --pos:#1b6b43; --posbg:#e7f3ec; --warn:#9a6700; --warn-bg:#fbf6e9;
+    --prob:#b4231a; --probbg:#fdecea;
   }
   *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
@@ -22,16 +23,18 @@
   .mark .x{color:var(--soft);font-weight:500;}
   .prep{text-align:right;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:600;}
   .prep strong{display:block;color:var(--accent);font-size:12px;letter-spacing:0;text-transform:none;margin-top:3px;}
-  h1{font-family:'Fraunces',serif;font-size:31px;font-weight:600;margin:20px 0 6px;letter-spacing:-.01em;}
+  h1{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin:18px 0 5px;letter-spacing:-.01em;}
   .sub{font-size:13px;color:var(--muted);max-width:780px;margin:0;}
-  .banner{font-size:11px;color:var(--warn);background:var(--warn-bg);border:1px solid #efe2c4;border-radius:6px;padding:8px 12px;margin:11px 0 0;}
-  .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:15px 0 7px;}
+  .step{display:inline-block;font-family:'Fraunces',serif;font-size:15px;color:var(--accent);font-weight:600;margin-right:6px;}
+  .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:16px 0 7px;display:flex;align-items:baseline;}
+  .lede2{font-size:12.5px;color:var(--muted);margin:0 0 8px;}
   .bens{display:grid;grid-template-columns:1fr 1fr;gap:5px 26px;}
   .bens div{font-size:12px;color:var(--muted);padding-left:15px;position:relative;}
-  .bens div::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .bens.prob div::before{content:"–";position:absolute;left:2px;color:var(--prob);font-weight:700;}
+  .bens.sol div::before{content:"▸";position:absolute;left:0;color:var(--accent);}
   .bens b{color:var(--ink);}
-  .unify{background:var(--posbg);border:1px solid #cfe6d8;border-left:3px solid var(--pos);border-radius:8px;padding:11px 16px;margin-top:12px;font-size:12px;color:var(--ink);}
-  .unify b{color:var(--green);}
+  .callout{background:var(--posbg);border:1px solid #cfe6d8;border-left:3px solid var(--pos);border-radius:8px;padding:11px 16px;margin-top:10px;font-size:12px;color:var(--ink);}
+  .callout b{color:var(--green);}
   table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
   th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);}
   th{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);background:var(--cream);font-weight:700;}
@@ -51,15 +54,16 @@
   .stat .k{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600;}
   .stat .v{font-family:'Fraunces',serif;font-size:23px;font-weight:600;color:var(--green);margin-top:2px;}
   .stat .s{font-size:11px;color:var(--muted);margin-top:2px;}
-  .inputs{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:9px 15px;margin-top:5px;font-size:11px;color:var(--muted);}
+  .inputs{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:9px 15px;margin-top:8px;font-size:11px;color:var(--muted);}
   .inputs b{color:var(--ink);}
-  footer{border-top:1px solid var(--line);margin-top:13px;padding:10px 0 16px;font-size:11px;color:var(--muted);}
+  .banner{font-size:10.5px;color:var(--warn);background:var(--warn-bg);border:1px solid #efe2c4;border-radius:6px;padding:7px 12px;margin:4px 0 0;}
+  footer{border-top:1px solid var(--line);margin-top:12px;padding:9px 0 14px;font-size:11px;color:var(--muted);}
   footer b{color:var(--ink);} footer a{color:var(--green2);font-weight:600;text-decoration:none;}
-  @page{size:Letter;margin:13mm;}
+  @page{size:Letter;margin:12mm;}
   @media print{
     .wrap{padding:0;max-width:100%;}
     .top{padding-top:0;}
-    table,.two,.bl,.inputs,.stat,.bens,.unify{break-inside:avoid;page-break-inside:avoid;}
+    table,.two,.bl,.inputs,.stat,.bens,.callout{break-inside:avoid;page-break-inside:avoid;}
     h1,.eyebrow,h3{break-after:avoid;}
   }
 </style>
@@ -72,25 +76,39 @@
     <div class="prep">Prepared by<strong>Nicole DeGennaro · Shopify</strong></div>
   </div>
 
-  <h1>Shopify POS for True Spec — the numbers.</h1>
-  <p class="sub">What Shopify POS does for True Spec's 41-location fitting operation: the savings, the revenue lift, and the total cost.</p>
-  <div class="banner"><b>Illustrative model</b> — figures use industry benchmarks and what you shared on our calls. Tell me which numbers to swap in (listed at the end) and the math holds.</div>
+  <h1>The problem, how we'd solve it, and the numbers.</h1>
+  <p class="sub">Centered on the problem statement you and Matt laid out — what's slowing True Spec's fitting operation, how Shopify POS solves it, and what it costs.</p>
 
-  <div class="eyebrow">Why Shopify POS for True Spec</div>
-  <div class="bens">
-    <div><b>Native spec capture</b> on POS line items (length, swing weight, CPM, adapter, weights) — no Google-sheet workaround.</div>
-    <div><b>~73s faster</b> per complex cart (POS v11) — throughput, not friction.</div>
-    <div><b>Text/email payment link</b> in &lt;30s — recover deals lost after the fitting.</div>
-    <div><b>Fitting + checkout in one system</b> — ends phantom POs, double-ships, manual reconciliation.</div>
-    <div><b>Lower card rates</b> vs. your external payment portal.</div>
-    <div><b>One source of truth</b> on the customer + cleaner reporting.</div>
+  <div class="eyebrow"><span class="step">01</span> The problem</div>
+  <p class="lede2">True Spec runs 41 fitting locations — online on Shopify Advanced, in-store on ADS. The fitting workflow <em>is</em> the business, and today's stack puts friction right where revenue happens:</p>
+  <div class="bens prob">
+    <div><b>Spec capture lives off-system</b> — fitters log custom specs (length, swing weight, CPM, adapter, weights) in Google Sheets, then re-key them. Errors creep in; it's the reason ADS was built.</div>
+    <div><b>A dated, stitched-together stack</b> — ADS + SKU Vault + Salesforce + ShipStation + Avalara + an external payment portal → phantom POs, manual split-shipments, double-ships, constant reconciliation.</div>
+    <div><b>No single source of truth</b> on the customer across those systems.</div>
+    <div><b>No post-fitting payment link</b> — deals slip when a fitter can't reach a customer by phone after the fitting.</div>
   </div>
 
-  <div class="unify"><b>Why Plus is the right fit for True Spec:</b> POS Pro is included on Plus at every location — à la carte that's ~$89/mo per store (~$44K/yr across your 41 locations), so the $2,300/mo Plus license already covers POS everywhere, at the lowest card rates. True Spec is already on Shopify Advanced, so the move to Plus is familiar and low-lift — same platform, more included.</div>
+  <div class="eyebrow"><span class="step">02</span> How we'd solve it</div>
+  <div class="bens sol">
+    <div><b>Native spec capture on POS line items</b> — the Google-sheet workaround disappears (Chris Cote's Golf runs exactly this on Shopify POS), and POS v11 is ~73s faster per complex cart.</div>
+    <div><b>Fitting + checkout in one system</b> — ends phantom POs, double-ships, and manual reconciliation; one customer record, cleaner reporting.</div>
+    <div><b>Text/email payment link in &lt;30s</b> — recover the post-fitting deals that slip today.</div>
+    <div><b>Lower card rates + POS Pro on every location</b> — the cost wins, below.</div>
+  </div>
+  <div class="callout"><b>Why Plus, and why it's low-lift:</b> POS Pro is included on Plus at every location — à la carte that's ~$89/mo per store (~$44K/yr across your 41), so the $2,300/mo Plus license already covers POS everywhere at the lowest card rates. And True Spec is already on Shopify Advanced, so it's a familiar upgrade — same platform, more included. ADS keeps running throughout; the migration is phased: <b>upgrade Advanced → Plus → stand up POS for fitting (read-only sync to ADS / SKU Vault) → pilot a few locations side-by-side → roll out across all 41 at your pace.</b></div>
 
-  <div class="eyebrow">Total cost of ownership — today vs. Shopify POS (annual)</div>
+  <div class="eyebrow"><span class="step">+</span> New in Spring '26 POS — growth on top</div>
+  <div class="bens sol">
+    <div><b>Endless aisle / ship-to-customer</b> — sell any club, head, or shaft from the full catalog and ship it when a location's out of stock. Capture the walk-out sale.</div>
+    <div><b>Tap to Pay across locations</b> — contactless payment on a phone anywhere on the floor; also trims the hardware bill.</div>
+    <div><b>Online → in-person via Shop app</b> — send local Shop shoppers to the nearest store; online demand becomes foot traffic.</div>
+    <div><b>Returns &amp; exchanges in one cart</b> — handle a refund, exchange, and new sale together, keeping the customer in the chair.</div>
+  </div>
+
+  <div class="eyebrow"><span class="step">03</span> The money</div>
+  <div class="banner"><b>Illustrative model</b> — figures use industry benchmarks and what you shared on our calls. Tell me which numbers to swap in (below) and the math holds.</div>
   <table>
-    <thead><tr><th>Line item</th><th class="n">Today (Advanced + ADS)</th><th class="n">Shopify POS (Plus)</th></tr></thead>
+    <thead><tr><th>Annual cost</th><th class="n">Today (Advanced + ADS)</th><th class="n">Shopify POS (Plus)</th></tr></thead>
     <tbody>
       <tr><td>Card processing <span style="color:var(--soft)">(~$19.5M volume)</span></td><td class="n">$565,500 <span style="color:var(--soft)">@2.9%</span></td><td class="n">$487,500 <span style="color:var(--soft)">@2.5%</span></td></tr>
       <tr><td>Platform license <span style="color:var(--soft)">(Plus adds POS Pro, all 41)</span></td><td class="n">$4,800 <span style="color:var(--soft)">Advanced</span></td><td class="n">$27,600 <span style="color:var(--soft)">Plus</span></td></tr>
@@ -101,9 +119,7 @@
       <tr class="oneoff"><td>+ One-time: POS hardware (~58 fitters)</td><td class="n">—</td><td class="n">$11,000</td></tr>
     </tbody>
   </table>
-  <p class="note">Card rate and ADS cost are the biggest variables — first to confirm. Hardware is one-time; the pilot needs only a handful of devices, not all 58.</p>
 
-  <div class="eyebrow">Where it pays off</div>
   <div class="two">
     <div>
       <h3>Operating savings / yr</h3>
@@ -122,29 +138,10 @@
     </div>
   </div>
 
-  <div class="eyebrow">New in Shopify POS (Spring '26) — built to grow revenue</div>
-  <div class="bens">
-    <div><b>Endless aisle / ship-to-customer</b> — sell any club, head, or shaft from the full catalog and ship it when a location's out of stock. Capture the walk-out sale.</div>
-    <div><b>Quick Sale payment links + shipping</b> — take payment and ship in one flow after the customer leaves (Matt's #1).</div>
-    <div><b>Fastest-ever POS (v11)</b> — 60+ seconds saved per checkout; more fittings/day at peak.</div>
-    <div><b>Tap to Pay across locations</b> — contactless payment on a phone anywhere on the floor; cuts the hardware bill.</div>
-    <div><b>Online → in-person via Shop app</b> — send local Shop shoppers to the nearest store; online demand becomes foot traffic.</div>
-    <div><b>Returns &amp; exchanges in one cart</b> — handle a refund, exchange, and new sale together, keeping the customer in the chair.</div>
-  </div>
-
-  <div class="eyebrow">Bottom line</div>
   <div class="bl">
     <div class="stat"><div class="k">Net recurring savings</div><div class="v">~$106K<span style="font-size:14px">/yr</span></div><div class="s">Operating, before revenue lift</div></div>
     <div class="stat"><div class="k">Year-1 one-time cost</div><div class="v">~$41K</div><div class="s">$30K setup + $11K hardware</div></div>
     <div class="stat"><div class="k">Payback</div><div class="v">~5 mo</div><div class="s">Savings cover implementation</div></div>
-  </div>
-
-  <div class="eyebrow">Typical implementation &amp; phased rollout</div>
-  <div class="bens">
-    <div><b>1 · Upgrade Advanced → Plus</b> — True Spec is already on Shopify, so it's a familiar, low-lift upgrade that unlocks POS Pro across your locations.</div>
-    <div><b>2 · Stand up POS for fitting</b> — spec capture, payment links, Avalara; read-only sync to ADS / SKU Vault. ADS keeps running.</div>
-    <div><b>3 · Pilot a few locations</b> — run side-by-side with ADS to validate the fitter experience.</div>
-    <div><b>4 · Phased rollout</b> — extend POS across all 41 locations at your own pace.</div>
   </div>
 
   <div class="inputs"><b>If it's worth a look:</b> let me know which numbers to swap in — current ADS cost, card rate + payment-portal fees, and your annual card volume — and we can review the real TCO together.</div>
