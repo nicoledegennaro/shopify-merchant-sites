@@ -13,7 +13,7 @@
     --green:#1b4332; --green2:#2d6a4f; --accent:#40916c;
     --line:#e3e8e3; --card:#ffffff; --cream:#f4f7f3;
     --pos:#1b6b43; --posbg:#e7f3ec; --warn:#9a6700; --warn-bg:#fbf6e9;
-    --prob:#b4231a; --probbg:#fdecea;
+    --prob:#b4231a;
   }
   *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
@@ -26,7 +26,7 @@
   h1{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin:18px 0 5px;letter-spacing:-.01em;}
   .sub{font-size:13px;color:var(--muted);max-width:780px;margin:0;}
   .step{display:inline-block;font-family:'Fraunces',serif;font-size:15px;color:var(--accent);font-weight:600;margin-right:6px;}
-  .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:16px 0 7px;display:flex;align-items:baseline;}
+  .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:15px 0 7px;display:flex;align-items:baseline;}
   .lede2{font-size:12.5px;color:var(--muted);margin:0 0 8px;}
   .bens{display:grid;grid-template-columns:1fr 1fr;gap:5px 26px;}
   .bens div{font-size:12px;color:var(--muted);padding-left:15px;position:relative;}
@@ -35,6 +35,8 @@
   .bens b{color:var(--ink);}
   .callout{background:var(--posbg);border:1px solid #cfe6d8;border-left:3px solid var(--pos);border-radius:8px;padding:11px 16px;margin-top:10px;font-size:12px;color:var(--ink);}
   .callout b{color:var(--green);}
+  .callout.warn{background:var(--warn-bg);border-color:#efe2c4;border-left-color:var(--warn);}
+  .callout.warn b{color:var(--warn);}
   table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
   th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);}
   th{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);background:var(--cream);font-weight:700;}
@@ -42,14 +44,14 @@
   .row-tot td{font-weight:700;border-top:2px solid var(--green);border-bottom:none;background:#fafcfa;}
   .save{color:var(--pos);font-weight:700;}
   .oneoff td{color:var(--muted);font-style:italic;}
-  .note{font-size:10.5px;color:var(--soft);margin-top:6px;}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:4px;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px;}
   .two h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:700;color:var(--ink);}
   .li{font-size:12px;margin-bottom:4px;display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line);padding-bottom:4px;}
   .li span:first-child{color:var(--muted);}
   .li b{color:var(--ink);white-space:nowrap;}
   .li .g{color:var(--pos);}
-  .bl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;}
+  .note{font-size:10.5px;color:var(--soft);margin-top:6px;}
+  .bl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px;}
   .stat{border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:8px;padding:11px 14px;background:var(--card);}
   .stat .k{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600;}
   .stat .v{font-family:'Fraunces',serif;font-size:23px;font-weight:600;color:var(--green);margin-top:2px;}
@@ -77,54 +79,56 @@
   </div>
 
   <h1>The problem, how we'd solve it, and the numbers.</h1>
-  <p class="sub">Centered on the problem statement you and Matt laid out — what's slowing True Spec's fitting operation, how Shopify POS solves it, and what it costs.</p>
+  <p class="sub">Centered on the problem statement you and Matt laid out — the cost of running fitting on a custom-built system, how Shopify POS solves it, and what it costs.</p>
 
-  <div class="eyebrow"><span class="step">01</span> The problem</div>
-  <p class="lede2">True Spec runs 41 fitting locations — online on Shopify Advanced, in-store on ADS. The fitting workflow <em>is</em> the business, and today's stack puts friction right where revenue happens:</p>
+  <div class="eyebrow"><span class="step">01</span> The problem — the cost of a custom-built system</div>
+  <p class="lede2">True Spec's fitting business — 41 locations — runs entirely on a custom-built POS (ADS); the Shopify Advanced store is just a small merch shop. ADS exists for one reason: years ago Shopify POS couldn't capture fitting specs on line items, so fitters were stuck in Google Sheets and you built your own system to escape it. That fix now carries ongoing cost and risk:</p>
   <div class="bens prob">
-    <div><b>Spec capture lives off-system</b> — fitters log custom specs (length, swing weight, CPM, adapter, weights) in Google Sheets, then re-key them. Errors creep in; it's the reason ADS was built.</div>
-    <div><b>A dated, stitched-together stack</b> — ADS + SKU Vault + Salesforce + ShipStation + Avalara + an external payment portal → phantom POs, manual split-shipments, double-ships, constant reconciliation.</div>
-    <div><b>No single source of truth</b> on the customer across those systems.</div>
-    <div><b>No post-fitting payment link</b> — deals slip when a fitter can't reach a customer by phone after the fitting.</div>
+    <div><b>Every upgrade is yours to build</b> — new features, fixes, and integrations are all custom dev work, on your timeline and budget. Tech debt compounds year over year.</div>
+    <div><b>A brittle, stitched-together stack</b> — ADS + SKU Vault + Salesforce + ShipStation + Avalara + an external payment portal → phantom POs, split-shipments, double-ships, constant reconciliation, no single customer record.</div>
+    <div><b>Security &amp; PCI sit with you</b> — a custom payment path is yours to patch, certify, and keep compliant.</div>
+    <div><b>You miss the platform's innovation</b> — every Shopify POS release (payment links, Tap to Pay, endless aisle, the Spring '26 updates) is something you'd have to build yourself, if at all.</div>
   </div>
 
-  <div class="eyebrow"><span class="step">02</span> How we'd solve it</div>
+  <div class="eyebrow"><span class="step">02</span> How we'd solve it — come back to a platform that maintains itself</div>
+  <p class="lede2">The reason you left is gone: Shopify POS now captures custom specs natively on line items — Chris Cote's Golf runs exactly this fitting workflow today. So you can drop the custom-system burden and let the platform do the upkeep.</p>
   <div class="bens sol">
-    <div><b>Native spec capture on POS line items</b> — the Google-sheet workaround disappears (Chris Cote's Golf runs exactly this on Shopify POS), and POS v11 is ~73s faster per complex cart.</div>
-    <div><b>Fitting + checkout in one system</b> — ends phantom POs, double-ships, and manual reconciliation; one customer record, cleaner reporting.</div>
-    <div><b>Text/email payment link in &lt;30s</b> — recover the post-fitting deals that slip today.</div>
-    <div><b>Lower card rates + POS Pro on every location</b> — the cost wins, below.</div>
+    <div><b>Native spec capture on POS line items</b> — the Google-sheet workaround that forced the ADS build is solved; POS v11 is ~73s faster per complex cart.</div>
+    <div><b>No more building your own upgrades</b> — platform improvements, security, and PCI are handled, and new POS features ship to you automatically.</div>
+    <div><b>Fitting + checkout in one system</b> — ends the phantom POs, double-ships, and reconciliation the stitched stack creates.</div>
+    <div><b>Payment links + lower card rates</b> — recover post-fitting deals; POS Pro included across all 41 locations on Plus.</div>
   </div>
-  <div class="callout"><b>Why Plus, and why it's low-lift:</b> POS Pro is included on Plus at every location — à la carte that's ~$89/mo per store (~$44K/yr across your 41), so the $2,300/mo Plus license already covers POS everywhere at the lowest card rates. And True Spec is already on Shopify Advanced, so it's a familiar upgrade — same platform, more included. ADS keeps running throughout; the migration is phased: <b>upgrade Advanced → Plus → stand up POS for fitting (read-only sync to ADS / SKU Vault) → pilot a few locations side-by-side → roll out across all 41 at your pace.</b></div>
+  <div class="callout"><b>Why Plus, and why it's low-lift:</b> POS Pro is included on Plus at every location — à la carte that's ~$89/mo per store (~$44K/yr across your 41) — so the $2,300/mo license covers POS everywhere, plus upgrades, security, and the lowest card rates. You already run Shopify for merch, so it's a familiar platform. Phased and non-disruptive: <b>stand up POS for fitting (read-only sync to ADS / SKU Vault) → pilot a few locations side-by-side → roll out across all 41, retiring ADS on your timeline.</b></div>
 
-  <div class="eyebrow"><span class="step">+</span> New in Spring '26 POS — growth on top</div>
+  <div class="eyebrow"><span class="step">+</span> New in Spring '26 POS — included, not custom-built</div>
   <div class="bens sol">
     <div><b>Endless aisle / ship-to-customer</b> — sell any club, head, or shaft from the full catalog and ship it when a location's out of stock. Capture the walk-out sale.</div>
-    <div><b>Tap to Pay across locations</b> — contactless payment on a phone anywhere on the floor; also trims the hardware bill.</div>
+    <div><b>Tap to Pay across locations</b> — contactless payment on a phone anywhere on the floor; also trims hardware.</div>
     <div><b>Online → in-person via Shop app</b> — send local Shop shoppers to the nearest store; online demand becomes foot traffic.</div>
-    <div><b>Returns &amp; exchanges in one cart</b> — handle a refund, exchange, and new sale together, keeping the customer in the chair.</div>
+    <div><b>Returns &amp; exchanges in one cart</b> — refund, exchange, and new sale together, keeping the customer in the chair.</div>
   </div>
 
   <div class="eyebrow"><span class="step">03</span> The money</div>
   <div class="banner"><b>Illustrative model</b> — figures use industry benchmarks and what you shared on our calls. Tell me which numbers to swap in (below) and the math holds.</div>
   <table>
-    <thead><tr><th>Annual cost</th><th class="n">Today (Advanced + ADS)</th><th class="n">Shopify POS (Plus)</th></tr></thead>
+    <thead><tr><th>Annual cost</th><th class="n">Today (ADS + Advanced merch)</th><th class="n">Shopify POS (Plus)</th></tr></thead>
     <tbody>
+      <tr><td>ADS dev + maintenance <span style="color:var(--soft)">(custom system)</span></td><td class="n">$60,000</td><td class="n">$30,000 <span style="color:var(--soft)">reduced</span></td></tr>
       <tr><td>Card processing <span style="color:var(--soft)">(~$19.5M volume)</span></td><td class="n">$565,500 <span style="color:var(--soft)">@2.9%</span></td><td class="n">$487,500 <span style="color:var(--soft)">@2.5%</span></td></tr>
       <tr><td>Platform license <span style="color:var(--soft)">(Plus adds POS Pro, all 41)</span></td><td class="n">$4,800 <span style="color:var(--soft)">Advanced</span></td><td class="n">$27,600 <span style="color:var(--soft)">Plus</span></td></tr>
-      <tr><td>ADS dev + server (backend)</td><td class="n">$60,000</td><td class="n">$30,000 <span style="color:var(--soft)">reduced</span></td></tr>
       <tr class="row-tot"><td>Annual operating total</td><td class="n">$630,300</td><td class="n">$545,100</td></tr>
       <tr class="row-tot"><td>Recurring operating savings / yr</td><td class="n"></td><td class="n save">+$85,200</td></tr>
       <tr class="oneoff"><td>+ One-time: implementation (setup + ADS integration)</td><td class="n">—</td><td class="n">$30,000</td></tr>
       <tr class="oneoff"><td>+ One-time: POS hardware (~58 fitters)</td><td class="n">—</td><td class="n">$11,000</td></tr>
     </tbody>
   </table>
+  <div class="callout warn"><b>The cost that isn't in the table:</b> on ADS, staying current is continuous custom dev — every new feature, integration, and security patch is your build and your budget, and tech debt compounds. On Plus, upgrades, PCI/security, and new POS features are included. That "keep-up" cost grows every year you stay custom — and it's the real reason to move.</div>
 
   <div class="two">
     <div>
       <h3>Operating savings / yr</h3>
+      <div class="li"><span>ADS custom dev/maintenance reduced ~50%</span><b class="g">+$30,000</b></div>
       <div class="li"><span>Card processing (2.9% → 2.5%)</span><b class="g">+$78,000</b></div>
-      <div class="li"><span>ADS dev/server reduced ~50%</span><b class="g">+$30,000</b></div>
       <div class="li"><span>Ops time — 10 hrs/wk (Cote's, @$40/hr)</span><b class="g">+$20,800</b></div>
       <div class="li"><span>Less: incremental license (Advanced → Plus)</span><b>−$22,800</b></div>
       <div class="li" style="border-bottom:none;"><span><b>Net recurring savings</b></span><b class="g">≈ $106,000</b></div>
@@ -139,12 +143,12 @@
   </div>
 
   <div class="bl">
-    <div class="stat"><div class="k">Net recurring savings</div><div class="v">~$106K<span style="font-size:14px">/yr</span></div><div class="s">Operating, before revenue lift</div></div>
+    <div class="stat"><div class="k">Net recurring savings</div><div class="v">~$106K<span style="font-size:14px">/yr</span></div><div class="s">Before revenue lift &amp; avoided build cost</div></div>
     <div class="stat"><div class="k">Year-1 one-time cost</div><div class="v">~$41K</div><div class="s">$30K setup + $11K hardware</div></div>
     <div class="stat"><div class="k">Payback</div><div class="v">~5 mo</div><div class="s">Savings cover implementation</div></div>
   </div>
 
-  <div class="inputs"><b>If it's worth a look:</b> let me know which numbers to swap in — current ADS cost, card rate + payment-portal fees, and your annual card volume — and we can review the real TCO together.</div>
+  <div class="inputs"><b>If it's worth a look:</b> let me know which numbers to swap in — your ADS dev + maintenance spend, card rate + payment-portal fees, and annual card volume — and we can review the real TCO together.</div>
 
   <footer>
     <b>Nicole DeGennaro</b> · Senior Account Executive, Shopify · with Shelby Skinner, Solutions Engineering &nbsp;|&nbsp;
