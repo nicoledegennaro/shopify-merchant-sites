@@ -23,14 +23,15 @@
   .prep{text-align:right;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:600;}
   .prep strong{display:block;color:var(--accent);font-size:12px;letter-spacing:0;text-transform:none;margin-top:3px;}
   h1{font-family:'Fraunces',serif;font-size:31px;font-weight:600;margin:20px 0 6px;letter-spacing:-.01em;}
-  .sub{font-size:13px;color:var(--muted);max-width:790px;margin:0;}
-  .banner{font-size:11px;color:var(--warn);background:var(--warn-bg);border:1px solid #efe2c4;border-radius:6px;padding:8px 12px;margin:12px 0 0;}
+  .sub{font-size:13px;color:var(--muted);max-width:780px;margin:0;}
+  .banner{font-size:11px;color:var(--warn);background:var(--warn-bg);border:1px solid #efe2c4;border-radius:6px;padding:8px 12px;margin:11px 0 0;}
   .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:700;margin:15px 0 7px;}
-  .bens{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;}
+  .bens{display:grid;grid-template-columns:1fr 1fr;gap:5px 26px;}
   .bens div{font-size:12px;color:var(--muted);padding-left:15px;position:relative;}
   .bens div::before{content:"▸";position:absolute;left:0;color:var(--accent);}
   .bens b{color:var(--ink);}
-  /* TCO TABLE */
+  .unify{background:var(--posbg);border:1px solid #cfe6d8;border-left:3px solid var(--pos);border-radius:8px;padding:11px 16px;margin-top:12px;font-size:12px;color:var(--ink);}
+  .unify b{color:var(--green);}
   table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
   th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);}
   th{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);background:var(--cream);font-weight:700;}
@@ -39,14 +40,12 @@
   .save{color:var(--pos);font-weight:700;}
   .oneoff td{color:var(--muted);font-style:italic;}
   .note{font-size:10.5px;color:var(--soft);margin-top:6px;}
-  /* SPLIT */
   .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:4px;}
   .two h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:700;color:var(--ink);}
   .li{font-size:12px;margin-bottom:4px;display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line);padding-bottom:4px;}
   .li span:first-child{color:var(--muted);}
   .li b{color:var(--ink);white-space:nowrap;}
   .li .g{color:var(--pos);}
-  /* BOTTOM LINE */
   .bl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;}
   .stat{border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:8px;padding:11px 14px;background:var(--card);}
   .stat .k{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600;}
@@ -60,7 +59,7 @@
   @media print{
     .wrap{padding:0;max-width:100%;}
     .top{padding-top:0;}
-    table,.two,.bl,.inputs,.stat,.bens{break-inside:avoid;page-break-inside:avoid;}
+    table,.two,.bl,.inputs,.stat,.bens,.unify{break-inside:avoid;page-break-inside:avoid;}
     h1,.eyebrow,h3{break-after:avoid;}
   }
 </style>
@@ -74,82 +73,82 @@
   </div>
 
   <h1>Shopify POS for True Spec — the numbers.</h1>
-  <p class="sub">What Shopify POS delivers for your current 41-location fitting operation, where the operational savings and revenue lift come from, and what it costs — all in one place.</p>
-  <div class="banner"><b>Illustrative model.</b> Figures below use industry benchmarks and the numbers shared on our calls; they firm up the moment you send your ADS costs, card rates, and volumes (listed at the bottom). Structure and methodology are the point — swap in your actuals and the math holds.</div>
+  <p class="sub">What Shopify POS does for your 41-location fitting operation: the savings, the revenue lift, and the total cost.</p>
+  <div class="banner"><b>Illustrative model</b> — figures use industry benchmarks and what you shared on our calls. Swap in your actuals (listed at the end) and the math holds.</div>
 
   <div class="eyebrow">Why Shopify POS for your current setup</div>
   <div class="bens">
-    <div><b>Native spec capture</b> on POS line items — length, swing weight, CPM, adapter, movable weights — no Google-sheet workaround.</div>
-    <div><b>~73 seconds faster</b> per complex cart (Spring '26 POS v11) — fitter throughput, not friction.</div>
-    <div><b>Text/email payment link</b> in under 30s — recover deals fitters can't close by phone post-fitting.</div>
-    <div><b>One admin for all four brands</b> via Multi-Entity Selling — kills phantom POs, double-ships, manual reconciliation.</div>
-    <div><b>Lower card rates</b> on Plus + Shopify Payments vs. an external payment portal.</div>
-    <div><b>One source of truth</b> on the customer + clean cross-brand reporting.</div>
+    <div><b>Native spec capture</b> on POS line items (length, swing weight, CPM, adapter, weights) — no Google-sheet workaround.</div>
+    <div><b>~73s faster</b> per complex cart (POS v11) — throughput, not friction.</div>
+    <div><b>Text/email payment link</b> in &lt;30s — recover deals lost after the fitting.</div>
+    <div><b>One admin, four brands</b> — ends phantom POs, double-ships, manual reconciliation.</div>
+    <div><b>Lower card rates</b> vs. your external payment portal.</div>
+    <div><b>One source of truth</b> on the customer + cross-brand reporting.</div>
   </div>
+
+  <div class="unify"><b>Why Plus, and why now:</b> Fairway Jockey, Mirror, and McLaren each sit in a separate Advanced store, with True Spec's POS on ADS — four disconnected systems. Plus folds all four into one admin via Multi-Entity Selling (shared customers, catalog, apps, reporting, billing; each brand still its own invoicing entity). And <b>POS Pro is included on Plus at every location</b> — à la carte that's ~$89/mo per store (~$44K/yr across 41 locations), so the $2,300/mo Plus license already covers POS everywhere, at the lowest card rates.</div>
 
   <div class="eyebrow">Total cost of ownership — today vs. Shopify POS (annual)</div>
   <table>
     <thead><tr><th>Line item</th><th class="n">Today (ADS stack)</th><th class="n">Shopify POS (Plus)</th></tr></thead>
     <tbody>
-      <tr><td>Card processing <span style="color:var(--soft)">(~$19.5M card volume)</span></td><td class="n">$565,500 <span style="color:var(--soft)">@2.9%</span></td><td class="n">$487,500 <span style="color:var(--soft)">@2.5%</span></td></tr>
+      <tr><td>Card processing <span style="color:var(--soft)">(~$19.5M volume)</span></td><td class="n">$565,500 <span style="color:var(--soft)">@2.9%</span></td><td class="n">$487,500 <span style="color:var(--soft)">@2.5%</span></td></tr>
       <tr><td>Platform license</td><td class="n">$14,400 <span style="color:var(--soft)">Advanced ×3</span></td><td class="n">$27,600 <span style="color:var(--soft)">Plus, all-in</span></td></tr>
       <tr><td>ADS dev + server (backend)</td><td class="n">$60,000</td><td class="n">$30,000 <span style="color:var(--soft)">reduced</span></td></tr>
       <tr class="row-tot"><td>Annual operating total</td><td class="n">$639,900</td><td class="n">$545,100</td></tr>
       <tr class="row-tot"><td>Recurring operating savings / yr</td><td class="n"></td><td class="n save">+$94,800</td></tr>
-      <tr class="oneoff"><td>+ One-time: implementation / Boston POC</td><td class="n">—</td><td class="n">$30,000</td></tr>
-      <tr class="oneoff"><td>+ One-time: POS hardware (tablets + readers, ~58 fitters)</td><td class="n">—</td><td class="n">$11,000</td></tr>
+      <tr class="oneoff"><td>+ One-time: implementation (setup + ADS integration)</td><td class="n">—</td><td class="n">$30,000</td></tr>
+      <tr class="oneoff"><td>+ One-time: POS hardware (~58 fitters)</td><td class="n">—</td><td class="n">$11,000</td></tr>
     </tbody>
   </table>
-  <p class="note">Card rate and ADS cost are the two biggest variables and the first things we confirm. POS hardware is one-time; the Boston POC needs only a handful of devices, not all 58 on day one.</p>
+  <p class="note">Card rate and ADS cost are the biggest variables — first to confirm. Hardware is one-time; the pilot needs only a handful of devices, not all 58.</p>
 
   <div class="eyebrow">Where it pays off</div>
   <div class="two">
     <div>
-      <h3>Operating cost savings / yr</h3>
+      <h3>Operating savings / yr</h3>
       <div class="li"><span>Card processing (2.9% → 2.5%)</span><b class="g">+$78,000</b></div>
       <div class="li"><span>ADS dev/server reduced ~50%</span><b class="g">+$30,000</b></div>
-      <div class="li"><span>Ops time — 10 hrs/wk recovered (Cote's benchmark, @$40/hr)</span><b class="g">+$20,800</b></div>
-      <div class="li"><span>Less: incremental license (Advanced ×3 → Plus)</span><b>−$13,200</b></div>
+      <div class="li"><span>Ops time — 10 hrs/wk (Cote's, @$40/hr)</span><b class="g">+$20,800</b></div>
+      <div class="li"><span>Less: incremental license</span><b>−$13,200</b></div>
       <div class="li" style="border-bottom:none;"><span><b>Net recurring savings</b></span><b class="g">≈ $115,600</b></div>
     </div>
     <div>
       <h3>Revenue lift / yr <span style="font-weight:500;color:var(--soft);text-transform:none;letter-spacing:0;">(conservative)</span></h3>
-      <div class="li"><span>Recovered post-fitting deals via payment links <span style="color:var(--soft)">(~0.5% of ~9,750 fittings @ ~$2K)</span></span><b class="g">+$75,000</b></div>
-      <div class="li"><span>Endless aisle — ship out-of-stock items from the full catalog</span><b class="g">upside</b></div>
-      <div class="li"><span>Faster checkout → fitter capacity for more fittings</span><b>upside</b></div>
-      <div class="li" style="border-bottom:none;"><span>Shop Pay conversion lift on the 3 ecom brands</span><b>TBD on GMV</b></div>
-      <p class="note" style="margin-top:8px;">Cote's Golf saw ~50% less custom-order processing time after moving this workflow to Shopify POS with CQL.</p>
+      <div class="li"><span>Recovered post-fitting deals via payment links</span><b class="g">+$75,000</b></div>
+      <div class="li"><span>Endless aisle — ship out-of-stock from full catalog</span><b class="g">upside</b></div>
+      <div class="li"><span>Faster checkout → more fitting capacity</span><b>upside</b></div>
+      <div class="li" style="border-bottom:none;"><span>Shop Pay lift on the 3 ecom brands</span><b>TBD on GMV</b></div>
+      <p class="note" style="margin-top:7px;">Cote's Golf: ~50% less custom-order processing time on this workflow.</p>
     </div>
   </div>
 
-  <div class="eyebrow">New in Shopify POS (Spring '26) — built to grow in-store revenue</div>
+  <div class="eyebrow">New in Shopify POS (Spring '26) — built to grow revenue</div>
   <div class="bens">
-    <div><b>Endless aisle / ship-to-customer</b> — sell any shaft, head, or club from the full catalog and ship it when a location is out of stock. Capture the sale instead of losing it to "we don't carry that here."</div>
-    <div><b>Quick Sale — payment links + shipping</b> — the post-fitting payment link (Matt's #1) now takes payment and shipping in one flow, closing deals after the customer leaves.</div>
-    <div><b>Fastest-ever POS (v11)</b> — saves 60+ seconds per checkout / customer-create; more fittings per fitter per day = more revenue capacity at peak.</div>
-    <div><b>Tap to Pay across locations</b> (Plus) — take contactless payment on a phone anywhere on the floor at all 41 locations, and trim the hardware bill (no reader needed for a tap).</div>
-    <div><b>Online → in-person via Shop app</b> — route local Shop shoppers to the nearest location for pickup and returns; turn online demand into store visits.</div>
-    <div><b>Multi-entity across retail</b> (Plus) — run all four brands' locations from one store; the consolidation that removes the reconciliation drag.</div>
+    <div><b>Endless aisle / ship-to-customer</b> — sell any club, head, or shaft from the full catalog and ship it when a location's out of stock. Capture the walk-out sale.</div>
+    <div><b>Quick Sale payment links + shipping</b> — take payment and ship in one flow after the customer leaves (Matt's #1).</div>
+    <div><b>Fastest-ever POS (v11)</b> — 60+ seconds saved per checkout; more fittings/day at peak.</div>
+    <div><b>Tap to Pay across locations</b> (Plus) — contactless payment on a phone anywhere on the floor; cuts the hardware bill.</div>
+    <div><b>Online → in-person via Shop app</b> — send local Shop shoppers to the nearest store; online demand becomes foot traffic.</div>
+    <div><b>Multi-entity across retail</b> (Plus) — run all four brands from one store; ends the reconciliation drag.</div>
   </div>
 
   <div class="eyebrow">Bottom line</div>
   <div class="bl">
     <div class="stat"><div class="k">Net recurring savings</div><div class="v">~$115K<span style="font-size:14px">/yr</span></div><div class="s">Operating, before revenue lift</div></div>
-    <div class="stat"><div class="k">Year-1 one-time cost</div><div class="v">~$41K</div><div class="s">$30K POC + $11K hardware</div></div>
-    <div class="stat"><div class="k">Payback</div><div class="v">~4–5 mo</div><div class="s">Savings cover the build in under half a year</div></div>
+    <div class="stat"><div class="k">Year-1 one-time cost</div><div class="v">~$41K</div><div class="s">$30K setup + $11K hardware</div></div>
+    <div class="stat"><div class="k">Payback</div><div class="v">~4–5 mo</div><div class="s">Savings cover implementation</div></div>
   </div>
 
-  <div class="inputs">
-    <b>To replace the estimates with your real numbers</b> (Matt): current ADS cost (monthly fees, POS vs. backend, dev/server) · card processing rate today + external payment-portal fees · annual card volume through fitting/POS · ecom GMV for Fairway Jockey, Mirror &amp; McLaren · whether the four brands are separate legal entities or roll up under EB Golf Media LLC · apps in the Advanced stores to carry over.
-  </div>
-
-  <div class="eyebrow">Next steps</div>
+  <div class="eyebrow">Typical implementation &amp; phased rollout</div>
   <div class="bens">
-    <div><b>Reference call</b> — Chris Cote's Golf / CQL, same fitting workflow, to hear the build and results firsthand.</div>
-    <div><b>TCO v2</b> — your inputs above → a locked side-by-side you can take to leadership.</div>
-    <div><b>Architecture session</b> — Shelby + your developer to scope the self-contained Boston POC (read-only stubs to ADS/SKU Vault/Salesforce).</div>
-    <div><b>Target</b> — Plus signature by end of Q3, Boston POC in Q4 2026, side-by-side vs. ADS in Q1 2027.</div>
+    <div><b>1 · Plus upgrade + consolidate ecom</b> — bring Fairway Jockey, Mirror &amp; McLaren under one admin. You're already on Shopify online, so it's familiar and low-lift.</div>
+    <div><b>2 · Stand up POS for fitting</b> — spec capture, payment links, locations &amp; Avalara; read-only sync to ADS / SKU Vault. ADS keeps running.</div>
+    <div><b>3 · Pilot a few locations</b> — run side-by-side with ADS to validate the fitter experience.</div>
+    <div><b>4 · Phased rollout</b> — extend POS across all 41 locations at your own pace.</div>
   </div>
+
+  <div class="inputs"><b>Only next step, if it's worth a look:</b> send your current ADS cost, card rate + payment-portal fees, annual card volume, ecom GMV for the three brands, and whether the four are separate legal entities — and I'll rebuild this as a locked TCO on your real numbers.</div>
 
   <footer>
     <b>Nicole DeGennaro</b> · Senior Account Executive, Shopify · with Shelby Skinner, Solutions Engineering &nbsp;|&nbsp;
