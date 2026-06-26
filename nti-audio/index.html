@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NTi Audio × Shopify — Your Path to a Unified Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10202e; --muted:#52606d; --soft:#8896a4;
+    --blue:#0b4a6f; --blue2:#1167a6; --accent:#1b8fd1;
+    --line:#e3e9ee; --card:#fff; --soft-bg:#f3f7fa; --cream:#eef5fa;
+    --pos:#0f7b52; --posbg:#e6f4ee; --warn:#9a6700; --warn-bg:#fbf6e9; --gold:#c8932a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 44px;}
+  /* HERO */
+  .hero{background:linear-gradient(180deg,var(--cream),#fff);border-bottom:3px solid var(--blue);padding:30px 0 26px;}
+  .brand{display:flex;justify-content:space-between;align-items:flex-end;}
+  .mark{font-family:'Fraunces',serif;font-size:25px;font-weight:600;color:var(--blue);}
+  .mark .x{color:var(--soft);font-weight:500;}
+  .prep{text-align:right;font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);font-weight:600;}
+  .prep strong{display:block;color:var(--accent);font-size:13px;letter-spacing:0;text-transform:none;margin-top:3px;}
+  h1{font-family:'Fraunces',serif;font-size:39px;line-height:1.08;margin:22px 0 8px;font-weight:600;letter-spacing:-.01em;}
+  .lede{font-size:16px;color:var(--muted);max-width:780px;margin:0;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
+  .stat{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:8px;padding:13px 15px;}
+  .stat .v{font-family:'Fraunces',serif;font-size:23px;font-weight:600;color:var(--blue);}
+  .stat .k{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35;}
+  /* TABS */
+  .tabs{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);}
+  .tabs-inner{max-width:1060px;margin:0 auto;padding:0 44px;display:flex;gap:6px;}
+  .tab-btn{appearance:none;border:none;background:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--muted);padding:15px 16px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;}
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
+  .tab{display:none;padding:34px 0 60px;}
+  .tab.active{display:block;}
+  .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2.2px;color:var(--accent);font-weight:700;margin-bottom:10px;}
+  h2{font-family:'Fraunces',serif;font-size:30px;font-weight:600;margin:0 0 8px;letter-spacing:-.01em;}
+  .sub{font-size:15px;color:var(--muted);max-width:760px;margin:0 0 22px;}
+  /* OPTION CARDS */
+  .opts{display:grid;grid-template-columns:1fr;gap:16px;}
+  .opt{border:1px solid var(--line);border-radius:10px;padding:22px 24px;background:var(--card);position:relative;}
+  .opt.rec{border:2px solid var(--accent);box-shadow:0 6px 24px rgba(27,143,209,.10);}
+  .badge{position:absolute;top:-12px;left:22px;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:3px 11px;border-radius:20px;}
+  .opt h3{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:0 0 2px;color:var(--blue);}
+  .opt .tag{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
+  .opt .row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .opt h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin:0 0 7px;font-weight:700;}
+  .opt ul{margin:0;padding-left:17px;} .opt li{font-size:13px;color:var(--muted);margin-bottom:5px;} .opt li b{color:var(--ink);}
+  .price{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink);}
+  .price b{color:var(--blue);font-weight:700;}
+  .callout{background:var(--cream);border:1px solid #d4e6f1;border-left:4px solid var(--accent);border-radius:8px;padding:15px 20px;margin-top:22px;font-size:14px;}
+  .callout b{color:var(--blue);}
+  /* FEATURE CARDS */
+  .fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px;}
+  .fcard{border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:10px;padding:20px;background:var(--card);}
+  .fcard h3{font-family:'Fraunces',serif;font-size:20px;margin:0 0 6px;color:var(--blue);}
+  .fcard .what{font-size:13px;color:var(--muted);margin:0 0 10px;}
+  .fcard .why{font-size:13px;color:var(--ink);border-top:1px solid var(--line);padding-top:10px;}
+  .fcard .why b{color:var(--blue);}
+  /* GENERIC LISTS */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;margin-top:6px;}
+  .feat{font-size:14px;color:var(--muted);padding-left:18px;position:relative;}
+  .feat::before{content:"▸";position:absolute;left:0;color:var(--accent);}
+  .feat b{color:var(--ink);}
+  /* TIMELINE */
+  .tl{margin-top:10px;border-left:2px solid var(--line);padding-left:26px;}
+  .tl-step{position:relative;padding-bottom:24px;}
+  .tl-step:last-child{padding-bottom:0;}
+  .tl-step::before{content:"";position:absolute;left:-34px;top:3px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--accent);}
+  .tl-step.launch::before{background:var(--accent);}
+  .tl-when{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:var(--accent);font-weight:800;}
+  .tl-what{font-size:16px;font-weight:700;margin:3px 0 3px;}
+  .tl-detail{font-size:13.5px;color:var(--muted);}
+  /* STEPS */
+  .steps{counter-reset:s;margin-top:8px;}
+  .step{position:relative;padding:14px 0 14px 46px;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .step b{font-size:15px;} .step .d{font-size:13.5px;color:var(--muted);margin-top:2px;}
+  .cta{background:var(--blue);color:#fff;border-radius:10px;padding:22px 26px;margin-top:26px;}
+  .cta h3{font-family:'Fraunces',serif;font-size:23px;margin:0 0 6px;font-weight:600;}
+  .cta p{margin:0;font-size:14.5px;color:#d7e6f0;}
+  footer{border-top:1px solid var(--line);padding:18px 0 40px;font-size:12px;color:var(--muted);}
+  footer b{color:var(--ink);} footer a{color:var(--blue2);font-weight:600;text-decoration:none;}
+  @media(max-width:760px){.stats,.opt .row,.grid2,.fcards{grid-template-columns:1fr;}.wrap,.tabs-inner{padding:0 22px;overflow-x:auto;}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">NTi Audio <span class="x">× Shopify Plus</span></div>
+      <div class="prep">Prepared by<strong>Nicole DeGennaro · Shopify</strong></div>
+    </div>
+    <h1>One unified store, worldwide — three ways to get there.</h1>
+    <p class="lede">From our call: you want a single Shopify presence across your priority markets this year, where each subsidiary still handles its own invoicing, shipping, stock, and bank account. Here's how that works, what each path costs, and how we get live.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">2 → 4+</div><div class="k">Stores today (US + UK) → US, UK, FR, DE this year</div></div>
+      <div class="stat"><div class="v">~$400K</div><div class="k">Online GMV across markets</div></div>
+      <div class="stat"><div class="v">90–95%</div><div class="k">B2B</div></div>
+      <div class="stat"><div class="v">7</div><div class="k">Subsidiaries, each its own legal entity</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="options">Options &amp; Pricing</button>
+    <button class="tab-btn" data-tab="payments">Payments</button>
+    <button class="tab-btn" data-tab="timeline">Timeline</button>
+    <button class="tab-btn" data-tab="next">Next Steps</button>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="wrap">
+<section class="tab active" id="tab-overview">
+  <div class="eyebrow">Overview</div>
+  <h2>The three Shopify capabilities that solve this for you.</h2>
+  <p class="sub">Your goal — one store, every market, with each subsidiary still its own business — maps cleanly to three things Shopify Plus does natively. Quick education before the options.</p>
+  <div class="fcards">
+    <div class="fcard">
+      <h3>Shopify Markets</h3>
+      <p class="what">Sell to the whole world from a single store. Markets automatically localizes currency, pricing, taxes &amp; duties, and language by country, with region-specific domains — one catalog, one admin.</p>
+      <div class="why"><b>For NTi:</b> this is how "one unified store" actually works — customers land in their own market, and you add new countries as you expand worldwide without rebuilding.</div>
+    </div>
+    <div class="fcard">
+      <h3>Multi-entity selling</h3>
+      <p class="what">Run multiple legal entities inside one store. Each entity invoices under its own name, with its own payouts, bank account, and tax registration — routed automatically by market.</p>
+      <div class="why"><b>For NTi:</b> the exact piece you asked about — NTi US, UK, FR &amp; DE each keep their own invoicing, shipping, and banking, all within a single storefront.</div>
+    </div>
+    <div class="fcard">
+      <h3>Shop Pay &amp; Shopify Payments</h3>
+      <p class="what">The world's best-converting checkout — up to ~50% higher conversion vs. guest checkout — plus the lowest card rates of any plan and one processor across every market.</p>
+      <div class="why"><b>For NTi:</b> you're not on it today, so it's immediate growth on the US store and consolidated payments as you scale (and it pairs with Plus B2B for your 90–95% B2B mix).</div>
+    </div>
+  </div>
+  <div class="callout">All three are included on <b>Shopify Plus — $2,300/mo</b>, the foundation under every option on the next tab.</div>
+</section>
+
+<!-- OPTIONS -->
+<section class="tab" id="tab-options">
+  <div class="eyebrow">The decision</div>
+  <h2>Three ways to structure it.</h2>
+  <p class="sub">All three run on Shopify Plus and cost the same — <b>$2,300/mo</b> (you're well under the variable-fee threshold, so it's the flat base). The choice isn't about price; it's about how you want to operate.</p>
+
+  <div class="opts">
+    <div class="opt rec">
+      <div class="badge">Recommended</div>
+      <h3>1 · One unified store — Shopify Markets + multi-entity</h3>
+      <p class="tag">A single store and admin that adapts to each market automatically.</p>
+      <div class="row">
+        <div>
+          <h4>What it is</h4>
+          <ul>
+            <li><b>Markets</b> auto-adapts currency, pricing &amp; tax by country — customers land on their region.</li>
+            <li><b>Multi-entity</b> lets each subsidiary (NTi US, UK, FR, DE) invoice under its own legal entity, with its own payouts &amp; bank account.</li>
+            <li>Per-region inventory &amp; shipping origins via store locations + fulfillment routing.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Why this fits you</h4>
+          <ul>
+            <li>It's exactly what you described — <b>one store, region-aware</b>, with each subsidiary still owning invoicing/shipping/banking.</li>
+            <li><b>One admin</b> to manage and the lowest overhead.</li>
+            <li>The cleanest base to add markets as you expand worldwide.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><b>Pricing:</b> Shopify Plus <b>$2,300/mo</b> — one store. Markets &amp; multi-entity included; no per-store fees. (Flat base — your ~$400K GMV is well under the variable-fee threshold.)</div>
+    </div>
+
+    <div class="opt">
+      <h3>2 · Expansion stores — a separate store per subsidiary</h3>
+      <p class="tag">Each subsidiary runs its own full storefront, admin &amp; team.</p>
+      <div class="row">
+        <div>
+          <h4>What it is</h4>
+          <ul>
+            <li>Each region is its own Shopify store (separate admin, theme, catalog), grouped under one Plus organization.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Why / when it fits</h4>
+          <ul>
+            <li>Only if subsidiaries want <b>fully independent storefronts, teams, and logins</b> rather than one shared store.</li>
+            <li>More autonomy per region — but more to manage (multiple admins, themes, catalogs).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><b>Pricing:</b> Shopify Plus <b>$2,300/mo</b> — includes up to <b>9 expansion stores</b>, covering your 5–7 footprint at no extra cost (beyond 9 it's $250/mo each).</div>
+    </div>
+
+    <div class="opt">
+      <h3>3 · Two-store fallback — US + one HQ-run EU store</h3>
+      <p class="tag">Keep the US store; consolidate all of Europe into one HQ-run store.</p>
+      <div class="row">
+        <div>
+          <h4>What it is</h4>
+          <ul>
+            <li>US stays its own store; a single European store run by Swiss HQ handles all EU invoicing &amp; shipping — no per-subsidiary integration.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Why / when it fits</h4>
+          <ul>
+            <li>The simplest path if full multi-entity unification is more than you want to take on this year.</li>
+            <li>Fewer moving parts — but less granular per-country control, and HQ owns EU operations.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price"><b>Pricing:</b> Shopify Plus <b>$2,300/mo</b> — two stores, within the included expansion stores.</div>
+    </div>
+  </div>
+
+  <div class="callout"><b>The one decision that picks your path:</b> do you want <b>one shared store and admin</b> (Option 1) or a <b>separate store/admin per subsidiary</b> (Option 2)? You mentioned wanting different logins for the subsidiaries — that's the key thing to confirm so we lock the architecture. Our SE has validated that Option 1 supports the per-entity invoicing, shipping, and separate bank accounts you need.</div>
+</section>
+
+<!-- PAYMENTS -->
+<section class="tab" id="tab-payments">
+  <div class="eyebrow">Payments</div>
+  <h2>Turn on Shopify Payments — unlock Shop Pay &amp; the lowest rates.</h2>
+  <p class="sub">You're not on Shopify Payments today. Switching is where a lot of the growth upside lives — and it's the same processor across every market.</p>
+  <div class="grid2">
+    <div class="feat"><b>Shop Pay — the world's best-converting checkout.</b> Plus customers see up to ~50% higher conversion vs. guest checkout. For a growth-focused store, that's direct revenue.</div>
+    <div class="feat"><b>Lowest card rates of any plan</b> on Plus: 2.15% + 30¢ (Visa/Mastercard), 3.15% + 30¢ (Amex / international) — negotiable at volume.</div>
+    <div class="feat"><b>Per-entity payouts &amp; bank accounts.</b> With multi-entity, each subsidiary gets its own payouts and bank account — all from one store.</div>
+    <div class="feat"><b>One processor across markets</b> = consolidated reconciliation and far less admin than separate processors per region.</div>
+    <div class="feat"><b>Built for your B2B mix.</b> Since 90–95% of your business is B2B, Shop Pay + Plus B2B (company accounts, payment terms) streamlines repeat and trade ordering too.</div>
+    <div class="feat"><b>No third-party gateway fees</b> when Shopify Payments is your sole processor (otherwise Plus adds 0.20%/transaction).</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="tab" id="tab-timeline">
+  <div class="eyebrow">Timeline</div>
+  <h2>Live across your four markets this year.</h2>
+  <p class="sub">Your HQ team has the dev bandwidth — here's the phased path from contract to a unified, worldwide-ready store.</p>
+  <div class="tl">
+    <div class="tl-step">
+      <div class="tl-when">Step 1 · Weeks 1–2</div>
+      <div class="tl-what">Sign Plus &amp; lock the architecture</div>
+      <div class="tl-detail">Confirm one-admin (Option 1) vs. per-subsidiary (Option 2), sign the Plus contract, and turn on Shopify Payments + Shop Pay on the existing US store for an immediate conversion win.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Step 2 · Weeks 2–5</div>
+      <div class="tl-what">Build the unified store — US + UK</div>
+      <div class="tl-detail">Set up Markets + multi-entity, migrate your two live stores in, and configure per-entity invoicing, payouts/bank accounts, and per-region inventory &amp; shipping routing.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Step 3 · Weeks 5–9</div>
+      <div class="tl-what">Add France &amp; Germany</div>
+      <div class="tl-detail">Stand up the FR and DE markets/entities (new from scratch), with localized currency, tax, and the right shipping origin per subsidiary.</div>
+    </div>
+    <div class="tl-step launch">
+      <div class="tl-when">Step 4 · Launch</div>
+      <div class="tl-what">Go live across US · UK · FR · DE</div>
+      <div class="tl-detail">QA the per-region routing and payouts, then launch the unified store across all four priority markets — this year.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-when">Fast-follow</div>
+      <div class="tl-what">Expand worldwide</div>
+      <div class="tl-detail">Add HQ as the worldwide supplier and layer in new markets as you grow — no re-platforming, just new markets on the same store.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="tab" id="tab-next">
+  <div class="eyebrow">Next steps</div>
+  <h2>What it takes to get moving.</h2>
+  <p class="sub">The build is straightforward and your team is ready — the gate is getting the Plus contract in place so we can unlock multi-entity, Markets, expansion stores, and Shop Pay.</p>
+  <div class="steps">
+    <div class="step"><b>Confirm the architecture</b><div class="d">One shared admin (Option 1, recommended) vs. a separate store per subsidiary (Option 2).</div></div>
+    <div class="step"><b>Sign the Shopify Plus contract — $2,300/mo</b><div class="d">Unlocks multi-entity, Markets, up to 9 expansion stores, and Shopify Payments / Shop Pay. This is the step that starts everything.</div></div>
+    <div class="step"><b>Turn on Shopify Payments + Shop Pay</b><div class="d">Immediate conversion lift on the US store while the unified build is underway.</div></div>
+    <div class="step"><b>Build &amp; launch</b><div class="d">US + UK first, then FR + DE — live across all four this year (see Timeline).</div></div>
+  </div>
+  <div class="cta">
+    <h3>Ready to move?</h3>
+    <p>Let's get the Plus contract signed so we can kick off the unified build and have you live across your four markets this year. I'll send the agreement and we can start immediately.</p>
+  </div>
+</section>
+
+<footer class="wrap" style="display:block;">
+  <b>Nicole DeGennaro</b> · Senior Account Executive, Shopify &nbsp;|&nbsp; <a href="mailto:nicole.degennaro@shopify.com">nicole.degennaro@shopify.com</a> &nbsp;|&nbsp; Prepared for NTi Audio · figures are standard published rates, confirmed for your volume.
+</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b===btn);});
+      document.querySelectorAll('.tab').forEach(function(c){c.classList.toggle('active',c.id==='tab-'+t);});
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
