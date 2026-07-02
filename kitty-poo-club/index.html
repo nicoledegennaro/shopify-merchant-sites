@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Kitty Poo Club × Shopify Payments</title>
+<style>
+  :root{
+    --ink:#141b2e; --ink-soft:#4a5468; --muted:#8b93a5;
+    --bg:#fbfcfe; --card:#ffffff; --line:#e6e9f0;
+    --brand:#2f7d5b; --brand-soft:#e7f4ec; --brand-dark:#1f5a41;
+    --accent:#2b59d6; --accent-soft:#eaf0ff;
+    --warn:#b4791f; --warn-soft:#fbf1de;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .container{max-width:960px;margin:0 auto;padding:0 24px;}
+  header.hero{background:linear-gradient(135deg,#141b2e,#22304f);color:#fff;padding:46px 0 40px;}
+  header.hero .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9fb3d9;font-weight:600;}
+  header.hero h1{font-size:34px;line-height:1.15;margin:12px 0 10px;font-weight:700;}
+  header.hero p{font-size:16px;color:#c7d2e6;max-width:680px;margin:0;}
+
+  /* tabs */
+  .tabs{position:sticky;top:0;z-index:20;background:rgba(251,252,254,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .tabs .container{display:flex;gap:4px;overflow-x:auto;padding-top:6px;padding-bottom:6px;}
+  .tab-btn{border:none;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--ink-soft);padding:12px 14px;border-radius:8px;cursor:pointer;white-space:nowrap;}
+  .tab-btn:hover{background:#eef1f7;color:var(--ink);}
+  .tab-btn.active{background:var(--ink);color:#fff;}
+
+  section{padding:34px 0;}
+  h2{font-size:26px;margin:0 0 6px;font-weight:700;}
+  h3{font-size:18px;margin:28px 0 8px;font-weight:700;}
+  h4{margin:0 0 6px;font-size:15px;font-weight:700;}
+  p.lede{font-size:17px;color:var(--ink-soft);max-width:720px;}
+  .muted{color:var(--muted);}
+  .tab-content{display:none;}
+  .tab-content.active{display:block;animation:fade .2s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:720px){.grid-3,.grid-2{grid-template-columns:1fr;}}
+
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .stat.brand{background:var(--brand-soft);border-color:#cfe6d9;}
+  .stat .k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:600;}
+  .stat .v{font-size:26px;font-weight:700;margin:6px 0 2px;}
+  .stat.brand .v{color:var(--brand-dark);}
+  .stat .sub{font-size:12.5px;color:var(--muted);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .card p{font-size:14px;color:var(--ink-soft);margin:6px 0 0;}
+  ul.clean{padding-left:20px;margin:10px 0;}
+  ul.clean li{font-size:15px;color:var(--ink-soft);margin:7px 0;}
+
+  .callout{border-left:3px solid var(--brand);background:var(--brand-soft);padding:14px 16px;border-radius:0 10px 10px 0;font-size:14.5px;color:var(--ink);margin:18px 0;}
+  .flag{border-left:3px solid var(--warn);background:var(--warn-soft);padding:14px 16px;border-radius:0 10px 10px 0;font-size:13.5px;color:#5c4413;margin:18px 0;}
+
+  /* calculator */
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+  @media(max-width:720px){.calc{grid-template-columns:1fr;}}
+  .calc-panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .field{margin:12px 0;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:4px;}
+  .field .hint{font-size:11.5px;color:var(--muted);font-weight:400;}
+  .inrow{display:flex;align-items:center;gap:6px;}
+  .inrow .pre{color:var(--muted);font-size:14px;}
+  input[type=number]{width:100%;font:inherit;font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-variant-numeric:tabular-nums;}
+  input[type=number]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .out-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .out-row:last-child{border-bottom:none;}
+  .out-row .lbl{color:var(--ink-soft);}
+  .out-row .val{font-weight:700;font-variant-numeric:tabular-nums;}
+  .result{margin-top:14px;background:var(--ink);color:#fff;border-radius:12px;padding:18px;text-align:center;}
+  .result .rlabel{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9fb3d9;font-weight:600;}
+  .result .rfig{font-size:32px;font-weight:800;margin-top:4px;font-variant-numeric:tabular-nums;}
+  .result.pos .rfig{color:#7ee0a8;}
+  .result.neg .rfig{color:#ff9a9a;}
+  .result .rsub{font-size:12.5px;color:#c7d2e6;margin-top:4px;}
+
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
+
+  footer{background:#141b2e;color:#c7d2e6;padding:28px 0;font-size:13px;margin-top:20px;}
+  footer a{color:#9fb3d9;}
+  .footnote{font-size:12.5px;color:var(--muted);margin-top:14px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Kitty Poo Club × Shopify Payments</div>
+    <h1>Is moving payments to Shopify worth it?</h1>
+    <p>You're already on Shopify running a subscription business — the only open question is whether moving processing from Stripe to Shopify Payments pays off. This is a working model to answer that on your real numbers.</p>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="container">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="subs">Subscriptions on Shopify</button>
+    <button class="tab-btn" data-tab="rates">Rates vs Stripe</button>
+    <button class="tab-btn" data-tab="conversion">Conversion Opportunity</button>
+    <button class="tab-btn" data-tab="worth">Why It's Worth It</button>
+    <button class="tab-btn" data-tab="next">Next Steps</button>
+  </div>
+</nav>
+
+<!-- OVERVIEW -->
+<div class="tab-content active" id="tab-overview">
+<section><div class="container">
+  <h2>The decision, honestly framed.</h2>
+  <p class="lede">Three things determine whether Shopify Payments is worth it for a subscription-first business like yours — and only one of them is really the deciding factor.</p>
+
+  <div class="grid-3" style="margin-top:18px;">
+    <div class="stat brand"><div class="k">Your business</div><div class="v">~$25M/yr</div><div class="sub">Subscription-heavy, ~9 yrs of recurring revenue</div></div>
+    <div class="stat"><div class="k">The deciding factor</div><div class="v">Rates + fees</div><div class="sub">On a recurring base, the rate drives the P&amp;L</div></div>
+    <div class="stat"><div class="k">Migration risk</div><div class="v">Low</div><div class="sub">Subscription-safe — proven by 1st Phorm</div></div>
+  </div>
+
+  <h3>What we heard from you</h3>
+  <ul class="clean">
+    <li>Most revenue is <strong>existing subscriptions</strong>, not new acquisition — so any rate change hits the whole base.</li>
+    <li>Your current setup <strong>works</strong> — no chargeback or fraud problems.</li>
+    <li>The bar to move: it has to be <strong>rate-competitive</strong> and not a cash-flow drain. "If the rates work, it's an easy decision."</li>
+  </ul>
+
+  <h3>The 1st Phorm proof point</h3>
+  <div class="grid-3">
+    <div class="card"><h4>Migration</h4><p>Moved off Authorize.net to Shopify Payments while keeping Recharge. Charge tokens migrated <strong>overnight</strong> — no rebill gap, no abnormal churn.</p></div>
+    <div class="card"><h4>Conversion</h4><p><strong>+3%</strong> lift on checkout-initiated sessions; <strong>Shop Pay now &gt;50%</strong> of checkouts.</p></div>
+    <div class="card"><h4>Operations</h4><p>Simpler stack, cleaner reconciliation into NetSuite, plus Shop App + Audiences for incremental acquisition.</p></div>
+  </div>
+  <div class="callout">The goal of this doc isn't to sell features — it's to put your <strong>real rates and volume</strong> into the model and see whether the math actually pencils. That's the honest way to decide.</div>
+</div></section>
+</div>
+
+<!-- SUBSCRIPTIONS -->
+<div class="tab-content" id="tab-subs">
+<section><div class="container">
+  <h2>Subscriptions on Shopify.</h2>
+  <p class="lede">Yes — your subscriptions run on Shopify Payments. You keep your subscription app; only the processor changes underneath it.</p>
+
+  <div class="grid-2" style="margin-top:18px;">
+    <div class="card"><h4>What actually changes</h4><p>Your subscription app (e.g., Recharge) and all your contracts stay exactly as they are. The only change is the processor behind the rebill — Stripe → Shopify Payments. This is the same setup 1st Phorm runs.</p></div>
+    <div class="card"><h4>How the migration works</h4><p>Saved card tokens transfer <strong>processor-to-processor</strong> — customers never re-enter payment info. It's phased: new subscriptions route to Shopify Payments first, existing tokens move in the background.</p></div>
+  </div>
+
+  <h3>Why it's cash-flow-safe</h3>
+  <ul class="clean">
+    <li><strong>No rebill gap.</strong> Because tokens are migrated (not re-collected), recurring charges keep running without interruption — 1st Phorm's token move happened overnight with no churn spike.</li>
+    <li><strong>Lower involuntary churn over time.</strong> Network tokenization + automatic card-updater keep subscriber cards current, so renewals don't fail when a card expires.</li>
+    <li><strong>Cleaner reconciliation.</strong> One payout stream, easier to reconcile than a gateway-plus-processor stack.</li>
+  </ul>
+
+  <div class="flag"><strong>Two things to confirm so there's no surprise:</strong> (1) first-payout timing on a new Shopify Payments account vs. your current Stripe cadence, and (2) that no rolling reserve is applied — unlikely given your volume and clean chargeback history, but we'll get underwriting to confirm.</div>
+
+  <div class="callout">Bottom line: bringing subscriptions over is <strong>operationally cash-flow-safe</strong>. Whether it's cash-flow-<em>positive</em> comes down to the rate — which is the next tab.</div>
+</div></section>
+</div>
+
+<!-- RATES -->
+<div class="tab-content" id="tab-rates">
+<section><div class="container">
+  <h2>Rates vs Stripe — on your $25M.</h2>
+  <p class="lede">This is the whole ballgame. Below is your all-in cost today vs. on Shopify Payments. Two levers matter: the processing rate, and the <strong>0.20% third-party fee</strong> you pay Shopify today for <em>not</em> using Shopify Payments — which disappears when you switch.</p>
+
+  <div class="calc">
+    <div class="calc-panel">
+      <h4>Your inputs</h4>
+      <div class="field">
+        <label>Annual card volume</label>
+        <div class="inrow"><span class="pre">$</span><input type="number" id="volume" value="25000000"></div>
+      </div>
+      <div class="field">
+        <label>Average order value <span class="hint">(sets order count for per-transaction fees)</span></label>
+        <div class="inrow"><span class="pre">$</span><input type="number" id="aov" value="35"></div>
+      </div>
+      <div class="field">
+        <label>Current rate — Stripe <span class="hint">← replace with your actual negotiated rate</span></label>
+        <div class="inrow"><input type="number" id="cur_pct" value="2.9" step="0.05"><span class="pre">% +</span><input type="number" id="cur_flat" value="0.30" step="0.01"><span class="pre">/order</span></div>
+      </div>
+      <div class="field">
+        <label>Shopify third-party fee you pay today <span class="hint">(applies while processing off Shopify Payments — confirm your %)</span></label>
+        <div class="inrow"><input type="number" id="tpf" value="0.20" step="0.05"><span class="pre">%</span></div>
+      </div>
+      <div class="field">
+        <label>Shopify Payments rate <span class="hint">(standard online; negotiable at your volume)</span></label>
+        <div class="inrow"><input type="number" id="sp_pct" value="2.25" step="0.05"><span class="pre">% +</span><input type="number" id="sp_flat" value="0.30" step="0.01"><span class="pre">/order</span></div>
+      </div>
+    </div>
+
+    <div class="calc-panel">
+      <h4>Annual cost comparison</h4>
+      <div class="out-row"><span class="lbl">Est. orders / year</span><span class="val" id="o_orders">—</span></div>
+      <div class="out-row"><span class="lbl">Today — processing</span><span class="val" id="o_cur_proc">—</span></div>
+      <div class="out-row"><span class="lbl">Today — 0.20% third-party fee</span><span class="val" id="o_cur_tpf">—</span></div>
+      <div class="out-row"><span class="lbl"><strong>Today — total</strong></span><span class="val" id="o_cur_total">—</span></div>
+      <div class="out-row"><span class="lbl">Shopify Payments — processing</span><span class="val" id="o_sp_proc">—</span></div>
+      <div class="out-row"><span class="lbl">Shopify Payments — third-party fee</span><span class="val" id="o_sp_tpf">$0</span></div>
+      <div class="out-row"><span class="lbl"><strong>Shopify Payments — total</strong></span><span class="val" id="o_sp_total">—</span></div>
+      <div class="result pos" id="rateResult">
+        <div class="rlabel">Annual difference</div>
+        <div class="rfig" id="o_diff">—</div>
+        <div class="rsub" id="o_diff_sub">positive = you save on Shopify Payments</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag">All figures are <strong>illustrative until you send your actual rates</strong>. The current-rate fields default to Stripe's published 2.9% + 30¢ — if your negotiated rate is lower, drop it in and everything updates live. The per-order fee matters a lot at your AOV (~$35 → ~700K orders/yr), so it's modeled explicitly.</div>
+</div></section>
+</div>
+
+<!-- CONVERSION -->
+<div class="tab-content" id="tab-conversion">
+<section><div class="container">
+  <h2>Conversion opportunity.</h2>
+  <p class="lede">Shop Pay is the highest-converting checkout in commerce — 1st Phorm saw <strong>+3%</strong> and now runs &gt;50% of checkouts through it. Your lift is most relevant on <strong>new-customer / one-time checkouts</strong>, since your recurring rebills already convert.</p>
+
+  <div class="calc">
+    <div class="calc-panel">
+      <h4>Your inputs</h4>
+      <div class="field">
+        <label>Annual new-customer / one-time checkout revenue <span class="hint">(the portion exposed to a checkout-conversion lift)</span></label>
+        <div class="inrow"><span class="pre">$</span><input type="number" id="new_rev" value="5000000"></div>
+      </div>
+      <div class="field">
+        <label>Shop Pay conversion lift <span class="hint">(1st Phorm saw ~3%; use a conservative figure if you already offer Apple/Google Pay)</span></label>
+        <div class="inrow"><input type="number" id="lift" value="1.5" step="0.25"><span class="pre">%</span></div>
+      </div>
+    </div>
+    <div class="calc-panel">
+      <h4>Estimated incremental revenue</h4>
+      <div class="out-row"><span class="lbl">New-customer revenue base</span><span class="val" id="c_base">—</span></div>
+      <div class="out-row"><span class="lbl">Conversion lift applied</span><span class="val" id="c_lift">—</span></div>
+      <div class="result pos"><div class="rlabel">Incremental revenue / year</div><div class="rfig" id="c_out">—</div><div class="rsub">before any margin — illustrative</div></div>
+    </div>
+  </div>
+
+  <div class="flag"><strong>Honest note:</strong> 1st Phorm's +3% came largely because they didn't previously offer Apple/Google Pay. If your custom Stripe checkout already has those wallets, your incremental lift is likely smaller (≈0.5–1.5%) — which is why the default is conservative. We'll validate against your real checkout analytics.</div>
+
+  <h3>Ecosystem unlocks (bonus, not the case-maker)</h3>
+  <div class="grid-2">
+    <div class="card"><h4>Shop App</h4><p>Requires Shopify Payments. Efficient, incremental new-customer ads that also surface in Google Shopping — a channel you can't access today.</p></div>
+    <div class="card"><h4>Shopify Audiences</h4><p>Extra prospecting / look-alike / exclusion pools piped into your ad networks, built on Shopify's commerce data.</p></div>
+  </div>
+</div></section>
+</div>
+
+<!-- WHY WORTH IT -->
+<div class="tab-content" id="tab-worth">
+<section><div class="container">
+  <h2>Why it's worth it — the full picture.</h2>
+  <p class="lede">Stack the levers together. The decision comes down to whether the rate + third-party-fee offset lands at or below what you pay today — if it does, everything else is upside.</p>
+
+  <h3>The value stack</h3>
+  <table>
+    <thead><tr><th>Lever</th><th>What it does</th><th class="num">Weight</th></tr></thead>
+    <tbody>
+      <tr><td>Processing rate</td><td>Applies to your whole recurring base — the P&amp;L driver</td><td class="num">Deciding</td></tr>
+      <tr><td>0.20% third-party fee removed</td><td>Disappears the moment you're on Shopify Payments</td><td class="num">High</td></tr>
+      <tr><td>Shop Pay conversion lift</td><td>Higher completion on new-customer checkouts</td><td class="num">Medium</td></tr>
+      <tr><td>Lower involuntary churn</td><td>Card-updater keeps subscriber cards current</td><td class="num">Medium</td></tr>
+      <tr><td>Shop App + Audiences</td><td>Incremental acquisition + prospecting</td><td class="num">Bonus</td></tr>
+      <tr><td>Simpler stack / reconciliation</td><td>One payout stream, no gateway finger-pointing</td><td class="num">Bonus</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout"><strong>The honest verdict:</strong> if we can get the Shopify Payments rate to land at or below your current effective cost — helped by dropping the 0.20% third-party fee — this is a clean yes, and the conversion + ecosystem benefits are free upside. If we can't get the rate there, we'll tell you straight. Either way, your real numbers decide it.</div>
+</div></section>
+</div>
+
+<!-- NEXT STEPS -->
+<div class="tab-content" id="tab-next">
+<section><div class="container">
+  <h2>Next steps.</h2>
+  <ul class="clean">
+    <li><strong>You (Blake + controller):</strong> send your current processing rates + AOV/order volume.</li>
+    <li><strong>Us:</strong> build the real TCO/ROI on your numbers, and secure a competitive Shopify Payments rate for your volume.</li>
+    <li><strong>Together:</strong> review the comparison on a follow-up call and confirm payout timing + no reserve.</li>
+  </ul>
+  <div class="callout">Send the rates and I'll plug them straight into this model — you'll see exactly where the math lands, live.</div>
+</div></section>
+</div>
+
+<footer>
+  <div class="container">
+    <strong>Nicole DeGennaro</strong> · Senior Account Executive · Shopify<br>
+    <a href="mailto:nicole.degennaro@shopify.com">nicole.degennaro@shopify.com</a>
+    <div class="footnote">Working model — figures are illustrative until populated with Kitty Poo Club's actual rates and volume. Inputs update live on every device.</div>
+  </div>
+</footer>
+
+<script>
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+
+  const num=id=>parseFloat(document.getElementById(id).value)||0;
+  const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const fmtSigned=n=>(n>=0?'+':'−')+'$'+Math.abs(Math.round(n)).toLocaleString('en-US');
+
+  function rateCalc(){
+    const vol=num('volume'), aov=num('aov');
+    const orders = aov>0 ? vol/aov : 0;
+    const curProc = vol*(num('cur_pct')/100) + orders*num('cur_flat');
+    const curTpf  = vol*(num('tpf')/100);
+    const curTot  = curProc + curTpf;
+    const spProc  = vol*(num('sp_pct')/100) + orders*num('sp_flat');
+    const spTot   = spProc; // no third-party fee on Shopify Payments
+    const diff    = curTot - spTot; // positive = savings
+
+    document.getElementById('o_orders').textContent = Math.round(orders).toLocaleString('en-US');
+    document.getElementById('o_cur_proc').textContent = fmt(curProc);
+    document.getElementById('o_cur_tpf').textContent = fmt(curTpf);
+    document.getElementById('o_cur_total').textContent = fmt(curTot);
+    document.getElementById('o_sp_proc').textContent = fmt(spProc);
+    document.getElementById('o_sp_total').textContent = fmt(spTot);
+    document.getElementById('o_diff').textContent = fmtSigned(diff);
+    const box=document.getElementById('rateResult');
+    box.classList.toggle('pos',diff>=0); box.classList.toggle('neg',diff<0);
+    document.getElementById('o_diff_sub').textContent = diff>=0
+      ? 'you save this much per year on Shopify Payments'
+      : 'Shopify Payments costs this much more per year — rate needs to come down';
+  }
+
+  function convCalc(){
+    const base=num('new_rev'), lift=num('lift')/100;
+    const inc=base*lift;
+    document.getElementById('c_base').textContent=fmt(base);
+    document.getElementById('c_lift').textContent=(num('lift')).toFixed(2)+'%';
+    document.getElementById('c_out').textContent=fmtSigned(inc);
+  }
+
+  ['volume','aov','cur_pct','cur_flat','tpf','sp_pct','sp_flat'].forEach(id=>document.getElementById(id).addEventListener('input',rateCalc));
+  ['new_rev','lift'].forEach(id=>document.getElementById(id).addEventListener('input',convCalc));
+  rateCalc(); convCalc();
+</script>
+</body>
+</html>
