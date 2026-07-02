@@ -212,6 +212,30 @@
   </div>
 
   <div class="flag">All figures are <strong>illustrative until you send your actual rates</strong>. The current-rate fields default to Stripe's published 2.9% + 30¢ — if your negotiated rate is lower, drop it in and everything updates live. The per-order fee matters a lot at your AOV (~$35 → ~700K orders/yr), so it's modeled explicitly.</div>
+
+  <h3>Typical Stripe rates — for reference</h3>
+  <table>
+    <thead><tr><th>Stripe pricing</th><th class="num">Typical online (card-not-present)</th></tr></thead>
+    <tbody>
+      <tr><td>Standard / published</td><td class="num">2.9% + 30¢</td></tr>
+      <tr><td>Volume / negotiated flat rate</td><td class="num">~2.2% – 2.5% + ~25–30¢</td></tr>
+      <tr><td>Interchange-plus (high volume)</td><td class="num">interchange + 0.05–0.15% + 5–10¢</td></tr>
+    </tbody>
+  </table>
+  <p class="lede" style="font-size:14.5px;margin-top:10px;">A "good" negotiated Stripe rate for a business your size typically lands around <strong>2.2%–2.5%</strong> all-in. Shopify Payments on Plus starts at <strong>2.25% + 30¢</strong> online and is negotiable at your volume — right in that same band, <em>before</em> you add back the 0.20% third-party fee you'd stop paying. That closeness is exactly why it's worth running the comparison precisely, not by gut.</p>
+
+  <details style="margin-top:20px;border:1px solid var(--line);border-radius:10px;padding:12px 16px;background:#fff;">
+    <summary style="cursor:pointer;font-weight:700;color:var(--ink-soft);font-size:14px;">Assumptions &amp; sources</summary>
+    <ul class="clean" style="margin-top:10px;">
+      <li><strong>$25M annual volume</strong> — working figure; replace with your actuals.</li>
+      <li><strong>$35 AOV</strong> — placeholder to derive order count for per-transaction fees; confirm.</li>
+      <li><strong>Current-rate default 2.9% + 30¢</strong> — Stripe's <em>published</em> rate; your negotiated rate is likely lower (see typical rates above), which narrows the gap.</li>
+      <li><strong>0.20% third-party fee</strong> — Shopify's fee for processing off Shopify Payments; applies only where you use Shopify's checkout — confirm against your headless setup.</li>
+      <li><strong>Shopify Payments 2.25% + 30¢</strong> — standard online Plus rate; negotiable at volume.</li>
+      <li><strong>1st Phorm figures</strong> (+3% conversion on checkout-initiated sessions, Shop Pay &gt;50%, overnight token migration, no churn spike) — from the July 1 reference call.</li>
+      <li><strong>Conversion lift default</strong> — set conservatively; 1st Phorm's 3% partly reflected adding Apple/Google Pay they previously lacked.</li>
+    </ul>
+  </details>
 </div></section>
 </div>
 
