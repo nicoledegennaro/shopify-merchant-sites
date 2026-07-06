@@ -490,6 +490,13 @@
     tr, thead { break-inside: avoid; page-break-inside: avoid; }
     h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
     a { color: inherit; text-decoration: none; }
+    /* keep big numbers on one line so cards read cleanly */
+    .stat .v { font-size: 22px !important; line-height: 1.15; white-space: nowrap; }
+    .grid-4 .stat .v { font-size: 19px !important; }
+    .partner-card .partner-cost, .vpf-figure { font-size: 24px !important; white-space: nowrap; }
+    h1 { font-size: 30px; }
+    /* keep a full row of cards together on one page */
+    .grid-3, .grid-2, .grid-4, .vpf-band, .calc { break-inside: avoid; page-break-inside: avoid; }
   }
 
 </style>
