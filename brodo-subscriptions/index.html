@@ -89,6 +89,26 @@
   .up .u .d{font-size:12.3px;color:var(--ink-soft);}
   footer{color:var(--muted);font-size:12px;padding:28px 0 44px;border-top:1px solid var(--line);margin-top:32px;}
 
+  .agenda-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start;}
+  @media(max-width:760px){.agenda-wrap{grid-template-columns:1fr;}}
+  .sec-h{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin:0 0 6px;}
+  .agenda{list-style:none;margin:8px 0 0;padding:0;counter-reset:ag;}
+  .agenda li{position:relative;padding:11px 0 11px 38px;border-bottom:1px solid var(--line);font-size:13.6px;color:var(--ink-soft);}
+  .agenda li:last-child{border-bottom:none;}
+  .agenda li::before{counter-increment:ag;content:counter(ag);position:absolute;left:0;top:9px;width:23px;height:23px;border-radius:50%;background:var(--amber-soft);color:var(--amber-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;}
+  .agenda li b{color:var(--ink);}
+  .agenda li .mins{color:var(--muted);font-weight:600;font-size:11.5px;margin-left:4px;}
+  .state{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 16px;}
+  .state .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.8px;}
+  .state .row:last-child{border-bottom:none;}
+  .state .k{color:var(--muted);font-weight:700;flex:none;width:34%;}
+  .state .v{color:var(--ink);text-align:right;}
+  .disco{margin-top:26px;}
+  .disco h3{font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin:0 0 3px;}
+  .disco ul{list-style:none;padding:0;margin:12px 0 0;}
+  .disco li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:8px;padding:10px 13px;margin-bottom:8px;font-size:12.9px;color:var(--ink-soft);}
+  .disco li b{color:var(--ink);}
+
   @media print{
     .tabs{display:none;}
     .tab-content{display:block !important;page-break-before:always;padding-top:8px;}
@@ -111,14 +131,47 @@
 
 <div class="container">
   <div class="tabs" role="tablist">
-    <button class="tab active" data-tab="subs">1 · Subscriptions</button>
-    <button class="tab" data-tab="pricing">2 · Pricing &amp; card rates</button>
-    <button class="tab" data-tab="hesitations">3 · Your hesitations</button>
-    <button class="tab" data-tab="uplift">4 · Revenue upside</button>
+    <button class="tab active" data-tab="agenda">1 · Agenda &amp; current state</button>
+    <button class="tab" data-tab="subs">2 · Subscriptions</button>
+    <button class="tab" data-tab="pricing">3 · Pricing &amp; card rates</button>
+    <button class="tab" data-tab="hesitations">4 · Hesitations &amp; discovery</button>
+    <button class="tab" data-tab="uplift">5 · Revenue upside</button>
   </div>
 
-  <!-- TAB 1 -->
-  <section class="tab-content active" id="subs">
+  <!-- TAB 1: AGENDA & CURRENT STATE -->
+  <section class="tab-content active" id="agenda">
+    <h2 class="tab-title">Monday's working session</h2>
+    <p class="tab-sub">July 13 · 12:00 PM ET · technical deep-dive with our Solutions Engineer. Here's the plan, and a quick alignment on where things stand today.</p>
+    <div class="agenda-wrap">
+      <div>
+        <div class="sec-h">Agenda</div>
+        <ol class="agenda">
+          <li><b>Goals &amp; recap</b> <span class="mins">~5 min</span></li>
+          <li><b>Current state</b> — quick alignment <span class="mins">~5 min</span></li>
+          <li><b>Subscriptions deep-dive</b> — map your modification flows to the right option (native / Loop) <span class="mins">~15 min</span></li>
+          <li><b>Pricing &amp; card rates</b> — the all-in TCO picture <span class="mins">~10 min</span></li>
+          <li><b>Hesitations &amp; technical Q&amp;A</b> with our Solutions Engineer <span class="mins">~15 min</span></li>
+          <li><b>Migration approach &amp; next steps</b> <span class="mins">~10 min</span></li>
+        </ol>
+      </div>
+      <div>
+        <div class="sec-h">Brodo today</div>
+        <div class="state">
+          <div class="row"><span class="k">Platform</span><span class="v">WooCommerce (WordPress), self-hosted on Pressable</span></div>
+          <div class="row"><span class="k">Subscriptions</span><span class="v">WooCommerce Subscriptions (free) + AutomateWoo</span></div>
+          <div class="row"><span class="k">Payments</span><span class="v">Stripe · evaluating WooPay + Crepling (2.2% + 20¢)</span></div>
+          <div class="row"><span class="k">Model</span><span class="v">DTC — Subscribe &amp; Save, Build-Your-Own-Box, Starter Box; frequent subscriber edits</span></div>
+          <div class="row"><span class="k">Channels</span><span class="v">DTC (primary) + Amazon + Faire (wholesale)</span></div>
+          <div class="row"><span class="k">Other tools</span><span class="v">Metric (reporting), external forms &amp; landing pages, Klaviyo</span></div>
+          <div class="row"><span class="k">Largest cost</span><span class="v">Internal development &amp; maintenance</span></div>
+          <div class="row"><span class="k">Shopify</span><span class="v">Trial account live since April</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2 -->
+  <section class="tab-content" id="subs">
     <h2 class="tab-title">Three ways to run subscriptions</h2>
     <p class="tab-sub">Real pricing, and how each compares to Woo. Two keep your zero-per-transaction model.</p>
 
@@ -141,7 +194,7 @@
         <span class="badge mid">Low % · no per-order fee</span>
         <h3>Loop</h3>
         <div class="tag">Third-party · built for DTC</div>
-        <div class="price">$399 / month + 0.75%<span class="sub">Plus tier · no per-order flat fee</span></div>
+        <div class="price">$99 / month + 1.0%<span class="sub">Starter tier · no per-order flat fee</span></div>
         <ul>
           <li>Build-a-box + bundle builder</li>
           <li>Multi-product swap, frequency, pause</li>
@@ -161,8 +214,8 @@
           <li>Build-a-box + loyalty (Plus tier)</li>
           <li>Largest integration ecosystem</li>
         </ul>
-        <div class="watch"><b>Watch-out:</b> per-transaction fee stacked on processing — the model you won't accept.</div>
-        <div class="vswoo"><b>vs Woo:</b> most powerful, priciest — the "pay through the nose" case.</div>
+        <div class="watch"><b>Watch-out:</b> a per-transaction fee stacks on top of card processing — the stacked-fee model you flagged wanting to avoid.</div>
+        <div class="vswoo"><b>vs Woo:</b> the most feature-rich option, but the highest all-in cost.</div>
       </div>
     </div>
 
@@ -177,8 +230,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Monthly fee</td><td>$0</td><td class="col-hi">$0</td><td class="col-hi">$399</td><td>$499</td></tr>
-        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="part">0.75%</span></td><td class="c"><span class="no">1.34%+19¢</span></td></tr>
+        <tr><td>Monthly fee</td><td>$0</td><td class="col-hi">$0</td><td class="col-hi">$99</td><td>$499</td></tr>
+        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="part">1.0%</span></td><td class="c"><span class="no">1.34%+19¢</span></td></tr>
         <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
         <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
         <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
@@ -186,8 +239,8 @@
       </tbody>
     </table>
 
-    <div class="callout"><strong>Bottom line:</strong> native keeps you at $0 per transaction. Want out-of-box build-a-box + swap? Loop's 0.75% beats Recharge and offsets the dev time you spend building it in AutomateWoo. Monday we map your flows to the right one.</div>
-    <p class="footnote">Loop &amp; Recharge shown at their Plus-level tier (as published July 2026) — confirm before contracting.</p>
+    <div class="callout"><strong>Bottom line:</strong> native keeps you at $0 per transaction. Want out-of-box build-a-box + swap? Loop's 1% beats Recharge and offsets the dev time you spend building it in AutomateWoo. Monday we map your flows to the right one.</div>
+    <p class="footnote">Loop shown at its Starter tier, Recharge at its Plus tier (as published July 2026) — confirm before contracting.</p>
   </section>
 
   <!-- TAB 2 -->
@@ -229,7 +282,7 @@
         <tr class="col-hi"><td>Shopify Plus + <b>native Subscriptions</b></td><td class="c">$1.20</td><td class="c"><span class="yes">$0.00</span></td><td class="c"><b>$1.20</b></td></tr>
         <tr><td>Stripe today (~2.9% + 30¢) + Woo Subs</td><td class="c">$1.46</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.46</td></tr>
         <tr><td>Crepling (2.2% + 20¢) + Woo Subs</td><td class="c">$1.08</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.08</td></tr>
-        <tr><td>Shopify Plus + <b>Loop</b> (0.75%)</td><td class="c">$1.20</td><td class="c"><span class="part">$0.30</span></td><td class="c">$1.50</td></tr>
+        <tr><td>Shopify Plus + <b>Loop</b> (1.0%)</td><td class="c">$1.20</td><td class="c"><span class="part">$0.40</span></td><td class="c">$1.60</td></tr>
         <tr><td>Shopify Plus + <b>Recharge</b> (1.34% + 19¢)</td><td class="c">$1.20</td><td class="c"><span class="no">$0.73</span></td><td class="c">$1.93</td></tr>
       </tbody>
     </table>
@@ -241,7 +294,7 @@
   <!-- TAB 3 -->
   <section class="tab-content" id="hesitations">
     <h2 class="tab-title">Your hesitations, answered</h2>
-    <p class="tab-sub">Everything you flagged — the reality, and how it works on Shopify.</p>
+    <p class="tab-sub">Everything you flagged — the reality, how it works on Shopify, and the technical topics we'll validate together on Monday.</p>
 
     <div class="hrow">
       <div class="q"><span class="ico">!</span> "We'll get a sub fee per order, on top of processing."</div>
@@ -289,6 +342,19 @@
         <div><div class="lab">Reality</div><div class="reality">Right to want an expert — the sensitive piece is subscriber + token migration.</div></div>
         <div><div class="how"><div class="lab">On Shopify</div>Tokens transfer <b>processor-to-processor</b> — subscribers don't re-enter cards. Partner-led, phased, fixed-scope — the near-term fixed cost you said you'd take.</div></div>
       </div>
+    </div>
+
+    <div class="disco">
+      <h3>Technical discovery — what we'll validate live</h3>
+      <p class="tab-sub" style="margin:6px 0 0;">Topics for our Solutions Engineer, mapped to the questions above.</p>
+      <ul>
+        <li><b>Subscription modifications</b> — live-test multi-product swap, build-a-box, frequency changes, pause, and cancellation / post-purchase surveys in the customer portal (native vs Loop).</li>
+        <li><b>Zero-fee path</b> — confirm native Subscriptions at $0 per transaction, and the scope for extending it via the Subscription API for your custom flows.</li>
+        <li><b>Stack mapping</b> — map each current tool (AutomateWoo flows, Metric reporting, forms, landing pages) to native (Flow / Email / Analytics), an app, or custom.</li>
+        <li><b>Checkout &amp; conversion</b> — benchmark your current checkout-completion rate and confirm Shop Pay + Installments eligibility.</li>
+        <li><b>Migration &amp; tokens</b> — subscriber and payment-token transfer, data mapping, 301 redirects, and a phased, partner-led plan.</li>
+        <li><b>Custom-dev headroom</b> — Shopify Functions, custom apps, and Storefront API / Hydrogen for the bespoke work you do today.</li>
+      </ul>
     </div>
   </section>
 
