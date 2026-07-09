@@ -108,6 +108,11 @@
   .disco ul{list-style:none;padding:0;margin:12px 0 0;}
   .disco li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:8px;padding:10px 13px;margin-bottom:8px;font-size:12.9px;color:var(--ink-soft);}
   .disco li b{color:var(--ink);}
+  tr.phase td{background:var(--amber-soft);color:var(--amber-dark);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+  .pill.sched{background:var(--pos-soft);color:var(--pos);}
+  .pill.open{background:var(--amber-soft);color:var(--amber-dark);}
+  .pill.pend{background:#efe9df;color:var(--muted);}
 
   @media print{
     .tabs{display:none;}
@@ -136,6 +141,7 @@
     <button class="tab" data-tab="pricing">3 · Pricing &amp; card rates</button>
     <button class="tab" data-tab="hesitations">4 · Hesitations &amp; discovery</button>
     <button class="tab" data-tab="uplift">5 · Revenue upside</button>
+    <button class="tab" data-tab="map">6 · Mutual action plan</button>
   </div>
 
   <!-- TAB 1: AGENDA & CURRENT STATE -->
@@ -151,7 +157,7 @@
           <li><b>Subscriptions deep-dive</b> — map your modification flows to the right option (native / Loop) <span class="mins">~15 min</span></li>
           <li><b>Pricing &amp; card rates</b> — the all-in TCO picture <span class="mins">~10 min</span></li>
           <li><b>Hesitations &amp; technical Q&amp;A</b> with our Solutions Engineer <span class="mins">~15 min</span></li>
-          <li><b>Migration approach &amp; next steps</b> <span class="mins">~10 min</span></li>
+          <li><b>Mutual action plan &amp; next steps</b> <span class="mins">~10 min</span></li>
         </ol>
       </div>
       <div>
@@ -374,6 +380,34 @@
 
     <div class="callout"><strong>Net:</strong> up to ~36% better conversion, ~50% higher AOV with Installments, recovered renewals, and 20–30% lower all-in cost. Next: model it on your real numbers.</div>
     <p class="footnote">Comps for the deep-dive: Oats Overnight &amp; Magic Spoon. Benchmarks are Shopify aggregate data / published case studies, not guarantees.</p>
+  </section>
+
+  <!-- TAB 6: MUTUAL ACTION PLAN -->
+  <section class="tab-content" id="map">
+    <h2 class="tab-title">Mutual action plan</h2>
+    <p class="tab-sub">A shared, no-pressure path from evaluation to decision — owners and target dates for each step. We move at the pace the data justifies.</p>
+    <table>
+      <thead>
+        <tr><th>Step</th><th>Owner</th><th>Target</th><th class="c">Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="phase"><td colspan="4">Phase 1 · Evaluate</td></tr>
+        <tr><td>Technical deep-dive — subscriptions + hesitations</td><td>Shopify + Brodo</td><td>Mon, Jul 13</td><td class="c"><span class="pill sched">Scheduled</span></td></tr>
+        <tr><td>Complete data-request doc — hosting, plugins, dev, processing, subscription % + AOV, conversion</td><td>Andrew + Nathan</td><td>Week of Jul 14</td><td class="c"><span class="pill open">Open</span></td></tr>
+        <tr><td>Build all-in TCO + ROI model on Brodo's real numbers</td><td>Nicole</td><td>Week of Jul 21</td><td class="c"><span class="pill pend">Pending data</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 2 · Validate</td></tr>
+        <tr><td>Hands-on subscription test in trial account — swap, build-a-box, frequency, surveys</td><td>Nathan + Solutions Engineer</td><td>Week of Jul 21</td><td class="c"><span class="pill open">Open</span></td></tr>
+        <tr><td>Review TCO / ROI + subscription findings</td><td>All</td><td>Week of Jul 28</td><td class="c"><span class="pill pend">Pending</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 3 · De-risk &amp; decide</td></tr>
+        <tr><td>Scoped migration plan + partner intro — subscriber / token transfer</td><td>Nicole + Partner</td><td>Early Aug</td><td class="c"><span class="pill pend">Pending</span></td></tr>
+        <tr><td>Commercial proposal + decision</td><td>Andrew (+ board)</td><td>Mid Aug</td><td class="c"><span class="pill pend">Pending</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 4 · Migrate &amp; launch <span style="font-weight:500;text-transform:none;letter-spacing:0;">(if it's a clear win)</span></td></tr>
+        <tr><td>Phased, partner-led migration + QA</td><td>Partner + Nathan</td><td>TBD</td><td class="c"><span class="pill pend">Future</span></td></tr>
+        <tr><td>Go-live + post-launch support</td><td>Merchant Success Manager</td><td>TBD</td><td class="c"><span class="pill pend">Future</span></td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>Guiding principle:</strong> no rushed cutover. You're month-to-month on Woo with no lock-in, so we let the TCO model and subscription validation prove the case before any migration — de-risked, phased, and partner-led.</div>
+    <p class="footnote">Dates are targets we'll confirm together and adjust to your team's bandwidth. Nothing here commits Brodo — it's a shared map so we both know what's next.</p>
   </section>
 </div>
 
