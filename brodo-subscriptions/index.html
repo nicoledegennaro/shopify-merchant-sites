@@ -113,6 +113,8 @@
   .pill.sched{background:var(--pos-soft);color:var(--pos);}
   .pill.open{background:var(--amber-soft);color:var(--amber-dark);}
   .pill.pend{background:#efe9df;color:var(--muted);}
+  .q.feat{color:var(--ink);}
+  .q .ico.num{background:var(--amber-soft);color:var(--amber-dark);}
   .calc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;}
   .calc-inputs{display:flex;gap:18px;flex-wrap:wrap;}
   .calc-inputs label{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--muted);display:flex;flex-direction:column;gap:6px;}
@@ -157,7 +159,8 @@
     <button class="tab" data-tab="pricing">3 · Pricing &amp; card rates</button>
     <button class="tab" data-tab="hesitations">4 · Hesitations &amp; discovery</button>
     <button class="tab" data-tab="uplift">5 · Revenue upside</button>
-    <button class="tab" data-tab="map">6 · Mutual action plan</button>
+    <button class="tab" data-tab="beyond">6 · Beyond Shop Pay</button>
+    <button class="tab" data-tab="map">7 · Mutual action plan</button>
   </div>
 
   <!-- TAB 1: AGENDA & CURRENT STATE -->
@@ -417,7 +420,55 @@
     <p class="footnote">Comps for the deep-dive: Oats Overnight &amp; Magic Spoon. Benchmarks are Shopify aggregate data / published case studies, not guarantees.</p>
   </section>
 
-  <!-- TAB 6: MUTUAL ACTION PLAN -->
+  <!-- TAB 6: BEYOND SHOP PAY -->
+  <section class="tab-content" id="beyond">
+    <h2 class="tab-title">Beyond Shop Pay</h2>
+    <p class="tab-sub">Shop Pay opens the door — but for a subscription brand at your scale, these are the features that keep revenue from leaking to churn and engineering overhead. Each is native on Shopify and hard to hold together on Woo without heavy custom work.</p>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">1</span> Smart dunning — AI-powered revenue recovery</div>
+      <div class="hgrid">
+        <div><div class="lab">On WooCommerce</div><div class="reality">A failed card retries on a fixed schedule; after ~3 misses the subscription cancels. Involuntary churn — expired cards, limits, fraud flags — quietly bleeds revenue.</div></div>
+        <div><div class="how"><div class="lab">On Shopify Payments</div>An AI model trained on billions of transactions picks the best hour and day to retry each specific card — recovering an estimated <b>20–30% of failed renewals</b> silently, with no "card declined" email. <em>(est. — validate on your data)</em></div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">2</span> Passwordless "magic link" portals</div>
+      <div class="hgrid">
+        <div><div class="lab">On WooCommerce</div><div class="reality">To skip, swap, or add a product, subscribers log in with a WordPress password. Forgotten password → reset email → friction → they email support to cancel instead.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Subscription apps (Loop, Skio, Recharge) use Shopify's identity network to text a 4-digit code or email a magic link — one tap into the portal on their phone, no password. Fewer support tickets, more self-serve saves.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">3</span> Native one-click upsells</div>
+      <div class="hgrid">
+        <div><div class="lab">On WooCommerce</div><div class="reality">Adding a one-time product to an upcoming box needs secure token cross-talk — usually multiple heavy plugins that slow the site or glitch during renewals.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Because the card token is vaulted natively, a subscriber taps "add to next order" right from an SMS or email and the contract updates instantly — no checkout. ("Your box ships in 3 days — add our protein powder for 15% off?")</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">4</span> Retention flows — why people stay</div>
+      <div class="hgrid">
+        <div><div class="lab">On WooCommerce</div><div class="reality">Click "cancel," and most stores simply let them cancel.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Smart cancellation flows branch on the reason: "too expensive" → instant 20% off next box; "too much product" → one-tap "pause 30 days." Dynamic saves regularly rescue an estimated <b>15–25% of cancellations</b>. <em>(est.)</em></div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">5</span> Multi-currency contracts that actually work</div>
+      <div class="hgrid">
+        <div><div class="lab">On WooCommerce</div><div class="reality">If a subscriber signs up in CAD or GBP, keeping the rate locked and stable month over month without gateway errors is a major technical headache.</div></div>
+        <div><div class="how"><div class="lab">On Shopify Payments</div>Multi-currency payouts are native: a Canadian subscriber is billed in CAD every cycle, and Shopify settles to you in USD (or a local account) — handling the banking cleanly. Useful whenever you expand to Canada or the UK.</div></div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Bottom line:</strong> Shop Pay gets shoppers through the door — but smart dunning, passwordless portals, one-click upsells, and retention flows are what keep a brand your size from losing millions to churn and engineering overhead.</div>
+  </section>
+
+  <!-- TAB 7: MUTUAL ACTION PLAN -->
   <section class="tab-content" id="map">
     <h2 class="tab-title">Mutual action plan</h2>
     <p class="tab-sub">A shared, no-pressure path from evaluation to decision — owners and target dates for each step. We move at the pace the data justifies.</p>
