@@ -85,6 +85,23 @@
 
   footer{color:var(--muted);font-size:12px;padding:28px 0 44px;border-top:1px solid var(--line);margin-top:32px;}
 
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;}
+  .calc-inputs{display:flex;gap:18px;flex-wrap:wrap;}
+  .calc-inputs label{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--muted);display:flex;flex-direction:column;gap:6px;}
+  .calc-inputs .field{display:flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 11px;}
+  .calc-inputs .field span{color:var(--muted);font-weight:700;font-size:15px;}
+  .calc-inputs input{border:none;background:none;font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);width:140px;outline:none;}
+  .calc-inputs input.rate{width:64px;}
+  .calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+  @media(max-width:640px){.calc-out{grid-template-columns:1fr;}}
+  .calc-out .o{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:14px;}
+  .calc-out .o.hi{background:var(--grn-soft);border-color:#bfe0cd;}
+  .calc-out .o .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;}
+  .calc-out .o .v{font-family:'Sora',sans-serif;font-size:23px;font-weight:600;margin-top:4px;line-height:1;}
+  .calc-out .o.hi .v{color:var(--grn-dark);}
+  .calc-out .o .vsub{font-size:12px;color:var(--muted);margin-top:3px;}
+  .calc-note{font-size:12.5px;color:#3a5044;margin-top:12px;background:var(--grn-soft);border-radius:8px;padding:10px 12px;}
+
   @media print{
     .tabs{display:none;}
     .tab-content{display:block !important;page-break-before:always;padding-top:8px;}
@@ -177,28 +194,53 @@
   <!-- TAB 3 -->
   <section class="tab-content" id="plan">
     <h2 class="tab-title">Plan &amp; pricing</h2>
-    <p class="tab-sub">Two sensible entry points. Given five brands, a large customer base, and a wholesale/B2B future, Plus is our recommendation — but here's the honest comparison.</p>
-    <table>
-      <thead>
-        <tr><th style="width:34%;">&nbsp;</th><th class="c">Shopify Advanced</th><th class="c col-hi">Shopify Plus <span style="font-weight:400;color:var(--muted);">(recommended)</span></th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Price</td><td class="c">~$399 / month</td><td class="c col-hi">$2,300 / month</td></tr>
-        <tr><td>Storefronts</td><td class="c">Single store</td><td class="c col-hi">Multiple storefronts under one organization</td></tr>
-        <tr><td>B2B / wholesale</td><td class="c">Limited</td><td class="c col-hi"><span class="yes">Native B2B</span></td></tr>
-        <tr><td>NetSuite / Klaviyo / ShipStation</td><td class="c"><span class="yes">Yes</span></td><td class="c col-hi"><span class="yes">Yes</span></td></tr>
-        <tr><td>Shop Pay &amp; social channels</td><td class="c"><span class="yes">Yes</span></td><td class="c col-hi"><span class="yes">Yes</span></td></tr>
-        <tr><td>Support</td><td class="c">Standard</td><td class="c col-hi">Dedicated Merchant Success Manager + launch support</td></tr>
-        <tr><td>Best for</td><td class="c">Launching one retail store</td><td class="c col-hi">All 5 brands + wholesale on one platform</td></tr>
-      </tbody>
-    </table>
-    <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:17px;margin:24px 0 4px;">Card processing (Shopify Payments)</h3>
+    <p class="tab-sub">Shopify Plus is the right fit for NewLife — built to run multiple storefronts, native B2B, and your NetSuite integration, with a dedicated launch team for the August timeline.</p>
+
     <div class="cards" style="grid-template-columns:1fr 1fr;">
-      <div class="card"><h3 style="font-size:16px;">2.25% + 30¢</h3><p>Standard cards, online</p></div>
-      <div class="card"><h3 style="font-size:16px;">2.95% + 30¢</h3><p>Amex / commercial cards · no third-party transaction fee with Shopify Payments</p></div>
+      <div class="card hi">
+        <span class="badge grn">Platform</span>
+        <h3>Shopify Plus</h3>
+        <p style="font-weight:700;color:var(--ink);font-size:16px;margin-top:6px;">$2,300 / month</p>
+        <ul>
+          <li>Multiple storefronts under one organization (all 5 brands over time)</li>
+          <li>Native B2B for the wholesale side</li>
+          <li>NetSuite, Klaviyo &amp; ShipStation integrations</li>
+          <li>Dedicated Merchant Success Manager + launch support</li>
+        </ul>
+      </div>
+      <div class="card hi">
+        <span class="badge blue">Card rates · online</span>
+        <h3>Shopify Payments</h3>
+        <p style="font-weight:700;color:var(--ink);font-size:16px;margin-top:6px;">2.25% + 30¢ standard</p>
+        <ul>
+          <li>2.95% + 30¢ Amex / commercial</li>
+          <li>No third-party transaction fee with Shopify Payments</li>
+          <li>Shop Pay + Installments included</li>
+        </ul>
+      </div>
     </div>
-    <div class="callout"><strong>Why Plus for NewLife:</strong> it's built to run <strong>multiple storefronts</strong> (a home for all five brands over time), includes <strong>native B2B</strong> for the wholesale side, integrates with NetSuite, and comes with a dedicated launch team — valuable with a tight August timeline.</div>
-    <p class="footnote">Advanced pricing is the standard published rate and may vary by billing term. Final recommendation depends on your projected revenue and scope — happy to right-size it with your marketing team's numbers.</p>
+
+    <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:17px;margin:26px 0 2px;">Variable Platform Fee (VPF) — try your numbers</h3>
+    <p class="tab-sub" style="margin-bottom:6px;">Plus bills the <em>greater</em> of the $2,300/mo base or your VPF (a % of GMV). Edit the fields to see which applies as the new store scales.</p>
+    <div class="calc">
+      <div class="calc-inputs">
+        <label>Annual GMV
+          <span class="field"><span>$</span><input id="vpfGmv" type="number" value="5000000" min="0" step="100000"></span>
+        </label>
+        <label>VPF rate
+          <span class="field"><input id="vpfRate" class="rate" type="number" value="0.35" min="0" step="0.01"><span>%</span></span>
+        </label>
+      </div>
+      <div class="calc-out">
+        <div class="o"><div class="k">VPF at this rate</div><div class="v" id="vpfAnnual">—</div><div class="vsub" id="vpfMonthly"></div></div>
+        <div class="o"><div class="k">Base platform fee</div><div class="v">$27,600<span style="font-size:13px;color:var(--muted);"> /yr</span></div><div class="vsub">$2,300 / month</div></div>
+        <div class="o hi"><div class="k" id="paysLabel">You'd pay</div><div class="v" id="vpfPay">—</div><div class="vsub" id="vpfPayMonthly"></div></div>
+      </div>
+      <div class="calc-note" id="vpfNote"></div>
+    </div>
+
+    <div class="callout"><strong>Why Plus for NewLife:</strong> it runs <strong>multiple storefronts</strong> (a home for all five brands over time), includes <strong>native B2B</strong> for the wholesale side, integrates with NetSuite, and comes with a dedicated launch team — valuable with a tight August timeline.</div>
+    <p class="footnote">Card rates are standard published Plus online rates (vary by region/card type). VPF figures are illustrative — we'll confirm against your projected revenue.</p>
   </section>
 
   <!-- TAB 4 -->
@@ -252,6 +294,26 @@
 </footer>
 
 <script>
+  function fmtUSD(n){return '$'+Math.round(n).toLocaleString('en-US');}
+  function calcVPF(){
+    var gmv=parseFloat(document.getElementById('vpfGmv').value)||0;
+    var rate=parseFloat(document.getElementById('vpfRate').value)||0;
+    var vpfAnnual=gmv*rate/100;
+    var baseAnnual=27600, payAnnual=Math.max(vpfAnnual,baseAnnual);
+    document.getElementById('vpfAnnual').textContent=fmtUSD(vpfAnnual)+' /yr';
+    document.getElementById('vpfMonthly').textContent=fmtUSD(vpfAnnual/12)+' / month';
+    document.getElementById('vpfPay').textContent=fmtUSD(payAnnual)+' /yr';
+    document.getElementById('vpfPayMonthly').textContent=fmtUSD(payAnnual/12)+' / month';
+    var vpfApplies=vpfAnnual>baseAnnual;
+    document.getElementById('paysLabel').textContent=vpfApplies?"You'd pay — VPF applies":"You'd pay — base applies";
+    var breakeven=rate>0?(baseAnnual/(rate/100)):0;
+    document.getElementById('vpfNote').innerHTML=vpfApplies
+      ? "At "+fmtUSD(gmv)+" GMV your VPF exceeds the base, so you're billed on the rate — every $1M of GMV adds "+fmtUSD(1000000*rate/100)+"/yr."
+      : "At "+fmtUSD(gmv)+" GMV you're on the $2,300/mo base — VPF only overtakes it above ~"+fmtUSD(breakeven)+" annual GMV at "+rate+"%.";
+  }
+  ['vpfGmv','vpfRate'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',calcVPF);});
+  calcVPF();
+
   document.querySelectorAll('.tab').forEach(function(btn){
     btn.addEventListener('click',function(){
       var id=btn.getAttribute('data-tab');
