@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NewLife Industries × Shopify — Your New Retail Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14212e; --ink-soft:#4b5a67; --muted:#8a97a1;
+    --bg:#f5f8f7; --card:#ffffff; --line:#e2e9e6;
+    --grn:#1f8a5b; --grn-soft:#e7f3ec; --grn-dark:#14663f;
+    --blue:#2563a8; --blue-soft:#e8f0f8;
+    --warn:#b4801f; --warn-soft:#f8efd8;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{margin:12mm;}
+  body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .container{max-width:960px;margin:0 auto;padding:0 24px;}
+  header{padding:46px 0 4px;}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--grn-dark);font-weight:700;}
+  h1{font-family:'Sora',sans-serif;font-weight:700;font-size:38px;line-height:1.06;margin:12px 0 6px;letter-spacing:-.02em;}
+  .rule{width:52px;height:3px;background:var(--grn);border-radius:2px;margin:14px 0;}
+  .lede{font-size:15.5px;color:var(--ink-soft);max-width:680px;}
+  .lede strong{color:var(--ink);}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:4px;margin:24px 0 0;border-bottom:1px solid var(--line);}
+  .tab{appearance:none;border:none;background:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);padding:12px 15px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .tab:hover{color:var(--ink);}
+  .tab.active{color:var(--grn-dark);border-bottom-color:var(--grn);}
+  .tab-content{display:none;padding:26px 0 8px;}
+  .tab-content.active{display:block;}
+  .tab-title{font-family:'Sora',sans-serif;font-weight:600;font-size:24px;margin:0 0 3px;}
+  .tab-sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 18px;max-width:700px;}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:14px;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:19px;}
+  .card.hi{border-color:#bfe0cd;}
+  .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:9px;}
+  .badge.grn{background:var(--grn-soft);color:var(--grn-dark);}
+  .badge.blue{background:var(--blue-soft);color:var(--blue);}
+  .card h3{font-family:'Sora',sans-serif;font-size:18px;margin:0;font-weight:600;}
+  .card p{font-size:13px;color:var(--ink-soft);margin:8px 0 0;}
+  .card ul{margin:10px 0 0;padding-left:0;list-style:none;font-size:13px;color:var(--ink-soft);}
+  .card ul li{padding:3px 0 3px 17px;position:relative;}
+  .card ul li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--grn);}
+
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);background:#eef4f1;}
+  tr:last-child td{border-bottom:none;}
+  td.c,th.c{text-align:center;}
+  .yes{color:var(--grn);font-weight:700;}
+  .col-hi{background:var(--grn-soft);}
+
+  .callout{border-left:3px solid var(--grn);background:var(--grn-soft);padding:13px 15px;border-radius:0 10px 10px 0;font-size:13.5px;color:var(--ink);margin:20px 0 4px;}
+  .callout strong{color:var(--grn-dark);}
+  .footnote{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55;}
+
+  .agenda-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start;}
+  @media(max-width:760px){.agenda-wrap{grid-template-columns:1fr;}}
+  .sec-h{font-family:'Sora',sans-serif;font-weight:600;font-size:17px;margin:0 0 6px;}
+  .agenda{list-style:none;margin:8px 0 0;padding:0;counter-reset:ag;}
+  .agenda li{position:relative;padding:11px 0 11px 38px;border-bottom:1px solid var(--line);font-size:13.6px;color:var(--ink-soft);}
+  .agenda li:last-child{border-bottom:none;}
+  .agenda li::before{counter-increment:ag;content:counter(ag);position:absolute;left:0;top:9px;width:23px;height:23px;border-radius:50%;background:var(--grn-soft);color:var(--grn-dark);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;}
+  .agenda li b{color:var(--ink);}
+  .agenda li .mins{color:var(--muted);font-weight:600;font-size:11.5px;margin-left:4px;}
+  .state{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 16px;}
+  .state .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.8px;}
+  .state .row:last-child{border-bottom:none;}
+  .state .k{color:var(--muted);font-weight:700;flex:none;width:34%;}
+  .state .v{color:var(--ink);text-align:right;}
+
+  .tl{list-style:none;margin:14px 0 0;padding:0;}
+  .tl li{position:relative;padding:0 0 20px 26px;border-left:2px solid var(--line);margin-left:8px;}
+  .tl li:last-child{padding-bottom:0;}
+  .tl li::before{content:"";position:absolute;left:-7px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--grn);border:2px solid var(--card);}
+  .tl .when{font-family:'Sora',sans-serif;font-weight:600;font-size:14px;color:var(--grn-dark);}
+  .tl .what{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+
+  footer{color:var(--muted);font-size:12px;padding:28px 0 44px;border-top:1px solid var(--line);margin-top:32px;}
+
+  @media print{
+    .tabs{display:none;}
+    .tab-content{display:block !important;page-break-before:always;padding-top:8px;}
+    .tab-content:first-of-type{page-break-before:avoid;}
+    .card,table,.tl li,.state{break-inside:avoid;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="eyebrow">NewLife Industries × Shopify · Prepared for July 13</div>
+    <h1>Your new retail store, launch-ready.</h1>
+    <div class="rule"></div>
+    <p class="lede">A plan for the <strong>new digital-print retail brand</strong> — one-off custom orders, 2–3 day turnaround, marketed to your 125k customers on social. Here's how it connects to <strong>NetSuite, Klaviyo &amp; ShipStation</strong>, the plan and pricing, and a timeline to a <strong>mid-August launch</strong>.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="agenda">1 · Agenda &amp; goal</button>
+    <button class="tab" data-tab="stack">2 · Your stack, connected</button>
+    <button class="tab" data-tab="plan">3 · Plan &amp; pricing</button>
+    <button class="tab" data-tab="timeline">4 · Launch timeline</button>
+    <button class="tab" data-tab="grow">5 · Room to grow</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <section class="tab-content active" id="agenda">
+    <h2 class="tab-title">Monday's session</h2>
+    <p class="tab-sub">July 13 · 11:00 AM ET, with Josh &amp; Amanda. The goal: lock the plan, the integration approach, and the timeline to launch.</p>
+    <div class="agenda-wrap">
+      <div>
+        <div class="sec-h">Agenda</div>
+        <ol class="agenda">
+          <li><b>Recap &amp; intros</b> (welcome, Amanda) <span class="mins">~5 min</span></li>
+          <li><b>Your stack, connected</b> — NetSuite, Klaviyo, ShipStation <span class="mins">~15 min</span></li>
+          <li><b>Plan &amp; pricing</b> — the right fit for launch <span class="mins">~10 min</span></li>
+          <li><b>Launch timeline</b> — working back from mid-August <span class="mins">~10 min</span></li>
+          <li><b>Next steps</b> — who owns what <span class="mins">~5 min</span></li>
+        </ol>
+      </div>
+      <div>
+        <div class="sec-h">NewLife today</div>
+        <div class="state">
+          <div class="row"><span class="k">Company</span><span class="v">47-yr national decorator — screen print, embroidery, laser</span></div>
+          <div class="row"><span class="k">Brands</span><span class="v">5 under one umbrella (Workplace Pro ~75%)</span></div>
+          <div class="row"><span class="k">Model</span><span class="v">Wholesale / volume · catalog + event-driven</span></div>
+          <div class="row"><span class="k">Systems</span><span class="v">NetSuite (ERP/CRM/WMS) · Klaviyo · ShipStation</span></div>
+          <div class="row"><span class="k">Audience</span><span class="v">125k active customers, nationwide</span></div>
+          <div class="row"><span class="k">New move</span><span class="v">Digital print → retail one-offs, fast turnaround</span></div>
+          <div class="row"><span class="k">Target</span><span class="v">New store live mid-to-late August</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout"><strong>The goal:</strong> a dedicated retail storefront for individual, custom orders with 2–3 day shipping — marketed on Facebook, Instagram and the Shop app — separate from your deadline-based wholesale catalog brands.</div>
+  </section>
+
+  <!-- TAB 2 -->
+  <section class="tab-content" id="stack">
+    <h2 class="tab-title">Your stack, connected</h2>
+    <p class="tab-sub">The new store plugs into the systems you already run — keeping your paperless, automated workflow intact.</p>
+    <div class="cards">
+      <div class="card hi">
+        <span class="badge grn">ERP · CRM · WMS</span>
+        <h3>NetSuite</h3>
+        <p>NetSuite is one of the most common ERPs among Shopify merchants. A direct connector (e.g., Celigo or the NetSuite Connector) syncs orders, inventory, customers and fulfillment automatically — so the new store feeds NetSuite the same paperless way your wholesale sites do.</p>
+      </div>
+      <div class="card hi">
+        <span class="badge grn">Email marketing</span>
+        <h3>Klaviyo</h3>
+        <p>Native Shopify integration. Sync your 125k customer base, build segments, and trigger flows — so you can market the new retail brand to the audience you already own.</p>
+      </div>
+      <div class="card hi">
+        <span class="badge grn">Shipping</span>
+        <h3>ShipStation</h3>
+        <p>Native integration pulls orders for labels and fulfillment — supporting the fast 2–3 day turnaround the retail buyer expects.</p>
+      </div>
+      <div class="card">
+        <span class="badge blue">Reach</span>
+        <h3>Social &amp; marketplaces</h3>
+        <p>Built-in channels for Facebook &amp; Instagram, Google, and the Shop app (200M+ shoppers) — the reason Shopify fits the social-first retail push.</p>
+      </div>
+    </div>
+    <div class="callout"><strong>What we'll confirm together on Monday:</strong> real-time vs. batch NetSuite sync, how a digital-print order flows into production, whether ShipStation pulls from Shopify or NetSuite, and any product-customizer app for made-to-order designs.</div>
+  </section>
+
+  <!-- TAB 3 -->
+  <section class="tab-content" id="plan">
+    <h2 class="tab-title">Plan &amp; pricing</h2>
+    <p class="tab-sub">Two sensible entry points. Given five brands, a large customer base, and a wholesale/B2B future, Plus is our recommendation — but here's the honest comparison.</p>
+    <table>
+      <thead>
+        <tr><th style="width:34%;">&nbsp;</th><th class="c">Shopify Advanced</th><th class="c col-hi">Shopify Plus <span style="font-weight:400;color:var(--muted);">(recommended)</span></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Price</td><td class="c">~$399 / month</td><td class="c col-hi">$2,300 / month</td></tr>
+        <tr><td>Storefronts</td><td class="c">Single store</td><td class="c col-hi">Multiple storefronts under one organization</td></tr>
+        <tr><td>B2B / wholesale</td><td class="c">Limited</td><td class="c col-hi"><span class="yes">Native B2B</span></td></tr>
+        <tr><td>NetSuite / Klaviyo / ShipStation</td><td class="c"><span class="yes">Yes</span></td><td class="c col-hi"><span class="yes">Yes</span></td></tr>
+        <tr><td>Shop Pay &amp; social channels</td><td class="c"><span class="yes">Yes</span></td><td class="c col-hi"><span class="yes">Yes</span></td></tr>
+        <tr><td>Support</td><td class="c">Standard</td><td class="c col-hi">Dedicated Merchant Success Manager + launch support</td></tr>
+        <tr><td>Best for</td><td class="c">Launching one retail store</td><td class="c col-hi">All 5 brands + wholesale on one platform</td></tr>
+      </tbody>
+    </table>
+    <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:17px;margin:24px 0 4px;">Card processing (Shopify Payments)</h3>
+    <div class="cards" style="grid-template-columns:1fr 1fr;">
+      <div class="card"><h3 style="font-size:16px;">2.25% + 30¢</h3><p>Standard cards, online</p></div>
+      <div class="card"><h3 style="font-size:16px;">2.95% + 30¢</h3><p>Amex / commercial cards · no third-party transaction fee with Shopify Payments</p></div>
+    </div>
+    <div class="callout"><strong>Why Plus for NewLife:</strong> it's built to run <strong>multiple storefronts</strong> (a home for all five brands over time), includes <strong>native B2B</strong> for the wholesale side, integrates with NetSuite, and comes with a dedicated launch team — valuable with a tight August timeline.</div>
+    <p class="footnote">Advanced pricing is the standard published rate and may vary by billing term. Final recommendation depends on your projected revenue and scope — happy to right-size it with your marketing team's numbers.</p>
+  </section>
+
+  <!-- TAB 4 -->
+  <section class="tab-content" id="timeline">
+    <h2 class="tab-title">Launch timeline</h2>
+    <p class="tab-sub">Working back from a mid-August go-live, aligned to back-to-school. It's tight but very doable once the plan and integrations are set this week.</p>
+    <ul class="tl">
+      <li><div class="when">Week of Jul 13</div><div class="what">Confirm plan, scope, and integration design (this call). Provision the store.</div></li>
+      <li><div class="when">Late July</div><div class="what">Connect NetSuite, Klaviyo &amp; ShipStation. Build the theme and brand. (Digital-print equipment arrives.)</div></li>
+      <li><div class="when">Early August</div><div class="what">Upload the retail catalog. End-to-end test: order → NetSuite → ShipStation. Set up payments &amp; Shop Pay.</div></li>
+      <li><div class="when">Mid August</div><div class="what">Soft launch + social campaign to your 125k customer base.</div></li>
+      <li><div class="when">Late August</div><div class="what">Full launch for back-to-school season.</div></li>
+    </ul>
+    <div class="callout"><strong>Critical path:</strong> deciding the plan and integration approach on Monday keeps mid-August in reach. A Shopify launch partner can run in parallel if you'd like extra hands.</div>
+  </section>
+
+  <!-- TAB 5 -->
+  <section class="tab-content" id="grow">
+    <h2 class="tab-title">Room to grow</h2>
+    <p class="tab-sub">The retail store is the starting point. As it proves out, the same platform can carry more of NewLife.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="badge grn">Multi-brand</span>
+        <h3>All five brands, one home</h3>
+        <p>Run each brand as its own storefront under a single Shopify organization — one login, one place to see every order across the umbrella.</p>
+      </div>
+      <div class="card">
+        <span class="badge grn">Wholesale</span>
+        <h3>B2B on the same platform</h3>
+        <p>Your volume/wholesale model (Workplace Pro and the catalog brands) can live on native Shopify B2B — company accounts, custom pricing, and bulk ordering, still synced to NetSuite.</p>
+      </div>
+      <div class="card">
+        <span class="badge grn">Simplicity</span>
+        <h3>One admin, less overhead</h3>
+        <p>Ready-to-go storefronts instead of building each site from scratch — lower cost to stand up new brands as you expand.</p>
+      </div>
+      <div class="card">
+        <span class="badge blue">Audience</span>
+        <h3>Reach where buyers are</h3>
+        <p>Social channels and the Shop app put your one-off retail products in front of individual shoppers — the audience the wholesale sites were never built for.</p>
+      </div>
+    </div>
+    <div class="callout"><strong>Start focused:</strong> launch the retail brand well in August, then decide together which pieces of NewLife make sense to bring onto Shopify next.</div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    Prepared by Nicole DeGennaro · Senior Account Executive · Shopify · nicole.degennaro@shopify.com
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-tab');
+      document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active');});
+      document.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+      btn.classList.add('active');
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
