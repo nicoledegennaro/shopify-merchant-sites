@@ -162,11 +162,10 @@
   <div class="tabs" role="tablist">
     <button class="tab active" data-tab="agenda">1 · Agenda &amp; current state</button>
     <button class="tab" data-tab="subs">2 · Subscriptions</button>
-    <button class="tab" data-tab="pricing">3 · Pricing &amp; card rates</button>
-    <button class="tab" data-tab="hesitations">4 · Hesitations &amp; discovery</button>
-    <button class="tab" data-tab="uplift">5 · Revenue upside</button>
-    <button class="tab" data-tab="beyond">6 · Beyond Shop Pay</button>
-    <button class="tab" data-tab="map">7 · Mutual action plan</button>
+    <button class="tab" data-tab="hesitations">3 · Hesitations</button>
+    <button class="tab" data-tab="uplift">4 · Revenue upside</button>
+    <button class="tab" data-tab="beyond">5 · Beyond Shop Pay</button>
+    <button class="tab" data-tab="map">6 · Mutual action plan</button>
   </div>
 
   <!-- TAB 1: AGENDA & CURRENT STATE -->
@@ -179,7 +178,7 @@
         <ol class="agenda">
           <li><b>Agenda + current state</b> — Nicole <span class="mins">~5 min</span></li>
           <li><b>Subscription validation + tech disco</b> — swap, build-a-box, frequency, pause &amp; surveys, plus the zero-fee path — Zack &amp; Angel <span class="mins">~25–30 min</span></li>
-          <li><b>Pricing &amp; card rates</b> — Nicole <span class="mins">~7 min</span></li>
+          <li><b>Pricing &amp; TCO</b> — handled in a separate model <span class="mins">follow-up</span></li>
           <li><b>Revenue upside (if time) + next steps</b> — Nicole <span class="mins">~10 min</span></li>
         </ol>
       </div>
@@ -273,71 +272,6 @@
     <p class="footnote">Loop shown at its Starter tier (as published July 2026). Custom app = one-time partner build cost, no ongoing per-transaction fee. Confirm before contracting.</p>
   </section>
 
-  <!-- TAB 2 -->
-  <section class="tab-content" id="pricing">
-    <h2 class="tab-title">Plus pricing &amp; card rates</h2>
-    <p class="tab-sub">The rack rates — platform, then cards — next to what you're weighing today.</p>
-
-    <div class="cards" style="grid-template-columns:1fr 1fr;">
-      <div class="card hi">
-        <span class="badge mid">Platform</span>
-        <h3>Shopify Plus</h3>
-        <div class="price">$2,300 / month<span class="sub">Billed monthly, 3-year term</span></div>
-        <ul>
-          <li>Native Subscriptions, Shop Pay, Flow &amp; Email included</li>
-          <li>Checkout extensibility + custom apps / headless</li>
-          <li>Dedicated Merchant Success Manager + launch support</li>
-          <li>99.99% uptime, Level 1 PCI, global CDN — managed</li>
-        </ul>
-      </div>
-      <div class="card hi">
-        <span class="badge best">Card rates · online</span>
-        <h3>Shopify Payments</h3>
-        <div class="price">2.25% + 30¢ standard<span class="sub">2.95% + 30¢ Amex / commercial</span></div>
-        <ul>
-          <li><b>No third-party transaction fee</b> with Shopify Payments</li>
-          <li>Shop Pay — highest-converting checkout</li>
-          <li>Fraud protection + card updater built in</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin:26px 0 2px;">Variable Platform Fee (VPF) — try your numbers</h3>
-    <p class="tab-sub" style="margin-bottom:6px;">Plus bills the <em>greater</em> of the $2,300/mo base or your VPF (a % of GMV). Edit the fields to see which applies.</p>
-    <div class="calc">
-      <div class="calc-inputs">
-        <label>Annual GMV
-          <span class="field"><span>$</span><input id="vpfGmv" type="number" value="30000000" min="0" step="100000"></span>
-        </label>
-        <label>VPF rate
-          <span class="field"><input id="vpfRate" class="rate" type="number" value="0.35" min="0" step="0.01"><span>%</span></span>
-        </label>
-      </div>
-      <div class="calc-out">
-        <div class="o"><div class="k">VPF at this rate</div><div class="v" id="vpfAnnual">—</div><div class="vsub" id="vpfMonthly"></div></div>
-        <div class="o"><div class="k">Base platform fee</div><div class="v">$27,600<span style="font-size:13px;color:var(--muted);"> /yr</span></div><div class="vsub">$2,300 / month</div></div>
-        <div class="o hi"><div class="k" id="paysLabel">You'd pay</div><div class="v" id="vpfPay">—</div><div class="vsub" id="vpfPayMonthly"></div></div>
-      </div>
-      <div class="calc-note" id="vpfNote"></div>
-    </div>
-
-    <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin:26px 0 2px;">What a $40 order costs to process</h3>
-    <p class="tab-sub" style="margin-bottom:8px;">The point: whether a subscription fee <em>stacks on top</em>.</p>
-    <table>
-      <thead>
-        <tr><th>Setup</th><th class="c">Card cost</th><th class="c">Stacked sub fee</th><th class="c">Total</th></tr>
-      </thead>
-      <tbody>
-        <tr class="col-hi"><td>Shopify Plus + <b>native Subscriptions or custom app</b></td><td class="c">$1.20</td><td class="c"><span class="yes">$0.00</span></td><td class="c"><b>$1.20</b></td></tr>
-        <tr><td>Stripe today (~2.9% + 30¢) + Woo Subs</td><td class="c">$1.46</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.46</td></tr>
-        <tr><td>Crepling (2.2% + 20¢) + Woo Subs</td><td class="c">$1.08</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.08</td></tr>
-        <tr><td>Shopify Plus + <b>Loop</b> (1.0%)</td><td class="c">$1.20</td><td class="c"><span class="part">$0.40</span></td><td class="c">$1.60</td></tr>
-      </tbody>
-    </table>
-
-    <div class="note"><b>The honest read:</b> Crepling's headline is marginally lower, but the number that moved your math was the <b>stacked sub fee</b> — and on native Subscriptions that's $0, same as Woo, plus you gain Shop Pay. We'll model your real effective rate on your card mix.</div>
-    <p class="footnote">Standard published Plus online rates (vary by region/card). $40-AOV math is illustrative. Crepling rate per your call — verify the processor.</p>
-  </section>
 
   <!-- TAB 3 -->
   <section class="tab-content" id="hesitations">
