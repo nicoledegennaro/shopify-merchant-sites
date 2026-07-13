@@ -135,10 +135,15 @@
 
   @media print{
     .tabs{display:none;}
-    .tab-content{display:block !important;page-break-before:always;padding-top:8px;}
+    header{padding:14px 0 2px;}
+    h1{font-size:27px;margin:8px 0 4px;}
+    .lede{font-size:12px;max-width:none;}
+    .tab-content{display:block !important;page-break-before:always;padding-top:6px;}
     .tab-content:first-of-type{page-break-before:avoid;}
-    .card,.hrow,.up .u,table{break-inside:avoid;}
+    .card,.hrow,.up .u,table,.calc,.disco li,.callout,.note,.state,.agenda-wrap,.agenda{break-inside:avoid;}
+    table,.calc,.state{page-break-inside:avoid;}
     .cards{grid-template-columns:repeat(3,1fr);}
+    .tab-title,.sec-h{break-after:avoid;}
   }
 </style>
 </head>
