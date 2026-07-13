@@ -189,6 +189,7 @@
           <div class="row"><span class="k">Platform</span><span class="v">WooCommerce (WordPress), self-hosted on Pressable</span></div>
           <div class="row"><span class="k">Subscriptions</span><span class="v">WooCommerce Subscriptions (free) + AutomateWoo</span></div>
           <div class="row"><span class="k">Payments</span><span class="v">Stripe · evaluating WooPay + Crepling (2.2% + 20¢)</span></div>
+          <div class="row"><span class="k">Online GMV</span><span class="v">~$30M (est., per call)</span></div>
           <div class="row"><span class="k">Model</span><span class="v">DTC — Subscribe &amp; Save, Build-Your-Own-Box, Starter Box; frequent subscriber edits</span></div>
           <div class="row"><span class="k">Channels</span><span class="v">DTC (primary) + Amazon + Faire (wholesale)</span></div>
           <div class="row"><span class="k">Other tools</span><span class="v">Metric (reporting), external forms &amp; landing pages, Klaviyo</span></div>
@@ -341,7 +342,7 @@
   <!-- TAB 3 -->
   <section class="tab-content" id="hesitations">
     <h2 class="tab-title">Your hesitations, answered</h2>
-    <p class="tab-sub">The concerns you raised — in plain terms — with the technical topics our team will validate live noted separately below.</p>
+    <p class="tab-sub">The concerns you raised, answered in plain terms.</p>
 
     <div class="hrow">
       <div class="q"><span class="ico">!</span> "We'll get a sub fee per order, on top of processing."</div>
@@ -391,18 +392,6 @@
       </div>
     </div>
 
-    <div class="disco">
-      <h3>Technical discovery — what we'll validate live</h3>
-      <p class="tab-sub" style="margin:6px 0 0;">Topics for our Solutions Engineer, mapped to the questions above.</p>
-      <ul>
-        <li><b>Subscription modifications</b> — live-test multi-product swap, build-a-box, frequency changes, pause, and cancellation / post-purchase surveys in the customer portal (native vs Loop).</li>
-        <li><b>Zero-fee path</b> — confirm native Subscriptions at $0 per transaction, and the scope for extending it via the Subscription API for your custom flows.</li>
-        <li><b>Stack mapping</b> — map each current tool (AutomateWoo flows, Metric reporting, forms, landing pages) to native (Flow / Email / Analytics), an app, or custom.</li>
-        <li><b>Checkout &amp; conversion</b> — benchmark your current checkout-completion rate and confirm Shop Pay + Installments eligibility.</li>
-        <li><b>Migration &amp; tokens</b> — subscriber and payment-token transfer, data mapping, 301 redirects, and a phased, partner-led plan.</li>
-        <li><b>Custom-dev headroom</b> — Shopify Functions, custom apps, and Storefront API / Hydrogen for the bespoke work you do today.</li>
-      </ul>
-    </div>
   </section>
 
   <!-- TAB 4 -->
@@ -474,28 +463,28 @@
   <!-- TAB 7: MUTUAL ACTION PLAN -->
   <section class="tab-content" id="map">
     <h2 class="tab-title">Mutual action plan</h2>
-    <p class="tab-sub">A shared, no-pressure path from evaluation to decision — owners and target dates for each step. We move at the pace the data justifies.</p>
+    <p class="tab-sub">A shared, no-pressure path from evaluation to decision — targeting a go-live before the holidays. We move at the pace the data justifies.</p>
     <table>
       <thead>
         <tr><th>Step</th><th>Owner</th><th>Target</th><th class="c">Status</th></tr>
       </thead>
       <tbody>
-        <tr class="phase"><td colspan="4">Phase 1 · Evaluate</td></tr>
-        <tr><td>Technical deep-dive — subscriptions + hesitations</td><td>Shopify + Brodo</td><td>Mon, Jul 13</td><td class="c"><span class="pill sched">Scheduled</span></td></tr>
-        <tr><td>Complete data-request doc — hosting, plugins, dev, processing, subscription % + AOV, conversion</td><td>Andrew + Nathan</td><td>Week of Jul 14</td><td class="c"><span class="pill open">Open</span></td></tr>
-        <tr><td>Build all-in TCO + ROI model on Brodo's real numbers</td><td>Nicole</td><td>Week of Jul 21</td><td class="c"><span class="pill pend">Pending data</span></td></tr>
-        <tr class="phase"><td colspan="4">Phase 2 · Validate</td></tr>
-        <tr><td>Hands-on subscription test in trial account — swap, build-a-box, frequency, surveys</td><td>Nathan + Solutions Engineer</td><td>Week of Jul 21</td><td class="c"><span class="pill open">Open</span></td></tr>
-        <tr><td>Review TCO / ROI + subscription findings</td><td>All</td><td>Week of Jul 28</td><td class="c"><span class="pill pend">Pending</span></td></tr>
-        <tr class="phase"><td colspan="4">Phase 3 · De-risk &amp; decide</td></tr>
-        <tr><td>Scoped migration plan + partner intro — subscriber / token transfer</td><td>Nicole + Partner</td><td>Early Aug</td><td class="c"><span class="pill pend">Pending</span></td></tr>
-        <tr><td>Commercial proposal + decision</td><td>Andrew (+ board)</td><td>Mid Aug</td><td class="c"><span class="pill pend">Pending</span></td></tr>
-        <tr class="phase"><td colspan="4">Phase 4 · Migrate &amp; launch <span style="font-weight:500;text-transform:none;letter-spacing:0;">(if it's a clear win)</span></td></tr>
-        <tr><td>Phased, partner-led migration + QA</td><td>Partner + Nathan</td><td>TBD</td><td class="c"><span class="pill pend">Future</span></td></tr>
-        <tr><td>Go-live + post-launch support</td><td>Merchant Success Manager</td><td>TBD</td><td class="c"><span class="pill pend">Future</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 1 · Evaluate (now)</td></tr>
+        <tr><td>Subscriptions + capabilities deep-dive</td><td>Shopify + Brodo</td><td>Jul 13</td><td class="c"><span class="pill sched">Done</span></td></tr>
+        <tr><td>Complete the data questionnaire — costs, integrations, card mix (Amex), subscription % + AOV, conversion</td><td>Andrew + Nathan</td><td>This week</td><td class="c"><span class="pill open">Open</span></td></tr>
+        <tr><td>Confirm subscription-app capabilities — frequency, address &amp; product-selection edits, cancellation survey — vs custom</td><td>Zack</td><td>This week</td><td class="c"><span class="pill open">Open</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 2 · TCO / ROI</td></tr>
+        <tr><td>Build all-in TCO + ROI on your real numbers (~$30M GMV, incl. token migration + card mix)</td><td>Nicole</td><td>Late July</td><td class="c"><span class="pill pend">Pending data</span></td></tr>
+        <tr><td>Review TCO / ROI + capability findings</td><td>All</td><td>Early Aug</td><td class="c"><span class="pill pend">Pending</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 3 · Decide &amp; plan migration</td></tr>
+        <tr><td>Scoped migration plan — <b>seamless card-token transfer</b> (the non-negotiable) + data + 301s</td><td>Nicole + Partner</td><td>August</td><td class="c"><span class="pill pend">Pending</span></td></tr>
+        <tr><td>Decision + commercial</td><td>Andrew</td><td>Late summer</td><td class="c"><span class="pill pend">Pending</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 4 · Migrate &amp; launch <span style="font-weight:500;text-transform:none;letter-spacing:0;">(4–6 month build, if it's a clear win)</span></td></tr>
+        <tr><td>Phased, partner-led migration + QA (tokens, subscriber data, flows)</td><td>Partner + Nathan</td><td>~Aug–Nov</td><td class="c"><span class="pill pend">Future</span></td></tr>
+        <tr><td>Go-live before the holidays</td><td>Shopify + Brodo</td><td>Early December</td><td class="c"><span class="pill pend">Future</span></td></tr>
       </tbody>
     </table>
-    <div class="callout"><strong>Guiding principle:</strong> no rushed cutover. You're month-to-month on Woo with no lock-in, so we let the TCO model and subscription validation prove the case before any migration — de-risked, phased, and partner-led.</div>
+    <div class="callout"><strong>Guiding principle:</strong> no rushed cutover — but a clear target of <strong>early December</strong> to beat the holiday rush. Migration runs ~4–6 months, and the non-negotiable is a <strong>seamless card-token transfer</strong> so no subscriber ever re-enters a card. We prove it out with the TCO first, then commit.</div>
     <p class="footnote">Dates are targets we'll confirm together and adjust to your team's bandwidth. Nothing here commits Brodo — it's a shared map so we both know what's next.</p>
   </section>
 </div>
