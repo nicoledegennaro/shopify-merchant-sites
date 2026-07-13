@@ -75,6 +75,23 @@
   .footnote{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55;}
   footer{color:var(--muted);font-size:12px;padding:28px 0 44px;border-top:1px solid var(--line);margin-top:32px;}
 
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;}
+  .calc-inputs{display:flex;gap:18px;flex-wrap:wrap;}
+  .calc-inputs label{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--muted);display:flex;flex-direction:column;gap:6px;}
+  .calc-inputs .field{display:flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 11px;}
+  .calc-inputs .field span{color:var(--muted);font-weight:700;font-size:15px;}
+  .calc-inputs input{border:none;background:none;font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);width:150px;outline:none;}
+  .calc-inputs input.rate{width:64px;}
+  .calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+  @media(max-width:640px){.calc-out{grid-template-columns:1fr;}}
+  .calc-out .o{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:14px;}
+  .calc-out .o.hi{background:var(--wine-soft);border-color:#e3cdd3;}
+  .calc-out .o .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;}
+  .calc-out .o .v{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-top:4px;line-height:1;}
+  .calc-out .o.hi .v{color:var(--wine-dark);}
+  .calc-out .o .vsub{font-size:12px;color:var(--muted);margin-top:3px;}
+  .calc-note{font-size:12.5px;color:#5c4650;margin-top:12px;background:var(--wine-soft);border-radius:8px;padding:10px 12px;}
+
   @media print{
     .tabs{display:none;}
     header{padding:14px 0 2px;}
@@ -104,7 +121,8 @@
     <button class="tab active" data-tab="opportunity">1 · The opportunity</button>
     <button class="tab" data-tab="goals">2 · Goals &amp; success metrics</button>
     <button class="tab" data-tab="solving">3 · What we're solving</button>
-    <button class="tab" data-tab="map">4 · Mutual action plan</button>
+    <button class="tab" data-tab="pricing">4 · Pricing</button>
+    <button class="tab" data-tab="map">5 · Mutual action plan</button>
   </div>
 
   <!-- TAB 1 -->
@@ -197,7 +215,56 @@
     <div class="callout"><strong>Honest framing:</strong> this needs real custom work — but so does your current stack. The difference is building it on modern, maintained primitives (Storefront API, checkout &amp; cart extensibility, metafields, webhooks) instead of a one-off codebase.</div>
   </section>
 
-  <!-- TAB 4 -->
+  <!-- TAB 4: PRICING -->
+  <section class="tab-content" id="pricing">
+    <h2 class="tab-title">Pricing</h2>
+    <p class="tab-sub">Platform pricing is simple and predictable. The larger investment is the custom build — and that's exactly what the discovery phase scopes before any commitment.</p>
+    <div class="cards" style="grid-template-columns:1fr 1fr;">
+      <div class="card hi">
+        <span class="badge">Platform</span>
+        <h3>Shopify Plus</h3>
+        <p style="font-weight:700;color:var(--ink);font-size:16px;margin-top:6px;">$2,300 / month</p>
+        <ul>
+          <li>Both storefronts (JJB + SFWTC) under one organization</li>
+          <li>Storefront API, checkout &amp; cart extensibility, metafields, webhooks — the primitives for your storage flow</li>
+          <li>Dedicated support · 99.99% uptime · Level 1 PCI</li>
+        </ul>
+      </div>
+      <div class="card hi">
+        <span class="badge">Card rates · online</span>
+        <h3>Shopify Payments</h3>
+        <p style="font-weight:700;color:var(--ink);font-size:16px;margin-top:6px;">2.25% + 30¢ standard</p>
+        <ul>
+          <li>2.95% + 30¢ Amex / commercial</li>
+          <li>No third-party transaction fee with Shopify Payments</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;margin:26px 0 2px;">Variable Platform Fee (VPF) — your numbers</h3>
+    <p class="tab-sub" style="margin-bottom:6px;">Plus bills the <em>greater</em> of the $2,300/mo base or your VPF (a % of GMV). Enter the GMV you'd expect to run through Shopify to see which applies.</p>
+    <div class="calc">
+      <div class="calc-inputs">
+        <label>Annual GMV through Shopify
+          <span class="field"><span>$</span><input id="vpfGmv" type="number" min="0" step="100000" placeholder="enter amount"></span>
+        </label>
+        <label>VPF rate
+          <span class="field"><input id="vpfRate" class="rate" type="number" value="0.35" min="0" step="0.01"><span>%</span></span>
+        </label>
+      </div>
+      <div class="calc-out">
+        <div class="o"><div class="k">VPF at this rate</div><div class="v" id="vpfAnnual">—</div><div class="vsub" id="vpfMonthly"></div></div>
+        <div class="o"><div class="k">Base platform fee</div><div class="v">$27,600<span style="font-size:13px;color:var(--muted);"> /yr</span></div><div class="vsub">$2,300 / month</div></div>
+        <div class="o hi"><div class="k" id="paysLabel">You'd pay</div><div class="v" id="vpfPay">—</div><div class="vsub" id="vpfPayMonthly"></div></div>
+      </div>
+      <div class="calc-note" id="vpfNote">Enter your expected annual Shopify GMV to see whether the base or VPF applies.</div>
+    </div>
+
+    <div class="callout"><strong>The number that matters most here is the build</strong> — the scoped discovery gives you a firm implementation estimate before you commit to anything.</div>
+    <p class="footnote">Card and VPF rates are standard published Plus rates (vary by region/card type). Build / implementation cost is separate and scoped by General Studios in discovery.</p>
+  </section>
+
+  <!-- TAB 5: MUTUAL ACTION PLAN -->
   <section class="tab-content" id="map">
     <h2 class="tab-title">Mutual action plan</h2>
     <p class="tab-sub">A discovery-first path — validate the build before any big commitment, and launch outside your busy season. Owners and targets we'll confirm together.</p>
@@ -232,6 +299,22 @@
 </footer>
 
 <script>
+  function fmtUSD(n){return '$'+Math.round(n).toLocaleString('en-US');}
+  function calcVPF(){
+    var raw=document.getElementById('vpfGmv').value;
+    var rate=parseFloat(document.getElementById('vpfRate').value)||0;
+    var a=document.getElementById('vpfAnnual'),m=document.getElementById('vpfMonthly'),p=document.getElementById('vpfPay'),pm=document.getElementById('vpfPayMonthly'),lbl=document.getElementById('paysLabel'),note=document.getElementById('vpfNote');
+    if(raw===''||isNaN(parseFloat(raw))){a.textContent='—';m.textContent='';p.textContent='—';pm.textContent='';lbl.textContent="You'd pay";note.textContent='Enter your expected annual Shopify GMV to see whether the base or VPF applies.';return;}
+    var gmv=parseFloat(raw),vpfAnnual=gmv*rate/100,baseAnnual=27600,payAnnual=Math.max(vpfAnnual,baseAnnual);
+    a.textContent=fmtUSD(vpfAnnual)+' /yr';m.textContent=fmtUSD(vpfAnnual/12)+' / month';
+    p.textContent=fmtUSD(payAnnual)+' /yr';pm.textContent=fmtUSD(payAnnual/12)+' / month';
+    var applies=vpfAnnual>baseAnnual;lbl.textContent=applies?"You'd pay — VPF applies":"You'd pay — base applies";
+    var be=rate>0?baseAnnual/(rate/100):0;
+    note.innerHTML=applies?("At "+fmtUSD(gmv)+" GMV your VPF exceeds the base — you're billed on the rate."):("At "+fmtUSD(gmv)+" GMV you're on the $2,300/mo base — VPF only overtakes it above ~"+fmtUSD(be)+" annual GMV at "+rate+"%.");
+  }
+  ['vpfGmv','vpfRate'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',calcVPF);});
+  calcVPF();
+
   document.querySelectorAll('.tab').forEach(function(btn){
     btn.addEventListener('click',function(){
       var id=btn.getAttribute('data-tab');
