@@ -116,22 +116,6 @@
   .pill.pend{background:#efe9df;color:var(--muted);}
   .q.feat{color:var(--ink);}
   .q .ico.num{background:var(--amber-soft);color:var(--amber-dark);}
-  .calc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;}
-  .calc-inputs{display:flex;gap:18px;flex-wrap:wrap;}
-  .calc-inputs label{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--muted);display:flex;flex-direction:column;gap:6px;}
-  .calc-inputs .field{display:flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 11px;}
-  .calc-inputs .field span{color:var(--muted);font-weight:700;font-size:15px;}
-  .calc-inputs input{border:none;background:none;font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);width:140px;outline:none;}
-  .calc-inputs input.rate{width:64px;}
-  .calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
-  @media(max-width:640px){.calc-out{grid-template-columns:1fr;}}
-  .calc-out .o{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:14px;}
-  .calc-out .o.hi{background:var(--amber-soft);border-color:#e6d3ac;}
-  .calc-out .o .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;}
-  .calc-out .o .v{font-family:'Fraunces',serif;font-size:25px;font-weight:600;margin-top:4px;line-height:1;}
-  .calc-out .o.hi .v{color:var(--amber-dark);}
-  .calc-out .o .vsub{font-size:12px;color:var(--muted);margin-top:3px;}
-  .calc-note{font-size:12.5px;color:#5c5040;margin-top:12px;background:var(--amber-soft);border-radius:8px;padding:10px 12px;}
 
   @media print{
     .tabs{display:none;}
@@ -430,26 +414,6 @@
 </footer>
 
 <script>
-  function fmtUSD(n){return '$'+Math.round(n).toLocaleString('en-US');}
-  function calcVPF(){
-    var gmv=parseFloat(document.getElementById('vpfGmv').value)||0;
-    var rate=parseFloat(document.getElementById('vpfRate').value)||0;
-    var vpfAnnual=gmv*rate/100, vpfMonthly=vpfAnnual/12;
-    var baseAnnual=27600, payAnnual=Math.max(vpfAnnual,baseAnnual);
-    document.getElementById('vpfAnnual').textContent=fmtUSD(vpfAnnual)+' /yr';
-    document.getElementById('vpfMonthly').textContent=fmtUSD(vpfMonthly)+' / month';
-    document.getElementById('vpfPay').textContent=fmtUSD(payAnnual)+' /yr';
-    document.getElementById('vpfPayMonthly').textContent=fmtUSD(payAnnual/12)+' / month';
-    var vpfApplies=vpfAnnual>baseAnnual;
-    document.getElementById('paysLabel').textContent=vpfApplies?"You'd pay — VPF applies":"You'd pay — base applies";
-    var breakeven=rate>0?(baseAnnual/(rate/100)):0;
-    document.getElementById('vpfNote').innerHTML=vpfApplies
-      ? "At "+fmtUSD(gmv)+" GMV your VPF exceeds the base, so you're billed on the rate — and every $1M of GMV adds "+fmtUSD(1000000*rate/100)+"/yr."
-      : "At "+fmtUSD(gmv)+" GMV you're on the $2,300/mo base — VPF only overtakes it above ~"+fmtUSD(breakeven)+" annual GMV at "+rate+"%.";
-  }
-  ['vpfGmv','vpfRate'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',calcVPF);});
-  calcVPF();
-
   document.querySelectorAll('.tab').forEach(function(btn){
     btn.addEventListener('click',function(){
       var id=btn.getAttribute('data-tab');
