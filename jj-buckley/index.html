@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JJ Buckley &amp; SFWTC × Shopify — The Business Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a1a1f; --ink-soft:#5f4a50; --muted:#9a8388;
+    --bg:#faf5f0; --card:#ffffff; --line:#ece0d8;
+    --wine:#7a2e3f; --wine-soft:#f4e6ea; --wine-dark:#5c2130;
+    --gold:#b08d57; --gold-soft:#f6edde; --gold-dark:#8a6a3a;
+    --pos:#3e7c5a; --pos-soft:#e9f2ec;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{margin:12mm;}
+  body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .container{max-width:940px;margin:0 auto;padding:0 24px;}
+  header{padding:46px 0 4px;}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);font-weight:700;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:42px;line-height:1.05;margin:10px 0 8px;}
+  .rule{width:54px;height:3px;background:var(--gold);border-radius:2px;margin:14px 0;}
+  .lede{font-size:15.5px;color:var(--ink-soft);max-width:700px;}
+  .lede strong{color:var(--ink);}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:4px;margin:24px 0 0;border-bottom:1px solid var(--line);}
+  .tab{appearance:none;border:none;background:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);padding:12px 15px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .tab:hover{color:var(--ink);}
+  .tab.active{color:var(--wine);border-bottom-color:var(--wine);}
+  .tab-content{display:none;padding:26px 0 8px;}
+  .tab-content.active{display:block;}
+  .tab-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;margin:0 0 4px;}
+  .tab-sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 18px;max-width:720px;}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:14px;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:19px;}
+  .card.hi{border-color:#e3cdd3;}
+  .card h3{font-family:'Cormorant Garamond',serif;font-size:21px;margin:0 0 4px;font-weight:600;}
+  .card p{font-size:13px;color:var(--ink-soft);margin:6px 0 0;}
+  .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:9px;background:var(--wine-soft);color:var(--wine-dark);}
+  .card ul{margin:8px 0 0;padding-left:0;list-style:none;font-size:13px;color:var(--ink-soft);}
+  .card ul li{padding:3px 0 3px 17px;position:relative;}
+  .card ul li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold);}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:14px;}
+  @media(max-width:640px){.stat-row{grid-template-columns:1fr;}}
+  .stat{background:var(--wine-soft);border:1px solid #e3cdd3;border-radius:12px;padding:16px;}
+  .stat .v{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--wine-dark);line-height:1;}
+  .stat .k{font-size:12.5px;color:var(--ink-soft);margin-top:5px;}
+
+  .metrics{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  @media(max-width:640px){.metrics{grid-template-columns:1fr;}}
+  .metrics li{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:13px;color:var(--ink-soft);position:relative;padding-left:30px;}
+  .metrics li::before{content:"✓";position:absolute;left:12px;color:var(--pos);font-weight:800;}
+  .metrics li b{color:var(--ink);}
+
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);background:#f3e9e4;}
+  tr:last-child td{border-bottom:none;}
+  td.c,th.c{text-align:center;}
+  tr.phase td{background:var(--wine-soft);color:var(--wine-dark);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;padding:8px 13px;}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+  .pill.now{background:var(--pos-soft);color:var(--pos);}
+  .pill.next{background:var(--gold-soft);color:var(--gold-dark);}
+  .pill.later{background:#efe7e2;color:var(--muted);}
+
+  .callout{border-left:3px solid var(--gold);background:var(--gold-soft);padding:13px 15px;border-radius:0 10px 10px 0;font-size:13.5px;color:var(--ink);margin:20px 0 4px;}
+  .callout strong{color:var(--gold-dark);}
+  .footnote{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55;}
+  footer{color:var(--muted);font-size:12px;padding:28px 0 44px;border-top:1px solid var(--line);margin-top:32px;}
+
+  @media print{
+    .tabs{display:none;}
+    header{padding:14px 0 2px;}
+    h1{font-size:30px;}
+    .lede{font-size:12px;max-width:none;}
+    .tab-content{display:block !important;page-break-before:always;padding-top:6px;}
+    .tab-content:first-of-type{page-break-before:avoid;}
+    .card,table,.stat,.metrics li,.callout{break-inside:avoid;}
+    table{page-break-inside:avoid;}
+    .tab-title{break-after:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="eyebrow">JJ Buckley &amp; SFWTC × Shopify · Prepared for July 14</div>
+    <h1>The business case for re-platforming.</h1>
+    <div class="rule"></div>
+    <p class="lede">Your online channel is small in revenue but <strong>strategically central</strong> — it's how new customers find you before the rep relationship begins. This is a plain look at <strong>why re-platforming is worth it</strong>, what success looks like, and a low-risk, discovery-first path to a Q1 2027 launch.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="opportunity">1 · The opportunity</button>
+    <button class="tab" data-tab="goals">2 · Goals &amp; success metrics</button>
+    <button class="tab" data-tab="solving">3 · What we're solving</button>
+    <button class="tab" data-tab="map">4 · Mutual action plan</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <section class="tab-content active" id="opportunity">
+    <h2 class="tab-title">The opportunity</h2>
+    <p class="tab-sub">Where things stand, and the real question in front of you.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="v">~$160K</div><div class="k">Combined online GMV (May) — small, but your front door for acquisition</div></div>
+      <div class="stat"><div class="v">~95%</div><div class="k">of sales are rep-entered through NetSuite — the site doesn't disrupt that</div></div>
+      <div class="stat"><div class="v">10+ yrs</div><div class="k">of custom site development + heavily customized NetSuite behind you</div></div>
+    </div>
+
+    <div class="cards" style="margin-top:16px;">
+      <div class="card hi">
+        <span class="badge">The strategic role</span>
+        <h3>Online is your acquisition channel</h3>
+        <p>Revenue runs through your reps, but the website is how new customers discover JJ Buckley and experience the wine-storage relationship. A stronger storefront feeds the rep-led business — it's growth, not just transactions.</p>
+      </div>
+      <div class="card hi">
+        <span class="badge">The real question</span>
+        <h3>Forward cost, not sunk cost</h3>
+        <p>You've invested a decade into a bespoke site and a custom NetSuite. The decision isn't about protecting that — it's whether maintaining an aging custom stack (and its key-person risk) costs more going forward than building on a maintained platform with modern building blocks.</p>
+      </div>
+      <div class="card">
+        <span class="badge">One move</span>
+        <h3>Two brands, together</h3>
+        <p>JJ Buckley (online-only DTC) and SFWTC (adds in-store retail/POS) migrate as one. NetSuite stays your system of record throughout.</p>
+      </div>
+      <div class="card">
+        <span class="badge">The foundation</span>
+        <h3>Shopify Plus as the base</h3>
+        <p>Your most complex needs — including the wine-storage flow — aren't out-of-the-box anywhere. Plus provides the modern primitives to build them, plus a best-in-class storefront and checkout for the acquisition side.</p>
+      </div>
+    </div>
+    <div class="callout"><strong>The through-line:</strong> keep NetSuite and your rep-led model exactly as they are — modernize the customer-facing layer that drives acquisition, on a platform you're not maintaining alone.</div>
+  </section>
+
+  <!-- TAB 2 -->
+  <section class="tab-content" id="goals">
+    <h2 class="tab-title">Goals &amp; success metrics</h2>
+    <p class="tab-sub">What we'd be solving for — and how we'd know it's working. Let's align on targets together.</p>
+
+    <div class="cards">
+      <div class="card"><h3>Grow the acquisition channel</h3><p>A modern storefront that converts first-time discovery into new customers who become rep-managed accounts.</p></div>
+      <div class="card"><h3>Elevate the storage experience</h3><p>Make the wine-storage &amp; withdrawal flow smoother for customers — a retention and loyalty lever, not just a feature.</p></div>
+      <div class="card"><h3>Lower forward cost &amp; risk</h3><p>Reduce dependence on a bespoke codebase and the key-person risk that comes with 10+ years of custom development.</p></div>
+      <div class="card"><h3>Ship faster</h3><p>Move from slow, custom iterations to shipping new merchandising and features on a maintained platform.</p></div>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;margin:24px 0 2px;">Metrics we'd track together</h3>
+    <ul class="metrics">
+      <li><b>Online conversion rate</b> — discovery to purchase</li>
+      <li><b>New-customer acquisition</b> — via the online channel</li>
+      <li><b>Storage-withdrawal UX</b> — completion &amp; repeat use</li>
+      <li><b>Dev / maintenance cost</b> — all-in, year over year</li>
+      <li><b>Feature velocity</b> — time to ship a change</li>
+      <li><b>Two-brand + retail</b> — unified ops across JJB &amp; SFWTC</li>
+    </ul>
+    <div class="callout"><strong>Your call, Michael:</strong> which of these matters most in the next 12–18 months? That's what we'll build the discovery — and the business case — around.</div>
+  </section>
+
+  <!-- TAB 3 -->
+  <section class="tab-content" id="solving">
+    <h2 class="tab-title">What we're solving</h2>
+    <p class="tab-sub">The core requirements — at a business level. The technical build path is what the discovery phase validates.</p>
+
+    <div class="cards">
+      <div class="card hi">
+        <span class="badge">The differentiator</span>
+        <h3>Wine storage &amp; mix-and-match withdrawal</h3>
+        <p>Customers store wine with you, then withdraw a custom mix across their holdings in one click — owned wine drops into the cart, new purchases add alongside, and it ships as one order with NetSuite kept in sync behind the scenes. This is the flow that has to work, and it's the heart of the build.</p>
+      </div>
+      <div class="card hi">
+        <span class="badge">Non-negotiable</span>
+        <h3>NetSuite stays the system of record</h3>
+        <p>Rep-entered orders (~95% of sales) keep flowing through NetSuite untouched. The new storefront integrates with it — it doesn't replace it.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Two brands</span>
+        <h3>JJB online + SFWTC retail</h3>
+        <p>Both storefronts migrate together, including SFWTC's in-store POS.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Regulated DTC</span>
+        <h3>Wine compliance built in</h3>
+        <p>Age verification, ShipCompliant/tax, and multi-state DTC wine shipping handled as part of the solution.</p>
+      </div>
+    </div>
+    <div class="callout"><strong>Honest framing:</strong> this needs real custom work — but so does your current stack. The difference is building it on modern, maintained primitives (Storefront API, checkout &amp; cart extensibility, metafields, webhooks) instead of a one-off codebase.</div>
+  </section>
+
+  <!-- TAB 4 -->
+  <section class="tab-content" id="map">
+    <h2 class="tab-title">Mutual action plan</h2>
+    <p class="tab-sub">A discovery-first path — validate the build before any big commitment, and launch outside your busy season. Owners and targets we'll confirm together.</p>
+    <table>
+      <thead>
+        <tr><th>Step</th><th>Owner</th><th>Target</th><th class="c">Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="phase"><td colspan="4">Phase 1 · Align (this call)</td></tr>
+        <tr><td>Agree on business goals, success metrics &amp; budget appetite</td><td>Michael + Nicole</td><td>Jul 14</td><td class="c"><span class="pill now">Today</span></td></tr>
+        <tr><td>Confirm the scoped discovery engagement</td><td>All</td><td>This week</td><td class="c"><span class="pill now">Now</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 2 · Scoped discovery (paid, time &amp; materials — no long-term commitment)</td></tr>
+        <tr><td>General Studios dedicates ~10 hrs to validate the build path (wine-storage flow + NetSuite integration)</td><td>General Studios + Sam</td><td>~2–4 weeks</td><td class="c"><span class="pill next">Next</span></td></tr>
+        <tr><td>Document remaining requirements + firm up cost estimate</td><td>General Studios + Angel (SE)</td><td>End of discovery</td><td class="c"><span class="pill next">Next</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 3 · Decision</td></tr>
+        <tr><td>Go / no-go on the full build + engagement terms</td><td>Michael + Sam</td><td>After discovery</td><td class="c"><span class="pill later">Pending</span></td></tr>
+        <tr class="phase"><td colspan="4">Phase 4 · Build &amp; launch</td></tr>
+        <tr><td>Build both brands (JJB + SFWTC), integrate NetSuite, test</td><td>General Studios + JJB</td><td>Through 2026</td><td class="c"><span class="pill later">Future</span></td></tr>
+        <tr><td>Deployment blackout — no launches in peak shipping</td><td>—</td><td>Sep 15 – Dec 15</td><td class="c"><span class="pill later">Hold</span></td></tr>
+        <tr><td>Target launch — outside peak season</td><td>All</td><td>Q1 2027</td><td class="c"><span class="pill later">Target</span></td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>Guiding principle:</strong> low-risk and staged. The paid discovery validates the build and firms up cost <em>before</em> any contract, engagement stays time &amp; materials, and launch lands in Q1 2027 — safely clear of your Sep 15–Dec 15 shipping season.</div>
+    <p class="footnote">Dates are targets we'll confirm together. The scoped discovery is a small, bounded engagement — not a commitment to the full build.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    Prepared by Nicole DeGennaro · Senior Account Executive · Shopify · nicole.degennaro@shopify.com &nbsp;·&nbsp; Partner: General Studios
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-tab');
+      document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active');});
+      document.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});
+      btn.classList.add('active');
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
