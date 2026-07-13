@@ -38,7 +38,8 @@
   .tab-sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 18px;max-width:680px;}
 
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:14px;}
-  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .cards.four{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}.cards.four{grid-template-columns:1fr;}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:19px;display:flex;flex-direction:column;}
   .card.hi{border-color:#e6d3ac;}
   .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:10px;width:fit-content;}
@@ -198,7 +199,7 @@
     <h2 class="tab-title">Three ways to run subscriptions</h2>
     <p class="tab-sub">Real pricing, and how each compares to Woo. Only native Subscriptions keeps your $0-per-transaction model; Loop and Recharge charge a fee for more advanced flows.</p>
 
-    <div class="cards">
+    <div class="cards four">
       <div class="card hi">
         <span class="badge best">$0 per transaction</span>
         <h3>Shopify Subscriptions</h3>
@@ -210,10 +211,24 @@
           <li>Works in admin + POS</li>
         </ul>
         <div class="watch"><b>Watch-out:</b> multi-product swap &amp; build-a-box are limited today.</div>
-        <div class="vswoo"><b>vs Woo:</b> keeps your $0-fee model — and Nathan can extend it via the Subscription API, fully custom, still no fee.</div>
+        <div class="vswoo"><b>vs Woo:</b> keeps your $0-fee model — and Nate can extend it via the Subscription API, fully custom, still no fee.</div>
       </div>
 
       <div class="card hi">
+        <span class="badge best">$0 per transaction</span>
+        <h3>Custom app</h3>
+        <div class="tag">Partner-built on Shopify's Subscription API</div>
+        <div class="price">Build cost only — $0 per transaction<span class="sub">One-time / partner build · no third-party fee, just standard processing</span></div>
+        <ul>
+          <li>Fully bespoke — every flow you run in AutomateWoo today</li>
+          <li>You own the logic; it runs through Shopify's API</li>
+          <li>No monthly app fee, no per-transaction cut</li>
+        </ul>
+        <div class="watch"><b>Watch-out:</b> a build + maintenance investment (partner or Nate) instead of a monthly fee.</div>
+        <div class="vswoo"><b>vs Woo:</b> closest to what you do today — on Shopify's managed infra + Shop Pay, with zero per-transaction fee.</div>
+      </div>
+
+      <div class="card">
         <span class="badge mid">1.0% per transaction</span>
         <h3>Loop</h3>
         <div class="tag">Third-party · built for DTC</div>
@@ -245,25 +260,26 @@
     <table>
       <thead>
         <tr>
-          <th style="text-align:left;width:30%;">Capability</th>
+          <th style="text-align:left;width:26%;">Capability</th>
           <th class="c">Woo <span style="font-weight:400;color:var(--muted);">(today)</span></th>
           <th class="c col-hi">Shopify Subs</th>
-          <th class="c col-hi">Loop</th>
+          <th class="c col-hi">Custom app</th>
+          <th class="c">Loop</th>
           <th class="c">Recharge</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Monthly fee</td><td class="c">$0</td><td class="c col-hi">$0</td><td class="c col-hi">$99</td><td class="c">$499</td></tr>
-        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="part">1.0%</span></td><td class="c"><span class="no">1.34% + 19¢</span></td></tr>
-        <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
-        <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
-        <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
-        <tr><td>Dev burden</td><td class="c"><span class="no">High</span></td><td class="c col-hi"><span class="part">Low–med</span></td><td class="c col-hi"><span class="yes">Low</span></td><td class="c"><span class="yes">Low</span></td></tr>
+        <tr><td>Monthly fee</td><td class="c">$0</td><td class="c col-hi">$0</td><td class="c col-hi">Build cost</td><td class="c">$99</td><td class="c">$499</td></tr>
+        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c"><span class="part">1.0%</span></td><td class="c"><span class="no">1.34% + 19¢</span></td></tr>
+        <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
+        <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
+        <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
+        <tr><td>Dev burden</td><td class="c"><span class="no">High</span></td><td class="c col-hi"><span class="part">Low–med</span></td><td class="c col-hi"><span class="no">High</span></td><td class="c"><span class="yes">Low</span></td><td class="c"><span class="yes">Low</span></td></tr>
       </tbody>
     </table>
 
-    <div class="callout"><strong>Bottom line:</strong> native keeps you at $0 per transaction. Want out-of-box build-a-box + swap? Loop's 1% beats Recharge and offsets the dev time you spend building it in AutomateWoo. Monday we map your flows to the right one.</div>
-    <p class="footnote">Loop shown at its Starter tier, Recharge at its Plus tier (as published July 2026) — confirm before contracting.</p>
+    <div class="callout"><strong>Bottom line:</strong> two paths keep you at $0 per transaction — native Subscriptions, or a partner-built custom app on Shopify's API that does everything your AutomateWoo setup does today (cost is the build, not a per-order fee). Prefer to buy than build? Loop's 1% beats Recharge. Monday we map your flows to the right one.</div>
+    <p class="footnote">Loop shown at its Starter tier, Recharge at its Plus tier (as published July 2026). Custom app = one-time partner build cost, no ongoing per-transaction fee. Confirm before contracting.</p>
   </section>
 
   <!-- TAB 2 -->
@@ -321,7 +337,7 @@
         <tr><th>Setup</th><th class="c">Card cost</th><th class="c">Stacked sub fee</th><th class="c">Total</th></tr>
       </thead>
       <tbody>
-        <tr class="col-hi"><td>Shopify Plus + <b>native Subscriptions</b></td><td class="c">$1.20</td><td class="c"><span class="yes">$0.00</span></td><td class="c"><b>$1.20</b></td></tr>
+        <tr class="col-hi"><td>Shopify Plus + <b>native Subscriptions or custom app</b></td><td class="c">$1.20</td><td class="c"><span class="yes">$0.00</span></td><td class="c"><b>$1.20</b></td></tr>
         <tr><td>Stripe today (~2.9% + 30¢) + Woo Subs</td><td class="c">$1.46</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.46</td></tr>
         <tr><td>Crepling (2.2% + 20¢) + Woo Subs</td><td class="c">$1.08</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.08</td></tr>
         <tr><td>Shopify Plus + <b>Loop</b> (1.0%)</td><td class="c">$1.20</td><td class="c"><span class="part">$0.40</span></td><td class="c">$1.60</td></tr>
@@ -336,7 +352,7 @@
   <!-- TAB 3 -->
   <section class="tab-content" id="hesitations">
     <h2 class="tab-title">Your hesitations, answered</h2>
-    <p class="tab-sub">Everything you flagged — the reality, how it works on Shopify, and the technical topics we'll validate together on Monday.</p>
+    <p class="tab-sub">The concerns you raised — in plain terms — with the technical topics our team will validate live noted separately below.</p>
 
     <div class="hrow">
       <div class="q"><span class="ico">!</span> "We'll get a sub fee per order, on top of processing."</div>
@@ -350,7 +366,7 @@
       <div class="q"><span class="ico">!</span> "It only wins if we get higher conversion."</div>
       <div class="hgrid">
         <div><div class="lab">Reality</div><div class="reality">Fair — but it's not list-price vs list-price. Your biggest Woo cost is Nathan's dev time.</div></div>
-        <div><div class="how"><div class="lab">On Shopify</div>We model <b>all-in TCO</b> (hosting + plugins + dev + processing), then stack conversion as upside. Cutting maintenance dev is a real saving before a single conversion point.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>We'll build the full cost picture on your real numbers — and your biggest cost today is dev time, which drops. Conversion is upside on top, not something you have to bet on.</div></div>
       </div>
     </div>
 
@@ -358,7 +374,7 @@
       <div class="q"><span class="ico">!</span> "We'll end up in a tangle of paid plugins."</div>
       <div class="hgrid">
         <div><div class="lab">Reality</div><div class="reality">A risk only if you rebuild app-for-app. "Free on Woo" still costs hosting + dev to wire together.</div></div>
-        <div><div class="how"><div class="lab">On Shopify</div>Checkout, hosting/CDN, PCI, <b>Flow</b>, <b>Email</b> and analytics are native — ~80% native / 20% apps. We'll map Metric, forms &amp; landing pages so there are no surprises.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>A lot of what you pay for or maintain on Woo is built in — checkout, hosting, email, automation, analytics — so the app list usually shrinks, not grows. We'll map your current tools so there are no surprises.</div></div>
       </div>
     </div>
 
@@ -366,7 +382,7 @@
       <div class="q"><span class="ico">!</span> "Customers modify subscriptions constantly."</div>
       <div class="hgrid">
         <div><div class="lab">Reality</div><div class="reality">Your highest bar — native's self-serve swap is lighter than your AutomateWoo setup.</div></div>
-        <div><div class="how"><div class="lab">On Shopify</div><b>Loop</b> does build-a-box, swaps, frequency, pause &amp; surveys out of the box — or extend native via the Subscription API at $0 fee. Monday validates your exact flows.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Subscribers can swap, build-a-box, change frequency, pause, and get surveys — the team will show it working live. If native's a little light for your most custom flows, there's an app or a custom build that covers it, still with no per-transaction fee.</div></div>
       </div>
     </div>
 
@@ -382,7 +398,7 @@
       <div class="q"><span class="ico">!</span> "Migrating our subscriber data is risky."</div>
       <div class="hgrid">
         <div><div class="lab">Reality</div><div class="reality">Right to want an expert — the sensitive piece is subscriber + token migration.</div></div>
-        <div><div class="how"><div class="lab">On Shopify</div>Tokens transfer <b>processor-to-processor</b> — subscribers don't re-enter cards. Partner-led, phased, fixed-scope — the near-term fixed cost you said you'd take.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Moving subscribers over is a well-worn path — customers don't re-enter their cards — and we do it in phases with a partner so nothing breaks. A fixed, near-term cost, like you said you'd take.</div></div>
       </div>
     </div>
 
