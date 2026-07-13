@@ -197,9 +197,9 @@
   <!-- TAB 2 -->
   <section class="tab-content" id="subs">
     <h2 class="tab-title">Three ways to run subscriptions</h2>
-    <p class="tab-sub">Real pricing, and how each compares to Woo. Only native Subscriptions keeps your $0-per-transaction model; Loop and Recharge charge a fee for more advanced flows.</p>
+    <p class="tab-sub">Real pricing, and how each compares to Woo. Native Subscriptions and a custom app both keep your $0-per-transaction model; Loop is the out-of-box option (adds a small 1% fee).</p>
 
-    <div class="cards four">
+    <div class="cards">
       <div class="card hi">
         <span class="badge best">$0 per transaction</span>
         <h3>Shopify Subscriptions</h3>
@@ -232,54 +232,39 @@
         <span class="badge mid">1.0% per transaction</span>
         <h3>Loop</h3>
         <div class="tag">Third-party · built for DTC</div>
-        <div class="price">$99 / month + 1.0% per transaction<span class="sub">Starter tier · % only — no flat per-order fee (vs Recharge's +19¢)</span></div>
+        <div class="price">$99 / month + 1.0% per transaction<span class="sub">Starter tier · % only — no flat per-order fee</span></div>
         <ul>
           <li>Build-a-box + bundle builder</li>
           <li>Multi-product swap, frequency, pause</li>
           <li>Surveys, retention, analytics</li>
         </ul>
-        <div class="watch"><b>Watch-out:</b> a % fee applies — far below Recharge, but not zero.</div>
+        <div class="watch"><b>Watch-out:</b> a 1% per-transaction fee applies — the only option here that isn't $0.</div>
         <div class="vswoo"><b>vs Woo:</b> does out-of-box what you hand-build in AutomateWoo.</div>
-      </div>
-
-      <div class="card">
-        <span class="badge high">Highest fees</span>
-        <h3>Recharge</h3>
-        <div class="tag">Third-party · the incumbent</div>
-        <div class="price">$499 / month + 1.34% + 19¢<span class="sub">Plus tier</span></div>
-        <ul>
-          <li>Most feature-mature</li>
-          <li>Build-a-box + loyalty (Plus tier)</li>
-          <li>Largest integration ecosystem</li>
-        </ul>
-        <div class="watch"><b>Watch-out:</b> a per-transaction fee stacks on top of card processing — the stacked-fee model you flagged wanting to avoid.</div>
-        <div class="vswoo"><b>vs Woo:</b> the most feature-rich option, but the highest all-in cost.</div>
       </div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th style="text-align:left;width:26%;">Capability</th>
+          <th style="text-align:left;width:28%;">Capability</th>
           <th class="c">Woo <span style="font-weight:400;color:var(--muted);">(today)</span></th>
           <th class="c col-hi">Shopify Subs</th>
           <th class="c col-hi">Custom app</th>
           <th class="c">Loop</th>
-          <th class="c">Recharge</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Monthly fee</td><td class="c">$0</td><td class="c col-hi">$0</td><td class="c col-hi">Build cost</td><td class="c">$99</td><td class="c">$499</td></tr>
-        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c"><span class="part">1.0%</span></td><td class="c"><span class="no">1.34% + 19¢</span></td></tr>
-        <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
-        <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
-        <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
-        <tr><td>Dev burden</td><td class="c"><span class="no">High</span></td><td class="c col-hi"><span class="part">Low–med</span></td><td class="c col-hi"><span class="no">High</span></td><td class="c"><span class="yes">Low</span></td><td class="c"><span class="yes">Low</span></td></tr>
+        <tr><td>Monthly fee</td><td class="c">$0</td><td class="c col-hi">$0</td><td class="c col-hi">Build cost</td><td class="c">$99</td></tr>
+        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c"><span class="part">1.0%</span></td></tr>
+        <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td></tr>
+        <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td></tr>
+        <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
+        <tr><td>Dev burden</td><td class="c"><span class="no">High</span></td><td class="c col-hi"><span class="part">Low–med</span></td><td class="c col-hi"><span class="no">High</span></td><td class="c"><span class="yes">Low</span></td></tr>
       </tbody>
     </table>
 
-    <div class="callout"><strong>Bottom line:</strong> two paths keep you at $0 per transaction — native Subscriptions, or a partner-built custom app on Shopify's API that does everything your AutomateWoo setup does today (cost is the build, not a per-order fee). Prefer to buy than build? Loop's 1% beats Recharge. Monday we map your flows to the right one.</div>
-    <p class="footnote">Loop shown at its Starter tier, Recharge at its Plus tier (as published July 2026). Custom app = one-time partner build cost, no ongoing per-transaction fee. Confirm before contracting.</p>
+    <div class="callout"><strong>Bottom line:</strong> two paths keep you at $0 per transaction — native Subscriptions, or a partner-built custom app on Shopify's API that does everything your AutomateWoo setup does today (cost is the build, not a per-order fee). Loop's there if you'd rather buy than build, though it adds a ~1% per-transaction fee. Monday we map your flows to the right one.</div>
+    <p class="footnote">Loop shown at its Starter tier (as published July 2026). Custom app = one-time partner build cost, no ongoing per-transaction fee. Confirm before contracting.</p>
   </section>
 
   <!-- TAB 2 -->
@@ -341,7 +326,6 @@
         <tr><td>Stripe today (~2.9% + 30¢) + Woo Subs</td><td class="c">$1.46</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.46</td></tr>
         <tr><td>Crepling (2.2% + 20¢) + Woo Subs</td><td class="c">$1.08</td><td class="c"><span class="yes">$0.00</span></td><td class="c">$1.08</td></tr>
         <tr><td>Shopify Plus + <b>Loop</b> (1.0%)</td><td class="c">$1.20</td><td class="c"><span class="part">$0.40</span></td><td class="c">$1.60</td></tr>
-        <tr><td>Shopify Plus + <b>Recharge</b> (1.34% + 19¢)</td><td class="c">$1.20</td><td class="c"><span class="no">$0.73</span></td><td class="c">$1.93</td></tr>
       </tbody>
     </table>
 
@@ -357,8 +341,8 @@
     <div class="hrow">
       <div class="q"><span class="ico">!</span> "We'll get a sub fee per order, on top of processing."</div>
       <div class="hgrid">
-        <div><div class="lab">Reality</div><div class="reality">That's a Recharge assumption, not Shopify. You pay $0 sub fees on Woo — you can keep that.</div></div>
-        <div><div class="how"><div class="lab">On Shopify</div><b>Native Subscriptions = $0/mo, $0 per transaction.</b> The stacked fee only exists if you pick Recharge.</div></div>
+        <div><div class="lab">Reality</div><div class="reality">That's an assumption from fee-charging apps, not Shopify itself. You pay $0 sub fees on Woo — you can keep that.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div><b>Native Subscriptions = $0/mo, $0 per transaction</b> — and a custom app on our API is $0 too. No per-transaction fee unless you choose a fee-charging app.</div></div>
       </div>
     </div>
 
@@ -451,7 +435,7 @@
       <div class="q feat"><span class="ico num">2</span> Passwordless "magic link" portals</div>
       <div class="hgrid">
         <div><div class="lab">On WooCommerce</div><div class="reality">To skip, swap, or add a product, subscribers log in with a WordPress password. Forgotten password → reset email → friction → they email support to cancel instead.</div></div>
-        <div><div class="how"><div class="lab">On Shopify</div>Subscription apps (Loop, Skio, Recharge) use Shopify's identity network to text a 4-digit code or email a magic link — one tap into the portal on their phone, no password. Fewer support tickets, more self-serve saves.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Subscription apps (Loop, Skio, and others) use Shopify's identity network to text a 4-digit code or email a magic link — one tap into the portal on their phone, no password. Fewer support tickets, more self-serve saves.</div></div>
       </div>
     </div>
 
