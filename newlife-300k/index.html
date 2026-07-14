@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NewLife — Year 1 at $300K: Plus vs. Advanced (with uplift)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14212e; --ink-soft:#4b5a67; --muted:#8a97a1;
+    --bg:#f5f8f7; --card:#ffffff; --line:#e2e9e6;
+    --grn:#1f8a5b; --grn-soft:#e7f3ec; --grn-dark:#14663f;
+    --blue:#5b7285; --blue-soft:#e9eef2;
+    --warn:#b4801f; --warn-soft:#f8efd8;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  @page{margin:14mm;}
+  body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:860px;margin:0 auto;padding:34px 30px 50px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--grn);}
+  h1{font-family:'Sora',sans-serif;font-weight:700;font-size:30px;line-height:1.1;margin:8px 0 6px;letter-spacing:-.02em;}
+  .sub{font-size:14.5px;color:var(--ink-soft);max-width:680px;margin-bottom:8px;}
+  .blk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:16px;}
+  .blk h2{font-family:'Sora',sans-serif;font-weight:600;font-size:16px;margin:0 0 3px;}
+  .blk .cap{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
+  .row{display:grid;grid-template-columns:96px 1fr 118px;align-items:center;gap:12px;margin:9px 0;}
+  .row .lab{font-size:13px;font-weight:600;text-align:right;color:var(--ink-soft);}
+  .row .val{font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;}
+  .bar{height:26px;border-radius:6px;display:flex;align-items:center;}
+  .bar.adv{background:var(--blue);}
+  .bar.plus{background:var(--grn);}
+  .bar.up{background:var(--grn);opacity:.85;}
+  .bar.up2{background:#7cc9a0;}
+  .bar.total{background:var(--grn-dark);}
+  .bar.net-adv{background:var(--blue);}
+  .bar.net-plus{background:var(--grn);}
+  .row.small .bar{height:20px;}
+  .row.small .lab{font-size:12px;font-weight:500;}
+  .row.small .val{font-size:12.5px;}
+  .note{font-size:12px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+  .hero{background:var(--ink);border-color:var(--ink);}
+  .hero h2{color:#fff;}
+  .hero .cap{color:#9fb0bd;}
+  .hero .row .lab{color:#cdd8e0;}
+  .hero .row .val{color:#fff;}
+  .win{margin-top:14px;background:var(--grn-soft);border:1px solid #bfe3ce;border-radius:9px;padding:12px 15px;font-size:14px;color:var(--grn-dark);font-weight:600;}
+  .win b{color:#0e5232;}
+  .foot{margin-top:20px;font-size:11px;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">NewLife Industries × Shopify · Year 1 @ $300K GMV</div>
+  <h1>Plus vs. Advanced — once the uplift counts</h1>
+  <p class="sub">Plus costs more up front. But it's the only plan with the revenue levers (checkout extensibility, Shopify Audiences, Shop Pay, a dedicated team). Here's the whole picture at your conservative Year-1 volume.</p>
+
+  <!-- 1 · GROSS COST -->
+  <div class="blk">
+    <h2>1 · What you pay — gross cost</h2>
+    <p class="cap">Platform fee + standard card processing at $300K GMV.</p>
+    <div class="row"><div class="lab">Advanced</div><div><div class="bar adv" style="width:36%;"></div></div><div class="val">$12,288</div></div>
+    <div class="row"><div class="lab">Plus</div><div><div class="bar plus" style="width:100%;"></div></div><div class="val">$34,350</div></div>
+    <div class="note">Plus is <b>$22,062</b> more expensive on cost alone. (Card savings of 0.25 pp = only ~$750 at this volume.)</div>
+  </div>
+
+  <!-- 2 · UPLIFT -->
+  <div class="blk">
+    <h2>2 · What Plus earns back — revenue uplift</h2>
+    <p class="cap">Plus-only levers, in GMV dollars, modeled on $300K.</p>
+    <div class="row small"><div class="lab">AOV · checkout</div><div><div class="bar up" style="width:47%;"></div></div><div class="val">+$15,000</div></div>
+    <div class="row small"><div class="lab">Shopify Audiences</div><div><div class="bar up" style="width:47%;"></div></div><div class="val">+$15,000</div></div>
+    <div class="row small"><div class="lab">Shop Pay conv.</div><div><div class="bar up" style="width:14%;"></div></div><div class="val">+$4,500</div></div>
+    <div class="row small"><div class="lab">Launch season <span style="font-weight:400;color:var(--muted);">(1×)</span></div><div><div class="bar up2" style="width:93%;"></div></div><div class="val">+$30,000</div></div>
+    <div class="row"><div class="lab">Total GMV</div><div><div class="bar total" style="width:100%;"></div></div><div class="val">+$64,500</div></div>
+    <div class="note">At a 50% contribution margin, $64,500 of GMV = <b>$32,250</b> that drops toward covering the Plus premium.</div>
+  </div>
+
+  <!-- 3 · NET (HERO) -->
+  <div class="blk hero">
+    <h2>3 · Net Year-1 cost — after uplift</h2>
+    <p class="cap">Gross plan cost minus the contribution the plan's levers generate.</p>
+    <div class="row"><div class="lab">Advanced</div><div><div class="bar net-adv" style="width:100%;"></div></div><div class="val">−$12,288</div></div>
+    <div class="row"><div class="lab">Plus</div><div><div class="bar net-plus" style="width:17%;"></div></div><div class="val">−$2,100</div></div>
+    <div class="win">Once you count the uplift, <b>Plus effectively costs $2,100 in Year 1 vs. $12,288 for Advanced</b> — Plus comes out <b>~$10,188 ahead</b>. And it only widens as GMV grows: the same recurring levers run ~$115K/yr at $1M.</div>
+  </div>
+
+  <div class="foot">
+    Advanced $399/mo annual + 2.5% + 30¢ · Plus $2,300/mo + 2.25% + 30¢. Advanced net has no uplift (levers are Plus-only). Plus net = $34,350 gross − $32,250 uplift contribution (@50% margin, incl. one-time launch protection). Uplift figures illustrative — swap in NewLife's real margin and campaign numbers. Prepared July 14, 2026 · Shopify.
+  </div>
+
+</div>
+</body>
+</html>
