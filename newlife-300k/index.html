@@ -18,14 +18,14 @@
   html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   @page{margin:14mm;}
   body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:860px;margin:0 auto;padding:34px 30px 50px;}
+  .wrap{max-width:860px;margin:0 auto;padding:22px 30px 26px;}
   .eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--grn);}
-  h1{font-family:'Sora',sans-serif;font-weight:700;font-size:30px;line-height:1.1;margin:8px 0 6px;letter-spacing:-.02em;}
-  .sub{font-size:14.5px;color:var(--ink-soft);max-width:680px;margin-bottom:8px;}
-  .blk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:16px;}
-  .blk h2{font-family:'Sora',sans-serif;font-weight:600;font-size:16px;margin:0 0 3px;}
-  .blk .cap{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
-  .row{display:grid;grid-template-columns:96px 1fr 118px;align-items:center;gap:12px;margin:9px 0;}
+  h1{font-family:'Sora',sans-serif;font-weight:700;font-size:27px;line-height:1.08;margin:7px 0 5px;letter-spacing:-.02em;}
+  .sub{font-size:13.5px;color:var(--ink-soft);max-width:680px;margin-bottom:4px;}
+  .blk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 18px;margin-top:11px;}
+  .blk h2{font-family:'Sora',sans-serif;font-weight:600;font-size:15.5px;margin:0 0 2px;}
+  .blk .cap{font-size:12px;color:var(--muted);margin:0 0 8px;}
+  .row{display:grid;grid-template-columns:96px 1fr 118px;align-items:center;gap:12px;margin:6px 0;}
   .row .lab{font-size:13px;font-weight:600;text-align:right;color:var(--ink-soft);}
   .row .val{font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;}
   .bar{height:26px;border-radius:6px;display:flex;align-items:center;}
@@ -39,15 +39,15 @@
   .row.small .bar{height:20px;}
   .row.small .lab{font-size:12px;font-weight:500;}
   .row.small .val{font-size:12.5px;}
-  .note{font-size:12px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+  .note{font-size:12px;color:var(--muted);margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);}
   .hero{background:var(--ink);border-color:var(--ink);}
   .hero h2{color:#fff;}
   .hero .cap{color:#9fb0bd;}
   .hero .row .lab{color:#cdd8e0;}
   .hero .row .val{color:#fff;}
-  .win{margin-top:14px;background:var(--grn-soft);border:1px solid #bfe3ce;border-radius:9px;padding:12px 15px;font-size:14px;color:var(--grn-dark);font-weight:600;}
+  .win{margin-top:11px;background:var(--grn-soft);border:1px solid #bfe3ce;border-radius:9px;padding:11px 14px;font-size:13.5px;color:var(--grn-dark);font-weight:600;line-height:1.45;}
   .win b{color:#0e5232;}
-  .foot{margin-top:20px;font-size:11px;color:var(--muted);}
+  .foot{margin-top:14px;font-size:10.5px;color:var(--muted);line-height:1.45;}
 </style>
 </head>
 <body>
@@ -55,7 +55,7 @@
 
   <div class="eyebrow">NewLife Industries × Shopify · Year 1 @ $300K GMV</div>
   <h1>Plus vs. Advanced — once the uplift counts</h1>
-  <p class="sub">Plus costs more up front. But it's the only plan with the revenue levers (checkout extensibility, Shopify Audiences, Shop Pay, a dedicated team). Here's the whole picture at your conservative Year-1 volume.</p>
+  <p class="sub">Plus costs more up front. But it's the only plan with the revenue levers that grow this store — checkout extensibility, Shopify Audiences, and a dedicated team. Here's the whole picture at your conservative Year-1 volume, with the math behind every number.</p>
 
   <!-- 1 · GROSS COST -->
   <div class="blk">
@@ -63,19 +63,18 @@
     <p class="cap">Platform fee + standard card processing at $300K GMV.</p>
     <div class="row"><div class="lab">Advanced</div><div><div class="bar adv" style="width:36%;"></div></div><div class="val">$12,288</div></div>
     <div class="row"><div class="lab">Plus</div><div><div class="bar plus" style="width:100%;"></div></div><div class="val">$34,350</div></div>
-    <div class="note">Plus is <b>$22,062</b> more expensive on cost alone. (Card savings of 0.25 pp = only ~$750 at this volume.)</div>
+    <div class="note"><b>How:</b> Advanced = $399/mo × 12 ($4,788) + 2.5% × $300K ($7,500). Plus = $2,300/mo × 12 ($27,600) + 2.25% × $300K ($6,750). The 30¢/order fee is identical on both plans, so it's left out. → Plus is <b>$22,062</b> more on cost alone (the 0.25 pp card saving is only ~$750 here).</div>
   </div>
 
   <!-- 2 · UPLIFT -->
   <div class="blk">
     <h2>2 · What Plus earns back — revenue uplift</h2>
-    <p class="cap">Plus-only levers, in GMV dollars, modeled on $300K.</p>
-    <div class="row small"><div class="lab">AOV · checkout</div><div><div class="bar up" style="width:47%;"></div></div><div class="val">+$15,000</div></div>
-    <div class="row small"><div class="lab">Shopify Audiences</div><div><div class="bar up" style="width:47%;"></div></div><div class="val">+$15,000</div></div>
-    <div class="row small"><div class="lab">Shop Pay conv.</div><div><div class="bar up" style="width:14%;"></div></div><div class="val">+$4,500</div></div>
-    <div class="row small"><div class="lab">Launch season <span style="font-weight:400;color:var(--muted);">(1×)</span></div><div><div class="bar up2" style="width:93%;"></div></div><div class="val">+$30,000</div></div>
-    <div class="row"><div class="lab">Total GMV</div><div><div class="bar total" style="width:100%;"></div></div><div class="val">+$64,500</div></div>
-    <div class="note">At a 50% contribution margin, $64,500 of GMV = <b>$32,250</b> that drops toward covering the Plus premium.</div>
+    <p class="cap">Plus-only levers, in GMV dollars, modeled on $300K. (Shop Pay isn't here — it's on Advanced too, so it's not a Plus differentiator.)</p>
+    <div class="row small"><div class="lab">AOV · checkout</div><div><div class="bar up" style="width:25%;"></div></div><div class="val">+$15,000</div></div>
+    <div class="row small"><div class="lab">Shopify Audiences</div><div><div class="bar up" style="width:25%;"></div></div><div class="val">+$15,000</div></div>
+    <div class="row small"><div class="lab">Launch season <span style="font-weight:400;color:var(--muted);">(1×)</span></div><div><div class="bar up2" style="width:50%;"></div></div><div class="val">+$30,000</div></div>
+    <div class="row"><div class="lab">Total GMV</div><div><div class="bar total" style="width:100%;"></div></div><div class="val">+$60,000</div></div>
+    <div class="note"><b>How:</b> AOV = 5% lift on $300K (checkout upsells / add-ons). Audiences = 10% conversion lift on ~$150K of social-driven revenue (~half of GMV). Launch = ~4 weeks of the back-to-school window protected, at ~$7,500/wk ($300K ÷ 40 selling weeks). At a 50% contribution margin, $60,000 GMV = <b>$30,000</b> toward the Plus premium. All figures illustrative.</div>
   </div>
 
   <!-- 3 · NET (HERO) -->
@@ -83,12 +82,13 @@
     <h2>3 · Net Year-1 cost — after uplift</h2>
     <p class="cap">Gross plan cost minus the contribution the plan's levers generate.</p>
     <div class="row"><div class="lab">Advanced</div><div><div class="bar net-adv" style="width:100%;"></div></div><div class="val">−$12,288</div></div>
-    <div class="row"><div class="lab">Plus</div><div><div class="bar net-plus" style="width:17%;"></div></div><div class="val">−$2,100</div></div>
-    <div class="win">Once you count the uplift, <b>Plus effectively costs $2,100 in Year 1 vs. $12,288 for Advanced</b> — Plus comes out <b>~$10,188 ahead</b>. And it only widens as GMV grows: the same recurring levers run ~$115K/yr at $1M.</div>
+    <div class="row"><div class="lab">Plus</div><div><div class="bar net-plus" style="width:35%;"></div></div><div class="val">−$4,350</div></div>
+    <div class="win">Once you count the uplift, <b>Plus effectively costs $4,350 in Year 1 vs. $12,288 for Advanced</b> — Plus comes out <b>~$7,938 ahead</b>. And it only widens as GMV grows: the recurring levers (AOV + Audiences) run ~$100K/yr at $1M.
+    <div style="font-weight:400;color:#3f7a5a;font-size:12px;margin-top:7px;"><b>How:</b> Plus net = $34,350 gross − $30,000 uplift contribution ($60K GMV × 50% margin). Advanced net = its gross cost, since the uplift levers aren't available to it.</div></div>
   </div>
 
   <div class="foot">
-    Advanced $399/mo annual + 2.5% + 30¢ · Plus $2,300/mo + 2.25% + 30¢. Advanced net has no uplift (levers are Plus-only). Plus net = $34,350 gross − $32,250 uplift contribution (@50% margin, incl. one-time launch protection). Uplift figures illustrative — swap in NewLife's real margin and campaign numbers. Prepared July 14, 2026 · Shopify.
+    Advanced $399/mo annual + 2.5% + 30¢ · Plus $2,300/mo + 2.25% + 30¢. Shop Pay is available on both plans, so it's excluded from the Plus uplift. Advanced net has no uplift (AOV/checkout extensibility + Audiences are Plus-only). Plus net = $34,350 gross − $30,000 uplift contribution ($60K GMV @ 50% margin, incl. one-time launch protection). Uplift figures illustrative — swap in NewLife's real margin and campaign numbers. Prepared July 14, 2026 · Shopify.
   </div>
 
 </div>
