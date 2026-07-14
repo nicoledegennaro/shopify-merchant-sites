@@ -304,11 +304,12 @@
     var a=document.getElementById('vpfAnnual'),m=document.getElementById('vpfMonthly'),p=document.getElementById('vpfPay'),pm=document.getElementById('vpfPayMonthly'),lbl=document.getElementById('paysLabel'),note=document.getElementById('vpfNote');
     if(raw===''||isNaN(parseFloat(raw))){a.textContent='—';m.textContent='';p.textContent='—';pm.textContent='';lbl.textContent="You'd pay";note.textContent='Enter your expected annual Shopify GMV to see whether the base or VPF applies.';return;}
     var gmv=parseFloat(raw),vpfAnnual=gmv*rate/100,baseAnnual=27600,payAnnual=Math.max(vpfAnnual,baseAnnual);
-    a.textContent=fmtUSD(vpfAnnual)+' /yr';m.textContent=fmtUSD(vpfAnnual/12)+' / month';
+    var applies=vpfAnnual>baseAnnual;
+    if(applies){a.textContent=fmtUSD(vpfAnnual)+' /yr';m.textContent=fmtUSD(vpfAnnual/12)+' / month';}
+    else{a.textContent='—';m.textContent='below base';}
     p.textContent=fmtUSD(payAnnual)+' /yr';pm.textContent=fmtUSD(payAnnual/12)+' / month';
-    var applies=vpfAnnual>baseAnnual;lbl.textContent=applies?"You'd pay — VPF applies":"You'd pay — base applies";
-    var be=rate>0?baseAnnual/(rate/100):0;
-    note.innerHTML=applies?("At "+fmtUSD(gmv)+" GMV your VPF exceeds the base — you're billed on the rate."):("At "+fmtUSD(gmv)+" GMV you're on the $2,300/mo base — VPF only overtakes it above ~"+fmtUSD(be)+" annual GMV at "+rate+"%.");
+    lbl.textContent=applies?"You'd pay — VPF applies":"You'd pay — base applies";
+    note.innerHTML=applies?("At "+fmtUSD(gmv)+" GMV your VPF exceeds the base — you're billed on the rate."):("At "+fmtUSD(gmv)+" GMV you're on the $2,300/mo base platform fee.");
   }
   ['vpfGmv','vpfRate'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',calcVPF);});
   calcVPF();
