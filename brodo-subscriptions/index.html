@@ -146,10 +146,12 @@
   <div class="tabs" role="tablist">
     <button class="tab active" data-tab="agenda">1 · Agenda &amp; current state</button>
     <button class="tab" data-tab="subs">2 · Subscriptions</button>
-    <button class="tab" data-tab="hesitations">3 · Hesitations</button>
-    <button class="tab" data-tab="uplift">4 · Revenue upside</button>
-    <button class="tab" data-tab="beyond">5 · Beyond Shop Pay</button>
-    <button class="tab" data-tab="map">6 · Mutual action plan</button>
+    <button class="tab" data-tab="checkout">3 · Checkout: now vs Shopify</button>
+    <button class="tab" data-tab="tco">4 · TCO / ROI</button>
+    <button class="tab" data-tab="hesitations">5 · Hesitations</button>
+    <button class="tab" data-tab="uplift">6 · Revenue upside</button>
+    <button class="tab" data-tab="beyond">7 · Beyond Shop Pay</button>
+    <button class="tab" data-tab="map">8 · Mutual action plan</button>
   </div>
 
   <!-- TAB 1: AGENDA & CURRENT STATE -->
@@ -188,7 +190,7 @@
     <h2 class="tab-title">Three ways to run subscriptions</h2>
     <p class="tab-sub">Real pricing, and how each compares to Woo. Native Subscriptions and a custom app both keep your $0-per-transaction model; Loop is the out-of-box option (adds a small 1% fee).</p>
 
-    <div class="cards">
+    <div class="cards four">
       <div class="card hi">
         <span class="badge best">$0 per transaction</span>
         <h3>Shopify Subscriptions</h3>
@@ -230,32 +232,145 @@
         <div class="watch"><b>Watch-out:</b> a 1% per-transaction fee applies — the only option here that isn't $0.</div>
         <div class="vswoo"><b>vs Woo:</b> does out-of-box what you hand-build in AutomateWoo.</div>
       </div>
+
+      <div class="card">
+        <span class="badge high">1.49% + 19¢ / order</span>
+        <h3>Recharge</h3>
+        <div class="tag">Third-party · enterprise-depth</div>
+        <div class="price">$99 / mo + 1.49% + 19¢ per order<span class="sub">Standard · Plus tier $499/mo + 1.34% + 19¢ (12-mo term)</span></div>
+        <ul>
+          <li>Deepest integrations, analytics &amp; dunning</li>
+          <li>Bundles, swaps, retention flows</li>
+          <li>Now owns Skio (acquired Apr 2026)</li>
+        </ul>
+        <div class="watch"><b>Watch-out:</b> highest fees here — the % + 19¢/order compounds at scale; Plus tier is a 12-mo term.</div>
+        <div class="vswoo"><b>vs Woo:</b> most feature-rich, but priciest per order — Loop runs ~40% cheaper at volume.</div>
+      </div>
     </div>
 
     <table>
       <thead>
         <tr>
-          <th style="text-align:left;width:28%;">Capability</th>
+          <th style="text-align:left;width:24%;">Capability</th>
           <th class="c">Woo <span style="font-weight:400;color:var(--muted);">(today)</span></th>
           <th class="c col-hi">Shopify Subs</th>
           <th class="c col-hi">Custom app</th>
           <th class="c">Loop</th>
+          <th class="c">Recharge</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Monthly fee</td><td class="c">$0</td><td class="c col-hi">$0</td><td class="c col-hi">Build cost</td><td class="c">$99</td></tr>
-        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c"><span class="part">1.0%</span></td></tr>
-        <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td></tr>
-        <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td></tr>
-        <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
-        <tr><td>Dev burden</td><td class="c"><span class="no">High</span></td><td class="c col-hi"><span class="part">Low–med</span></td><td class="c col-hi"><span class="no">High</span></td><td class="c"><span class="yes">Low</span></td></tr>
+        <tr><td>Monthly fee</td><td class="c">$0</td><td class="c col-hi">$0</td><td class="c col-hi">Build cost</td><td class="c">$99</td><td class="c">$99–$499</td></tr>
+        <tr><td>Per-transaction fee</td><td class="c"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c col-hi"><span class="yes">None</span></td><td class="c"><span class="part">1.0%</span></td><td class="c"><span class="no">1.49% + 19¢</span></td></tr>
+        <tr><td>Build-a-box / swap</td><td class="c"><span class="part">Custom-built</span></td><td class="c col-hi"><span class="no">Limited</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td><td class="c"><span class="yes">Yes</span></td></tr>
+        <tr><td>Surveys / retention</td><td class="c"><span class="part">AutomateWoo</span></td><td class="c col-hi"><span class="part">Basic</span></td><td class="c col-hi"><span class="yes">Fully custom</span></td><td class="c"><span class="yes">Yes</span></td><td class="c"><span class="yes">Deep</span></td></tr>
+        <tr><td>Hosting / PCI / upkeep</td><td class="c"><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c col-hi"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td><td class="c"><span class="yes">Managed</span></td></tr>
+        <tr><td>Dev burden</td><td class="c"><span class="no">High</span></td><td class="c col-hi"><span class="part">Low–med</span></td><td class="c col-hi"><span class="no">High</span></td><td class="c"><span class="yes">Low</span></td><td class="c"><span class="yes">Low</span></td></tr>
       </tbody>
     </table>
 
     <div class="callout"><strong>Bottom line:</strong> two paths keep you at $0 per transaction — native Subscriptions, or a partner-built custom app on Shopify's API that does everything your AutomateWoo setup does today (cost is the build, not a per-order fee). Loop's there if you'd rather buy than build, though it adds a ~1% per-transaction fee. Monday we map your flows to the right one.</div>
-    <p class="footnote">Loop shown at its Starter tier (as published July 2026). Custom app = one-time partner build cost, no ongoing per-transaction fee. Confirm before contracting.</p>
+    <p class="footnote">Loop &amp; Recharge shown at published tiers (2026); Recharge acquired Skio (Apr 2026). Custom app = one-time partner build, no ongoing per-transaction fee. Angel &amp; Zack's app-capability findings and the shared cost sheet fold in here once available. Confirm pricing before contracting.</p>
   </section>
 
+
+  <!-- TAB 3: CHECKOUT COMPARISON -->
+  <section class="tab-content" id="checkout">
+    <h2 class="tab-title">Checkout: Brodo today vs Shopify</h2>
+    <p class="tab-sub">Your WooCommerce checkout is a multi-step, self-hosted flow. Shopify's is one page with Shop Pay's one-tap accelerated checkout — the single biggest conversion lever for a repeat-purchase brand.</p>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">1</span> Steps to complete a purchase</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Multi-step WordPress checkout — cart → contact → shipping → payment, details re-entered every time. More steps = more drop-off, especially on mobile.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div><b>One-page checkout</b> — the highest-converting on the internet — plus <b>Shop Pay</b> one-tap for shoppers already enrolled across Shopify's network.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">2</span> Returning &amp; repeat customers</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Shoppers re-enter card + address, or log in with a WordPress password they've usually forgotten.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Shop Pay recognizes the customer and fills everything — <b>one tap to buy</b>. Card + address already vaulted, no password.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">3</span> Subscription sign-up in the flow</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Subscribe toggle works, but the card sits in Stripe and the flow depends on plugins holding together at renewal.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Subscribe-and-save is native in the same one-page checkout; the token is vaulted in Shopify Payments, so renewals + 1-tap "add to next box" just work.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">4</span> Payment methods offered</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Cards via Stripe (evaluating WooPay). Limited accelerated wallets; Installments not native.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Shop Pay, Shop Pay Installments (BNPL on higher-ticket boxes), Apple/Google Pay and PayPal — all in the box, lifting conversion + AOV.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">5</span> Mobile experience</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Responsive, but still multi-field, multi-step — where most mobile carts are abandoned.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Shop Pay is built mobile-first — the majority of your DTC traffic can complete in a tap or two.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">6</span> Peak-load reliability</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Self-hosted on Pressable — you own uptime, scaling and patching through promos and launches.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>Fully managed infrastructure proven at BFCM scale — checkout stays up on your biggest days with zero ops on your side.</div></div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>Why it matters:</strong> Shop Pay checkouts convert up to <strong>~36% higher</strong> than guest checkout <em>(est.)</em> — on ~$30M GMV even a modest lift is seven figures. We'll validate against your real conversion + AOV once the questionnaire's in.</div>
+    <p class="footnote">Checkout observations from brodo.com (WooCommerce / WordPress on Pressable). Conversion figures are Shopify benchmarks, not guarantees.</p>
+  </section>
+
+  <!-- TAB 4: TCO / ROI -->
+  <section class="tab-content" id="tco">
+    <h2 class="tab-title">TCO &amp; ROI</h2>
+    <p class="tab-sub">Two buckets: what you stop spending (<strong>operational savings</strong>) and what you stand to gain (<strong>revenue uplift potential</strong>). Figures are illustrative on ~$30M GMV and marked <em>est.</em> — we finalize on your real numbers via the data questionnaire.</p>
+
+    <div class="up" style="grid-template-columns:repeat(3,1fr)">
+      <div class="u"><div class="stat">$150K–$300K</div><div class="h">Operational savings / yr <em>(est.)</em></div><div class="d">Mostly reclaimed dev + maintenance, plus hosting, plugins &amp; PCI upkeep.</div></div>
+      <div class="u"><div class="stat">$1.5M–$3M+</div><div class="h">Revenue uplift / yr <em>(est.)</em></div><div class="d">Checkout conversion, AOV and recovered renewals on ~$30M GMV.</div></div>
+      <div class="u"><div class="stat">Strong</div><div class="h">First-year ROI</div><div class="d">Even after Plus + a one-time migration, savings + uplift dwarf platform cost.</div></div>
+    </div>
+
+    <div class="sec-h" style="margin-top:28px">Bucket 1 · Operational savings</div>
+    <p class="tab-sub">Your biggest WooCommerce cost isn't fees — it's the engineering time to hold it all together. Most of that moves onto Shopify's managed platform.</p>
+    <table>
+      <thead><tr><th style="width:30%">Line item</th><th>Brodo on WooCommerce (today)</th><th class="c col-hi">On Shopify Plus</th></tr></thead>
+      <tbody>
+        <tr><td>Platform hosting (Pressable)</td><td>Self-hosted — you pay + manage</td><td class="c col-hi"><span class="yes">Included</span></td></tr>
+        <tr><td>Plugin / extension licenses</td><td>Subscriptions, AutomateWoo, security, caching…</td><td class="c col-hi"><span class="yes">Mostly built-in</span></td></tr>
+        <tr><td>Dev + maintenance <span style="color:var(--muted)">(#1 cost)</span></td><td><span class="no">High — internal (Nathan): updates, breakage, patches</span></td><td class="c col-hi"><span class="yes">Managed → reclaimed</span></td></tr>
+        <tr><td>Security / PCI upkeep</td><td><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td></tr>
+        <tr><td>Subscription per-transaction</td><td><span class="yes">$0 (custom-built)</span></td><td class="c col-hi"><span class="yes">$0 (native / custom)</span></td></tr>
+        <tr><td>Payments</td><td>Stripe 2.9% + 30¢ (eval. 2.2% + 20¢)</td><td class="c col-hi">Shopify Payments — Plus negotiated + Shop Pay</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>The point:</strong> "free on Woo" still costs hosting + a lot of Nathan's time. On Plus most of that upkeep disappears and the app list usually <em>shrinks</em> — freeing your #1 cost for growth.</div>
+
+    <div class="sec-h" style="margin-top:28px">Bucket 2 · Revenue uplift potential</div>
+    <p class="tab-sub">The growth levers for a repeat-purchase brand, illustrated on ~$30M GMV. Detail + comps live in the "Revenue upside" tab.</p>
+    <div class="up">
+      <div class="u"><div class="stat">up to +36%</div><div class="h">Checkout conversion</div><div class="d">One-page + Shop Pay vs multi-step Woo. A modest lift on $30M is seven figures. <em>(est.)</em></div></div>
+      <div class="u"><div class="stat">20–30%</div><div class="h">Recovered failed renewals</div><div class="d">Smart dunning + card updater cut involuntary churn — recovered MRR. <em>(est.)</em></div></div>
+      <div class="u"><div class="stat">+14.75%</div><div class="h">AOV via bundles / build-a-box</div><div class="d">Magic Spoon cross-sell lift on your bundle-and-modify model. <em>(case study)</em></div></div>
+      <div class="u"><div class="stat">up to +50%</div><div class="h">AOV with Installments</div><div class="d">Shop Pay Installments lifts higher-ticket boxes like the Starter Box. <em>(est.)</em></div></div>
+      <div class="u"><div class="stat">+29%</div><div class="h">Subscription growth</div><div class="d">Personalization + 1-tap Shop Pay reorders. <em>(case study)</em></div></div>
+      <div class="u"><div class="stat">15–25%</div><div class="h">Cancellations saved</div><div class="d">Retention flows: "too expensive" → discount; "too much" → pause. <em>(est.)</em></div></div>
+    </div>
+
+    <div class="callout"><strong>Net:</strong> operational savings + revenue uplift together are far larger than Plus + a one-time migration. Next: plug your real GMV, dev cost, card mix (Amex), subscription % + AOV and conversion into the model to lock the number.</div>
+    <p class="footnote">Est. = Shopify benchmarks / illustrative on ~$30M GMV; not guarantees. Subscription-app inputs (Loop/Recharge + Angel &amp; Zack's findings) and the shared cost sheet fold in here once available. Confirm Plus + processing rates on the rate card.</p>
+  </section>
 
   <!-- TAB 3 -->
   <section class="tab-content" id="hesitations">
