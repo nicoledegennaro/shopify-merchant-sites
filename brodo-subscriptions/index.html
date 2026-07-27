@@ -188,7 +188,7 @@
   <!-- TAB 2 -->
   <section class="tab-content" id="subs">
     <h2 class="tab-title">Three ways to run subscriptions</h2>
-    <p class="tab-sub">Real pricing, and how each compares to Woo. Native Subscriptions and a custom app both keep your $0-per-transaction model; Loop is the out-of-box option (adds a small 1% fee).</p>
+    <p class="tab-sub">Zack &amp; Angel's read after the deep-dive: native Subscriptions <strong>won't cover your build-a-box / heavy editing</strong>, and a fully custom build is a <strong>big undertaking</strong> — so the pragmatic route is a purpose-built <strong>app</strong>, with <strong>Awtomic</strong> the natural fit for your Build-Your-Own-Box model. Native and custom keep you at $0/transaction; apps add a small fee. Recharge is shown because its fee is what shaped the "Shopify is expensive" impression — the point is you're not forced into it.</p>
 
     <div class="cards four">
       <div class="card hi">
@@ -201,8 +201,22 @@
           <li>Self-serve pause, skip, cancel, frequency</li>
           <li>Works in admin + POS</li>
         </ul>
-        <div class="watch"><b>Watch-out:</b> multi-product swap &amp; build-a-box are limited today.</div>
+        <div class="watch"><b>Watch-out (Zack &amp; Angel):</b> won't cover your build-a-box / heavy subscriber editing — good for core frequency, skip &amp; pause only.</div>
         <div class="vswoo"><b>vs Woo:</b> keeps your $0-fee model — and Nate can extend it via the Subscription API, fully custom, still no fee.</div>
+      </div>
+
+      <div class="card hi">
+        <span class="badge best">Recommended · build-a-box</span>
+        <h3>Awtomic</h3>
+        <div class="tag">Third-party · built for build-a-box &amp; bundles</div>
+        <div class="price">App plan + small per-transaction fee<span class="sub">Purpose-built for Build-Your-Own-Box — confirm current pricing</span></div>
+        <ul>
+          <li>Self-serve portal — subscribers swap SKUs themselves</li>
+          <li>Build-a-box, bundles, frequency, skip, pause</li>
+          <li>Out-of-box — no custom build to maintain</li>
+        </ul>
+        <div class="watch"><b>Zack &amp; Angel:</b> the route that covers your custom needs without a huge custom build.</div>
+        <div class="vswoo"><b>vs Woo:</b> does your AutomateWoo build-a-box logic out of the box, on Shopify's managed infra.</div>
       </div>
 
       <div class="card hi">
@@ -269,8 +283,8 @@
       </tbody>
     </table>
 
-    <div class="callout"><strong>Bottom line:</strong> two paths keep you at $0 per transaction — native Subscriptions, or a partner-built custom app on Shopify's API that does everything your AutomateWoo setup does today (cost is the build, not a per-order fee). Loop's there if you'd rather buy than build, though it adds a ~1% per-transaction fee. Monday we map your flows to the right one.</div>
-    <p class="footnote">Loop &amp; Recharge shown at published tiers (2026); Recharge acquired Skio (Apr 2026). Custom app = one-time partner build, no ongoing per-transaction fee. Angel &amp; Zack's app-capability findings and the shared cost sheet fold in here once available. Confirm pricing before contracting.</p>
+    <div class="callout"><strong>Zack &amp; Angel's aligned view:</strong> ❌ native Subscriptions won't cover build-a-box · ⚠️ a fully custom API build ($0 fee) is a <em>huge</em> undertaking · ✅ an out-of-box app — <strong>Awtomic</strong> for build-a-box — covers your needs without reinventing the wheel. Your $0-per-transaction requirement is fully met by native or custom; app options add a small fee (far below the ~$500K stacked-fee fear, which came from Recharge). You're not forced into Recharge.</div>
+    <p class="footnote">Reflects Zack &amp; Angel's post-deep-dive alignment (Jul 13): app route recommended, Awtomic for build-a-box. Awtomic pricing to confirm; Loop &amp; Recharge at published 2026 tiers (Recharge acquired Skio Apr 2026). Custom app = one-time partner build, no per-transaction fee. Confirm pricing before contracting.</p>
   </section>
 
 
@@ -352,7 +366,7 @@
         <tr><td>Dev + maintenance <span style="color:var(--muted)">(#1 cost)</span></td><td><span class="no">High — internal (Nathan): updates, breakage, patches</span></td><td class="c col-hi"><span class="yes">Managed → reclaimed</span></td></tr>
         <tr><td>Security / PCI upkeep</td><td><span class="no">You manage</span></td><td class="c col-hi"><span class="yes">Managed</span></td></tr>
         <tr><td>Subscription per-transaction</td><td><span class="yes">$0 (custom-built)</span></td><td class="c col-hi"><span class="yes">$0 (native / custom)</span></td></tr>
-        <tr><td>Payments</td><td>Stripe 2.9% + 30¢ (eval. 2.2% + 20¢)</td><td class="c col-hi">Shopify Payments — Plus negotiated + Shop Pay</td></tr>
+        <tr><td>Payments</td><td>Stripe today; evaluating Krepling 2.2% + 20¢</td><td class="c col-hi">Shopify Payments (Plus) 2.25% + 30¢ · 2.95% + 30¢ Amex/commercial (rack)</td></tr>
       </tbody>
     </table>
     <div class="callout"><strong>The point:</strong> "free on Woo" still costs hosting + a lot of Nathan's time. On Plus most of that upkeep disappears and the app list usually <em>shrinks</em> — freeing your #1 cost for growth.</div>
@@ -369,7 +383,7 @@
     </div>
 
     <div class="callout"><strong>Net:</strong> operational savings + revenue uplift together are far larger than Plus + a one-time migration. Next: plug your real GMV, dev cost, card mix (Amex), subscription % + AOV and conversion into the model to lock the number.</div>
-    <p class="footnote">Est. = Shopify benchmarks / illustrative on ~$30M GMV; not guarantees. Subscription-app inputs (Loop/Recharge + Angel &amp; Zack's findings) and the shared cost sheet fold in here once available. Confirm Plus + processing rates on the rate card.</p>
+    <p class="footnote">Card rates are from the TCO data-request sheet: Shopify Payments (Plus) rack <b>2.25% + 30¢</b> (<b>2.95% + 30¢</b> Amex/commercial); Brodo evaluating Krepling 2.2% + 20¢. Per Zack &amp; Angel, the real Woo cost is <b>maintenance + dev time</b> ("extravagantly lower" on Plus), not fees. Est. figures illustrative on ~$30M GMV — Brodo's questionnaire (dev spend, GMV, AOV, subscription %, conversion) is still to be filled, then this locks to real numbers.</p>
   </section>
 
   <!-- TAB 3 -->
