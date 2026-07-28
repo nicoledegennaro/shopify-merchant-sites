@@ -337,12 +337,12 @@
   <!-- TAB 4: TCO / ROI -->
   <section class="tab-content" id="tco">
     <h2 class="tab-title">TCO &amp; ROI</h2>
-    <p class="tab-sub">Two buckets: what you stop spending (<strong>operational savings</strong>) and what you gain (<strong>revenue uplift</strong>). Inputs below are <strong>filled with industry-standard 2026 benchmarks</strong> (sourced in the footnote) while your questionnaire is open — swap in Brodo's real numbers to lock it.</p>
+    <p class="tab-sub">Two buckets: what you spend to run it (<strong>operating cost</strong>) and what you gain (<strong>revenue uplift</strong>). Card rates + Amex mix below are now <strong>Brodo's real numbers from the Jul 28 call</strong>; the rest stays benchmark until the questionnaire's in.</p>
 
     <div class="up" style="grid-template-columns:repeat(3,1fr)">
-      <div class="u"><div class="stat">≈ $100K</div><div class="h">Lower total cost / yr <em>(est.)</em></div><div class="d">Plus all-in vs Woo all-in — <em>after</em> the ~1% subscription-app fee.</div></div>
-      <div class="u"><div class="stat">$2.5M–$4M</div><div class="h">Revenue uplift / yr <em>(est.)</em></div><div class="d">Checkout conversion, AOV and recovered renewals.</div></div>
-      <div class="u"><div class="stat">~$169K</div><div class="h">Subscription-app fee / yr</div><div class="d">Awtomic 1% of ~$16.5M sub GMV — below the ~$500K feared, offset by card savings.</div></div>
+      <div class="u"><div class="stat">$2.5M–$4M</div><div class="h">Revenue uplift / yr <em>(est.)</em></div><div class="d">Checkout conversion, AOV and recovered renewals — the real return on the move.</div></div>
+      <div class="u"><div class="stat">~$105K</div><div class="h">Dev capacity reclaimed / yr</div><div class="d">~$150K upkeep → ~$45K build — Nathan's time moves from patching to growth.</div></div>
+      <div class="u"><div class="stat">≈ break-even</div><div class="h">All-in operating cost</div><div class="d">With your 2.65% rate + 30% Amex: ~$15K/yr more on Plus (Awtomic) + ~$50K one-time. Cost is a wash; the return is above.</div></div>
     </div>
 
     <div class="sec-h" style="margin-top:26px">Model inputs · industry-standard benchmarks</div>
@@ -359,7 +359,10 @@
         <tr><td>Involuntary (failed-renewal) churn</td><td>~30% of churn</td><td>subscription benchmark</td></tr>
         <tr><td>Dev + maintenance (Woo)</td><td>~$150K / yr</td><td>heavy-custom store at scale</td></tr>
         <tr><td>Hosting + Woo plugins</td><td>~$15K / yr</td><td>managed WP + subs/AutomateWoo/security</td></tr>
-        <tr><td>Card rate today vs Plus</td><td>2.9%+30¢ → 2.25–2.3%+30¢</td><td>Stripe std → Plus rack (TCO sheet)</td></tr>
+        <tr><td><b>Card mix</b></td><td>~30% Amex / 70% other</td><td><b>Brodo, per Jul 28 call</b></td></tr>
+        <tr><td><b>Card rate — today</b></td><td>2.65% + 30¢ (all cards)</td><td><b>Brodo current (Stripe), per call</b></td></tr>
+        <tr><td><b>Card rate — Shopify Plus</b></td><td>2.25% + 30¢ non-Amex · 2.9% + 30¢ Amex</td><td>Shopify Payments Plus</td></tr>
+        <tr><td><b>One-time implementation</b></td><td>~$50,000 (year 1)</td><td>Plus onboarding / build</td></tr>
       </tbody>
     </table>
 
@@ -372,26 +375,27 @@
         <tr><td>Plugins / extensions</td><td>~$6,000 (subs, AutomateWoo, security…)</td><td class="c col-hi"><span class="yes">~$0 (built-in)</span></td></tr>
         <tr><td>Subscription app (Awtomic 1%)</td><td>$0 (Woo Subs free)</td><td class="c col-hi"><span class="no">~$169,000</span> ($299/mo + 1% of ~$16.5M)</td></tr>
         <tr><td>Developer time <span style="color:var(--muted)">(#1 cost)</span></td><td><span class="no">~$150,000</span> <span style="color:var(--muted)">(upkeep + firefighting)</span></td><td class="c col-hi"><span class="yes">~$45,000</span> <span style="color:var(--muted)">(build for growth, not upkeep)</span></td></tr>
-        <tr><td>Card processing on $30M</td><td>~$960,000 (Stripe 2.9% + 30¢)</td><td class="c col-hi"><span class="yes">~$780,000 (2.25–2.3% + 30¢)</span></td></tr>
-        <tr><td><b>Total / year</b></td><td><b>~$1,125,000</b></td><td class="c col-hi"><b>~$1,022,000</b></td></tr>
-        <tr><td><b>Lower on Plus</b></td><td colspan="2"><b>≈ $103,000 / yr</b> — the ~1% subscription-app fee (~$169K) is roughly offset by the card-rate savings (~$180K); the net win is reclaimed dev time (~$105K). Revenue uplift is on top.</td></tr>
+        <tr><td>Card processing on $30M <span style="color:var(--muted)">(30% Amex)</span></td><td>~$885,000 (2.65% + 30¢, all cards)</td><td class="c col-hi">~$824,000 (2.25% non-Amex / 2.9% Amex)</td></tr>
+        <tr><td><b>Recurring total / year</b></td><td><b>~$1,050,000</b></td><td class="c col-hi"><b>~$1,065,000</b></td></tr>
+        <tr><td>One-time implementation</td><td>—</td><td class="c col-hi">~$50,000 (year 1)</td></tr>
+        <tr><td><b>vs Woo</b></td><td colspan="2"><b>≈ break-even</b> — Plus runs <b>~$15K/yr more</b> with Awtomic (plus ~$50K one-time). Your real 2.65% rate is already low and <b>30% Amex hits Shopify's 2.9% Amex tier</b>, so card savings shrink to ~$61K and no longer fully offset the app fee. The reason to move isn't lower cost — it's <b>~$105K/yr of reclaimed dev capacity + the revenue upside below.</b></td></tr>
       </tbody>
     </table>
-    <div class="callout"><strong>The point:</strong> even <em>with</em> the ~$169K/yr subscription-app fee (Nathan's exact concern), Plus is still <strong>~$100K/yr cheaper all-in</strong> — the card-rate savings (~$180K) offset the app fee, and reclaimed dev time is the net win. Revenue uplift is on top.</div>
+    <div class="callout"><strong>The point:</strong> with your real numbers — a low 2.65% blended rate today and 30% Amex hitting Shopify's 2.9% Amex tier — the platform is <strong>roughly cost-neutral</strong> (~$15K/yr more with Awtomic, +~$50K one-time), not ~$100K cheaper. The reason to move is <strong>~$105K/yr of dev capacity shifted from upkeep to growth</strong> plus <strong>$2.5M–$4M of revenue upside.</strong></div>
 
     <p class="tab-sub" style="margin-top:20px">Same model, swapping the subscription app — this is the real swing on cost:</p>
     <table>
-      <thead><tr><th>Subscription app</th><th class="c">App fee / yr</th><th class="c">Plus all-in / yr</th><th class="c">vs Woo (~$1.12M)</th></tr></thead>
+      <thead><tr><th>Subscription app</th><th class="c">App fee / yr</th><th class="c">Plus recurring / yr</th><th class="c">vs Woo (~$1.05M)</th></tr></thead>
       <tbody>
-        <tr><td><b>Awtomic</b> — 1% <span style="color:var(--muted)">(recommended · build-a-box)</span></td><td class="c">~$169K</td><td class="c">~$1,022,000</td><td class="c"><span class="yes">~$103K cheaper</span></td></tr>
-        <tr><td>Loop — 1%</td><td class="c">~$166K</td><td class="c">~$1,019,000</td><td class="c"><span class="yes">~$106K cheaper</span></td></tr>
-        <tr><td>Recharge — 1.34% + 19¢ <span style="color:var(--muted)">(Plus tier — your scale)</span></td><td class="c">~$258K</td><td class="c">~$1,111,000</td><td class="c">~break-even</td></tr>
+        <tr><td><b>Awtomic</b> — 1% <span style="color:var(--muted)">(recommended · build-a-box)</span></td><td class="c">~$169K</td><td class="c">~$1,065,000</td><td class="c">~$15K more</td></tr>
+        <tr><td>Loop — 1%</td><td class="c">~$166K</td><td class="c">~$1,062,000</td><td class="c">~$12K more</td></tr>
+        <tr><td>Recharge — 1.34% + 19¢ <span style="color:var(--muted)">(Plus tier — your scale)</span></td><td class="c">~$258K</td><td class="c">~$1,154,000</td><td class="c"><span class="no">~$104K more</span></td></tr>
       </tbody>
     </table>
-    <div class="callout"><strong>Read this:</strong> with <b>Awtomic or Loop</b> you're ~$100K/yr cheaper all-in. At your scale <b>Recharge</b> lands on its <b>$499/mo Plus tier</b> (~$258K) — roughly break-even vs Woo, so it eats almost all the savings. The platform math works either way; the app choice is the thing to get right.</div>
+    <div class="callout"><strong>Read this:</strong> on recurring cost, <b>Awtomic or Loop</b> keep Plus within ~$15K/yr of Woo — effectively a wash once you count the ~$105K of dev capacity you get back. <b>Recharge</b> on its $499 Plus tier runs ~$104K/yr more — the one app that turns a cost-neutral move into a costlier one. Add ~$50K one-time to implement, whichever app you pick.</div>
 
     <div class="sec-h" style="margin-top:28px">Bucket 2 · Revenue uplift potential</div>
-    <p class="tab-sub">The growth levers for a repeat-purchase brand, illustrated on ~$30M GMV. Detail + comps live in the "Revenue upside" tab.</p>
+    <p class="tab-sub">The growth levers for a repeat-purchase brand, illustrated on ~$30M GMV — the real return on the move.</p>
     <div class="up">
       <div class="u"><div class="stat">up to +36%</div><div class="h">Checkout conversion</div><div class="d">One-page + Shop Pay vs multi-step Woo. A modest lift on $30M is seven figures. <em>(est.)</em></div></div>
       <div class="u"><div class="stat">20–30%</div><div class="h">Recovered failed renewals</div><div class="d">Smart dunning + card updater cut involuntary churn — recovered MRR. <em>(est.)</em></div></div>
@@ -401,8 +405,8 @@
       <div class="u"><div class="stat">15–25%</div><div class="h">Cancellations saved</div><div class="d">Retention flows: "too expensive" → discount; "too much" → pause. <em>(est.)</em></div></div>
     </div>
 
-    <div class="callout"><strong>Net (on industry-standard benchmarks):</strong> ≈ <strong>$100K/yr lower cost</strong> (after the ~1% subscription-app fee) + <strong>$2.5M–$4M/yr revenue uplift</strong>. Swap your real GMV, dev cost, card mix (Amex), subscription % + AOV and conversion into the questionnaire and this locks to Brodo's number.</div>
-    <p class="footnote"><b>Inputs are industry-standard 2026 benchmarks, not Brodo's actuals</b> — replace via the questionnaire to finalize. Sources: conversion/AOV (Shopify, Polar Analytics, Foundry CRO F&amp;B 2026); involuntary churn + dunning recovery (Recurly, Recharge, ProfitWell 2026); WooCommerce maintenance/dev, Klaviyo &amp; AutomateWoo costs (Codeable, Rovela 2026). Card rates from the TCO sheet: Shopify Payments (Plus) rack <b>2.25% + 30¢</b> (<b>2.95% + 30¢</b> Amex/commercial); Brodo evaluating Krepling 2.2% + 20¢. The real Woo cost is <b>maintenance + dev time</b> ("extravagantly lower" on Plus), not fees.</p>
+    <div class="callout"><strong>Net (with your real card data):</strong> operating cost is <strong>≈ break-even</strong> (Awtomic/Loop within ~$15K/yr of Woo, +~$50K one-time) — plus <strong>~$105K/yr of reclaimed dev capacity</strong> and <strong>$2.5M–$4M/yr of revenue upside</strong>. Lock it with your real dev spend, subscription %, AOV and conversion in the questionnaire.</div>
+    <p class="footnote">Card rates + Amex mix per the <b>Jul 28 call</b>: Brodo today ~<b>2.65% + 30¢</b> across all cards; Shopify Payments Plus <b>2.25% + 30¢</b> non-Amex and <b>2.9% + 30¢</b> Amex, on a ~<b>30% Amex</b> mix; one-time Plus implementation ~<b>$50K</b>. Remaining inputs (dev spend, subscription %, AOV, conversion) are 2026 DTC/WooCommerce benchmarks until the questionnaire's in — sources: conversion/AOV (Shopify, Polar, Foundry CRO 2026); churn + dunning (Recurly, Recharge, ProfitWell 2026); Woo dev/maintenance (Codeable, Rovela 2026). The real Woo cost is <b>maintenance + dev time</b>, not fees.</p>
   </section>
 
   <!-- TAB 3 -->
