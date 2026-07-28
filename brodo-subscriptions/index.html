@@ -156,29 +156,31 @@
 
   <!-- TAB 1: AGENDA & CURRENT STATE -->
   <section class="tab-content active" id="agenda">
-    <h2 class="tab-title">TCO / ROI working session</h2>
-    <p class="tab-sub">July 28 · 11:00 AM ET. Where things stand today, and the three things we'll focus on.</p>
+    <h2 class="tab-title">Current state &amp; focus</h2>
     <div class="agenda-wrap">
       <div>
-        <div class="sec-h">What we'll focus on</div>
-        <ol class="agenda">
-          <li><b>TCO &amp; ROI</b> — Plus is ~$100K/yr cheaper all-in even after the ~1% subscription-app fee, with $2.5–4M/yr revenue upside. We'll drop in your real numbers live.</li>
-          <li><b>The subscription path</b> — Awtomic for build-a-box (native won't cover it, custom's a huge build); Loop &amp; Recharge priced for comparison — and the ~1% fee sized honestly against the ~$500K worry.</li>
-          <li><b>Checkout &amp; conversion</b> — one-page Shop Pay (mobile one-tap + in-cart add-ons for AOV) vs your multi-step Woo checkout — then the next step: an intro to a build partner.</li>
-        </ol>
+        <div class="sec-h">From last call</div>
+        <div class="disco">
+          <ul>
+            <li>Shopify + Shopify Payments + Awtomic (or Recharge) = a big leap in operational efficiency — but subscriptions are core, so <b>preserving card tokens &amp; avoiding double billing is the #1 priority.</b></li>
+            <li><b>Shopify Flow replicates AutomateWoo.</b></li>
+            <li>App-cost concern → <b>today we'll show it's still lower than running &amp; maintaining Woo</b> (dev time).</li>
+          </ul>
+        </div>
+        <div class="sec-h" style="margin-top:16px">Today</div>
+        <div class="disco">
+          <ul>
+            <li><b>Subscription options</b> — Awtomic / Loop / Recharge</li>
+            <li><b>TCO / ROI</b></li>
+          </ul>
+        </div>
       </div>
       <div>
-        <div class="sec-h">Brodo today</div>
+        <div class="sec-h">Migration = #1 priority</div>
         <div class="state">
-          <div class="row"><span class="k">Platform</span><span class="v">WooCommerce (WordPress), self-hosted on Pressable</span></div>
-          <div class="row"><span class="k">Subscriptions</span><span class="v">WooCommerce Subscriptions (free) + AutomateWoo</span></div>
-          <div class="row"><span class="k">Payments</span><span class="v">Stripe · evaluating WooPay + Crepling (2.2% + 20¢)</span></div>
-          <div class="row"><span class="k">Online GMV</span><span class="v">~$30M (est., per call)</span></div>
-          <div class="row"><span class="k">Model</span><span class="v">DTC — Subscribe &amp; Save, Build-Your-Own-Box, Starter Box; frequent subscriber edits</span></div>
-          <div class="row"><span class="k">Channels</span><span class="v">DTC (primary) + Amazon + Faire (wholesale)</span></div>
-          <div class="row"><span class="k">Other tools</span><span class="v">Metric (reporting), external forms &amp; landing pages, Klaviyo</span></div>
-          <div class="row"><span class="k">Largest cost</span><span class="v">Internal development &amp; maintenance</span></div>
-          <div class="row"><span class="k">Shopify</span><span class="v">Trial account live since April</span></div>
+          <div class="row"><span class="k">No re-entry</span><span class="v">Subscribers' cards transfer — nobody re-enters one</span></div>
+          <div class="row"><span class="k">PCI → PCI</span><span class="v">Legacy tokens import Stripe → Shopify Payments vault; new vault tokens, raw card numbers never touched</span></div>
+          <div class="row"><span class="k">No double billing</span><span class="v">Managed, phased cutover during an inactive billing window</span></div>
         </div>
       </div>
     </div>
@@ -187,49 +189,42 @@
   <!-- TAB 2 -->
   <section class="tab-content" id="subs">
     <h2 class="tab-title">Three ways to run subscriptions</h2>
-    <p class="tab-sub">Zack &amp; Angel's read after the deep-dive: native Subscriptions <strong>won't cover your build-a-box / heavy editing</strong>, and a fully custom build is a <strong>big undertaking</strong> — so the route is a purpose-built <strong>app</strong>, with <strong>Awtomic</strong> the fit for your Build-Your-Own-Box model (Loop the alternative). Both charge ~1% per order — on your sub GMV that's real (~$165K/yr), but far below the ~$500K Recharge fear and largely offset by the card-rate savings. Recharge is priced below for comparison — the most expensive of the three.</p>
 
     <div class="cards four">
       <div class="card hi">
         <span class="badge best">Recommended · build-a-box</span>
         <h3>Awtomic</h3>
-        <div class="tag">Third-party · built for build-a-box &amp; bundles</div>
-        <div class="price">$299/mo + 1% per order<span class="sub">Professional · $249/mo billed yearly · Enterprise = volume-based · 14-day trial</span></div>
+        <div class="tag">Purpose-built for build-a-box &amp; bundles</div>
+        <div class="price">$299/mo + 1% per order<span class="sub">~$169K/yr on your sub GMV</span></div>
         <ul>
+          <li>Fits your Build-Your-Own-Box model out of the box</li>
           <li>Self-serve portal — subscribers swap SKUs themselves</li>
-          <li>Build-a-box, bundles, frequency, skip, pause</li>
-          <li>Out-of-box — no custom build to maintain</li>
+          <li>No custom build to maintain</li>
         </ul>
-        <div class="watch"><b>Zack &amp; Angel:</b> the route that covers your custom needs without a huge custom build.</div>
-        <div class="vswoo"><b>vs Woo:</b> does your AutomateWoo build-a-box logic out of the box, on Shopify's managed infra.</div>
       </div>
 
       <div class="card">
-        <span class="badge mid">1.0% per transaction</span>
+        <span class="badge mid">Lowest base</span>
         <h3>Loop</h3>
-        <div class="tag">Third-party · built for DTC</div>
-        <div class="price">$99 / month + 1.0% per transaction<span class="sub">Starter tier · % only — no flat per-order fee</span></div>
+        <div class="tag">Built for DTC</div>
+        <div class="price">$99/mo + 1.0% per order<span class="sub">~$166K/yr on your sub GMV</span></div>
         <ul>
           <li>Build-a-box + bundle builder</li>
           <li>Multi-product swap, frequency, pause</li>
-          <li>Surveys, retention, analytics</li>
+          <li>Lowest base fee ($99/mo)</li>
         </ul>
-        <div class="watch"><b>Watch-out:</b> flat 1% per order (no per-order cent fee) with the lowest base here ($99/mo) — cheaper than Awtomic's $299 base and Recharge at volume.</div>
-        <div class="vswoo"><b>vs Woo:</b> does out-of-box what you hand-build in AutomateWoo.</div>
       </div>
 
       <div class="card">
-        <span class="badge high">1.49% + 19¢ / order</span>
+        <span class="badge high">Most expensive</span>
         <h3>Recharge</h3>
-        <div class="tag">Third-party · priced for comparison</div>
-        <div class="price">$99 / mo + 1.49% + 19¢ per order<span class="sub">Standard · Plus tier $499/mo + 1.34% + 19¢ (12-mo term)</span></div>
+        <div class="tag">Priced for comparison</div>
+        <div class="price">$99/mo + 1.49% + 19¢ per order<span class="sub">~$277K/yr on your sub GMV</span></div>
         <ul>
           <li>Deepest integrations, analytics &amp; dunning</li>
           <li>Bundles, swaps, retention flows</li>
-          <li>Now owns Skio (acquired Apr 2026)</li>
+          <li>% + 19¢ compounds at scale</li>
         </ul>
-        <div class="watch"><b>Watch-out:</b> priciest option — the % + 19¢/order compounds at scale; this is the fee that anchored the "Shopify is expensive" concern.</div>
-        <div class="vswoo"><b>vs Woo:</b> most feature-rich, but Loop is ~40% cheaper at volume and Awtomic fits build-a-box.</div>
       </div>
 
     </div>
@@ -256,8 +251,7 @@
       </tbody>
     </table>
 
-    <div class="callout"><strong>Where we landed (Zack &amp; Angel):</strong> ❌ native Subscriptions won't cover build-a-box · ⚠️ a fully custom API build is a <em>huge</em> undertaking · ✅ a purpose-built app — <strong>Awtomic</strong> — covers your build-a-box needs out of the box. It carries ~1% per order (~$165K/yr on your sub GMV) — real, but <em>far</em> below the ~$500K Recharge fear and largely offset by the card-rate savings, so Plus still costs less all-in (see the TCO tab). Loop is the lower-base alternative; Recharge (priced below) is the most expensive.</div>
-    <p class="footnote">Pricing (published 2026, confirm before contracting): <b>Awtomic</b> $299/mo + 1%/order (Pro; $249/mo yearly; Enterprise volume-based); <b>Loop</b> $99/mo + 1%; <b>Recharge</b> $99/mo + 1.49% + 19¢ (Plus $499/mo + 1.34% + 19¢, 12-mo term; acquired Skio Apr 2026). Native Subscriptions ($0) and a custom API build were ruled out — native can't do build-a-box, custom is a huge undertaking. Awtomic is the recommended fit; Recharge shown for comparison.</p>
+    <p class="footnote">Published 2026 pricing — confirm before contracting. Fees estimated on ~$16.5M annual subscription GMV.</p>
   </section>
 
 
@@ -269,8 +263,8 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0 6px;align-items:start;">
       <div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bad);margin-bottom:8px;">Brodo today · WooCommerce</div>
-        <img src="brodo-current-checkout.png" alt="Brodo's current checkout on WooCommerce" style="width:100%;border:1px solid var(--line);border-radius:12px;display:block;box-shadow:0 6px 20px rgba(35,26,16,.08);">
-        <div style="font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5;">Live capture of <b>brodo.com/checkout</b> (self-hosted WooCommerce/WordPress). Shoppers add a box, then complete a <b>multi-step form</b> and sign in with a WordPress password — no accelerated one-tap path.</div>
+        <img src="brodo-checkout-real.png" alt="Brodo's current checkout page — brodo.com/checkout on WooCommerce/WordPress" style="width:100%;border:1px solid var(--line);border-radius:12px;display:block;box-shadow:0 6px 20px rgba(35,26,16,.08);">
+        <div style="font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5;">Live capture of <b>brodo.com/checkout</b> — <b>"Proudly powered by WordPress · Hosted by Pressable."</b> Shoppers pick a box, log in via a password <b>"Subscriber Dashboard,"</b> then complete a <b>multi-step form</b> — no one-tap path, and <b>no in-cart add-ons/upsells</b> to lift AOV.</div>
       </div>
       <div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--pos);margin-bottom:8px;">On Shopify · Oats Overnight (live)</div>
@@ -326,6 +320,14 @@
       <div class="hgrid">
         <div><div class="lab">Brodo today · WooCommerce</div><div class="reality">Self-hosted on Pressable — you own uptime, scaling and patching through promos and launches.</div></div>
         <div><div class="how"><div class="lab">On Shopify</div>Fully managed infrastructure proven at BFCM scale — checkout stays up on your biggest days with zero ops on your side.</div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div class="q feat"><span class="ico num">7</span> In-cart upsells &amp; add-ons</div>
+      <div class="hgrid">
+        <div><div class="lab">Brodo today · WooCommerce</div><div class="reality"><b>No in-cart add-ons or upsells</b> — the cart is just the box you picked, so there's no built-in way to raise basket size.</div></div>
+        <div><div class="how"><div class="lab">On Shopify</div>In-cart <b>add-ons</b> (like Oats Overnight's shaker + protein) and <b>1-click post-purchase upsells</b> lift AOV without adding a step or risking the sale.</div></div>
       </div>
     </div>
 
@@ -480,7 +482,20 @@
   <!-- TAB 6: BEYOND SHOP PAY -->
   <section class="tab-content" id="beyond">
     <h2 class="tab-title">Beyond Shop Pay</h2>
-    <p class="tab-sub">Shop Pay opens the door — but for a subscription brand at your scale, these are the features that keep revenue from leaking to churn and engineering overhead. Each is native on Shopify and hard to hold together on Woo without heavy custom work.</p>
+    <p class="tab-sub">Shop Pay opens the door — the rest is how Shopify wins you customers and keeps them. Each is native on Shopify and hard to hold together on Woo.</p>
+
+    <div class="sec-h" style="margin-top:8px">Conversion is your acquisition engine</div>
+    <p class="tab-sub" style="margin-top:4px">Removing checkout friction doesn't just save ops — for a DTC brand running paid traffic it lowers CAC and makes every ad dollar work harder.</p>
+    <div class="disco">
+      <ul>
+        <li><b>Shop Pay network → lower CAC.</b> 100M+ pre-saved shoppers; 1-tap SMS checkout converts ~15–36% higher and 4× faster than guest. Lift mobile conversion 1.8% → 2.4% on $50K/mo ad spend and <b>CPA drops ~25%</b> — more orders, same budget.</li>
+        <li><b>Shop App marketplace → free discovery.</b> High-intent wellness shoppers get algorithmic recs for Brodo, and Shopify-funded <b>Shop Cash</b> credits ($5–10) let you acquire buyers on Shopify's co-funded budget.</li>
+        <li><b>Lower first-trial barrier.</b> Awtomic "Try-a-Box" starter packs with one-click subscribe in the cart drawer + passwordless magic-link portals — no account to create, so fewer first-timers bail.</li>
+        <li><b>Sharper targeting + AOV.</b> Native Meta / Google / TikTok server-side tracking (CAPI) feeds cleaner data so their AI finds lookalikes faster; 1-click post-purchase upsells lift AOV without risking the sale.</li>
+      </ul>
+    </div>
+
+    <div class="sec-h" style="margin-top:24px">Retention — plugging the revenue leaks</div>
 
     <div class="hrow">
       <div class="q feat"><span class="ico num">1</span> Smart dunning — AI-powered revenue recovery</div>
