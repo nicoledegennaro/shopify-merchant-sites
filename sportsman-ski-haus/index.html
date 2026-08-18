@@ -91,8 +91,10 @@
 
   /* comps strip */
   .comps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .comp{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
-  .comp h4{font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:4px}
+  .comp{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:.15s}
+  .comp:hover{border-color:var(--pine);box-shadow:0 2px 8px rgba(20,40,30,.06)}
+  .comp h4{font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:4px;color:var(--ink)}
+  .comp h4 span{color:var(--pine);font-family:'Inter';font-size:.82rem;font-weight:600}
   .comp p{font-size:.86rem;color:var(--muted)}
 
   .next{background:var(--pine);color:#fff;border-radius:16px;padding:32px 30px}
@@ -313,20 +315,9 @@
     <h2 class="sec-title">Retailers like you, already on Shopify</h2>
     <p class="sec-sub">Multi-store outdoor retailers running gear, apparel, rentals, and service shops on Shopify + POS.</p>
     <div class="comps">
-      <div class="comp"><h4>evo</h4><p>Multi-store ski/snowboard/bike retailer with in-store service &amp; rentals — the marquee example at scale.</p></div>
-      <div class="comp"><h4>Sports Basement</h4><p>~A dozen outdoor stores with a large rental operation and community/membership model.</p></div>
-      <div class="comp"><h4>Powder7</h4><p>Ski shop doing online + in-store sales, a demo/rental fleet, and tuning &amp; binding-mount service.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- NEXT STEP -->
-<section style="padding-top:36px">
-  <div class="wrap">
-    <div class="next">
-      <h2>Let's get everyone in the room</h2>
-      <p>A Teams meeting with you, your IT department, and the president to pick the right path, confirm the Celerant integration, and land on the plan and quote for your stores.</p>
-      <p class="days">Monday, Wednesday, or Friday works best on your end — send a couple of times and we'll get it scheduled.</p>
+      <a class="comp" href="https://www.evo.com" target="_blank" rel="noopener"><h4>evo <span>↗</span></h4><p>Multi-store ski/snowboard/bike retailer with in-store service &amp; rentals — the marquee example at scale.</p></a>
+      <a class="comp" href="https://www.sportsbasement.com" target="_blank" rel="noopener"><h4>Sports Basement <span>↗</span></h4><p>~A dozen outdoor stores with a large rental operation and community/membership model.</p></a>
+      <a class="comp" href="https://www.powder7.com" target="_blank" rel="noopener"><h4>Powder7 <span>↗</span></h4><p>Ski shop doing online + in-store sales, a demo/rental fleet, and tuning &amp; binding-mount service.</p></a>
     </div>
   </div>
 </section>
