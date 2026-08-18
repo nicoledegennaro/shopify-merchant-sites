@@ -11,57 +11,71 @@
   :root{
     --ink:#1c2b26; --muted:#5c6b64; --line:#e4e6e1;
     --pine:#1f5f4a; --pine-soft:#eaf3ef; --snow:#f7f8f6; --card:#ffffff;
-    --amber:#c46a2b;
+    --amber:#c46a2b; --amber-soft:#f6ece2;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--snow);line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:900px;margin:0 auto;padding:0 22px}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
 
-  /* hero */
-  header{background:linear-gradient(160deg,#1f5f4a 0%,#123b2e 100%);color:#fff;padding:64px 0 56px}
-  header .wrap{max-width:900px}
+  header{background:linear-gradient(160deg,#1f5f4a 0%,#123b2e 100%);color:#fff;padding:60px 0 50px}
   .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#bfe0d3;font-weight:600;margin-bottom:14px}
   header h1{font-size:2.5rem;margin-bottom:14px}
   header p{font-size:1.12rem;color:#dcece5;max-width:640px}
 
-  section{padding:48px 0}
-  .lead{font-size:1.05rem;color:var(--muted);max-width:680px;margin-bottom:8px}
-  .sec-title{font-size:1.7rem;margin-bottom:8px}
-  .sec-sub{color:var(--muted);margin-bottom:28px;max-width:680px}
+  /* agenda strip */
+  .agenda{background:#fff;border-bottom:1px solid var(--line)}
+  .agenda .wrap{display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;padding-bottom:20px}
+  .agenda .step{display:flex;align-items:center;gap:9px;font-size:.92rem;font-weight:600;color:var(--ink);background:var(--pine-soft);border-radius:999px;padding:8px 15px}
+  .agenda .step span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--pine);color:#fff;font-size:.78rem;font-family:'Inter'}
 
-  /* integration cards */
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:20px;box-shadow:0 1px 2px rgba(20,40,30,.04)}
-  .card .tag{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--pine);background:var(--pine-soft);padding:5px 11px;border-radius:999px;margin-bottom:14px}
-  .card h3{font-size:1.32rem;margin-bottom:12px}
+  section{padding:46px 0}
+  .sec-title{font-size:1.7rem;margin-bottom:8px}
+  .sec-sub{color:var(--muted);margin-bottom:26px;max-width:700px}
+  .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:6px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:18px;box-shadow:0 1px 2px rgba(20,40,30,.04)}
+  .card .head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .card h3{font-size:1.3rem}
+  .card .sub{color:var(--muted);font-size:.86rem;margin-top:2px}
+  .badge{font-size:.74rem;letter-spacing:.04em;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
+  .badge.yes{color:#0f5a3c;background:#d9f0e4}
+  .badge.warn{color:#9a4a12;background:var(--amber-soft)}
   .row{display:grid;grid-template-columns:130px 1fr;gap:6px 18px;font-size:.97rem}
   .row dt{color:var(--muted);font-weight:600}
   .row dd{color:var(--ink);margin-bottom:10px}
   .row dd:last-child{margin-bottom:0}
 
   /* pricing */
-  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:26px}
   .plan{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .plan.best{border:2px solid var(--pine);position:relative}
-  .plan.best::after{content:'Likely fit';position:absolute;top:-11px;right:16px;background:var(--pine);color:#fff;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px}
-  .plan h3{font-size:1.15rem;margin-bottom:4px}
-  .plan .amt{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;color:var(--pine);margin-bottom:2px}
-  .plan .per{font-size:.8rem;color:var(--muted);margin-bottom:12px}
-  .plan p{font-size:.9rem;color:var(--muted)}
-  .note{font-size:.85rem;color:var(--muted);margin-top:16px;font-style:italic}
+  .plan h3{font-size:1.12rem;margin-bottom:4px}
+  .plan .amt{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;color:var(--pine);margin-bottom:2px}
+  .plan .per{font-size:.78rem;color:var(--muted);margin-bottom:10px}
+  .plan p{font-size:.88rem;color:var(--muted)}
 
-  /* next steps */
-  .next{background:var(--pine);color:#fff;border-radius:16px;padding:34px 30px;margin-top:8px}
-  .next h2{color:#fff;font-size:1.6rem;margin-bottom:10px}
+  .plus{background:#123b2e;color:#fff;border-radius:16px;padding:30px 30px 26px}
+  .plus .flag{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#123b2e;background:#bfe0d3;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+  .plus h3{color:#fff;font-size:1.5rem;margin-bottom:6px}
+  .plus .price{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:#fff;margin-bottom:2px}
+  .plus .price small{font-size:.9rem;color:#bfe0d3;font-family:'Inter';font-weight:500}
+  .plus .model{color:#dcece5;font-size:.9rem;margin-bottom:18px;max-width:620px}
+  .plus ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+  .plus li{position:relative;padding-left:22px;font-size:.93rem;color:#eaf3ef}
+  .plus li::before{content:'✓';position:absolute;left:0;color:#7fd3ac;font-weight:700}
+  .note{font-size:.84rem;color:var(--muted);margin-top:16px;font-style:italic}
+
+  .next{background:var(--pine);color:#fff;border-radius:16px;padding:32px 30px}
+  .next h2{color:#fff;font-size:1.55rem;margin-bottom:10px}
   .next p{color:#dcece5;max-width:640px;margin-bottom:8px}
-  .next .days{margin-top:14px;font-weight:600;color:#fff}
+  .next .days{margin-top:12px;font-weight:600;color:#fff}
 
-  footer{padding:30px 0 50px;font-size:.82rem;color:var(--muted)}
+  footer{padding:28px 0 50px;font-size:.82rem;color:var(--muted)}
   footer .disc{border-top:1px solid var(--line);padding-top:18px}
 
   @media(max-width:640px){
     header h1{font-size:2rem}
-    .price-grid{grid-template-columns:1fr}
+    .price-grid,.plus ul{grid-template-columns:1fr}
     .row{grid-template-columns:1fr}
     .row dt{margin-top:6px}
   }
@@ -72,104 +86,156 @@
 <header>
   <div class="wrap">
     <div class="kicker">Sportsman &amp; Ski Haus &nbsp;×&nbsp; Shopify</div>
-    <h1>How Shopify fits your business</h1>
-    <p>A simple overview of how Shopify connects with the tools you already run — Celerant, Klaviyo, and Locally — plus a look at plans and pricing, ahead of our meeting.</p>
+    <h1>Shopify for your stores</h1>
+    <p>An overview for our conversation — how Shopify fits your business, how it connects to the tools you already run, and what it costs.</p>
   </div>
 </header>
 
+<!-- AGENDA -->
+<div class="agenda">
+  <div class="wrap">
+    <div class="step"><span>1</span> Intro</div>
+    <div class="step"><span>2</span> Project overview</div>
+    <div class="step"><span>3</span> Connecting to your apps</div>
+    <div class="step"><span>4</span> Pricing</div>
+  </div>
+</div>
+
+<!-- 2. PROJECT OVERVIEW -->
 <section>
   <div class="wrap">
-    <h2 class="sec-title">Works with the tools you already use</h2>
-    <p class="sec-sub">Shopify is built to be the storefront and checkout layer on top of your existing systems. Here's how it connects to each of the three you asked about. (Exact connection details are confirmed together with your IT team and each vendor.)</p>
+    <div class="num">Agenda · 02</div>
+    <h2 class="sec-title">Project overview</h2>
+    <p class="sec-sub">The idea: use Shopify as the modern storefront and checkout across your retail stores, sitting on top of the systems your team already relies on. Shopify handles the online buying experience — fast pages, one-click Shop Pay checkout, and unified inventory — while your point of sale, marketing, and local-inventory tools keep doing what they do today. The goal of this meeting is to look at your specific setup with your IT team and map out what that would take.</p>
+  </div>
+</section>
+
+<!-- 3. CONNECTING TO YOUR APPS -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="num">Agenda · 03</div>
+    <h2 class="sec-title">Connecting to your apps</h2>
+    <p class="sec-sub">Here's the straight answer on each of the three you asked about — including whether there's a ready-made connector or whether it's an integration to scope. Final connection details are confirmed together with your IT team and each vendor.</p>
 
     <div class="card">
-      <span class="tag">Point of Sale &amp; Inventory</span>
-      <h3>Celerant</h3>
+      <div class="head">
+        <div>
+          <h3>Klaviyo</h3>
+          <div class="sub">Email &amp; SMS marketing</div>
+        </div>
+        <span class="badge yes">✓ Native connector — one click</span>
+      </div>
       <dl class="row">
-        <dt>What it does</dt>
-        <dd>Keeps products, pricing, inventory, orders, and customers in sync between your stores and your Shopify online store — one source of truth, no double entry, no overselling.</dd>
-        <dt>How it connects</dt>
-        <dd>Through Celerant's integration APIs and a connector/middleware layer that links Celerant to Shopify. Your IT team and Celerant confirm the exact connector and sync cadence.</dd>
-        <dt>The payoff</dt>
-        <dd>Sell in-store and online from the same live inventory, with orders and customer data flowing to the systems you already run.</dd>
+        <dt>Connector</dt>
+        <dd>Yes. Klaviyo has an official, one-click integration on the Shopify App Store — one of the deepest on the platform. No custom build.</dd>
+        <dt>What syncs</dt>
+        <dd>Customers, orders, and on-site behavior flow to Klaviyo in real time, powering automated flows (welcome, abandoned cart, post-purchase, win-back), segmentation, and reporting.</dd>
       </dl>
     </div>
 
     <div class="card">
-      <span class="tag">Email &amp; SMS Marketing</span>
-      <h3>Klaviyo</h3>
+      <div class="head">
+        <div>
+          <h3>Locally</h3>
+          <div class="sub">Local inventory &amp; store traffic</div>
+        </div>
+        <span class="badge yes">✓ Supported integration</span>
+      </div>
       <dl class="row">
+        <dt>Connector</dt>
+        <dd>Yes. Locally supports Shopify as an inventory source, so your live stock stays accurate on the brand locators shoppers use to find products near them.</dd>
         <dt>What it does</dt>
-        <dd>Powers your email and text marketing — automated flows (welcome, abandoned cart, post-purchase, win-back), segmentation, and reporting driven by real store data.</dd>
-        <dt>How it connects</dt>
-        <dd>Klaviyo has one of the deepest, official Shopify integrations — a one-click connect. Customers, orders, and on-site behavior sync in real time, no custom build required.</dd>
-        <dt>The payoff</dt>
-        <dd>More targeted, automated marketing tied directly to what shoppers browse and buy — a proven revenue driver on Shopify.</dd>
+        <dd>Shows "available near you" for the brands you carry and enables find-in-store / pickup — turning brand demand into local foot traffic. Your IT team confirms the feed setup with Locally.</dd>
       </dl>
     </div>
 
     <div class="card">
-      <span class="tag">Local Inventory &amp; Store Traffic</span>
-      <h3>Locally</h3>
+      <div class="head">
+        <div>
+          <h3>Celerant</h3>
+          <div class="sub">Point of sale &amp; inventory / ERP</div>
+        </div>
+        <span class="badge warn">⚠ Integration project — no native app</span>
+      </div>
       <dl class="row">
-        <dt>What it does</dt>
-        <dd>Connects the brands you carry to shoppers near your stores — showing "available near you" and enabling find-in-store and pickup, turning brand demand into local foot traffic.</dd>
-        <dt>How it connects</dt>
-        <dd>Shopify feeds your live inventory to Locally so your in-store stock stays accurate on brand locators. Your IT team confirms the feed/connector setup with Locally.</dd>
-        <dt>The payoff</dt>
-        <dd>Capture local shoppers searching the brands you sell, and bring them into your stores — online and offline working together.</dd>
+        <dt>Connector</dt>
+        <dd>There isn't a plug-and-play Shopify app for Celerant today. Connecting the two is an integration built on Celerant's APIs, typically through a connector or middleware layer — a scoped project rather than a one-click install.</dd>
+        <dt>What it would do</dt>
+        <dd>Keep products, pricing, inventory, orders, and customers in sync between your stores and Shopify — one source of truth, no double entry, no overselling.</dd>
+        <dt>Next step</dt>
+        <dd>This is the main piece to scope together with Celerant and your IT team — approach, connector, and sync cadence. It's a well-trodden type of integration; we'll confirm the cleanest path for your setup.</dd>
       </dl>
     </div>
   </div>
 </section>
 
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- 4. PRICING -->
+<section>
   <div class="wrap">
-    <h2 class="sec-title">Plans &amp; pricing</h2>
-    <p class="sec-sub">A quick look at the tiers. Given your multiple stores and the integrations above, the right fit is likely <strong>Advanced</strong> or <strong>Plus</strong> — we'll tailor a recommendation and exact quote for you.</p>
+    <div class="num">Agenda · 04</div>
+    <h2 class="sec-title">Pricing</h2>
+    <p class="sec-sub">The standard tiers are below. Given multiple stores and integration-heavy operations, <strong>Shopify Plus</strong> is the tier built for your situation — details underneath.</p>
+
     <div class="price-grid">
       <div class="plan">
         <h3>Basic</h3>
         <div class="amt">$39</div>
         <div class="per">/ month, billed annually</div>
-        <p>For getting started — a single storefront and core selling tools.</p>
+        <p>A single storefront and core selling tools.</p>
       </div>
       <div class="plan">
         <h3>Shopify</h3>
         <div class="amt">$105</div>
         <div class="per">/ month, billed annually</div>
-        <p>For growing stores — more staff accounts and better reporting.</p>
+        <p>Growing stores — more staff accounts and reporting.</p>
       </div>
-      <div class="plan best">
+      <div class="plan">
         <h3>Advanced</h3>
         <div class="amt">$399</div>
         <div class="per">/ month, billed annually</div>
-        <p>Lower transaction rates, advanced reporting, and room for deeper integrations.</p>
+        <p>Lower transaction rates and advanced reporting.</p>
       </div>
-      <div class="plan best">
+      <div class="plan">
         <h3>Plus</h3>
         <div class="amt">from $2,300</div>
         <div class="per">/ month</div>
-        <p>Enterprise: customizable checkout, higher API limits for heavy integrations, multi-store, and dedicated support.</p>
+        <p>Enterprise plan — see full detail below.</p>
       </div>
     </div>
-    <p class="note">Pricing shown is approximate and for reference; we'll provide a tailored quote based on your store count, volume, and integration needs.</p>
+
+    <div class="plus">
+      <span class="flag">Recommended fit</span>
+      <h3>Shopify Plus</h3>
+      <div class="price">$2,300<small> / month (billed annually)</small></div>
+      <div class="model">Flat monthly rate to start. For higher-volume merchants, pricing can move to a revenue-based model (a small percentage of sales in place of the flat fee, with a monthly cap) — we'll model the option that's most cost-effective for your volume. Card processing rates are also lower on Plus.</div>
+      <ul>
+        <li>Up to 10 stores under one plan — ideal for multiple banners &amp; locations</li>
+        <li>Shopify POS Pro included across all your retail locations</li>
+        <li>10× higher API limits — important for heavy Celerant/Locally syncs</li>
+        <li>Fully customizable checkout (Shop Pay, custom rules)</li>
+        <li>B2B / wholesale built in</li>
+        <li>Dedicated launch &amp; merchant-success support</li>
+      </ul>
+    </div>
+
+    <p class="note">Pricing shown is approximate and for reference; we'll provide a tailored quote based on your store count, sales volume, and integration needs.</p>
   </div>
 </section>
 
-<section>
+<!-- NEXT STEP -->
+<section style="padding-top:0">
   <div class="wrap">
     <div class="next">
-      <h2>Next step: let's get everyone in the room</h2>
-      <p>Let's set up a Teams meeting with you, your IT department, and the president to walk through the integration specifics with Celerant, Klaviyo, and Locally — and land on the right plan and pricing for Sportsman &amp; Ski Haus.</p>
-      <p class="days">Monday, Wednesday, or Friday works best on your end — send a couple of times and I'll get it scheduled.</p>
+      <h2>Let's get everyone in the room</h2>
+      <p>A Teams meeting with you, your IT department, and the president to walk through the Celerant integration, confirm Klaviyo &amp; Locally, and land on the right plan and quote for your stores.</p>
+      <p class="days">Monday, Wednesday, or Friday works best on your end — send a couple of times and we'll get it scheduled.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap disc">
-    Prepared by Nicole DeGennaro · Shopify. This overview is a starting point for discussion; specific integration methods, connectors, and pricing are confirmed with your IT team and the respective vendors (Celerant, Klaviyo, Locally).
+    Prepared by Nicole DeGennaro · Shopify. This overview is a starting point for discussion; specific integration methods, connectors, and final pricing are confirmed with your IT team and the respective vendors (Celerant, Klaviyo, Locally).
   </div>
 </footer>
 
