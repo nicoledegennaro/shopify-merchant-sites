@@ -23,7 +23,6 @@
   header h1{font-size:2.5rem;margin-bottom:14px}
   header p{font-size:1.12rem;color:#dcece5;max-width:640px}
 
-  /* agenda strip */
   .agenda{background:#fff;border-bottom:1px solid var(--line)}
   .agenda .wrap{display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;padding-bottom:20px}
   .agenda .step{display:flex;align-items:center;gap:9px;font-size:.92rem;font-weight:600;color:var(--ink);background:var(--pine-soft);border-radius:999px;padding:8px 15px}
@@ -46,24 +45,55 @@
   .row dd{color:var(--ink);margin-bottom:10px}
   .row dd:last-child{margin-bottom:0}
 
+  /* tabs */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .tab{font-family:'Inter';font-size:.9rem;font-weight:600;color:var(--pine);background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:11px 15px;cursor:pointer;transition:.15s}
+  .tab:hover{border-color:var(--pine)}
+  .tab.active{background:var(--pine);color:#fff;border-color:var(--pine)}
+  .tab-content{display:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
+  .tab-content.active{display:block}
+  .tab-content h3{font-size:1.28rem;margin-bottom:4px}
+  .tab-content .tline{color:var(--muted);font-size:.92rem;margin-bottom:18px}
+  .trow{display:grid;grid-template-columns:150px 1fr;gap:6px 18px;font-size:.95rem}
+  .trow dt{color:var(--pine);font-weight:600}
+  .trow dd{color:var(--ink);margin-bottom:11px}
+  .trow dd:last-child{margin-bottom:0}
+  .fit{margin-top:16px;padding:13px 16px;background:var(--pine-soft);border-radius:10px;font-size:.92rem;color:var(--ink)}
+  .fit b{color:var(--pine)}
+
   /* pricing */
-  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:26px}
-  .plan{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .plan h3{font-size:1.12rem;margin-bottom:4px}
-  .plan .amt{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;color:var(--pine);margin-bottom:2px}
-  .plan .per{font-size:.78rem;color:var(--muted);margin-bottom:10px}
-  .plan p{font-size:.88rem;color:var(--muted)}
+  .table-scroll{overflow-x:auto}
+  table.ratecard{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:12px;min-width:560px}
+  table.ratecard th,table.ratecard td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+  table.ratecard th{background:var(--pine-soft);font-weight:600;color:var(--pine);font-size:.8rem;letter-spacing:.02em}
+  table.ratecard tr:last-child td{border-bottom:none}
+  table.ratecard td strong{font-family:'Fraunces',serif;font-size:1.02rem}
+  .pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+  .pos-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+  .pos-card.pro{border:2px solid var(--pine)}
+  .pos-card h3{font-size:1.15rem;margin-bottom:4px}
+  .pos-card .amt{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:var(--pine);margin-bottom:12px}
+  .pos-card ul{list-style:none;font-size:.9rem;color:var(--muted)}
+  .pos-card li{padding-left:16px;position:relative;margin-bottom:6px}
+  .pos-card li::before{content:'•';position:absolute;left:0;color:var(--pine);font-weight:700}
 
   .plus{background:#123b2e;color:#fff;border-radius:16px;padding:30px 30px 26px}
   .plus .flag{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#123b2e;background:#bfe0d3;padding:5px 12px;border-radius:999px;margin-bottom:14px}
   .plus h3{color:#fff;font-size:1.5rem;margin-bottom:6px}
   .plus .price{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:#fff;margin-bottom:2px}
   .plus .price small{font-size:.9rem;color:#bfe0d3;font-family:'Inter';font-weight:500}
-  .plus .model{color:#dcece5;font-size:.9rem;margin-bottom:18px;max-width:620px}
+  .plus .model{color:#dcece5;font-size:.9rem;margin-bottom:18px;max-width:640px}
+  .plus .model em{color:#fff;font-style:italic}
   .plus ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
   .plus li{position:relative;padding-left:22px;font-size:.93rem;color:#eaf3ef}
   .plus li::before{content:'✓';position:absolute;left:0;color:#7fd3ac;font-weight:700}
   .note{font-size:.84rem;color:var(--muted);margin-top:16px;font-style:italic}
+
+  /* comps strip */
+  .comps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .comp{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+  .comp h4{font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:4px}
+  .comp p{font-size:.86rem;color:var(--muted)}
 
   .next{background:var(--pine);color:#fff;border-radius:16px;padding:32px 30px}
   .next h2{color:#fff;font-size:1.55rem;margin-bottom:10px}
@@ -75,9 +105,9 @@
 
   @media(max-width:640px){
     header h1{font-size:2rem}
-    .price-grid,.plus ul{grid-template-columns:1fr}
-    .row{grid-template-columns:1fr}
-    .row dt{margin-top:6px}
+    .price-grid,.plus ul,.pos-grid,.comps{grid-template-columns:1fr}
+    .row,.trow{grid-template-columns:1fr}
+    .row dt,.trow dt{margin-top:6px}
   }
 </style>
 </head>
@@ -87,7 +117,7 @@
   <div class="wrap">
     <div class="kicker">Sportsman &amp; Ski Haus &nbsp;×&nbsp; Shopify</div>
     <h1>Shopify for your stores</h1>
-    <p>An overview for our conversation — how Shopify fits your business, how it connects to the tools you already run, and what it costs.</p>
+    <p>An overview for our conversation — how Shopify fits your business, how it connects to the tools you already run, the ways we could approach it, and what it costs.</p>
   </div>
 </header>
 
@@ -106,7 +136,49 @@
   <div class="wrap">
     <div class="num">Agenda · 02</div>
     <h2 class="sec-title">Project overview</h2>
-    <p class="sec-sub">The idea: use Shopify as the modern storefront and checkout across your retail stores, sitting on top of the systems your team already relies on. Shopify handles the online buying experience — fast pages, one-click Shop Pay checkout, and unified inventory — while your point of sale, marketing, and local-inventory tools keep doing what they do today. The goal of this meeting is to look at your specific setup with your IT team and map out what that would take.</p>
+    <p class="sec-sub">The idea: use Shopify to modernize how you sell — in-store, online, or both — sitting on top of the systems your team already relies on. There are three sensible ways to approach it depending on how far you want to go. The goal of this meeting is to look at your setup with your IT team and pick the right path.</p>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(event,'posfirst')">POS-first (in-store)</button>
+      <button class="tab" onclick="showTab(event,'onlinepos')">Online + new POS</button>
+      <button class="tab" onclick="showTab(event,'onlineonly')">Online only, keep Celerant POS</button>
+    </div>
+
+    <div id="posfirst" class="tab-content active">
+      <h3>Start with POS in your stores</h3>
+      <p class="tline">Modernize the in-person experience first — Shopify POS as your register across locations — with an online store as a fast-follow whenever you're ready.</p>
+      <dl class="trow">
+        <dt>Runs on Shopify</dt><dd>In-store POS, unified inventory across all locations, staff tools, customer profiles.</dd>
+        <dt>Stays as-is</dt><dd>Your current website (for now); Celerant either retired in-store or bridged while you transition.</dd>
+        <dt>Apps</dt><dd>Klaviyo captures customers at the register; Locally publishes your in-store stock to nearby shoppers.</dd>
+        <dt>Pricing</dt><dd>Any plan + POS Pro ($89/location) — or Plus, where POS Pro is included across locations.</dd>
+      </dl>
+      <div class="fit"><b>Best if:</b> the priority is fixing the in-store / POS experience first, before touching the website.</div>
+    </div>
+
+    <div id="onlinepos" class="tab-content">
+      <h3>All-in on Shopify — online + POS</h3>
+      <p class="tline">One platform end to end: a new Shopify online store and Shopify POS in every location, sharing one inventory, customer list, and reporting.</p>
+      <dl class="trow">
+        <dt>Runs on Shopify</dt><dd>Website + Shop Pay checkout, in-store POS, inventory, customers, reporting — all unified.</dd>
+        <dt>Stays as-is</dt><dd>Celerant retired for commerce, or reduced to a back-office role; data migrated over.</dd>
+        <dt>Apps</dt><dd>Klaviyo (native) and Locally (supported) connect directly; Celerant data is migrated in.</dd>
+        <dt>Pricing</dt><dd>Advanced or Plus. Plus is favored for multi-store — POS Pro included, best card rates, 10× API limits.</dd>
+      </dl>
+      <div class="fit"><b>Best if:</b> you want a single system for everything and are ready to move off Celerant for commerce. Biggest lift, cleanest end state.</div>
+    </div>
+
+    <div id="onlineonly" class="tab-content">
+      <h3>Shopify online, Celerant stays the register</h3>
+      <p class="tline">Shopify powers a modern ecommerce site with Shop Pay; Celerant remains your in-store POS. The two are integrated so inventory and orders stay in sync.</p>
+      <dl class="trow">
+        <dt>Runs on Shopify</dt><dd>Website + online checkout (Shop Pay), online catalog and customers.</dd>
+        <dt>Stays on Celerant</dt><dd>In-store POS and inventory master — unchanged for your store teams.</dd>
+        <dt>Apps</dt><dd>The Celerant ↔ Shopify integration is the key piece (API / middleware). Klaviyo &amp; Locally connect to the Shopify side.</dd>
+        <dt>Pricing</dt><dd>A standard online plan (Basic / Grow / Advanced) — no POS Pro needed. Lower monthly, but you keep Celerant and maintain the integration.</dd>
+      </dl>
+      <div class="fit"><b>Best if:</b> you're not ready to replace Celerant in-store and mainly want a better website + Shop Pay.</div>
+    </div>
   </div>
 </section>
 
@@ -115,55 +187,50 @@
   <div class="wrap">
     <div class="num">Agenda · 03</div>
     <h2 class="sec-title">Connecting to your apps</h2>
-    <p class="sec-sub">Here's the straight answer on each of the three you asked about — including whether there's a ready-made connector or whether it's an integration to scope. Final connection details are confirmed together with your IT team and each vendor.</p>
+    <p class="sec-sub">The straight answer on each of the three you asked about — including whether there's a ready-made connector or an integration to scope. These work whether you're selling in-store, online, or both. Final details are confirmed with your IT team and each vendor.</p>
 
     <div class="card">
       <div class="head">
-        <div>
-          <h3>Klaviyo</h3>
-          <div class="sub">Email &amp; SMS marketing</div>
-        </div>
+        <div><h3>Klaviyo</h3><div class="sub">Email &amp; SMS marketing</div></div>
         <span class="badge yes">✓ Native connector — one click</span>
       </div>
       <dl class="row">
         <dt>Connector</dt>
         <dd>Yes. Klaviyo has an official, one-click integration on the Shopify App Store — one of the deepest on the platform. No custom build.</dd>
         <dt>What syncs</dt>
-        <dd>Customers, orders, and on-site behavior flow to Klaviyo in real time, powering automated flows (welcome, abandoned cart, post-purchase, win-back), segmentation, and reporting.</dd>
+        <dd>Customers, orders, and behavior flow to Klaviyo in real time, powering automated flows (welcome, abandoned cart, post-purchase, win-back), segmentation, and reporting.</dd>
+        <dt>With POS</dt>
+        <dd>Works for in-store selling too — when staff attach a customer to a POS sale, that shopper and their in-store purchases sync to Klaviyo, so you can capture emails/texts at the register and market to in-store buyers.</dd>
       </dl>
     </div>
 
     <div class="card">
       <div class="head">
-        <div>
-          <h3>Locally</h3>
-          <div class="sub">Local inventory &amp; store traffic</div>
-        </div>
+        <div><h3>Locally</h3><div class="sub">Local inventory &amp; store traffic</div></div>
         <span class="badge yes">✓ Supported integration</span>
       </div>
       <dl class="row">
         <dt>Connector</dt>
         <dd>Yes. Locally supports Shopify as an inventory source, so your live stock stays accurate on the brand locators shoppers use to find products near them.</dd>
         <dt>What it does</dt>
-        <dd>Shows "available near you" for the brands you carry and enables find-in-store / pickup — turning brand demand into local foot traffic. Your IT team confirms the feed setup with Locally.</dd>
+        <dd>Shows "available near you" for the brands you carry and enables find-in-store / pickup — turning brand demand into local foot traffic.</dd>
+        <dt>With POS</dt>
+        <dd>Especially relevant for in-store selling — Locally publishes the live inventory your POS tracks, so your stores' real stock shows to nearby shoppers. No full online store required.</dd>
       </dl>
     </div>
 
     <div class="card">
       <div class="head">
-        <div>
-          <h3>Celerant</h3>
-          <div class="sub">Point of sale &amp; inventory / ERP</div>
-        </div>
+        <div><h3>Celerant</h3><div class="sub">Point of sale &amp; inventory / ERP</div></div>
         <span class="badge warn">⚠ Integration project — no native app</span>
       </div>
       <dl class="row">
         <dt>Connector</dt>
-        <dd>There isn't a plug-and-play Shopify app for Celerant today. Connecting the two is an integration built on Celerant's APIs, typically through a connector or middleware layer — a scoped project rather than a one-click install.</dd>
+        <dd>There isn't a plug-and-play Shopify app for Celerant today. Connecting the two is an integration built on Celerant's APIs, typically through a connector or middleware layer — a scoped project, not a one-click install.</dd>
         <dt>What it would do</dt>
-        <dd>Keep products, pricing, inventory, orders, and customers in sync between your stores and Shopify — one source of truth, no double entry, no overselling.</dd>
+        <dd>Keep products, pricing, inventory, orders, and customers in sync between Celerant and Shopify — one source of truth, no double entry, no overselling.</dd>
         <dt>Next step</dt>
-        <dd>This is the main piece to scope together with Celerant and your IT team — approach, connector, and sync cadence. It's a well-trodden type of integration; we'll confirm the cleanest path for your setup.</dd>
+        <dd>The main piece to scope with Celerant and your IT team — approach, connector, and sync cadence. It's a well-trodden type of integration; we'll confirm the cleanest path for your setup.</dd>
       </dl>
     </div>
   </div>
@@ -174,60 +241,85 @@
   <div class="wrap">
     <div class="num">Agenda · 04</div>
     <h2 class="sec-title">Pricing</h2>
-    <p class="sec-sub">The standard tiers are below. Given multiple stores and integration-heavy operations, <strong>Shopify Plus</strong> is the tier built for your situation — details underneath.</p>
+    <p class="sec-sub">Shopify's standard published pricing is below. Since this is primarily an in-store (POS) conversation, the numbers that matter most for you are the <strong>in-person card rates</strong> and the <strong>POS pricing</strong> underneath.</p>
 
-    <div class="price-grid">
-      <div class="plan">
-        <h3>Basic</h3>
-        <div class="amt">$39</div>
-        <div class="per">/ month, billed annually</div>
-        <p>A single storefront and core selling tools.</p>
+    <div class="table-scroll">
+    <table class="ratecard">
+      <tr>
+        <th>Plan</th><th>Monthly<br><span style="font-weight:400">(billed annually)</span></th><th>In-person (POS) rate</th><th>Online rate</th><th>3rd-party gateway fee</th>
+      </tr>
+      <tr><td><strong>Basic</strong></td><td>$29</td><td>2.6% + 10¢</td><td>2.9% + 30¢</td><td>2.0%</td></tr>
+      <tr><td><strong>Grow</strong></td><td>$79</td><td>2.5% + 10¢</td><td>2.7% + 30¢</td><td>1.0%</td></tr>
+      <tr><td><strong>Advanced</strong></td><td>$299</td><td>2.4% + 10¢</td><td>2.5% + 30¢</td><td>0.6%</td></tr>
+      <tr><td><strong>Plus</strong></td><td>from $2,300</td><td>Most competitive</td><td>Most competitive</td><td>0.2%</td></tr>
+    </table>
+    </div>
+    <p class="note" style="margin-top:0;margin-bottom:26px">Month-to-month pricing is higher (Basic $39 · Grow $105 · Advanced $399). Rates shown are Shopify's published standard.</p>
+
+    <h3 style="font-size:1.25rem;margin-bottom:6px">Shopify POS</h3>
+    <p class="sec-sub" style="margin-bottom:18px">POS runs on any plan. There are two tiers — a multi-store retailer needs <strong>POS Pro</strong>.</p>
+    <div class="pos-grid">
+      <div class="pos-card">
+        <h3>POS Lite</h3>
+        <div class="amt">Free — included in every plan</div>
+        <ul>
+          <li>Basic in-person selling on any device</li>
+          <li>Simple customer profiles</li>
+          <li>Returns at the original location only</li>
+          <li>Limited staff access</li>
+        </ul>
       </div>
-      <div class="plan">
-        <h3>Shopify</h3>
-        <div class="amt">$105</div>
-        <div class="per">/ month, billed annually</div>
-        <p>Growing stores — more staff accounts and reporting.</p>
-      </div>
-      <div class="plan">
-        <h3>Advanced</h3>
-        <div class="amt">$399</div>
-        <div class="per">/ month, billed annually</div>
-        <p>Lower transaction rates and advanced reporting.</p>
-      </div>
-      <div class="plan">
-        <h3>Plus</h3>
-        <div class="amt">from $2,300</div>
-        <div class="per">/ month</div>
-        <p>Enterprise plan — see full detail below.</p>
+      <div class="pos-card pro">
+        <h3>POS Pro</h3>
+        <div class="amt">+ $89 / month per location</div>
+        <ul>
+          <li>Unlimited staff logins + roles &amp; permissions</li>
+          <li>Returns &amp; exchanges at any location</li>
+          <li>Advanced inventory — stocktakes, transfers, purchase orders</li>
+          <li>In-store analytics &amp; omnichannel (BOPIS, ship-from-store)</li>
+        </ul>
       </div>
     </div>
 
     <div class="plus">
-      <span class="flag">Recommended fit</span>
+      <span class="flag">Worth modeling for multi-store</span>
       <h3>Shopify Plus</h3>
-      <div class="price">$2,300<small> / month (billed annually)</small></div>
-      <div class="model">Flat monthly rate to start. For higher-volume merchants, pricing can move to a revenue-based model (a small percentage of sales in place of the flat fee, with a monthly cap) — we'll model the option that's most cost-effective for your volume. Card processing rates are also lower on Plus.</div>
+      <div class="price">from $2,300<small> / month (billed annually)</small></div>
+      <div class="model">Here's the POS math: on standard plans, POS Pro is $89/month <em>per location</em> — with several stores that adds up fast. On Plus, POS Pro is included across all locations, along with the lowest card rates, which is why Plus often pencils out for multi-store retailers like yours. For higher volume, pricing can also move to a revenue-based model.</div>
       <ul>
-        <li>Up to 10 stores under one plan — ideal for multiple banners &amp; locations</li>
-        <li>Shopify POS Pro included across all your retail locations</li>
-        <li>10× higher API limits — important for heavy Celerant/Locally syncs</li>
-        <li>Fully customizable checkout (Shop Pay, custom rules)</li>
+        <li>POS Pro included across all locations</li>
+        <li>Up to 10 stores under one plan — multiple banners &amp; locations</li>
+        <li>Lowest in-person &amp; online card rates</li>
+        <li>10× higher API limits — for the Celerant integration</li>
         <li>B2B / wholesale built in</li>
         <li>Dedicated launch &amp; merchant-success support</li>
       </ul>
     </div>
 
-    <p class="note">Pricing shown is approximate and for reference; we'll provide a tailored quote based on your store count, sales volume, and integration needs.</p>
+    <p class="note">Pricing shown is Shopify's published standard and for reference; we'll provide a tailored quote based on your store count, sales volume, and integration needs.</p>
+  </div>
+</section>
+
+<!-- COMPS -->
+<section style="background:#fff;border-top:1px solid var(--line);padding-top:40px;padding-bottom:40px">
+  <div class="wrap">
+    <div class="num">Proof</div>
+    <h2 class="sec-title">Retailers like you, already on Shopify</h2>
+    <p class="sec-sub">Multi-store outdoor retailers running gear, apparel, rentals, and service shops on Shopify + POS.</p>
+    <div class="comps">
+      <div class="comp"><h4>evo</h4><p>Multi-store ski/snowboard/bike retailer with in-store service &amp; rentals — the marquee example at scale.</p></div>
+      <div class="comp"><h4>Sports Basement</h4><p>~A dozen outdoor stores with a large rental operation and community/membership model.</p></div>
+      <div class="comp"><h4>Powder7</h4><p>Ski shop doing online + in-store sales, a demo/rental fleet, and tuning &amp; binding-mount service.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- NEXT STEP -->
-<section style="padding-top:0">
+<section style="padding-top:36px">
   <div class="wrap">
     <div class="next">
       <h2>Let's get everyone in the room</h2>
-      <p>A Teams meeting with you, your IT department, and the president to walk through the Celerant integration, confirm Klaviyo &amp; Locally, and land on the right plan and quote for your stores.</p>
+      <p>A Teams meeting with you, your IT department, and the president to pick the right path, confirm the Celerant integration, and land on the plan and quote for your stores.</p>
       <p class="days">Monday, Wednesday, or Friday works best on your end — send a couple of times and we'll get it scheduled.</p>
     </div>
   </div>
@@ -238,6 +330,15 @@
     Prepared by Nicole DeGennaro · Shopify. This overview is a starting point for discussion; specific integration methods, connectors, and final pricing are confirmed with your IT team and the respective vendors (Celerant, Klaviyo, Locally).
   </div>
 </footer>
+
+<script>
+  function showTab(e, id){
+    document.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active')});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    e.currentTarget.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
