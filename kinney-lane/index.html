@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kinney Lane × Shopify — Grow vs Plus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#2a2620; --muted:#726b5f; --line:#e7e2d6;
+    --olive:#5b6b3a; --olive-d:#3f4c28; --olive-soft:#eef1e6;
+    --cream:#faf7f0; --tomato:#c9542f; --tomato-soft:#f7e7df; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
+
+  header{background:linear-gradient(160deg,#5b6b3a 0%,#3f4c28 100%);color:#fff;padding:60px 0 52px}
+  .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#d7e0c2;font-weight:600;margin-bottom:14px}
+  header h1{font-size:2.5rem;margin-bottom:14px}
+  header p{font-size:1.12rem;color:#e7edd8;max-width:600px}
+
+  section{padding:46px 0}
+  .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tomato);font-weight:600;margin-bottom:6px}
+  .sec-title{font-size:1.7rem;margin-bottom:8px}
+  .sec-sub{color:var(--muted);margin-bottom:24px;max-width:680px}
+
+  .table-scroll{overflow-x:auto}
+  table.cmp{width:100%;border-collapse:collapse;font-size:.95rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:520px}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  table.cmp th{background:var(--olive-soft);font-weight:600;color:var(--olive-d);font-size:.82rem}
+  table.cmp td.plan{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600}
+  table.cmp tr:last-child td{border-bottom:none}
+  table.cmp tr.total td{background:#fbfaf5;font-weight:600}
+  table.cmp .plus{color:var(--olive)}
+
+  .callout{background:var(--tomato-soft);border:1px solid #e6cbbd;border-radius:12px;padding:18px 20px;margin-top:20px;font-size:.98rem}
+  .callout b{color:var(--tomato)}
+
+  .feat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:18px;box-shadow:0 1px 2px rgba(40,40,20,.04)}
+  .feat .tag{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--olive);background:var(--olive-soft);padding:5px 11px;border-radius:999px;margin-bottom:12px}
+  .feat h3{font-size:1.32rem;margin-bottom:10px}
+  .feat p{color:var(--ink);font-size:.98rem;margin-bottom:14px}
+  .feat .why{color:var(--muted);font-size:.92rem;margin-bottom:16px}
+  .feat .impact{display:flex;align-items:baseline;gap:12px;background:var(--olive-soft);border-radius:10px;padding:13px 16px}
+  .feat .impact .big{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;color:var(--olive-d)}
+  .feat .impact .lbl{font-size:.86rem;color:var(--muted)}
+
+  .roi{background:#3f4c28;color:#fff;border-radius:16px;padding:32px 30px}
+  .roi h2{color:#fff;font-size:1.55rem;margin-bottom:8px}
+  .roi p{color:#e7edd8;max-width:640px;margin-bottom:20px}
+  .roi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;text-align:center}
+  .roi-grid .box{background:rgba(255,255,255,.08);border-radius:12px;padding:18px 12px}
+  .roi-grid .v{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;color:#fff;margin-bottom:2px}
+  .roi-grid .k{font-size:.8rem;color:#cfd8bb}
+  .roi-grid .box.net{background:#c9542f}
+  .roi-grid .box.net .k{color:#f7e7df}
+
+  .note{font-size:.83rem;color:var(--muted);margin-top:18px;font-style:italic}
+  footer{padding:26px 0 50px;font-size:.82rem;color:var(--muted)}
+  footer .disc{border-top:1px solid var(--line);padding-top:18px}
+
+  @media(max-width:640px){
+    header h1{font-size:2rem}
+    .roi-grid{grid-template-columns:1fr}
+    .feat .impact{flex-direction:column;gap:2px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Kinney Lane &nbsp;×&nbsp; Shopify</div>
+    <h1>Grow vs. Plus — what the upgrade unlocks</h1>
+    <p>You're already on Shopify. As you approach ~$2.4M in annual sales, here's an honest look at the cost difference — and why Plus pays for itself through growth, not fees.</p>
+  </div>
+</header>
+
+<!-- COST -->
+<section>
+  <div class="wrap">
+    <div class="num">The honest cost picture</div>
+    <h2 class="sec-title">Grow vs. Plus at ~$2.4M / year</h2>
+    <p class="sec-sub">Plus has a lower card rate (2.25% vs 2.7%), but a higher platform fee. Here's how it nets out on ~$2.4M of online card volume. (The 30¢ per-transaction fee is identical on both, so it's left out.)</p>
+
+    <div class="table-scroll">
+    <table class="cmp">
+      <tr>
+        <th>&nbsp;</th><th>Grow</th><th class="plus">Plus</th>
+      </tr>
+      <tr>
+        <td class="plan">Platform fee / year</td>
+        <td>$948 <span style="color:var(--muted)">($79/mo)</span></td>
+        <td>$27,600 <span style="color:var(--muted)">($2,300/mo)</span></td>
+      </tr>
+      <tr>
+        <td class="plan">Online card rate</td>
+        <td>2.7% + 30¢</td>
+        <td>2.25% + 30¢</td>
+      </tr>
+      <tr>
+        <td class="plan">Processing on $2.4M</td>
+        <td>$64,800</td>
+        <td>$54,000</td>
+      </tr>
+      <tr class="total">
+        <td class="plan">All-in / year</td>
+        <td>$65,748</td>
+        <td>$81,600</td>
+      </tr>
+    </table>
+    </div>
+
+    <div class="callout">
+      The lower rate saves <b>~$10,800/yr</b> on processing — but Plus's platform fee is ~$26,700 higher, so on fees alone Plus costs about <b>$15,850 more per year</b> at $2.4M. On card rate alone, Plus doesn't break even until roughly <b>$5.9M/yr</b>. So the real question isn't "is Plus cheaper" — it's <b>"can Plus grow revenue by more than ~$16K?"</b> For a repeat-order food brand like yours, that bar is low.
+    </div>
+  </div>
+</section>
+
+<!-- UPLIFT -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="num">Where Plus pays for itself</div>
+    <h2 class="sec-title">Two Plus features built for how you sell</h2>
+    <p class="sec-sub">You sell fresh, day-based menus and weekly market boxes to a repeat audience. These two Plus-only capabilities map directly to that — and either one on its own more than covers the ~$16K premium.</p>
+
+    <div class="feat">
+      <span class="tag">Plus only · Checkout Extensibility</span>
+      <h3>Custom checkout + one-click upsells</h3>
+      <p>Add "make it a meal" upsells right in the checkout — a dessert, a side, a drink, an extra box — plus custom delivery-day/window rules so orders come in clean. Plus unlocks the deep checkout customization that Grow can't do.</p>
+      <p class="why"><strong>Why it works for Kinney Lane:</strong> your customers are already buying food they love — a $6–10 add-on at the moment of purchase is the easiest yes in the business, and it lifts every single order.</p>
+      <div class="impact">
+        <span class="big">+$48,000/yr</span>
+        <span class="lbl">illustrative: a conservative +2% AOV lift on $2.4M in orders</span>
+      </div>
+    </div>
+
+    <div class="feat">
+      <span class="tag">Plus only · Launchpad</span>
+      <h3>Automated weekly menu drops</h3>
+      <p>Schedule your MON/WED menus, ordering windows, price changes, and promos to go live automatically — no one staying up to flip products on and off. Launchpad runs your recurring drops for you.</p>
+      <p class="why"><strong>Why it works for Kinney Lane:</strong> your menu changes on a rhythm. Automating each drop means orders open on time every time, you capture peak-demand windows, and your team stops doing manual release work every week.</p>
+      <div class="impact">
+        <span class="big">+$24,000/yr</span>
+        <span class="lbl">illustrative: +1% revenue from on-time drops + reclaimed staff hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI SUMMARY -->
+<section>
+  <div class="wrap">
+    <div class="roi">
+      <h2>The net ROI</h2>
+      <p>Put the two together against the cost of upgrading. Even at these conservative assumptions, Plus turns a ~$16K premium into a strong net gain — and that's before the value of Plus's lower card rate, B2B (corporate/office catering), and dedicated support.</p>
+      <div class="roi-grid">
+        <div class="box"><div class="v">~$72,000</div><div class="k">Illustrative annual uplift</div></div>
+        <div class="box"><div class="v">–$15,850</div><div class="k">Plus premium vs Grow</div></div>
+        <div class="box net"><div class="v">+$56,000</div><div class="k">Net gain per year</div></div>
+      </div>
+      <p class="note" style="color:#cfd8bb">Even if only <em>one</em> feature landed at half these numbers, Plus would still pay for itself. That's the point — at your volume the upgrade is a growth decision, not a cost.</p>
+    </div>
+    <p class="note">Figures are illustrative and conservative, based on ~$2.4M in annual online sales and standard uplift ranges for checkout upsells and automated merchandising. Actual results depend on your AOV, order volume, and adoption — happy to model with your real numbers.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap disc">
+    Prepared by Nicole DeGennaro · Shopify. Pricing reflects current published Shopify rates for the Grow and Plus plans; ROI figures are illustrative estimates for discussion, not a guarantee.
+  </div>
+</footer>
+
+</body>
+</html>
