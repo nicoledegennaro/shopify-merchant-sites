@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Economy Plumbing × Shopify — Pilot Mutual Action Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#12212e; --muted:#5a6b78; --line:#e2e7ec;
+    --steel:#1f5f8b; --steel-d:#153f5c; --steel-soft:#e9f1f7;
+    --orange:#e07a2b; --orange-soft:#fbeeddff; --paper:#f5f8fa; --card:#fff; --green:#2f855a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
+  header{background:linear-gradient(155deg,#1f5f8b 0%,#153f5c 100%);color:#fff;padding:52px 0 44px}
+  .kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#a9cde6;font-weight:600;margin-bottom:12px}
+  header h1{font-size:2.2rem;margin-bottom:10px}
+  header p{font-size:1.05rem;color:#d5e6f2;max-width:640px}
+  .hbadge{display:inline-block;margin-top:14px;background:rgba(224,122,43,.2);border:1px solid var(--orange);color:#ffd9b8;font-size:.84rem;font-weight:600;padding:6px 13px;border-radius:999px}
+
+  /* tabs */
+  .tabbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .tabbar .wrap{display:flex;gap:6px;flex-wrap:wrap;padding-top:12px;padding-bottom:0}
+  .tab{font-family:'Inter';font-size:.92rem;font-weight:600;color:var(--muted);background:none;border:none;border-bottom:3px solid transparent;padding:12px 16px;cursor:pointer}
+  .tab:hover{color:var(--steel)}
+  .tab.active{color:var(--steel-d);border-bottom-color:var(--orange)}
+  .content{display:none;padding:36px 0}
+  .content.active{display:block}
+  .content h2{font-size:1.55rem;margin-bottom:6px}
+  .lead{color:var(--muted);margin-bottom:22px;max-width:700px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .card .h{display:flex;align-items:flex-start;gap:12px}
+  .chk{flex:none;width:22px;height:22px;border:2px solid var(--steel);border-radius:6px;color:var(--steel);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+  .card h3{font-size:1.08rem;margin-bottom:3px}
+  .card p{font-size:.92rem;color:var(--muted)}
+  .tagx{display:inline-block;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--orange);background:var(--orange-soft);padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
+
+  .metric{display:grid;grid-template-columns:1fr 150px;gap:10px 16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+  .metric .m{font-weight:600;font-size:.98rem}
+  .metric .d{font-size:.86rem;color:var(--muted)}
+  .metric .target{font-size:.82rem;color:var(--steel-d);background:var(--steel-soft);border-radius:8px;padding:8px;text-align:center;font-weight:600}
+
+  .open{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:10px;padding:13px 16px;margin-bottom:10px}
+  .open .q{font-weight:600;font-size:.96rem}
+  .open .who{font-size:.82rem;color:var(--muted);margin-top:2px}
+
+  /* timeline */
+  .tl{position:relative;padding-left:26px;margin-bottom:28px}
+  .tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
+  .tl .step{position:relative;margin-bottom:16px}
+  .tl .step::before{content:'';position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--steel);border:2px solid #fff;box-shadow:0 0 0 2px var(--steel)}
+  .tl .step.now::before{background:var(--orange);box-shadow:0 0 0 2px var(--orange)}
+  .tl .step.launch::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+  .tl .dt{font-weight:600;font-size:.92rem}
+  .tl .ds{font-size:.9rem;color:var(--muted)}
+
+  .table-scroll{overflow-x:auto}
+  table.map{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:600px}
+  table.map th,table.map td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.map th{background:var(--steel-d);color:#fff;font-weight:600;font-size:.76rem}
+  table.map tr:last-child td{border-bottom:none}
+  table.map tr.hl td{background:#fbf1e6}
+  .pill{font-size:.7rem;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap}
+  .p-now{color:var(--orange);background:var(--orange-soft)}.p-open{color:var(--muted);background:#eef1f4}
+  .note{font-size:.82rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:24px 0 50px;font-size:.8rem;color:var(--muted)}
+  footer .disc{border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Economy Plumbing &amp; Heating Supply &nbsp;×&nbsp; Shopify</div>
+    <h1>Curated pilot — mutual action plan</h1>
+    <p>A shared working doc for our call: confirm the use cases, agree how we'll measure success, close the open questions, and map the path to a March launch.</p>
+    <div class="hbadge">Target: pilot live March 2027 — built during peak season, live as it ends</div>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="wrap">
+    <button class="tab active" onclick="show(event,'ov')">Overview</button>
+    <button class="tab" onclick="show(event,'uc')">Use Cases</button>
+    <button class="tab" onclick="show(event,'sm')">Success Metrics</button>
+    <button class="tab" onclick="show(event,'open')">Open / To Confirm</button>
+    <button class="tab" onclick="show(event,'tl')">Timeline &amp; MAP</button>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="ov" class="content active">
+  <div class="wrap">
+    <h2>Shopify — tailored to Economy Plumbing</h2>
+    <p class="lead">A quick primer on how Shopify fits what we discussed, coming from Magento + DDI. The short version: Shopify becomes your modern storefront and checkout, while DDI stays your source of truth.</p>
+
+    <div class="card"><div class="h"><div class="chk" style="border-color:var(--orange);color:var(--orange)">1</div><div>
+      <h3>Hosted &amp; fully managed — unlike Magento</h3>
+      <p>No servers to patch, PCI handled, no plugin sprawl. For a lean team, that removes the Magento upkeep and the manual PIM copy-paste you're doing today — Shopify runs the infrastructure so you run the business.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk" style="border-color:var(--orange);color:var(--orange)">2</div><div>
+      <h3>Modern storefront + Shop Pay checkout</h3>
+      <p>Fast, mobile-first pages and one-click Shop Pay — the accelerated checkout that lifts conversion, especially on mobile. This is the "streamline &amp; convert" piece you're after.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk" style="border-color:var(--orange);color:var(--orange)">3</div><div>
+      <h3>B2B is built in</h3>
+      <p>Company accounts, customer-specific price lists, net terms, and quick reorder — so contractors, GCs, and property managers log in and see their own pricing. Maps directly to the tiered pricing you manage in DDI today.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk" style="border-color:var(--orange);color:var(--orange)">4</div><div>
+      <h3>DDI Inform stays your source of truth</h3>
+      <p>You're not replacing DDI — Shopify is the storefront on top of it. A proven connector (DCKAP) syncs products, inventory, pricing, and orders both ways, ending the manual re-keying.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk" style="border-color:var(--orange);color:var(--orange)">5</div><div>
+      <h3>App ecosystem + sales channels</h3>
+      <p>Thousands of apps (marketing, reviews, social) and native channels (social/marketplace) to grow the traffic, referrals, and new-customer acquisition you mentioned — without custom development.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk" style="border-color:var(--orange);color:var(--orange)">6</div><div>
+      <h3>Start small, then scale</h3>
+      <p>The curated pilot proves it on a focused set of SKUs without touching your live Magento site or peak operations. Hit the success metrics, then expand to the full catalog — a de-risked path (unlike a big-bang migration).</p></div></div></div>
+  </div>
+</div>
+
+<!-- USE CASES -->
+<div id="uc" class="content">
+  <div class="wrap">
+    <h2>Use cases to confirm</h2>
+    <p class="lead">What the pilot needs to deliver — let's confirm each is right and complete.</p>
+
+    <div class="card"><div class="h"><div class="chk">✓</div><div>
+      <h3>Curated pilot store <span class="tagx">your idea</span></h3>
+      <p>A focused subset of your ~50–90K shippable SKUs (excludes furnaces/water heaters), running separately from the live Magento site — so peak operations aren't touched.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk">✓</div><div>
+      <h3>One-click Shop Pay checkout</h3>
+      <p>Fast, mobile-friendly checkout to lift conversion — a core reason you're exploring Shopify.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk">✓</div><div>
+      <h3>B2B tiered pricing</h3>
+      <p>Contractor / GC / property-management (and homeowner/retail) pricing, driven from your DDI segments, so each account logs in and sees its own price.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk">✓</div><div>
+      <h3>Modern channels + app ecosystem</h3>
+      <p>Social-integrated selling channels and marketing apps to grow traffic, referrals, and new-customer acquisition.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk">✓</div><div>
+      <h3>DDI Inform stays your source of truth</h3>
+      <p>Keep DDI as the ERP; connect it to Shopify via a proven connector (DCKAP) — products, inventory, pricing, orders in sync. No manual PIM copy-paste.</p></div></div></div>
+
+    <div class="card"><div class="h"><div class="chk">✓</div><div>
+      <h3>De-risked rollout</h3>
+      <p>Small pilot first (the antidote to the prior Billtrust implementation experience), with the full main-site replatform sequenced after peak season.</p></div></div></div>
+  </div>
+</div>
+
+<!-- SUCCESS METRICS -->
+<div id="sm" class="content">
+  <div class="wrap">
+    <h2>How we'll measure success</h2>
+    <p class="lead">Proposed pilot KPIs — let's set the targets together so we know what "working" looks like.</p>
+
+    <div class="metric"><div><div class="m">Online conversion rate (pilot)</div><div class="d">vs. your current site</div></div><div class="target">Set baseline + target</div></div>
+    <div class="metric"><div><div class="m">Pilot online revenue / orders</div><div class="d">first 90 days post-launch</div></div><div class="target">Target $ / # orders</div></div>
+    <div class="metric"><div><div class="m">Average order value</div><div class="d">pilot vs. counter/phone</div></div><div class="target">Target AOV</div></div>
+    <div class="metric"><div><div class="m">Contractor self-serve / reorder rate</div><div class="d">% of B2B accounts ordering online vs. phone</div></div><div class="target">Target %</div></div>
+    <div class="metric"><div><div class="m">Manual order-entry / PIM hours saved</div><div class="d">ops efficiency from DDI sync</div></div><div class="target">Hours/week saved</div></div>
+    <div class="metric"><div><div class="m">Mobile conversion</div><div class="d">mobile share + conversion</div></div><div class="target">Target %</div></div>
+    <div class="metric"><div><div class="m">New-customer acquisition</div><div class="d">via new channels/apps</div></div><div class="target">Target new accounts</div></div>
+    <p class="note">These become the shared scorecard for deciding when to expand the pilot into the full catalog.</p>
+  </div>
+</div>
+
+<!-- OPEN -->
+<div id="open" class="content">
+  <div class="wrap">
+    <h2>Open items — to confirm</h2>
+    <p class="lead">What we still need to answer before/at kickoff.</p>
+
+    <div class="open"><div><div class="q">Pilot SKU scope</div><div class="who">Which product subset is in v1 — Anthony</div></div></div>
+    <div class="open"><div><div class="q">DDI Inform integration — connector + ownership</div><div class="who">Confirm DCKAP; who builds/owns it (Anthony vs. partner) — Nicole + Anthony</div></div></div>
+    <div class="open"><div><div class="q">Implementation partner intro</div><div class="who">Line up a partner to scope + build the pilot — Nicole</div></div></div>
+    <div class="open"><div><div class="q">Payments</div><div class="who">Current processor; Shopify Payments/Shop Pay eligibility + rate comparison — Nicole ← Anthony (rates)</div></div></div>
+    <div class="open"><div><div class="q">Pricing-tier structure</div><div class="who">Exact tiers + how they map to Shopify B2B price lists — Anthony</div></div></div>
+    <div class="open"><div><div class="q">Plan tier</div><div class="who">Grow/Advanced vs. Plus (B2B depth + API headroom for DDI sync) — Nicole</div></div></div>
+    <div class="open"><div><div class="q">Decision + budget</div><div class="who">Who signs off; pilot budget range — Anthony</div></div></div>
+    <div class="open"><div><div class="q">Current online GMV / % of business</div><div class="who">To size the pilot + plan — Anthony</div></div></div>
+    <div class="open"><div><div class="q">Confirm the March launch target</div><div class="who">Build during peak, launch as it ends — both</div></div></div>
+  </div>
+</div>
+
+<!-- TIMELINE + MAP -->
+<div id="tl" class="content">
+  <div class="wrap">
+    <h2>Timeline — working back from a March launch</h2>
+    <p class="lead">Build quietly during peak season so the pilot goes live in March, as peak ends — capturing the next cycle instead of losing it.</p>
+
+    <div class="tl">
+      <div class="step now"><div class="dt">Late Aug 2026 — Align &amp; commit (this call)</div><div class="ds">Confirm use cases + metrics, close open items, agree to kick off the pilot + partner intro.</div></div>
+      <div class="step"><div class="dt">Sept 2026 — Kickoff</div><div class="ds">Finalize pilot scope; onboard implementation partner; begin DDI ↔ Shopify (DCKAP) setup.</div></div>
+      <div class="step"><div class="dt">Oct–Nov 2026 — Integration &amp; build</div><div class="ds">DDI connector + B2B pricing config; pilot catalog; store build.</div></div>
+      <div class="step"><div class="dt">Dec 2026–Jan 2027 — Assemble</div><div class="ds">Theme, Shop Pay/payments, channels/apps, content.</div></div>
+      <div class="step"><div class="dt">Feb 2027 — UAT &amp; QA</div><div class="ds">Testing, SEO/redirects, staging sign-off.</div></div>
+      <div class="step launch"><div class="dt">March 2027 — Pilot go-live</div><div class="ds">Live as peak season ends.</div></div>
+      <div class="step"><div class="dt">Q2 2027+ — Measure &amp; expand</div><div class="ds">Hit the success metrics → sequence the full main-site replatform off Magento.</div></div>
+    </div>
+
+    <h3 style="font-size:1.15rem;margin-bottom:10px">Mutual action plan</h3>
+    <div class="table-scroll">
+    <table class="map">
+      <tr><th>#</th><th>Milestone</th><th>Owner</th><th>Target</th><th>Status</th></tr>
+      <tr class="hl"><td>1</td><td>Confirm use cases, metrics &amp; pilot scope</td><td>Both (this call)</td><td>Aug 25</td><td><span class="pill p-now">Today</span></td></tr>
+      <tr><td>2</td><td>Send current payment rates + online GMV</td><td>Anthony</td><td>Aug 29</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>3</td><td>Implementation-partner intro + DCKAP path</td><td>Nicole</td><td>Sept 3</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>4</td><td>Pilot scoping session + quote</td><td>Nicole + partner + Anthony</td><td>Sept 10</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>5</td><td>Kickoff / build start</td><td>Both + partner</td><td>Sept</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>6</td><td>DDI integration + pilot build</td><td>Partner + Anthony</td><td>Oct–Jan</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>7</td><td>UAT / SEO / staging</td><td>Both</td><td>Feb 2027</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>8</td><td>Pilot go-live</td><td>Both</td><td>March 2027</td><td><span class="pill p-open">Open</span></td></tr>
+    </table>
+    </div>
+    <p class="note">Draft for review/adjustment on the call — owners and dates confirmed together.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap disc">
+    Prepared by Nicole DeGennaro · Shopify. Working draft to align on the pilot; scope, connector, plan, and dates finalized with your team and an implementation partner.
+  </div>
+</footer>
+
+<script>
+  function show(e,id){
+    document.querySelectorAll('.content').forEach(function(c){c.classList.remove('active')});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    e.currentTarget.classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+</script>
+</body>
+</html>
