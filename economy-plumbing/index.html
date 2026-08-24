@@ -57,6 +57,8 @@
   .tl .step::before{content:'';position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--steel);border:2px solid #fff;box-shadow:0 0 0 2px var(--steel)}
   .tl .step.now::before{background:var(--orange);box-shadow:0 0 0 2px var(--orange)}
   .tl .step.launch::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+  .tl .step.sign::before{background:var(--orange);box-shadow:0 0 0 2px var(--orange),0 0 0 5px #fbeedd}
+  .tl .step.sign .dt{color:var(--orange)}
   .tl .dt{font-weight:600;font-size:.92rem}
   .tl .ds{font-size:.9rem;color:var(--muted)}
 
@@ -225,31 +227,29 @@
 <!-- TIMELINE + MAP -->
 <div id="tl" class="content">
   <div class="wrap">
-    <h2>Timeline — working back from a March launch</h2>
-    <p class="lead">Build quietly during peak season so the pilot goes live in March, as peak ends — capturing the next cycle instead of losing it.</p>
+    <h2>Timeline — 5-month build, testing, then launch</h2>
+    <p class="lead">Roughly five months to build, a dedicated testing phase, then go live in March.</p>
 
     <div class="tl">
-      <div class="step now"><div class="dt">Late Aug 2026 — Align &amp; commit (this call)</div><div class="ds">Confirm use cases + metrics, close open items, agree to kick off the pilot + partner intro.</div></div>
-      <div class="step"><div class="dt">Sept 2026 — Kickoff</div><div class="ds">Finalize pilot scope; onboard implementation partner; begin DDI ↔ Shopify (DCKAP) setup.</div></div>
-      <div class="step"><div class="dt">Oct–Nov 2026 — Integration &amp; build</div><div class="ds">DDI connector + B2B pricing config; pilot catalog; store build.</div></div>
-      <div class="step"><div class="dt">Dec 2026–Jan 2027 — Assemble</div><div class="ds">Theme, Shop Pay/payments, channels/apps, content.</div></div>
-      <div class="step"><div class="dt">Feb 2027 — UAT &amp; QA</div><div class="ds">Testing, SEO/redirects, staging sign-off.</div></div>
-      <div class="step launch"><div class="dt">March 2027 — Pilot go-live</div><div class="ds">Live as peak season ends.</div></div>
-      <div class="step"><div class="dt">Q2 2027+ — Measure &amp; expand</div><div class="ds">Hit the success metrics → sequence the full main-site replatform off Magento.</div></div>
+      <div class="step now"><div class="dt">This call · late Aug 2026 — Align &amp; commit</div><div class="ds">Confirm use cases, close open items, agree to kick off + partner intro.</div></div>
+      <div class="step sign"><div class="dt">Sign · early September 2026</div><div class="ds">The commitment that kicks off the build — sign early Sept so the ~5-month build lands the March launch.</div></div>
+      <div class="step"><div class="dt">Build · ~5 months (Sept 2026 – Jan 2027)</div><div class="ds">Kickoff &amp; partner onboarding, DDI ↔ Shopify (DCKAP) integration, B2B pricing, store build, catalog, Shop Pay + channels.</div></div>
+      <div class="step"><div class="dt">Testing phase · Feb 2027</div><div class="ds">UAT, QA, SEO/redirects, staging sign-off.</div></div>
+      <div class="step launch"><div class="dt">Launch live · March 2027</div><div class="ds">Go live.</div></div>
     </div>
 
     <h3 style="font-size:1.15rem;margin-bottom:10px">Mutual action plan</h3>
     <div class="table-scroll">
     <table class="map">
       <tr><th>#</th><th>Milestone</th><th>Owner</th><th>Target</th><th>Status</th></tr>
-      <tr class="hl"><td>1</td><td>Confirm use cases, metrics &amp; pilot scope</td><td>Both (this call)</td><td>Aug 25</td><td><span class="pill p-now">Today</span></td></tr>
+      <tr class="hl"><td>1</td><td>Confirm use cases &amp; scope</td><td>Both (this call)</td><td>Aug 25</td><td><span class="pill p-now">Today</span></td></tr>
       <tr><td>2</td><td>Send current payment rates + online GMV</td><td>Anthony</td><td>Aug 29</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>3</td><td>Implementation-partner intro + DCKAP path</td><td>Nicole</td><td>Sept 3</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>4</td><td>Pilot scoping session + quote</td><td>Nicole + partner + Anthony</td><td>Sept 10</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>5</td><td>Kickoff / build start</td><td>Both + partner</td><td>Sept</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>6</td><td>DDI integration + pilot build</td><td>Partner + Anthony</td><td>Oct–Jan</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>7</td><td>UAT / SEO / staging</td><td>Both</td><td>Feb 2027</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>8</td><td>Pilot go-live</td><td>Both</td><td>March 2027</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>3</td><td>Implementation-partner intro + DCKAP path</td><td>Nicole</td><td>Sept 2</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>4</td><td>Scoping session + quote</td><td>Nicole + partner + Anthony</td><td>Sept 4</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr class="hl"><td>5</td><td>Sign</td><td>Anthony</td><td>early Sept 2026</td><td><span class="pill p-now">Target</span></td></tr>
+      <tr><td>6</td><td>Build — DDI integration + store (~5 months)</td><td>Partner + Anthony</td><td>Sept 2026 – Jan 2027</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>7</td><td>Testing — UAT / SEO / staging</td><td>Both</td><td>Feb 2027</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>8</td><td>Launch live</td><td>Both</td><td>March 2027</td><td><span class="pill p-open">Open</span></td></tr>
     </table>
     </div>
     <p class="note">Draft for review/adjustment on the call — owners and dates confirmed together.</p>
