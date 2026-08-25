@@ -21,7 +21,8 @@
   header{background:linear-gradient(160deg,#2b6cb0 0%,#1f4e7a 100%);color:#fff;padding:56px 0 48px}
   .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#bcd6ee;font-weight:600;margin-bottom:14px}
   header h1{font-size:2.3rem;margin-bottom:12px}
-  header p{font-size:1.08rem;color:#dbe8f5;max-width:660px}
+  header p{font-size:1.08rem;color:#dbe8f5;max-width:680px}
+  .hbadge{display:inline-block;margin-top:16px;background:rgba(47,133,90,.22);border:1px solid #7fd3ac;color:#d6f0e0;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:999px}
   section{padding:42px 0}
   .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:6px}
   .sec-title{font-size:1.55rem;margin-bottom:8px}
@@ -44,15 +45,17 @@
   .opt li{position:relative;padding-left:20px;font-size:.92rem;color:var(--ink);margin-bottom:8px}
   .opt.a li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
   .opt.b li::before{content:'•';position:absolute;left:0;color:var(--muted);font-weight:700}
-  .opt .fit{margin-top:14px;padding:11px 14px;border-radius:10px;font-size:.88rem}
-  .opt.a .fit{background:var(--green-soft)}
-  .opt.b .fit{background:#eef1f5}
+  .perks{background:var(--green-soft);border:1px solid #cbe6d5;border-radius:10px;padding:13px 15px;margin-top:14px}
+  .perks div{font-size:.9rem;margin-bottom:5px}.perks div:last-child{margin-bottom:0}
+  .perks b{color:var(--green)}
+  .opt .fit{margin-top:12px;padding:11px 14px;border-radius:10px;font-size:.88rem;background:#eef1f5}
   .table-scroll{overflow-x:auto}
   table.cmp{width:100%;border-collapse:collapse;font-size:.94rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:520px}
   table.cmp th,table.cmp td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line)}
   table.cmp th{background:var(--green-soft);font-weight:600;color:var(--green);font-size:.82rem}
   table.cmp td:first-child{font-weight:600}
   table.cmp tr:last-child td{border-bottom:none}
+  table.cmp .win{color:var(--green);font-weight:600}
   .callout{background:var(--green-soft);border:1px solid #cbe6d5;border-radius:12px;padding:16px 18px;margin-top:18px;font-size:.94rem}
   .callout b{color:var(--green)}
   .note{font-size:.82rem;color:var(--muted);margin-top:16px;font-style:italic}
@@ -67,30 +70,35 @@
   <div class="wrap">
     <div class="kicker">Best Buddies International &nbsp;×&nbsp; Shopify</div>
     <h1>The right plan for your pop-up: Grow + POS Pro</h1>
-    <p>Since you'll process on Shopify Payments, Grow gives you the full POS Pro + Shop Pay experience — for less than the nonprofit plan. Here's why.</p>
+    <p>Full POS Pro + Shop Pay at the lowest cost — plus a free terminal, free migration, and a subscription credit through our Retail offer.</p>
+    <div class="hbadge">≈ $1,752/yr + free terminal + free migration + a 3-month POS Pro credit</div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
     <div class="num">Recommended · single location</div>
-    <h2 class="sec-title">Grow + POS Pro</h2>
-    <p class="sec-sub">You get everything the pop-up needs — full retail POS, an online store, and Shop Pay — at the lowest all-in price.</p>
+    <h2 class="sec-title">Grow + POS Pro (Retail offer)</h2>
+    <p class="sec-sub">Everything the pop-up needs — full retail POS, an online store, and Shop Pay — at the best all-in price, with hardware and setup covered.</p>
 
     <div class="opts">
       <div class="opt a">
-        <span class="tag">Recommended</span>
+        <span class="tag">Recommended · Retail offer</span>
         <h3>Grow + POS Pro</h3>
-        <div class="price">$168<small> /mo</small></div>
-        <div class="yr">Grow $79/mo + POS Pro $89/mo · ≈ $2,016 / yr</div>
+        <div class="price">$146<small> /mo</small></div>
+        <div class="yr">Grow $79/mo + POS Pro $67/mo · ≈ $1,752 / yr</div>
         <h4>Everything the pop-up needs</h4>
         <ul>
-          <li>Full <strong>POS Pro</strong> — staff roles, inventory, exchanges at any location, retail reporting</li>
-          <li>Online store included</li>
-          <li><strong>Shop Pay</strong> + Shopify Payments (one-click, mobile)</li>
-          <li>In-person card rate 2.5% + 10¢</li>
+          <li>Full <strong>POS Pro</strong> — staff roles, inventory, exchanges, retail reporting</li>
+          <li>Online store + <strong>Shop Pay</strong> (Shopify Payments)</li>
+          <li><strong>Donations supported</strong> via a donation app or donation product</li>
         </ul>
-        <div class="fit"><b>Best fit:</b> on Shopify Payments you get the same checkout as the nonprofit plan — for ~$20/mo less.</div>
+        <div class="perks">
+          <div><b>Included with the Retail offer:</b></div>
+          <div>🎁 <b>Free POS Terminal</b> ($349 value)</div>
+          <div>🛠️ <b>Free launch &amp; migration assistance</b> (~$1,500 value)</div>
+          <div>💵 Credit covering <b>3 months of POS Pro</b> once you hit <b>$10,000 in sales within 90 days</b></div>
+        </div>
       </div>
 
       <div class="opt b">
@@ -98,13 +106,13 @@
         <h3>NPO Full + POS Pro</h3>
         <div class="price">$188<small> /mo</small></div>
         <div class="yr">NPO Full $99/mo + POS Pro $89/mo · ≈ $2,256 / yr</div>
-        <h4>Only worth it if…</h4>
+        <h4>Why it's not the fit here</h4>
         <ul>
-          <li>You use a <strong>third-party gateway</strong> (its 0% third-party fee wouldn't apply to you on Shopify Payments)</li>
-          <li>You need native <strong>donation acceptance</strong> as a core feature</li>
-          <li>You need unlimited staff accounts</li>
+          <li>Its headline perk — <strong>0% third-party fee</strong> — only applies off Shopify Payments (you're on Shopify Payments, so it's moot)</li>
+          <li>Native charity donations — but donations <strong>aren't easier or better on NPO</strong>; Grow does the same via an app, same Shop Pay checkout, 0% taken by Shopify either way</li>
+          <li>No free terminal, migration, or subscription credit</li>
         </ul>
-        <div class="fit"><b>Why not needed here:</b> you're on Shopify Payments, so NPO's headline perk (0% third-party fee) doesn't apply — you'd pay ~$240/yr more for features you won't use.</div>
+        <div class="fit"><b>Net:</b> ~$500/yr more than the Grow Retail offer, for perks you won't use.</div>
       </div>
     </div>
   </div>
@@ -116,18 +124,19 @@
     <h2 class="sec-title">Why Grow wins for your setup</h2>
     <div class="table-scroll">
     <table class="cmp">
-      <tr><th>&nbsp;</th><th>Grow + POS Pro ✓</th><th>NPO Full + POS Pro</th></tr>
+      <tr><th>&nbsp;</th><th>Grow + POS Pro (Retail offer) ✓</th><th>NPO Full + POS Pro</th></tr>
       <tr><td>Base plan</td><td>$79/mo</td><td>$99/mo</td></tr>
-      <tr><td>POS Pro</td><td>$89/mo</td><td>$89/mo</td></tr>
-      <tr><td>Annual total</td><td><strong>≈ $2,016</strong></td><td>≈ $2,256</td></tr>
-      <tr><td>POS Pro toolkit</td><td>Full</td><td>Full</td></tr>
-      <tr><td>Shop Pay + Shopify Payments</td><td>Yes</td><td>Yes</td></tr>
-      <tr><td>3rd-party gateway fee</td><td>N/A — you're on Shopify Payments</td><td>N/A — you're on Shopify Payments</td></tr>
-      <tr><td>Net difference</td><td><strong>$240/yr cheaper</strong></td><td>+$240/yr for unused perks</td></tr>
+      <tr><td>POS Pro</td><td class="win">$67/mo</td><td>$89/mo</td></tr>
+      <tr><td>Annual total</td><td class="win">≈ $1,752</td><td>≈ $2,256</td></tr>
+      <tr><td>Free POS Terminal</td><td class="win">$349 value</td><td>—</td></tr>
+      <tr><td>Free migration/setup</td><td class="win">~$1,500 value</td><td>—</td></tr>
+      <tr><td>$10k-sales credit</td><td class="win">3 mo POS Pro</td><td>—</td></tr>
+      <tr><td>Donations</td><td>Yes (app/product)</td><td>Yes (native)</td></tr>
+      <tr><td>3rd-party fee (on Shopify Payments)</td><td>N/A</td><td>N/A</td></tr>
     </table>
     </div>
     <div class="callout">
-      The nonprofit plan's main draw is a <b>0% third-party transaction fee</b> — but that only matters if you use a payment gateway <b>other</b> than Shopify Payments. Since you're using <b>Shopify Payments</b>, there's no third-party fee on either plan, so that advantage is moot. <b>Grow gives the identical POS Pro + Shop Pay experience for ~$240/yr less.</b>
+      On <b>Shopify Payments</b>, NPO's 0% third-party fee doesn't apply. And <b>donations aren't any easier or better on NPO</b> — on Grow you add a donation app (or a donation product) and collect donations through the <b>same Shop Pay checkout</b>, with <b>Shopify taking 0% of donations on either plan</b>. Same donor experience, same processing. So the Grow Retail offer is both <b>cheaper (~$500/yr) and comes with a free terminal, free migration, and a 3-month POS Pro credit</b>. Clear win.
     </div>
   </div>
 </section>
@@ -135,15 +144,15 @@
 <section>
   <div class="wrap">
     <div class="num">Recommendation</div>
-    <h2 class="sec-title">Go with Grow + POS Pro</h2>
-    <p class="sec-sub" style="margin-bottom:0">For a single pop-up on Shopify Payments, Grow + POS Pro is the smart choice — the full POS Pro toolkit, an online store, and Shop Pay, at ~$2,016/yr. The NPO plan's nonprofit perks (0% third-party fees, donation tools) don't apply to your setup, so there's no reason to pay the premium. Easy to upgrade later if your needs change.</p>
-    <p class="note">Pricing reflects current Shopify plan rates and standard POS Pro ($89/mo per location). Final terms confirmed at signup.</p>
+    <h2 class="sec-title">Go with Grow + POS Pro (Retail offer)</h2>
+    <p class="sec-sub" style="margin-bottom:0">For a single pop-up on Shopify Payments, this is the best value by a wide margin: the full POS Pro toolkit, an online store, and Shop Pay at ~$1,752/yr — plus a <strong>free POS terminal, free migration, and a credit covering 3 months of POS Pro</strong> once you reach $10k in sales. Donations are fully supported. The nonprofit plan's perks don't apply to your setup, so there's no reason to pay more.</p>
+    <p class="note">Pricing reflects the current Shopify Retail (POS Pro Yearly) offer and published Grow rate. The $10,000 threshold is Gross Payment Volume within 90 days of accepting the offer; terminal voucher redeemable within 60 days. Final terms confirmed at signup.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap disc">
-    Prepared by Nicole DeGennaro · Shopify. Figures reflect current published Shopify pricing and standard POS Pro; final terms confirmed in your quote.
+    Prepared by Nicole DeGennaro · Shopify. Figures reflect current published Shopify pricing and the Retail (POS Pro Yearly) offer; final terms confirmed in your quote.
   </div>
 </footer>
 
