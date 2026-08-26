@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Signal Group / Solid Signal × Shopify — Migration Plan</title>
+<title>Signal Group / Solid Signal × Shopify — Mutual Action Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -11,65 +11,64 @@
   :root{
     --ink:#0f1b2d; --muted:#5a6b82; --line:#e2e8f1;
     --navy:#0f2c4d; --navy-2:#123a66; --blue:#2f7de6; --blue-soft:#e8f1fd;
-    --cyan:#17b3c9; --paper:#f6f9fc; --card:#fff; --amber:#e08a2b; --green:#2f855a;
+    --cyan:#17b3c9; --paper:#f6f9fc; --card:#fff; --amber:#e08a2b; --green:#2f855a; --red:#b3364a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:920px;margin:0 auto;padding:0 22px}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
-  header{background:linear-gradient(155deg,#123a66 0%,#0f1b2d 100%);color:#fff;padding:56px 0 48px}
-  .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#8fc0f2;font-weight:600;margin-bottom:14px}
-  header h1{font-size:2.35rem;margin-bottom:12px}
-  header p{font-size:1.08rem;color:#cfe0f2;max-width:660px}
-  .hbadge{display:inline-block;margin-top:16px;background:rgba(47,125,230,.2);border:1px solid #2f7de6;color:#bcdcff;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:999px}
+  header{background:linear-gradient(155deg,#123a66 0%,#0f1b2d 100%);color:#fff;padding:54px 0 46px}
+  .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#8fc0f2;font-weight:600;margin-bottom:13px}
+  header h1{font-size:2.25rem;margin-bottom:11px}
+  header p{font-size:1.06rem;color:#cfe0f2;max-width:670px}
+  .hbadge{display:inline-block;margin-top:15px;background:rgba(47,125,230,.2);border:1px solid #2f7de6;color:#bcdcff;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:999px}
 
-  section{padding:42px 0}
+  /* tabs */
+  .tabbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .tabbar .wrap{display:flex;gap:4px;flex-wrap:wrap;padding-top:10px;padding-bottom:0}
+  .tab{font-family:'Inter';font-size:.92rem;font-weight:600;color:var(--muted);background:none;border:none;border-bottom:3px solid transparent;padding:12px 15px;cursor:pointer}
+  .tab:hover{color:var(--navy-2)}
+  .tab.active{color:var(--navy-2);border-bottom-color:var(--amber)}
+  .content{display:none;padding:34px 0}
+  .content.active{display:block}
   .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:6px}
-  .sec-title{font-size:1.55rem;margin-bottom:8px}
-  .sec-sub{color:var(--muted);margin-bottom:22px;max-width:720px}
+  .content h2{font-size:1.5rem;margin-bottom:6px}
+  .lead{color:var(--muted);margin-bottom:22px;max-width:720px}
 
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 1px 2px rgba(15,27,45,.04)}
-  .card h3{font-size:1.15rem;margin-bottom:10px}
-  .card.cur{border-top:3px solid #b3364a}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 2px rgba(15,27,45,.04)}
+  .card h3{font-size:1.12rem;margin-bottom:8px}
+  .card.cur{border-top:3px solid var(--red)}
   .card.new{border-top:3px solid var(--green)}
   .card ul{list-style:none}
-  .card li{position:relative;padding-left:18px;font-size:.92rem;margin-bottom:8px;color:var(--ink)}
-  .card li::before{content:'•';position:absolute;left:0;color:var(--muted)}
+  .card li{position:relative;padding-left:20px;font-size:.92rem;margin-bottom:8px;color:var(--ink)}
+  .card li::before{content:'•';position:absolute;left:0;color:var(--muted);font-weight:700}
   .card.new li::before{content:'✓';color:var(--green);font-weight:700}
   .tag{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:10px}
-  .tag.cur{color:#b3364a;background:#fbe7ea}.tag.new{color:var(--green);background:#e7f4ec}
+  .tag.cur{color:var(--red);background:#fbe7ea}.tag.new{color:var(--green);background:#e7f4ec}
 
-  /* architecture */
-  .arch{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
-  .flow{display:flex;align-items:stretch;gap:12px;flex-wrap:wrap;justify-content:center}
-  .node{flex:1;min-width:150px;border:1.5px solid var(--line);border-radius:12px;padding:16px;text-align:center;background:var(--paper)}
-  .node .n{font-weight:600;font-size:1rem;margin-bottom:3px}
-  .node .d{font-size:.8rem;color:var(--muted)}
-  .node.erp{border-color:var(--navy);background:#eef4fb}
-  .node.mid{border-color:var(--cyan);background:#e6f7fa}
-  .node.shop{border-color:var(--green);background:#e7f4ec}
-  .arrow{display:flex;align-items:center;color:var(--muted);font-size:1.4rem}
-  .archnote{font-size:.9rem;color:var(--muted);margin-top:14px}
+  .uc{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:10px}
+  .uc .chk{flex:none;width:24px;height:24px;border-radius:7px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px}
+  .uc h3{font-size:1.02rem;margin-bottom:2px}
+  .uc p{font-size:.9rem;color:var(--muted)}
 
-  /* payments */
   .prow{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem}
   .prow:last-child{border-bottom:none}
   .prow b{color:var(--ink)}
 
-  /* timeline */
-  .tl{position:relative;padding-left:26px}
+  .tl{position:relative;padding-left:26px;margin-bottom:26px}
   .tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
-  .tl .step{position:relative;margin-bottom:16px}
+  .tl .step{position:relative;margin-bottom:15px}
   .tl .step::before{content:'';position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 0 0 2px var(--blue)}
-  .tl .step.sign::before{background:var(--amber);box-shadow:0 0 0 2px var(--amber)}
+  .tl .step.sign::before{background:var(--amber);box-shadow:0 0 0 2px var(--amber),0 0 0 5px #fbeed8}
+  .tl .step.sign .dt{color:var(--amber)}
   .tl .step.live::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
-  .tl .dt{font-weight:600;font-size:.9rem}
+  .tl .step.renew::before{background:var(--red);box-shadow:0 0 0 2px var(--red)}
+  .tl .dt{font-weight:600;font-size:.92rem}
   .tl .ds{font-size:.9rem;color:var(--muted)}
 
-  /* MAP table */
   .table-scroll{overflow-x:auto}
-  table.map{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:640px}
+  table.map{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:660px}
   table.map th,table.map td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
   table.map th{background:var(--navy);color:#fff;font-weight:600;font-size:.78rem;letter-spacing:.02em}
   table.map tr:last-child td{border-bottom:none}
@@ -81,9 +80,9 @@
   .callout{background:#eef4fb;border:1px solid #cfe0f2;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.95rem}
   .callout b{color:var(--navy-2)}
   .note{font-size:.82rem;color:var(--muted);margin-top:16px;font-style:italic}
-  footer{padding:26px 0 50px;font-size:.82rem;color:var(--muted)}
-  footer .disc{border-top:1px solid var(--line);padding-top:18px}
-  @media(max-width:680px){header h1{font-size:1.9rem}.cols{grid-template-columns:1fr}.flow{flex-direction:column}.arrow{transform:rotate(90deg)}}
+  footer{padding:24px 0 50px;font-size:.82rem;color:var(--muted)}
+  footer .disc{border-top:1px solid var(--line);padding-top:16px}
+  @media(max-width:680px){header h1{font-size:1.85rem}.cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -91,138 +90,203 @@
 <header>
   <div class="wrap">
     <div class="kicker">Signal Group · Solid Signal &nbsp;×&nbsp; Shopify</div>
-    <h1>Your move off SuiteCommerce — plan &amp; timeline</h1>
-    <p>Keep NetSuite, modernize the storefront and checkout, and be fully live well before your May renewal. Here's the case, the architecture, and a mutual action plan.</p>
-    <div class="hbadge">Target: sign mid-September 2026 → launch Feb–Mar 2027 → May renewal is a non-event</div>
+    <h1>Mutual action plan — sign by mid-September, launch before renewal</h1>
+    <p>Keep NetSuite as your source of truth, modernize the storefront and checkout on Shopify Plus, and be fully live well ahead of your May renewal. Here's the current state, what you need it to do, and the plan to get there.</p>
+    <div class="hbadge">Target: sign ~Sept 18 → launch Feb–Mar 2027 → ahead of the May renewal</div>
   </div>
 </header>
 
-<!-- WHY NOW -->
-<section>
+<div class="tabbar">
+  <div class="wrap">
+    <button class="tab active" onclick="show(event,'ov')">Overview</button>
+    <button class="tab" onclick="show(event,'cs')">Current State</button>
+    <button class="tab" onclick="show(event,'uc')">Use Cases</button>
+    <button class="tab" onclick="show(event,'pp')">Pricing &amp; TCO</button>
+    <button class="tab" onclick="show(event,'tl')">Timeline &amp; MAP</button>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="ov" class="content active">
   <div class="wrap">
     <div class="num">The plan</div>
-    <h2 class="sec-title">Sign now, launch on your timeline</h2>
-    <p class="sec-sub">You want a clean, unhurried migration before the May renewal — which means starting now, not in spring. Signing in mid-September gives the full runway for the connector build, migration, and testing, so go-live lands comfortably ahead of the deadline (not compressed into it).</p>
+    <h2>Sign now, launch on your timeline</h2>
+    <p class="lead">You want a clean, unhurried migration that's fully live before your May renewal — which means starting now, not in spring. Signing in mid-September gives the full runway for the build, NetSuite integration, migration, and testing, so go-live lands comfortably ahead of the deadline instead of compressed into it.</p>
+
+    <div class="uc"><div class="chk">1</div><div><h3>Keep what works</h3><p>NetSuite stays your source of truth; Searchspring keeps running. We swap the storefront + checkout — not your back office.</p></div></div>
+    <div class="uc"><div class="chk">2</div><div><h3>Modernize the front end</h3><p>Shopify Plus storefront + Shop Pay checkout, DTC and B2B on one platform, faster to change without developer bottlenecks.</p></div></div>
+    <div class="uc"><div class="chk">3</div><div><h3>Beat the renewal cleanly</h3><p>A ~6-month build from a mid-September signature puts go-live in Feb–Mar 2027 — a safe buffer before the May renewal.</p></div></div>
+
     <div class="callout">
-      <b>Why the timing works:</b> a ~6-month implementation from a mid-September signature puts go-live in <b>Feb–Mar 2027</b> — a safe buffer before your <b>May</b> SuiteCommerce renewal. Waiting until spring compresses the whole build into the renewal window and turns a smooth migration into a fire drill.
+      <b>Why the timing works:</b> signing ~Sept 18 unlocks the partner + SE kickoff and gives a full, unhurried runway. Waiting until spring compresses the entire build into the renewal window and turns a smooth migration into a fire drill. <b>This document is our shared plan to hold that date.</b>
     </div>
   </div>
-</section>
+</div>
 
-<!-- TCO -->
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<!-- CURRENT STATE -->
+<div id="cs" class="content">
   <div class="wrap">
-    <div class="num">Total cost of ownership</div>
-    <h2 class="sec-title">SuiteCommerce vs. Shopify Plus</h2>
-    <p class="sec-sub">The move isn't just a better storefront — it's a lower-maintenance, faster-moving platform. (We'll finalize the exact TCO with your current SuiteCommerce costs + GMV.)</p>
+    <div class="num">Where you are today</div>
+    <h2>Current state</h2>
+    <p class="lead">A quick shared picture of today's stack and the pressure point — so the plan is grounded in your reality. (Confirm/correct anything on the call.)</p>
+
     <div class="cols">
       <div class="card cur">
-        <span class="tag cur">Today · SuiteCommerce</span>
-        <h3>Higher cost, slower to change</h3>
+        <span class="tag cur">Today</span>
+        <h3>SuiteCommerce on NetSuite</h3>
         <ul>
-          <li>Enterprise license + hosting tied to your ERP release cycle</li>
+          <li>Storefront tied to your ERP release cycle</li>
           <li>Developer-dependent for most storefront changes</li>
-          <li>Slower page speed → conversion &amp; SEO drag</li>
-          <li>Checkout that lags modern accelerated flows</li>
+          <li>Checkout lags modern accelerated flows (no Shop Pay)</li>
+          <li>Page speed → conversion &amp; SEO drag</li>
         </ul>
       </div>
-      <div class="card new">
-        <span class="tag new">Proposed · Shopify Plus</span>
-        <h3>Lower TCO, faster iteration</h3>
+      <div class="card">
+        <span class="tag" style="color:var(--navy-2);background:var(--blue-soft)">Your stack &amp; scale</span>
+        <h3>solidsignal.com · ~$20M · 2M+ customers</h3>
         <ul>
-          <li>From $2,300/mo — themes &amp; apps ship changes without dev for everything</li>
-          <li>~5× Advanced API throughput for your NetSuite + Searchspring load</li>
-          <li>Hosted CDN — faster pages, better conversion &amp; SEO</li>
-          <li>Modern checkout + Shop Pay out of the box</li>
+          <li><strong>NetSuite</strong> — ERP / source of truth (inventory, pricing, orders, customers)</li>
+          <li><strong>Searchspring</strong> — site search &amp; merchandising</li>
+          <li><strong>CyberSource / Braintree</strong> — payments today</li>
+          <li>Consumer DTC <strong>+ commercial / government + dealer</strong> (Request-a-Quote, DIRECTV Authorized Dealer)</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PAYMENTS -->
-<section>
+    <div class="callout">
+      <b>The deadline that sets the pace:</b> your <b>May SuiteCommerce renewal</b>. Launching Feb–Mar 2027 makes that renewal a non-event — but only if we sign in mid-September and start the build with room to spare.
+    </div>
+
+    <div class="callout" style="background:#fbeed8;border-color:#f0d29b">
+      <b>To confirm on the call:</b> (1) exact SuiteCommerce cost + renewal date; (2) full online GMV vs. the ~$1.3M card volume on the statements; (3) the <b>B2B model</b> — commercial / government / dealer accounts, quoting, tiered &amp; net-terms pricing (little of it is self-serve online today); (4) NetSuite integration specifics — <b>deep technical goes to Angel (SE)</b>; (5) current CyberSource/Braintree rates for the exact payments side-by-side.
+    </div>
+  </div>
+</div>
+
+<!-- USE CASES -->
+<div id="uc" class="content">
   <div class="wrap">
-    <div class="num">Payments &amp; checkout</div>
-    <h2 class="sec-title">Unlock Shop Pay — the conversion lever</h2>
-    <p class="sec-sub">You're on CyberSource/Braintree today and want Shop Pay. Here's how it works on Plus. (We'll drop in your real rates from Mae for the exact side-by-side.)</p>
+    <div class="num">What you need it to do</div>
+    <h2>Use cases to confirm</h2>
+    <p class="lead">What the new platform has to deliver — let's confirm each is right and complete on the call.</p>
+
+    <div class="uc"><div class="chk">✓</div><div><h3>NetSuite stays the source of truth</h3><p>Not a replacement — Shopify is the storefront on top, connected to NetSuite via a certified connector (e.g. <strong>Celigo</strong>) for inventory, pricing, orders, customers, and fulfillment. Deep technical validation is with Angel (Shopify SE).</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>DTC + B2B / commercial on one platform</h3><p>Your commercial, government, and dealer business runs on "Request a Quote" and offline pricing today. Shopify B2B adds self-serve company accounts, customer-specific price lists, net terms, and quick reorder — alongside the consumer store. <em>(Confirm the B2B model on the call.)</em></p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Shop Pay checkout</h3><p>The accelerated, high-converting checkout you're after — the core reason to modernize the front end.</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Keep Searchspring</h3><p>Runs natively on Shopify via its app — your search &amp; merchandising carries over.</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Marketplaces stay in sync</h3><p>One inventory pool across DTC, B2B, and marketplaces — no overselling.</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Faster iteration, lower TCO</h3><p>Themes &amp; apps ship changes without a developer for everything; hosted &amp; secure; ~5× the API throughput for your NetSuite + Searchspring load.</p></div></div>
+  </div>
+</div>
+
+<!-- PLAN & PAYMENTS -->
+<div id="pp" class="content">
+  <div class="wrap">
+    <div class="num">Pricing &amp; TCO · directional, built from your statements</div>
+    <h2>What the move costs — and what it returns</h2>
+    <p class="lead">Built from your June &amp; July card-processing statements and published Shopify Plus rates. Directional until we drop in your SuiteCommerce cost and confirm full online GMV (Mae).</p>
+
+    <h3 style="font-size:1.12rem;margin:6px 0 10px">1 · Card processing — today vs. Shopify Payments</h3>
+    <div class="table-scroll">
+    <table class="map">
+      <tr><th>&nbsp;</th><th>June 2026 (actual)</th><th>July 2026 (actual)</th></tr>
+      <tr><td class="m">Card volume processed</td><td>$105,883</td><td>$112,381</td></tr>
+      <tr><td class="m">Your fees today</td><td>$3,129</td><td>$3,112</td></tr>
+      <tr><td class="m">Your effective rate</td><td>2.96%</td><td>2.77%</td></tr>
+      <tr><td class="m">Est. on Shopify Payments*</td><td>~$2,703</td><td>~$2,824</td></tr>
+      <tr><td class="m">Est. effective rate</td><td>~2.55%</td><td>~2.51%</td></tr>
+      <tr class="hl"><td class="m">Monthly savings</td><td>~$426</td><td>~$288</td></tr>
+    </table>
+    </div>
+    <div class="callout"><b>≈ $4,000/yr in card savings</b> on ~$1.3M annual volume — <b>and</b> Shopify Payments is a flat rate that removes the PCI-compliance, authorization, chargeback, and monthly-location fees stacked on your statements today. <b>Shop Pay is included.</b></div>
+    <p class="note">* Shopify Payments Plus: 2.25% + 30¢ (Visa/MC/Discover), 2.9% Amex — applied to your actual card-type mix from the statements. No separate PCI / statement / per-item junk fees.</p>
+
+    <h3 style="font-size:1.12rem;margin:22px 0 10px">2 · Platform cost</h3>
     <div class="card">
-      <div class="prow"><span><b>Shop Pay one-click checkout</b> — the accelerated, high-converting flow you're after</span><b style="color:var(--green)">Requires Shopify Payments</b></div>
-      <div class="prow"><span>Shopify Payments card rate (Plus)</span><b>2.25% + 30¢ · 2.9% Amex</b></div>
-      <div class="prow"><span>Keep a third-party gateway (CyberSource/Braintree) instead</span><b>Allowed · +0.2% fee, no Shop Pay</b></div>
-      <div class="prow"><span>Recommended</span><b>Shopify Payments for Shop Pay + best rates; compare vs. your current rates</b></div>
+      <div class="prow"><span>Shopify Plus</span><b>from $2,300/mo ($27,600/yr)</b></div>
+      <div class="prow"><span>SuiteCommerce today — license + hosting, tied to your NetSuite contract</span><b>To confirm (Mae)</b></div>
+      <div class="prow"><span>Developer cost for storefront changes</span><b>High today → low on Plus</b></div>
     </div>
-    <p class="note">Shop Pay only works with Shopify Payments — moving card volume to it unlocks the accelerated checkout and the lowest rates. Send current CyberSource/Braintree rates and we'll build the exact comparison.</p>
-  </div>
-</section>
 
-<!-- ARCHITECTURE -->
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="num">Architecture</div>
-    <h2 class="sec-title">NetSuite stays your source of truth</h2>
-    <p class="sec-sub">You're not replacing NetSuite — you're swapping the storefront and connecting it. A proven connector keeps ERP as the backbone; your internal dev can run it.</p>
-    <div class="arch">
-      <div class="flow">
-        <div class="node erp"><div class="n">NetSuite ERP</div><div class="d">Source of truth — inventory, pricing, orders, customers</div></div>
-        <div class="arrow">⇄</div>
-        <div class="node mid"><div class="n">Connector</div><div class="d">Celigo (certified) or Oracle NetSuite Connector</div></div>
-        <div class="arrow">⇄</div>
-        <div class="node shop"><div class="n">Shopify Plus</div><div class="d">Storefront + Shop Pay checkout · Searchspring stays</div></div>
-      </div>
-      <div class="archnote">
-        <strong>Order flow (fits your hybrid model):</strong> DTC web orders sync up into NetSuite automatically; NetSuite-created (project/bid) orders sync down to Shopify; fulfillment/tracking flows back. <strong>Searchspring</strong> keeps running via its native Shopify app. Both connectors are NetSuite-certified and well within reach for your internal developer.
-      </div>
+    <h3 style="font-size:1.12rem;margin:22px 0 10px">3 · Revenue uplift — the real prize</h3>
+    <p class="lead" style="margin-bottom:12px">Shop Pay + a faster, modern, mobile checkout lifts conversion. Conservative industry uplift, applied to your ~$1.3M online card volume:</p>
+    <div class="table-scroll">
+    <table class="map">
+      <tr><th>Conversion uplift</th><th>Added revenue / yr</th></tr>
+      <tr><td class="m">+5% (conservative)</td><td>≈ +$65,000</td></tr>
+      <tr class="hl"><td class="m">+10% (Shop Pay-driven)</td><td>≈ +$131,000</td></tr>
+    </table>
     </div>
-  </div>
-</section>
+    <div class="callout"><b>The uplift dwarfs the platform cost.</b> Even a conservative +5% (~$65K/yr) more than covers Plus (~$27.6K/yr) — and grows as more B2B and phone volume shifts to self-serve online.</div>
 
-<!-- TIMELINE -->
-<section>
+    <h3 style="font-size:1.12rem;margin:22px 0 10px">Bottom line</h3>
+    <div class="cols">
+      <div class="card new"><span class="tag new">Save</span><ul><li>≈ $4K/yr card processing</li><li>PCI + auth + chargeback junk fees gone</li><li>Less developer / maintenance drag</li></ul></div>
+      <div class="card new"><span class="tag new">Earn</span><ul><li>+$65K–$131K/yr from Shop Pay + modern checkout</li><li>More B2B / phone volume moving self-serve online</li><li>Faster pages → conversion &amp; SEO</li></ul></div>
+    </div>
+    <p class="note">Directional model from your June/July statements + published Plus rates. We'll finalize the exact TCO with your SuiteCommerce cost, full online GMV, and B2B split (Mae / David Sack).</p>
+  </div>
+</div>
+
+<!-- TIMELINE + MAP -->
+<div id="tl" class="content">
   <div class="wrap">
     <div class="num">Timeline · backward from your May renewal</div>
-    <h2 class="sec-title">From signature to go-live</h2>
+    <h2>From signature to go-live</h2>
     <div class="tl">
-      <div class="step sign"><div class="dt">Mid-September 2026 — Contract signature</div><div class="ds">Unlocks partner + SE kickoff. The milestone everything else depends on.</div></div>
-      <div class="step"><div class="dt">Sept–Oct 2026 — Kickoff &amp; connector build</div><div class="ds">Implementation partner + your dev stand up the NetSuite connector; migration plan.</div></div>
-      <div class="step"><div class="dt">Nov–Dec 2026 — Build &amp; integrate</div><div class="ds">Theme/build, Searchspring, Shop Pay/payments, catalog migration.</div></div>
+      <div class="step" style="--x:1"><div class="dt">Aug 27, 2026 — This working session</div><div class="ds">Align on current state, use cases, and the path to sign by mid-September.</div></div>
+      <div class="step sign"><div class="dt">~Sept 18, 2026 — Contract signature</div><div class="ds">The milestone everything depends on — unlocks partner + SE kickoff.</div></div>
+      <div class="step"><div class="dt">Late Sept 2026 — Kickoff &amp; partner onboarding</div><div class="ds">Implementation partner + your team stand up the plan; NetSuite integration scoping.</div></div>
+      <div class="step"><div class="dt">Oct–Dec 2026 — Build &amp; integrate</div><div class="ds">Theme/build, NetSuite connector, B2B pricing, Searchspring, Shop Pay, catalog + data migration.</div></div>
       <div class="step"><div class="dt">Jan 2027 — UAT &amp; SEO</div><div class="ds">Testing, 301 redirects, staging sign-off.</div></div>
       <div class="step live"><div class="dt">Feb–Mar 2027 — Go-live</div><div class="ds">Live on Shopify Plus, comfortably before renewal.</div></div>
-      <div class="step"><div class="dt">May 2027 — SuiteCommerce renewal</div><div class="ds">A non-event — you're already migrated.</div></div>
+      <div class="step renew"><div class="dt">May 2027 — SuiteCommerce renewal</div><div class="ds">A non-event — you're already migrated.</div></div>
     </div>
-  </div>
-</section>
 
-<!-- MAP -->
-<section style="background:#fff;border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="num">Mutual action plan</div>
-    <h2 class="sec-title">What it takes to sign by mid-September</h2>
-    <p class="sec-sub">Shared owners and dates so both sides know what's next. Signature (~Sept 15) is the near-term milestone.</p>
+    <h3 style="font-size:1.15rem;margin-bottom:10px">Mutual action plan — what it takes to sign by mid-September</h3>
     <div class="table-scroll">
     <table class="map">
       <tr><th>#</th><th>Milestone</th><th>Owner</th><th>Target</th><th>Status</th></tr>
-      <tr><td>1</td><td class="m">Technical validation — connector, Searchspring, payments eligibility, order flow</td><td>Shopify SE (Angel) + Signal (Mae)</td><td>Aug 27</td><td><span class="pill p-prog">In progress</span></td></tr>
-      <tr><td>2</td><td class="m">TCO + payments comparison delivered (needs current rates)</td><td>Nicole ← Mae (rates)</td><td>Sept 3</td><td><span class="pill p-next">Next</span></td></tr>
-      <tr><td>3</td><td class="m">Confirm signatory + procurement/legal path</td><td>Signal (Sal)</td><td>Sept 5</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>4</td><td class="m">Pricing &amp; MAP agreed</td><td>Both</td><td>Sept 8</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>5</td><td class="m">Legal / order-form review</td><td>Signal procurement</td><td>Sept 8–12</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr class="hl"><td>6</td><td class="m">Contract signature</td><td>Signal (Sal)</td><td>~Sept 15</td><td><span class="pill p-next">Target</span></td></tr>
-      <tr><td>7</td><td class="m">Implementation partner kickoff</td><td>Nicole + partner</td><td>Sept 18</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>8</td><td class="m">NetSuite connector build + migration</td><td>Signal dev + partner</td><td>Sept–Dec</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>9</td><td class="m">Build, UAT, SEO/redirects</td><td>Partner + Signal</td><td>Jan 2027</td><td><span class="pill p-open">Open</span></td></tr>
-      <tr><td>10</td><td class="m">Go-live</td><td>Both</td><td>Feb–Mar 2027</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr class="hl"><td>1</td><td class="m">Align on plan, current state &amp; use cases</td><td>Both (this call)</td><td>Aug 27</td><td><span class="pill p-prog">Today</span></td></tr>
+      <tr><td>2</td><td class="m">Technical validation — NetSuite integration, Searchspring, payments eligibility, order flow</td><td>Angel (Shopify SE) + David Sack (IT)</td><td>Late Aug – early Sept</td><td><span class="pill p-next">Next</span></td></tr>
+      <tr><td>3</td><td class="m">TCO + payments comparison delivered</td><td>Nicole ← Mae (cost, rates, 12-mo online GMV)</td><td>Sept 3</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>4</td><td class="m">Create basic Shopify account + share store URL</td><td>Signal (David Sack) → Nicole</td><td>Sept 3</td><td><span class="pill p-next">Needed to sign</span></td></tr>
+      <tr><td>5</td><td class="m">Confirm signatory + procurement/legal path</td><td>Signal — Sal</td><td>Sept 5</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>6</td><td class="m">Pricing &amp; MAP agreed</td><td>Both</td><td>Sept 8</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>7</td><td class="m">Legal / order-form review</td><td>Signal procurement</td><td>Sept 8–16</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr class="hl"><td>8</td><td class="m">Contract signature (order form on the store URL)</td><td>Signal — Sal</td><td>~Sept 18</td><td><span class="pill p-next">Target</span></td></tr>
+      <tr><td>9</td><td class="m">Partner kickoff + NetSuite integration (Celigo) build</td><td>Partner + Signal dev</td><td>Late Sept – Dec</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>10</td><td class="m">Build, UAT, SEO / redirects</td><td>Partner + Signal</td><td>Jan 2027</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>11</td><td class="m">Go-live (ahead of May renewal)</td><td>Both</td><td>Feb–Mar 2027</td><td><span class="pill p-open">Open</span></td></tr>
     </table>
     </div>
-    <p class="note">Draft mutual action plan for review/adjustment on our Aug 27 call. Dates are targets working backward from a safe pre-May launch; owners and dates confirmed together.</p>
+    <div class="callout" style="margin-top:18px">
+      <b>What we need to get you signed by ~Sept 18:</b>
+      <ul style="list-style:none;margin-top:8px">
+        <li style="padding-left:18px;position:relative;margin-bottom:6px"><span style="position:absolute;left:0">▸</span> <b>Create a basic Shopify account</b> (free — <a href="https://www.shopify.com/" style="color:var(--blue)">shopify.com</a>) and share your <b>store URL</b> (<em>yourstore.myshopify.com</em>). The Plus order form attaches to that store — this is the one item that unlocks signature.</li>
+        <li style="padding-left:18px;position:relative;margin-bottom:6px"><span style="position:absolute;left:0">▸</span> Confirm the <b>signatory (Sal)</b> and your procurement / legal path.</li>
+        <li style="padding-left:18px;position:relative;margin-bottom:6px"><span style="position:absolute;left:0">▸</span> Company / billing details for the order form.</li>
+        <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0">▸</span> From Mae: current SuiteCommerce cost, CyberSource/Braintree rates, and 12-month online GMV — so the TCO is exact.</li>
+      </ul>
+    </div>
+    <p class="note">Draft mutual action plan for review/adjustment on our Aug 27 call. Dates are targets working backward from a safe pre-May launch; owners and dates confirmed together. Technical validation is led by Angel (Shopify SE).</p>
   </div>
-</section>
+</div>
 
 <footer>
   <div class="wrap disc">
-    Prepared by Nicole DeGennaro · Shopify. TCO and payment figures are illustrative pending your SuiteCommerce costs, GMV, and current processing rates; connector/architecture and timeline confirmed with your team and an implementation partner.
+    Prepared by Nicole DeGennaro · Shopify. Current-state, TCO, and payment details are working assumptions pending confirmation with your team; plan and dates finalized together and with an implementation partner.
   </div>
 </footer>
 
+<script>
+  function show(e,id){
+    document.querySelectorAll('.content').forEach(function(c){c.classList.remove('active')});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    e.currentTarget.classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+</script>
 </body>
 </html>
