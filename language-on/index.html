@@ -70,6 +70,12 @@
   .shotwrap{display:grid;grid-template-columns:1.7fr 1fr;gap:18px;align-items:start}
   .shotcap{font-size:.82rem;color:var(--muted);margin-top:8px;text-align:center}
   .mobwrap{max-width:250px;margin:0 auto}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .balbl{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px}
+  .balbl.cur{color:var(--coral);background:var(--coral-soft)}
+  .balbl.new{color:var(--green);background:#e7f4ec}
+  .arrowrow{text-align:center;color:var(--muted);font-size:.8rem;margin:6px 0}
+  @media(max-width:720px){.ba{grid-template-columns:1fr}}
 
   .callout{background:#eaf1f2;border:1px solid #cfe0e2;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.95rem}
   .callout b{color:var(--teal)}
@@ -152,20 +158,23 @@
 <!-- CHECKOUT PREVIEW -->
 <div id="co" class="content">
   <div class="wrap">
-    <div class="num">Checkout preview</div>
+    <div class="num">Before → after</div>
     <h2>What enrollment checkout could look like</h2>
-    <p class="lead">A tailored mock of a Language On course checkout on Shopify — desktop and mobile, with Shop Pay and a course/registration line-up.</p>
-    <div class="shotwrap">
-      <div>
-        <img class="shot" src="checkout-desktop.png" alt="Language On Shopify checkout — desktop" />
-        <div class="shotcap">Desktop — course + registration, discount, Shop Pay express</div>
-      </div>
-      <div class="mobwrap">
-        <img class="shot" src="checkout-mobile.png" alt="Language On Shopify checkout — mobile" />
-        <div class="shotcap">Mobile — how students actually enroll</div>
-      </div>
+    <p class="lead">Today it's a hand-built payment link generated per student. On Shopify it's one branded, mobile-first checkout with Shop Pay.</p>
+
+    <h3 style="font-size:1.05rem;margin:6px 0 10px">Desktop</h3>
+    <div class="ba">
+      <div><span class="balbl cur">Today · manual NMI link</span><img class="shot" src="before-desktop.png" alt="Today — manual NMI payment link" /></div>
+      <div><span class="balbl new">On Shopify · Shop Pay</span><img class="shot" src="checkout-desktop.png" alt="On Shopify — Shop Pay checkout" /></div>
     </div>
-    <div class="callout">Illustrative mock to show the experience — real courses, campuses, and start dates plug straight in. Custom enrollment fields (student details, campus, start date) live right in the flow.</div>
+
+    <h3 style="font-size:1.05rem;margin:26px 0 10px">Mobile — how students actually enroll</h3>
+    <div class="ba">
+      <div class="mobwrap"><span class="balbl cur">Today</span><img class="shot" src="before-mobile.png" alt="Today — manual link on mobile" /></div>
+      <div class="mobwrap"><span class="balbl new">On Shopify</span><img class="shot" src="checkout-mobile.png" alt="On Shopify — mobile checkout" /></div>
+    </div>
+
+    <div class="callout"><b>The shift:</b> from a plain, desktop-oriented payment link your team builds by hand for every student — to a branded, one-tap Shop Pay checkout with course, registration, and enrollment details in a single mobile flow. Illustrative mock; real courses, campuses, and start dates plug straight in.</div>
   </div>
 </div>
 
@@ -177,17 +186,16 @@
     <p class="lead">Recommended plan for your scale and checkout needs, with the payment rates that come with it.</p>
     <div class="card">
       <h3>Shopify Plus — $2,300/mo</h3>
-      <div class="prow"><span>Right tier for your GMV, custom enrollment checkout, and multi-location scale</span><b>Flat $2,300/mo</b></div>
+      <div class="prow"><span>Right fit for your GMV, custom enrollment checkout, and multi-location scale</span><b>Flat $2,300/mo</b></div>
       <div class="prow"><span>Variable platform fee</span><b>Only above ~$7.9M/yr — well beyond you today</b></div>
-      <div class="prow"><span>Lighter option to weigh</span><b>Advanced ($299/mo) if checkout customization is limited</b></div>
     </div>
     <div class="card">
       <h3>Payments &amp; Shop Pay</h3>
       <div class="prow"><span><b>Shop Pay</b> — one-click, mobile-first checkout</span><b style="color:var(--green)">Included with Shopify Payments</b></div>
-      <div class="prow"><span>Card rate</span><b>2.25% + 30¢ · 2.9% Amex</b></div>
+      <div class="prow"><span>Card rate</span><b>2.25% + 30¢ · 2.95% Amex</b></div>
       <div class="prow"><span>Replaces</span><b>NMI + manual links (and evaluated vs. Flywire)</b></div>
     </div>
-    <p class="note">GMV is your ~$4–5M estimate. We'll confirm the exact tier on the technical call based on how much checkout customization you need, and build a clean cost picture (plan + card rates + any apps).</p>
+    <p class="note">GMV is your ~$4–5M estimate. On the technical call we'll confirm scope and build a clean cost picture (Plus + card rates + any apps).</p>
   </div>
 </div>
 
@@ -196,12 +204,27 @@
   <div class="wrap">
     <div class="num">Similar on Shopify</div>
     <h2>How education &amp; enrollment businesses run on Shopify</h2>
-    <p class="lead">Schools, academies, and course businesses use Shopify as the storefront + checkout, treating enrollments like products and automating the busywork.</p>
+    <p class="lead">Language schools and course businesses use Shopify as the storefront + checkout, treating enrollments like products and automating the busywork. Two live examples you can browse — nearly your exact model:</p>
+    <div class="cols">
+      <div class="card new">
+        <span class="tag new">Live on Shopify</span>
+        <h3>Berlitz Australia</h3>
+        <p style="font-size:.92rem;color:var(--muted);margin-bottom:8px">The global language school, selling English (and other) courses on Shopify — in-person + live-online, with prices and add-to-cart. Kids/teens, small-group, and Berlitz Flex online English.</p>
+        <a href="https://berlitzaustralia.myshopify.com/" style="color:var(--shop);font-weight:600;font-size:.9rem">berlitzaustralia.myshopify.com →</a>
+      </div>
+      <div class="card new">
+        <span class="tag new">Live on Shopify</span>
+        <h3>Berlitz London</h3>
+        <p style="font-size:.92rem;color:var(--muted);margin-bottom:8px">An English course catalog on Shopify — trial lessons, group, private, and intensive courses, each priced and purchasable online (£9.99 trials up to full courses).</p>
+        <a href="https://berlitz-london.myshopify.com/collections/english-courses" style="color:var(--shop);font-weight:600;font-size:.9rem">berlitz-london.myshopify.com →</a>
+      </div>
+    </div>
+    <p class="num" style="margin-top:20px">Why the model works</p>
     <div class="uc"><div class="chk">✓</div><div><h3>Enrollment as a product</h3><p>Courses, sessions, and registration fees become purchasable items — with start date, campus, and level as options — checked out in one flow.</p></div></div>
     <div class="uc"><div class="chk">✓</div><div><h3>Automatic enrollment &amp; records</h3><p>The moment a student pays, confirmation and records happen automatically — no manual link-building or re-keying.</p></div></div>
     <div class="uc"><div class="chk">✓</div><div><h3>Proven course/enrollment apps</h3><p>Mature Shopify apps handle course delivery, student portals, and auto-enroll — e.g. Courses Plus, Tevello, Sky Pilot — so you're not building from scratch.</p></div></div>
     <div class="uc"><div class="chk">✓</div><div><h3>Own the brand &amp; the data</h3><p>A branded storefront and first-party student data, instead of marketplaces or scattered tools that take a cut and the relationship.</p></div></div>
-    <div class="note">I'll bring a couple of specific education/enrollment references on Shopify to the call to match your model.</div>
+    <div class="note">Both links above are live, public Shopify storefronts — open them on your phone to see the mobile enrollment experience.</div>
   </div>
 </div>
 
@@ -216,7 +239,7 @@
     <div class="uc"><div class="chk">3</div><div><h3>Courses as products + payment plans</h3><p>Modeling course × start date × campus × duration, registration + course fees, and whether you need deposits / installment / payment-plan options.</p></div></div>
     <div class="uc"><div class="chk">4</div><div><h3>Enrollment data &amp; custom fields</h3><p>Capturing student/visa/campus/start-date at checkout, and where enrollment data flows (any student system of record vs. today's PandaDoc).</p></div></div>
     <div class="uc"><div class="chk">5</div><div><h3>Multi-location &amp; multi-state tax</h3><p>Campus selection and sales-tax treatment of tuition across your 5 states.</p></div></div>
-    <div class="uc"><div class="chk">6</div><div><h3>Plan tier &amp; "AI checkout"</h3><p>Whether the custom checkout requires Plus vs. Advanced, and what the AI-driven checkout/product-feed capabilities actually are.</p></div></div>
+    <div class="uc"><div class="chk">6</div><div><h3>Checkout customization &amp; "AI checkout"</h3><p>Confirm the enrollment-checkout customizations on Plus, and what the AI-driven checkout / product-feed capabilities actually are.</p></div></div>
   </div>
 </div>
 
