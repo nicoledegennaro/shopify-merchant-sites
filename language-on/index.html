@@ -155,6 +155,17 @@
     </table>
     </div>
     <div class="callout"><b>Net:</b> five disconnected tools and a hand-built link per student become <b>one mobile-first checkout</b> — less staff time, fewer drop-offs, and a single source of truth for enrollments.</div>
+
+    <h3 style="font-size:1.15rem;margin:26px 0 10px">If enrollment is approval-gated (deposit → approval → balance)</h3>
+    <p class="lead" style="margin-bottom:14px">Since enrollment can hinge on advisor / visa approval, here's how a "deposit now, balance on approval" flow works on Shopify — and three things to get right.</p>
+    <div class="card">
+      <ul>
+        <li><b>Wire the approval to the charge.</b> Shopify's remaining-balance charges are time-based (a set date, or N days after checkout). "Advisor approves → charge the balance" has to be wired via an app or Shopify Flow — doable, but it's a build (an app), not plain admin config.</li>
+        <li><b>Disclose the full amount at the deposit checkout.</b> Show "$150 today, $X on approval" right in the checkout. A card-on-file charge much larger than the one the student consciously made is the exact pattern issuers dispute — and in strong-authentication markets the later charge only works if the mandate was captured at that first checkout.</li>
+        <li><b>Design the rejection path first.</b> If approval is denied you're refunding, and in most regions the processing fee doesn't come back. Decide up front whether the deposit is a <em>refundable deposit</em> or a <em>non-refundable application fee</em>, and size it against your real approval rate — a high approval rate keeps this clean; a low one turns it into constant refunds.</li>
+      </ul>
+    </div>
+    <div class="callout"><b>Lighter-weight option (good to start):</b> instead of charging a card on file, send a <b>second checkout link once approved</b> — with Shop Pay it's one tap with saved details. You give up ~one tap of friction but drop the mandate, the dispute exposure, and the custom app entirely. Worth knowing the trade-off before building the card-on-file version.</div>
   </div>
 </div>
 
