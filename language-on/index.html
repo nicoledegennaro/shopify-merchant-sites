@@ -75,6 +75,9 @@
   .balbl.cur{color:var(--coral);background:var(--coral-soft)}
   .balbl.new{color:var(--green);background:#e7f4ec}
   .arrowrow{text-align:center;color:var(--muted);font-size:.8rem;margin:6px 0}
+  .phone{width:248px;max-width:100%;height:520px;margin:0 auto;border:9px solid #1a2a2f;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(20,40,45,.18);position:relative}
+  .phone img{width:100%;display:block}
+  .phone.scroll::after{content:'↓ scrolls to payment';position:absolute;left:0;right:0;bottom:0;padding:22px 0 8px;text-align:center;font-size:11px;color:var(--muted);background:linear-gradient(to bottom,rgba(255,255,255,0),#fff 60%)}
   @media(max-width:720px){.ba{grid-template-columns:1fr}}
 
   .callout{background:#eaf1f2;border:1px solid #cfe0e2;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.95rem}
@@ -170,9 +173,10 @@
 
     <h3 style="font-size:1.05rem;margin:26px 0 10px">Mobile — how students actually enroll</h3>
     <div class="ba">
-      <div class="mobwrap"><span class="balbl cur">Today</span><img class="shot" src="before-mobile.png" alt="Today — manual link on mobile" /></div>
-      <div class="mobwrap"><span class="balbl new">On Shopify</span><img class="shot" src="checkout-mobile.png" alt="On Shopify — mobile checkout" /></div>
+      <div class="mobwrap"><span class="balbl cur">Today</span><div class="phone"><img src="before-mobile.png" alt="Today — manual link on mobile" /></div></div>
+      <div class="mobwrap"><span class="balbl new">On Shopify</span><div class="phone scroll"><img src="checkout-mobile.png" alt="On Shopify — mobile checkout" /></div></div>
     </div>
+    <p class="shotcap">Shown in a phone frame — the Shopify checkout scrolls from Shop Pay → student details → payment, just like a real device.</p>
 
     <div class="callout"><b>The shift:</b> from a plain, desktop-oriented payment link your team builds by hand for every student — to a branded, one-tap Shop Pay checkout with course, registration, and enrollment details in a single mobile flow. Illustrative mock; real courses, campuses, and start dates plug straight in.</div>
   </div>
