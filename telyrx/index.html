@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TelyRx × Shopify — Plan, Payments &amp; Path to Launch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#12232e; --muted:#576774; --line:#e2e8ec;
+    --teal:#0f6e78; --teal-d:#0b4d54; --teal-soft:#e6f3f4;
+    --shop:#5a31f4; --paper:#f5f9f9; --card:#fff; --green:#2f855a; --amber:#e08a2b; --red:#b3364a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
+  header{background:linear-gradient(155deg,#0f6e78 0%,#0b4d54 100%);color:#fff;padding:50px 0 42px}
+  .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#9ad6db;font-weight:600;margin-bottom:12px}
+  header h1{font-size:2.05rem;margin-bottom:10px}
+  header p{font-size:1.04rem;color:#d3e9ea;max-width:640px}
+  .hbadge{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid #4fb3bb;color:#d3f0f2;font-size:.84rem;font-weight:600;padding:7px 13px;border-radius:999px}
+  section{padding:34px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:6px}
+  h2.st{font-size:1.5rem;margin-bottom:8px}
+  .lead{color:var(--muted);margin-bottom:20px;max-width:680px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 2px rgba(15,40,45,.04)}
+  .card h3{font-size:1.1rem;margin-bottom:8px}
+  .prow{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .prow:last-child{border-bottom:none}.prow b{color:var(--ink)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .opt{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+  .opt.a{border-top:3px solid var(--green)}
+  .opt.b{border-top:3px solid var(--amber)}
+  .opt .tag{display:inline-block;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+  .opt.a .tag{color:var(--green);background:#e7f4ec}.opt.b .tag{color:var(--amber);background:#fbeed8}
+  .opt h3{font-size:1.12rem;margin-bottom:8px}
+  .opt ul{list-style:none;margin-top:4px}
+  .opt li{position:relative;padding-left:18px;font-size:.9rem;margin-bottom:7px;color:var(--ink)}
+  .opt li::before{content:'•';position:absolute;left:0;color:var(--muted);font-weight:700}
+  .opt .rate{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--teal-d);margin:2px 0 10px}
+  .callout{background:var(--teal-soft);border:1px solid #cfe6e8;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.95rem}
+  .callout b{color:var(--teal-d)}
+  .tl{position:relative;padding-left:26px;margin-bottom:8px}
+  .tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
+  .tl .step{position:relative;margin-bottom:14px}
+  .tl .step::before{content:'';position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid #fff;box-shadow:0 0 0 2px var(--teal)}
+  .tl .step.sign::before{background:var(--amber);box-shadow:0 0 0 2px var(--amber)}
+  .tl .step.live::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+  .tl .dt{font-weight:600;font-size:.92rem}
+  .tl .ds{font-size:.9rem;color:var(--muted)}
+  .next{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .next .n{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:12px;padding:15px}
+  .next .n h4{font-size:.95rem;margin-bottom:4px}
+  .next .n p{font-size:.86rem;color:var(--muted)}
+  .note{font-size:.82rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:22px 0 46px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:700px){header h1{font-size:1.75rem}.cols,.next{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">TelyRx &nbsp;×&nbsp; Shopify</div>
+    <h1>Plan, payments &amp; the path to launch</h1>
+    <p>A modern Shopify Plus storefront for TelyRx — with a clear read on your two payment paths for a regulated (Rx) category, the timeline, and next steps.</p>
+    <div class="hbadge">Shopify Plus · regulated-category payments · ~5–6 month launch</div>
+  </div>
+</header>
+
+<!-- PLAN -->
+<section>
+  <div class="wrap">
+    <div class="num">Plan &amp; pricing</div>
+    <h2 class="st">Shopify Plus</h2>
+    <div class="card">
+      <div class="prow"><span>Shopify Plus platform</span><b>from $2,300/mo</b></div>
+      <div class="prow"><span>What it gives you</span><b>Modern storefront, checkout control, scale, dedicated support</b></div>
+      <div class="prow"><span>Standard card rate (where eligible)</span><b>2.25% + 30¢</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section>
+  <div class="wrap">
+    <div class="num">Payments · the key decision</div>
+    <h2 class="st">Your two payment paths</h2>
+    <p class="lead">Because Rx is a regulated, high-risk category, payments run one of two ways. The first step is to submit for approval — that tells us which path you're on.</p>
+    <div class="cols">
+      <div class="opt a">
+        <span class="tag">Option A · if approved</span>
+        <h3>Shopify Payments — Restricted Categories</h3>
+        <div class="rate">2.25% + 30¢ <span style="font-size:.9rem;color:var(--muted)">+ 1% high-risk premium</span></div>
+        <ul>
+          <li>Approved via Shopify Payments' Restricted Categories (pharma) underwriting</li>
+          <li>Visa / Mastercard / Amex only</li>
+          <li><b>Shop Pay included</b> — one integrated processor, PCI &amp; chargebacks handled</li>
+          <li>Requires supportability review / approval</li>
+        </ul>
+      </div>
+      <div class="opt b">
+        <span class="tag">Option B · fallback</span>
+        <h3>Third-party gateway — Authorize.net</h3>
+        <div class="rate">0.20% <span style="font-size:.9rem;color:var(--muted)">Shopify fee + processor fees</span></div>
+        <ul>
+          <li>If not approved for Restricted Payments, use Authorize.net via a high-risk merchant account</li>
+          <li>Shopify Plus third-party transaction fee (0.20%) <b>plus</b> Authorize.net gateway + your processor's rates</li>
+          <li><b>No Shop Pay</b> (only available on Shopify Payments)</li>
+          <li>Faster to stand up, but higher blended cost</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>Next move on payments:</b> submit for the Restricted Categories review. If approved, you get Shopify Payments + Shop Pay at +1%; if not, Authorize.net is the ready fallback. Either way you can launch — this just decides the rate and whether Shop Pay is on the table. Exact rates confirmed at underwriting / with your processor.</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="wrap">
+    <div class="num">Timeline · ~5–6 months</div>
+    <h2 class="st">From sign to launch</h2>
+    <div class="tl">
+      <div class="step sign"><div class="dt">Sign &amp; kick off</div><div class="ds">Submit Restricted Categories review + introduce the implementation partner.</div></div>
+      <div class="step"><div class="dt">Payments determination + partner scoping</div><div class="ds">Approval outcome sets the payment path (Shopify Payments vs. Authorize.net); partner scopes the build.</div></div>
+      <div class="step"><div class="dt">Build (~months 1–4)</div><div class="ds">Storefront, catalog, checkout, payments integration, compliance.</div></div>
+      <div class="step"><div class="dt">Testing / UAT</div><div class="ds">QA, checkout &amp; payment flows, staging sign-off.</div></div>
+      <div class="step live"><div class="dt">Launch · ~5–6 months from sign</div><div class="ds">Go live on Shopify Plus.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section>
+  <div class="wrap">
+    <div class="num">Next steps</div>
+    <h2 class="st">What happens next</h2>
+    <div class="next">
+      <div class="n"><h4>1 · Partner intro</h4><p>I have an implementation partner in mind — I'll set up the intro to scope the build.</p></div>
+      <div class="n"><h4>2 · Confirm payment path</h4><p>Submit for Restricted Categories to find out: approved (Shopify Payments +1%) or Authorize.net.</p></div>
+      <div class="n"><h4>3 · Confirm signer &amp; timeline</h4><p>Who signs on your side, and align on the ~5–6 month path to launch.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Prepared by Nicole DeGennaro · Shopify. Payment rates and eligibility confirmed through Shopify Payments' Restricted Categories review (or your third-party processor); timeline and scope finalized with an implementation partner.
+  </div>
+</footer>
+
+</body>
+</html>
