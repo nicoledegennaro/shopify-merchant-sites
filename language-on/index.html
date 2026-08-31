@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Language On × Shopify — Plan, Pricing & Checkout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1a2a2f; --muted:#5f7078; --line:#e4e9ea;
+    --teal:#264653; --teal-2:#2a5560; --coral:#e76f51; --coral-soft:#fdeee9;
+    --shop:#5a31f4; --shop-soft:#efe9ff; --paper:#f6f8f9; --card:#fff; --green:#2f855a; --amber:#e08a2b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
+  header{background:linear-gradient(155deg,#2a5560 0%,#1a2a2f 100%);color:#fff;padding:52px 0 44px}
+  .kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#8fd0c4;font-weight:600;margin-bottom:12px}
+  .kicker span{color:var(--coral)}
+  header h1{font-size:2.15rem;margin-bottom:11px}
+  header p{font-size:1.05rem;color:#d6e4e6;max-width:680px}
+  .hbadge{display:inline-block;margin-top:15px;background:rgba(231,111,81,.18);border:1px solid var(--coral);color:#ffd9cd;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:999px}
+
+  .tabbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .tabbar .wrap{display:flex;gap:2px;flex-wrap:wrap;padding-top:10px;padding-bottom:0}
+  .tab{font-family:'Inter';font-size:.9rem;font-weight:600;color:var(--muted);background:none;border:none;border-bottom:3px solid transparent;padding:12px 13px;cursor:pointer}
+  .tab:hover{color:var(--teal)}
+  .tab.active{color:var(--teal);border-bottom-color:var(--coral)}
+  .content{display:none;padding:34px 0}
+  .content.active{display:block}
+  .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:6px}
+  .content h2{font-size:1.5rem;margin-bottom:6px}
+  .lead{color:var(--muted);margin-bottom:22px;max-width:720px}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 2px rgba(20,40,45,.04)}
+  .card h3{font-size:1.1rem;margin-bottom:8px}
+  .card.cur{border-top:3px solid var(--coral)}
+  .card.new{border-top:3px solid var(--green)}
+  .card ul{list-style:none}
+  .card li{position:relative;padding-left:20px;font-size:.92rem;margin-bottom:8px;color:var(--ink)}
+  .card li::before{content:'•';position:absolute;left:0;color:var(--muted);font-weight:700}
+  .card.new li::before{content:'✓';color:var(--green);font-weight:700}
+  .tag{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+  .tag.cur{color:var(--coral);background:var(--coral-soft)}.tag.new{color:var(--green);background:#e7f4ec}
+
+  .uc{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:10px}
+  .uc .chk{flex:none;width:24px;height:24px;border-radius:7px;background:var(--shop-soft);color:var(--shop);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px}
+  .uc h3{font-size:1.02rem;margin-bottom:2px}
+  .uc p{font-size:.9rem;color:var(--muted)}
+
+  /* audit table */
+  .table-scroll{overflow-x:auto}
+  table.map{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:600px}
+  table.map th,table.map td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.map th{background:var(--teal);color:#fff;font-weight:600;font-size:.78rem;letter-spacing:.02em}
+  table.map tr:last-child td{border-bottom:none}
+  table.map tr.hl td{background:#fdf1ec}
+  table.map .m{font-weight:600}
+  .pill{font-size:.72rem;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap}
+  .p-now{color:var(--coral);background:var(--coral-soft)}.p-next{color:var(--amber);background:#fbeed8}.p-open{color:var(--muted);background:#eef1f2}
+
+  .prow{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .prow:last-child{border-bottom:none}.prow b{color:var(--ink)}
+
+  .shot{width:100%;border:1px solid var(--line);border-radius:12px;box-shadow:0 4px 18px rgba(20,40,45,.10);display:block}
+  .shotwrap{display:grid;grid-template-columns:1.7fr 1fr;gap:18px;align-items:start}
+  .shotcap{font-size:.82rem;color:var(--muted);margin-top:8px;text-align:center}
+  .mobwrap{max-width:250px;margin:0 auto}
+
+  .callout{background:#eaf1f2;border:1px solid #cfe0e2;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.95rem}
+  .callout b{color:var(--teal)}
+  .note{font-size:.82rem;color:var(--muted);margin-top:16px;font-style:italic}
+  .tl{position:relative;padding-left:26px;margin-bottom:22px}
+  .tl::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
+  .tl .step{position:relative;margin-bottom:15px}
+  .tl .step::before{content:'';position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid #fff;box-shadow:0 0 0 2px var(--teal)}
+  .tl .step.now::before{background:var(--coral);box-shadow:0 0 0 2px var(--coral)}
+  .tl .step.live::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+  .tl .dt{font-weight:600;font-size:.92rem}
+  .tl .ds{font-size:.9rem;color:var(--muted)}
+  footer{padding:24px 0 50px;font-size:.82rem;color:var(--muted)}
+  footer .disc{border-top:1px solid var(--line);padding-top:16px}
+  @media(max-width:720px){header h1{font-size:1.8rem}.cols{grid-template-columns:1fr}.shotwrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Language <span>On</span> &nbsp;×&nbsp; Shopify</div>
+    <h1>One platform for enrollment, checkout &amp; payments</h1>
+    <p>Replace the manual WhatsApp / email / PandaDoc + payment-link workflow with a single, mobile-first Shopify storefront and Shop Pay checkout — built for the way international students actually enroll.</p>
+    <div class="hbadge">700 students · 11 locations · 5 states · ~$4–5M GMV</div>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="wrap">
+    <button class="tab active" onclick="show(event,'ov')">Overview</button>
+    <button class="tab" onclick="show(event,'cf')">Current Flow</button>
+    <button class="tab" onclick="show(event,'co')">Checkout Preview</button>
+    <button class="tab" onclick="show(event,'pr')">Pricing</button>
+    <button class="tab" onclick="show(event,'sc')">Similar on Shopify</button>
+    <button class="tab" onclick="show(event,'vl')">Tech Validation</button>
+    <button class="tab" onclick="show(event,'tl')">Timeline &amp; MAP</button>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="ov" class="content active">
+  <div class="wrap">
+    <div class="num">Current state &amp; why Shopify</div>
+    <h2>Where you are — and what Shopify changes</h2>
+    <p class="lead">A quick shared picture from our first conversation, and the reason Shopify fits.</p>
+
+    <div class="uc"><div class="chk">i</div><div><h3>The business</h3><p>For-profit English-language schools — ~700 students across 11 locations in 5 states, ~$4–5M GMV. Students are international and enroll primarily on their phones.</p></div></div>
+    <div class="uc"><div class="chk">!</div><div><h3>The friction today</h3><p>Enrollment is manual and fragmented across WhatsApp, email, and PandaDoc; payments run through NMI with a custom payment link generated by hand for every transaction. No unified, mobile-first checkout.</p></div></div>
+
+    <p class="num" style="margin-top:22px">Why you're looking at Shopify</p>
+    <div class="uc"><div class="chk">1</div><div><h3>Centralize &amp; automate enrollment</h3><p>One storefront + checkout to replace the WhatsApp/email/PandaDoc patchwork and the manual payment links.</p></div></div>
+    <div class="uc"><div class="chk">2</div><div><h3>Mobile-first conversion with Shop Pay</h3><p>A fast, one-click checkout built for the phones your students use — the conversion lever you flagged as critical.</p></div></div>
+    <div class="uc"><div class="chk">3</div><div><h3>Modern payments in one place</h3><p>Replace NMI + hand-built links with Shopify Payments; evaluate a cleaner path than Flywire for international students.</p></div></div>
+    <div class="uc"><div class="chk">4</div><div><h3>Own your brand &amp; data</h3><p>A branded, AI-ready storefront and first-party student data — instead of a marketplace or scattered tools.</p></div></div>
+  </div>
+</div>
+
+<!-- CURRENT FLOW / AUDIT -->
+<div id="cf" class="content">
+  <div class="wrap">
+    <div class="num">Sales-flow audit</div>
+    <h2>Today's enrollment flow → on Shopify</h2>
+    <p class="lead">Your current path, step by step, and how it collapses onto one platform.</p>
+    <div class="table-scroll">
+    <table class="map">
+      <tr><th>Step</th><th>Today</th><th>On Shopify</th></tr>
+      <tr><td class="m">Discover / inquire</td><td>WhatsApp + email, ad hoc</td><td>Branded storefront + course pages, mobile-first</td></tr>
+      <tr><td class="m">Choose course</td><td>Explained manually over chat</td><td>Course, start date, campus &amp; duration as selectable options</td></tr>
+      <tr><td class="m">Agreement / paperwork</td><td>PandaDoc, separate step</td><td>Enrollment details captured in checkout (custom fields)</td></tr>
+      <tr class="hl"><td class="m">Payment</td><td>NMI — a custom payment link built by hand every time</td><td>Shop Pay + Shopify Payments — one-click, mobile, automatic</td></tr>
+      <tr><td class="m">Confirm / onboard</td><td>Manual follow-up</td><td>Automated confirmation + records in one system</td></tr>
+      <tr><td class="m">International tuition</td><td>Flywire (deemed too expensive)</td><td>Evaluate Shopify Payments + int'l methods (validating — see Tech Validation)</td></tr>
+    </table>
+    </div>
+    <div class="callout"><b>Net:</b> five disconnected tools and a hand-built link per student become <b>one mobile-first checkout</b> — less staff time, fewer drop-offs, and a single source of truth for enrollments.</div>
+  </div>
+</div>
+
+<!-- CHECKOUT PREVIEW -->
+<div id="co" class="content">
+  <div class="wrap">
+    <div class="num">Checkout preview</div>
+    <h2>What enrollment checkout could look like</h2>
+    <p class="lead">A tailored mock of a Language On course checkout on Shopify — desktop and mobile, with Shop Pay and a course/registration line-up.</p>
+    <div class="shotwrap">
+      <div>
+        <img class="shot" src="checkout-desktop.png" alt="Language On Shopify checkout — desktop" />
+        <div class="shotcap">Desktop — course + registration, discount, Shop Pay express</div>
+      </div>
+      <div class="mobwrap">
+        <img class="shot" src="checkout-mobile.png" alt="Language On Shopify checkout — mobile" />
+        <div class="shotcap">Mobile — how students actually enroll</div>
+      </div>
+    </div>
+    <div class="callout">Illustrative mock to show the experience — real courses, campuses, and start dates plug straight in. Custom enrollment fields (student details, campus, start date) live right in the flow.</div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div id="pr" class="content">
+  <div class="wrap">
+    <div class="num">Pricing</div>
+    <h2>Plan &amp; payments</h2>
+    <p class="lead">Recommended plan for your scale and checkout needs, with the payment rates that come with it.</p>
+    <div class="card">
+      <h3>Shopify Plus — $2,300/mo</h3>
+      <div class="prow"><span>Right tier for your GMV, custom enrollment checkout, and multi-location scale</span><b>Flat $2,300/mo</b></div>
+      <div class="prow"><span>Variable platform fee</span><b>Only above ~$7.9M/yr — well beyond you today</b></div>
+      <div class="prow"><span>Lighter option to weigh</span><b>Advanced ($299/mo) if checkout customization is limited</b></div>
+    </div>
+    <div class="card">
+      <h3>Payments &amp; Shop Pay</h3>
+      <div class="prow"><span><b>Shop Pay</b> — one-click, mobile-first checkout</span><b style="color:var(--green)">Included with Shopify Payments</b></div>
+      <div class="prow"><span>Card rate</span><b>2.25% + 30¢ · 2.9% Amex</b></div>
+      <div class="prow"><span>Replaces</span><b>NMI + manual links (and evaluated vs. Flywire)</b></div>
+    </div>
+    <p class="note">GMV is your ~$4–5M estimate. We'll confirm the exact tier on the technical call based on how much checkout customization you need, and build a clean cost picture (plan + card rates + any apps).</p>
+  </div>
+</div>
+
+<!-- SIMILAR ON SHOPIFY -->
+<div id="sc" class="content">
+  <div class="wrap">
+    <div class="num">Similar on Shopify</div>
+    <h2>How education &amp; enrollment businesses run on Shopify</h2>
+    <p class="lead">Schools, academies, and course businesses use Shopify as the storefront + checkout, treating enrollments like products and automating the busywork.</p>
+    <div class="uc"><div class="chk">✓</div><div><h3>Enrollment as a product</h3><p>Courses, sessions, and registration fees become purchasable items — with start date, campus, and level as options — checked out in one flow.</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Automatic enrollment &amp; records</h3><p>The moment a student pays, confirmation and records happen automatically — no manual link-building or re-keying.</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Proven course/enrollment apps</h3><p>Mature Shopify apps handle course delivery, student portals, and auto-enroll — e.g. Courses Plus, Tevello, Sky Pilot — so you're not building from scratch.</p></div></div>
+    <div class="uc"><div class="chk">✓</div><div><h3>Own the brand &amp; the data</h3><p>A branded storefront and first-party student data, instead of marketplaces or scattered tools that take a cut and the relationship.</p></div></div>
+    <div class="note">I'll bring a couple of specific education/enrollment references on Shopify to the call to match your model.</div>
+  </div>
+</div>
+
+<!-- TECH VALIDATION -->
+<div id="vl" class="content">
+  <div class="wrap">
+    <div class="num">Technical validation · today's call with Angel</div>
+    <h2>What we'll confirm</h2>
+    <p class="lead">The open technical questions to close so we can size the plan and scope confidently.</p>
+    <div class="uc"><div class="chk">1</div><div><h3>International student payments</h3><p>Whether Shopify Payments/Shop Pay covers what overseas students use (international cards, cross-border/FX, local methods) — and where that lands vs. Flywire. <b>The most important one.</b></p></div></div>
+    <div class="uc"><div class="chk">2</div><div><h3>Tuition eligibility + replacing NMI</h3><p>Confirm tuition/education is supported on Shopify Payments and cleanly replaces NMI and the manual payment links.</p></div></div>
+    <div class="uc"><div class="chk">3</div><div><h3>Courses as products + payment plans</h3><p>Modeling course × start date × campus × duration, registration + course fees, and whether you need deposits / installment / payment-plan options.</p></div></div>
+    <div class="uc"><div class="chk">4</div><div><h3>Enrollment data &amp; custom fields</h3><p>Capturing student/visa/campus/start-date at checkout, and where enrollment data flows (any student system of record vs. today's PandaDoc).</p></div></div>
+    <div class="uc"><div class="chk">5</div><div><h3>Multi-location &amp; multi-state tax</h3><p>Campus selection and sales-tax treatment of tuition across your 5 states.</p></div></div>
+    <div class="uc"><div class="chk">6</div><div><h3>Plan tier &amp; "AI checkout"</h3><p>Whether the custom checkout requires Plus vs. Advanced, and what the AI-driven checkout/product-feed capabilities actually are.</p></div></div>
+  </div>
+</div>
+
+<!-- TIMELINE + MAP -->
+<div id="tl" class="content">
+  <div class="wrap">
+    <div class="num">Timeline &amp; mutual action plan</div>
+    <h2>Path to a decision</h2>
+    <p class="lead">Working plan — we'll confirm dates together once you share a target launch window.</p>
+    <div class="tl">
+      <div class="step now"><div class="dt">Today — Technical validation (with Angel)</div><div class="ds">Close the open items above; walk through the checkout preview.</div></div>
+      <div class="step"><div class="dt">This week — Pricing, similar customers &amp; sales-flow audit</div><div class="ds">Full cost picture + education references + this working doc.</div></div>
+      <div class="step"><div class="dt">Next — Tailored demo or partner intro</div><div class="ds">A hands-on demo of the enrollment flow, and/or an intro to an implementation partner if your digital-marketing team wants a build partner.</div></div>
+      <div class="step"><div class="dt">Then — Target launch window</div><div class="ds">Set a date together (open — anchor it to a term start / Boston reopening).</div></div>
+      <div class="step live"><div class="dt">Build → launch</div><div class="ds">Store build, course setup, payments, testing → go live.</div></div>
+    </div>
+
+    <h3 style="font-size:1.15rem;margin-bottom:10px">What you need to see to move forward</h3>
+    <div class="table-scroll">
+    <table class="map">
+      <tr><th>#</th><th>Item</th><th>Owner</th><th>When</th><th>Status</th></tr>
+      <tr class="hl"><td>1</td><td class="m">Technical validation (int'l payments, tuition, tier)</td><td>Angel + Scott's team</td><td>Today</td><td><span class="pill p-now">Today</span></td></tr>
+      <tr><td>2</td><td class="m">Checkout preview walkthrough</td><td>Nicole</td><td>Today</td><td><span class="pill p-now">Today</span></td></tr>
+      <tr><td>3</td><td class="m">Pricing + tier recommendation</td><td>Nicole</td><td>This week</td><td><span class="pill p-next">Next</span></td></tr>
+      <tr><td>4</td><td class="m">Similar education customers on Shopify</td><td>Nicole</td><td>This week</td><td><span class="pill p-next">Next</span></td></tr>
+      <tr><td>5</td><td class="m">Tailored demo of the enrollment flow</td><td>Nicole + Angel</td><td>Next</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>6</td><td class="m">Implementation-partner intro (if wanted)</td><td>Nicole → Scott's marketing team</td><td>Next</td><td><span class="pill p-open">Open</span></td></tr>
+      <tr><td>7</td><td class="m">Confirm decision-makers + target launch date</td><td>Scott</td><td>This week</td><td><span class="pill p-open">Open</span></td></tr>
+    </table>
+    </div>
+    <p class="note">Draft for review on our call — the biggest open item is a target launch date, which sets the rest of the plan.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap disc">
+    Prepared by Nicole DeGennaro · Shopify. Figures and checkout mock are illustrative pending confirmation of GMV, payment needs, and scope on the technical call.
+  </div>
+</footer>
+
+<script>
+  function show(e,id){
+    document.querySelectorAll('.content').forEach(function(c){c.classList.remove('active')});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    e.currentTarget.classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+</script>
+</body>
+</html>
