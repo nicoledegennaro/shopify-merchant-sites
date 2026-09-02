@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lighting Unlimited × Shopify — B2B Commerce, Self-Serve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#141a24; --muted:#5a6675; --line:#e4e8ee;
+    --navy:#16305a; --navy-d:#0f2444; --amber:#f4a900; --amber-d:#c98a00;
+    --soft:#eef3f9; --paper:#f6f8fb; --card:#fff; --green:#2f855a; --shop:#5a31f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15}
+  header{background:linear-gradient(150deg,#16305a 0%,#0f2444 100%);color:#fff;padding:46px 0 40px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(244,169,0,.25),transparent 70%)}
+  .kicker{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:12px}
+  header h1{font-size:2.1rem;margin-bottom:10px;max-width:680px}
+  header p{font-size:1.05rem;color:#cdd8e8;max-width:660px}
+  .hbadge{display:inline-block;margin-top:16px;background:rgba(255,255,255,.1);border:1px solid #3f5f92;color:#dbe6f5;font-size:.83rem;font-weight:600;padding:7px 14px;border-radius:999px}
+  /* tabs */
+  .tabs{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+  .tab{appearance:none;border:none;background:none;font-family:inherit;font-size:.92rem;font-weight:600;color:var(--muted);padding:15px 14px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--navy);border-bottom-color:var(--amber)}
+  .panel{display:none;padding:34px 0}
+  .panel.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .num{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber-d);font-weight:600;margin-bottom:6px}
+  h2.st{font-size:1.55rem;margin-bottom:8px}
+  .lead{color:var(--muted);margin-bottom:22px;max-width:700px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 2px rgba(15,36,68,.04)}
+  .card h3{font-size:1.1rem;margin-bottom:8px}
+  .card p{color:#3a4553;font-size:.96rem}
+  .prow{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .prow:last-child{border-bottom:none}.prow b{color:var(--ink)}
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding-left:22px;margin-bottom:9px;font-size:.96rem;color:#3a4553}
+  ul.clean li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:2px;background:var(--amber)}
+  .uc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .uc .card{margin-bottom:0}
+  .uc .card h3{font-size:1.02rem;display:flex;align-items:center;gap:8px}
+  .tag{display:inline-block;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--soft);color:var(--navy);margin-left:auto}
+  .tag.core{background:#e7f4ec;color:var(--green)}
+  .tag.opt{background:#faf0d6;color:var(--amber-d)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;position:relative}
+  .plan.rec{border:2px solid var(--navy);box-shadow:0 8px 26px rgba(22,48,90,.12)}
+  .plan .ribbon{position:absolute;top:-11px;left:22px;background:var(--navy);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+  .plan h3{font-size:1.2rem;margin-bottom:2px}
+  .plan .price{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--navy-d);margin:6px 0 2px}
+  .plan .price small{font-size:.85rem;color:var(--muted);font-weight:400}
+  .plan .sub{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+  .callout{background:var(--soft);border:1px solid #d5e2f2;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.95rem}
+  .callout b{color:var(--navy-d)}
+  .tl{position:relative;padding-left:26px;margin-top:6px}
+  .tl::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl .step{position:relative;margin-bottom:16px}
+  .tl .step::before{content:'';position:absolute;left:-22px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:2px solid #fff;box-shadow:0 0 0 2px var(--amber)}
+  .tl .step.now::before{background:var(--navy);box-shadow:0 0 0 2px var(--navy)}
+  .tl .dt{font-weight:600;font-size:.95rem}
+  .tl .ds{font-size:.92rem;color:var(--muted)}
+  .note{font-size:.82rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:24px 0 48px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:720px){header h1{font-size:1.7rem}.uc,.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Lighting Unlimited &nbsp;×&nbsp; Shopify</div>
+    <h1>A self-serve B2B storefront — without leaving DDI behind</h1>
+    <p>A branded, login-gated ordering portal where your contractors and accounts log in, see their own pricing, and place orders on their own — so counter sales scale without the phone calls and paper tickets.</p>
+    <div class="hbadge">Shopify Plus · B2B portal · DDI-integrated · 4 Arizona branches</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <button class="tab active" data-p="overview">Overview</button>
+    <button class="tab" data-p="current">Current State</button>
+    <button class="tab" data-p="usecases">Use Cases</button>
+    <button class="tab" data-p="pricing">Plans &amp; Pricing</button>
+    <button class="tab" data-p="next">Next Steps</button>
+  </div>
+</nav>
+
+<!-- OVERVIEW -->
+<section class="panel active" id="overview">
+  <div class="wrap">
+    <div class="num">Overview</div>
+    <h2 class="st">Where Shopify fits</h2>
+    <p class="lead">Lighting Unlimited is a lighting &amp; electrical distributor serving the greater Phoenix Valley from four branches, with roughly 92% of sales B2B. The opportunity isn't a new sales team — it's giving the customers you already serve a faster way to buy.</p>
+    <div class="card">
+      <h3>The problem today</h3>
+      <p>Nearly every order runs through a person — walk-ins, phone calls, and manually written tickets on a pre-coded pricing matrix. It works, but as the company scales, the overhead to handle all those manual transactions gets heavy. There's no online interface for the customers who just want to log in and re-order at their agreed pricing.</p>
+    </div>
+    <div class="card">
+      <h3>The goal</h3>
+      <p>A branded, gated storefront (e.g. an LU-owned domain "powered by Shopify") where account customers log in to their own tier pricing and self-serve — while <b>DDI stays your source of truth</b> and the big, complex spec jobs stay exactly where they are.</p>
+    </div>
+    <div class="callout"><b>Guardrail we'll respect:</b> manufacturers (Acuity, Philips, Lutron, Minka, etc.) restrict public online listing. Everything sits <b>behind a login on your own branded site</b> — not on a public marketplace — which keeps you inside your buying-group and channel agreements.</div>
+  </div>
+</section>
+
+<!-- CURRENT STATE -->
+<section class="panel" id="current">
+  <div class="wrap">
+    <div class="num">Current State</div>
+    <h2 class="st">How it works right now</h2>
+    <p class="lead">A quick map of today's stack and the three ways customers buy — so we only rebuild what's worth rebuilding.</p>
+    <div class="card">
+      <h3>Systems today</h3>
+      <ul class="clean">
+        <li><b>ERP:</b> DDI (distributor ERP) — stays the system of record; you may evaluate NetSuite down the line</li>
+        <li><b>E-commerce:</b> none currently (previous site retired); manual listings on Amazon &amp; eBay, low volume</li>
+        <li><b>Payments:</b> a separate card processor (buying-group negotiated rates); most sales are on terms / AR</li>
+        <li><b>Buying group:</b> Affiliated Distributors — channel &amp; pricing agreements to preserve</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Three ways customers buy</h3>
+      <ul class="clean">
+        <li><b>Counter &amp; pop-up pricing</b> — walk-in / phone, pre-coded tier pricing. <b>← the best fit to move online</b></li>
+        <li><b>Outside sales / spec jobs</b> — complex quotes, large POs (e.g. $100k retrofits). Stays in DDI</li>
+        <li><b>Municipal / contract</b> — blanket POs &amp; pre-negotiated annual pricing; one city requires an online PO portal</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pricing complexity</h3>
+      <p>Tiers today are bronze / silver / gold, moving toward a cleaner bronze / silver / gold / platinum model — with customer-category modifiers (electrician vs. general contractor vs. property management). Net terms (net 30 / 45 / 60) are common. This tier count is the main thing that decides the plan (below).</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="panel" id="usecases">
+  <div class="wrap">
+    <div class="num">Use Cases</div>
+    <h2 class="st">What we'd build on Shopify</h2>
+    <p class="lead">Straight from our conversation — mapped to Shopify B2B capabilities. Core = we'll validate feasibility in the technical discovery.</p>
+    <div class="uc">
+      <div class="card"><h3>Self-serve ordering <span class="tag core">Core</span></h3><p>Account customers log in and place their own orders at their agreed pricing — no phone call or counter visit required.</p></div>
+      <div class="card"><h3>Login-gated catalog <span class="tag core">Core</span></h3><p>Products visible only after login on your branded site — protects manufacturer channel rules and buying-group agreements.</p></div>
+      <div class="card"><h3>Customer-specific pricing &amp; tiers <span class="tag core">Core</span></h3><p>Catalogs &amp; price lists per company/tier (bronze→platinum) plus category modifiers, driven by who's logged in.</p></div>
+      <div class="card"><h3>B2B payment terms <span class="tag core">Core</span></h3><p>Net 30 / 45 / 60 and pay-on-account, so online ordering matches how your customers already pay.</p></div>
+      <div class="card"><h3>Municipal / contract portal <span class="tag core">Core</span></h3><p>Upload pre-negotiated blanket pricing — covers the city that requires an online portal to cut POs.</p></div>
+      <div class="card"><h3>DDI integration <span class="tag core">Core</span></h3><p>Orders &amp; fulfillment sync with DDI; outside-sales quotes handled as draft orders; complex jobs stay in DDI.</p></div>
+      <div class="card"><h3>Payments &amp; Shop Pay <span class="tag">Compare</span></h3><p>Shopify Payments unlocks Shop Pay; or keep an approved third-party processor (+~0.2% on Plus). We'll compare vs. your buying-group rate.</p></div>
+      <div class="card"><h3>In-store POS <span class="tag opt">Optional</span></h3><p>Unify counter sales across the four branches on Shopify POS later — weighed against your current processor's value.</p></div>
+    </div>
+    <div class="callout"><b>Explicitly out of scope for now:</b> the large, complex spec/quote jobs and $100k POs — those stay in DDI. Shopify targets the repeatable counter &amp; account ordering that eats the most manual time.</div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="panel" id="pricing">
+  <div class="wrap">
+    <div class="num">Plans &amp; Pricing</div>
+    <h2 class="st">Two ways in</h2>
+    <p class="lead">B2B is available on the core Advanced plan with some limits, and in full on Shopify Plus. Given four tiers + category modifiers, net terms, municipal contracts and login-gating, <b>Plus is the real fit</b> — but here's both, as promised.</p>
+    <div class="cols">
+      <div class="plan">
+        <h3>Advanced <span class="tag core" style="margin-left:6px">Core</span></h3>
+        <div class="price">$399<small> /mo</small></div>
+        <div class="sub">Lean entry point</div>
+        <ul class="clean">
+          <li>B2B available, but <b>limited catalogs / price lists</b></li>
+          <li>Would likely mean <b>simplifying to ~3 tiers</b> and fewer modifiers</li>
+          <li>Good to start small and prove the portal</li>
+          <li>Standard checkout &amp; Shopify Payments</li>
+        </ul>
+      </div>
+      <div class="plan rec">
+        <div class="ribbon">Recommended</div>
+        <h3>Shopify Plus</h3>
+        <div class="price">from $2,300<small> /mo</small></div>
+        <div class="sub">Full B2B suite</div>
+        <ul class="clean">
+          <li><b>Unlimited</b> companies, customer catalogs &amp; price lists</li>
+          <li><b>Net payment terms</b> (net 30/45/60) &amp; pay-on-account</li>
+          <li>Login-gated B2B storefront + wholesale &amp; D2C on one store</li>
+          <li>Draft orders, checkout customization, expansion stores</li>
+          <li>Fits 4 tiers + category modifiers + municipal contracts</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Payments</h3>
+      <div class="prow"><span>Shopify Payments — standard cards</span><b>2.25% + 30¢</b></div>
+      <div class="prow"><span>Shopify Payments — Amex</span><b>2.95% + 30¢</b></div>
+      <div class="prow"><span>Approved third-party processor (keep yours)</span><b>+ ~0.2% on Plus</b></div>
+      <div class="prow"><span>Variable platform fee (Plus)</span><b>0.35% above $7.9M/yr revenue</b></div>
+    </div>
+    <p class="note">Plan pricing shown at standard rates; final pricing and any incentives confirmed on the order form. Card rates confirmed at underwriting.</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="panel" id="next">
+  <div class="wrap">
+    <div class="num">Next Steps</div>
+    <h2 class="st">Path forward</h2>
+    <p class="lead">You have no in-house dev team, so an implementation partner does the heavy lifting on the DDI integration and data migration — you stay focused on the business.</p>
+    <div class="tl">
+      <div class="step now"><div class="dt">1 · Technical discovery with a Solutions Engineer</div><div class="ds">Validate every B2B use case above — login-gated catalogs, tiered pricing, net terms, municipal contracts, and the DDI integration approach.</div></div>
+      <div class="step"><div class="dt">2 · Partner intro</div><div class="ds">Implementation partner for the build, DDI integration, and data migration.</div></div>
+      <div class="step"><div class="dt">3 · Pricing &amp; feature follow-up</div><div class="ds">B2B feature links, plan pricing, a card-rate comparison vs. your buying-group processor — and a look at whether buying-group peers are already on Shopify.</div></div>
+      <div class="step"><div class="dt">4 · Demo &amp; scope</div><div class="ds">See it live, confirm the plan (Advanced vs. Plus), and lock the build plan.</div></div>
+    </div>
+    <div class="callout"><b>Confirm to move faster:</b> final tier count (3 vs. 4), the must-have municipal portal, and whether POS across the four branches is in or out for v1.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Prepared by Nicole DeGennaro · Shopify — for Lighting Unlimited. Built from our intro call. B2B feasibility confirmed in technical discovery; pricing &amp; scope finalized with an implementation partner.
+  </div>
+</footer>
+
+<script>
+  const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel');
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));panels.forEach(p=>p.classList.remove('active'));
+    t.classList.add('active');document.getElementById(t.dataset.p).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }));
+</script>
+</body>
+</html>
