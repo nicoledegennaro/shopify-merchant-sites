@@ -64,6 +64,16 @@
   .tl .step{position:relative;margin-bottom:16px}
   .tl .step::before{content:'';position:absolute;left:-22px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:2px solid #fff;box-shadow:0 0 0 2px var(--amber)}
   .tl .step.now::before{background:var(--navy);box-shadow:0 0 0 2px var(--navy)}
+  .tl .step.live::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+  @media print{
+    .tabs{display:none!important}
+    .panel{display:block!important;padding:20px 0;break-inside:avoid}
+    header{padding:30px 0}
+    .plan,.card,.uc .card,.step,.callout{break-inside:avoid}
+    a{color:inherit;text-decoration:none}
+    body{background:#fff}
+    @page{margin:14mm}
+  }
   .tl .dt{font-weight:600;font-size:.95rem}
   .tl .ds{font-size:.92rem;color:var(--muted)}
   .note{font-size:.82rem;color:var(--muted);margin-top:14px;font-style:italic}
@@ -169,8 +179,8 @@
     <div class="plan rec">
       <div class="ribbon">Your plan</div>
       <h3>Shopify Plus</h3>
-      <div class="price">from $2,300<small> /mo</small></div>
-      <div class="sub">Full B2B suite — built for your pricing model</div>
+      <div class="price">$2,300<small> /mo base</small></div>
+      <div class="sub">At ~$20M B2B revenue you're above the ~$7.9M threshold, so billing runs on the Variable Platform Fee — <b>~$3,000/mo effective</b> (see below). Full B2B suite, built for your pricing model.</div>
       <ul class="clean">
         <li><b>Unlimited</b> companies, customer catalogs &amp; price lists</li>
         <li><b>Tiered pricing</b> — bronze / silver / gold / platinum + category modifiers</li>
@@ -187,13 +197,14 @@
       <div class="prow"><span>Approved third-party processor (keep yours)</span><b>+ ~0.2% on Plus</b></div>
     </div>
     <div class="card">
-      <h3>Variable Platform Fee (VPF)</h3>
-      <p style="margin-bottom:12px">Only applies on revenue <b>above ~$7.9M/yr</b>, and it's charged by channel — the base $2,300/mo covers you up to that threshold. Because you're ~92% B2B, the rate that matters most for you is the lowest one:</p>
+      <h3>Platform cost at your volume</h3>
+      <p style="margin-bottom:12px">You pay the <b>higher of</b> the $2,300/mo base or the Variable Platform Fee (VPF). At <b>~$20M in revenue</b> you're above the ~$7.9M threshold, so VPF applies — and it's charged by channel. Because you're <b>~92% B2B</b>, the rate that matters is the lowest one:</p>
       <div class="prow"><span><b>B2B</b> — your primary channel</span><b>0.18%</b></div>
       <div class="prow"><span>Retail (POS)</span><b>0.25%</b></div>
       <div class="prow"><span>D2C (online)</span><b>0.35%</b></div>
+      <div class="prow" style="border-top:2px solid var(--navy);margin-top:6px;padding-top:12px"><span><b>Effective platform cost</b> — B2B 0.18% × ~$20M</span><b>≈ $36,000/yr (~$3,000/mo)</b></div>
     </div>
-    <p class="note">Plan pricing shown at standard rates; final pricing and any incentives confirmed on the order form. VPF applies only above the annual threshold and only to the variable portion. Card rates confirmed at underwriting.</p>
+    <p class="note">Effective platform cost based on ~$20M annual revenue at the B2B VPF rate (0.18%); final figure moves with your actual revenue and channel mix. Card rates are standard published rates, confirmed at underwriting; incentives confirmed on the order form.</p>
   </div>
 </section>
 
@@ -201,16 +212,18 @@
 <section class="panel" id="next">
   <div class="wrap">
     <div class="num">Next Steps</div>
-    <h2 class="st">Four tracks, run in tandem</h2>
-    <p class="lead">Rather than run these one after another, we'll move in parallel to keep momentum — so you have everything you need to make a decision by the end of September.</p>
+    <h2 class="st">Plan forward — launch January 1</h2>
+    <p class="lead">Working backward from a January 1 go-live, with the partner engaged now so the DDI integration is scoped and the build starts in early October.</p>
     <div class="tl">
-      <div class="step now"><div class="dt">Partner intro &amp; scoping</div><div class="ds">Meet an implementation partner and start scoping the build, DDI integration, and data migration — you have no in-house dev team, so they carry the heavy lifting.</div></div>
-      <div class="step now"><div class="dt">Demo</div><div class="ds">See the login-gated B2B portal live — tiered pricing, net terms, and self-serve ordering in action.</div></div>
-      <div class="step now"><div class="dt">TCO / ROI</div><div class="ds">The full-cost picture: manual-order labor saved (phone, counter, paper tickets) measured against the platform cost.</div></div>
-      <div class="step now"><div class="dt">Technical validation (SE)</div><div class="ds">Solutions Engineer confirms the B2B use cases and the DDI integration approach are feasible and done well.</div></div>
+      <div class="step now"><div class="dt">Sept 15 · booked</div><div class="ds">Partner intro &amp; scoping with Solo Media Group — the build, DDI integration and data migration, plus a real read on cost and effort.</div></div>
+      <div class="step"><div class="dt">Late September</div><div class="ds">Finalize scope + pricing and sign — this locks the current incentive and protects the runway to Jan 1.</div></div>
+      <div class="step"><div class="dt">Early October</div><div class="ds">Kickoff — build begins.</div></div>
+      <div class="step"><div class="dt">October – December</div><div class="ds">~3-month build: login-gated B2B portal, tiered pricing, net terms, DDI integration, catalog.</div></div>
+      <div class="step"><div class="dt">Mid-December</div><div class="ds">UAT &amp; testing — validate the B2B flows and integration before launch.</div></div>
+      <div class="step live"><div class="dt">January 1 · go-live</div><div class="ds">Launch on Shopify Plus.</div></div>
     </div>
-    <div class="callout" style="margin-top:18px"><b>Timeline — is signing by end of September feasible?</b> If it is, we have <b>promotional incentives available</b> to support that close. If end of September isn't realistic on your side, just let us know a timeline that is and we'll build the plan backward from your date.</div>
-    <p class="note">Also helpful to confirm: your final tier structure for the catalogs, the must-have municipal portal, and whether POS across the four branches is in or out for v1.</p>
+    <div class="callout" style="margin-top:18px"><b>The one thing that protects Jan 1:</b> signing by end of September. If anything on your side would push that, let's flag it early and adjust. Helpful before Sept 15: your DDI / data details so Solo Media Group can scope fast.</div>
+    <p class="note">Also good to confirm: final tier structure for the catalogs, the must-have municipal portal, and whether POS across the four branches is in or out for v1.</p>
   </div>
 </section>
 
