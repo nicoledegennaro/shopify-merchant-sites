@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repeat International × Shopify Plus — TCO &amp; ROI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f4ed;
+    --bg-card: #fffdf8;
+    --bg-soft: #f1ebdc;
+    --ink: #1f1a14;
+    --ink-soft: #4d4438;
+    --muted: #7a6f5e;
+    --gold: #a89060;
+    --gold-dark: #8a7448;
+    --gold-soft: #ede2c8;
+    --line: #d9d0bd;
+    --positive: #4f6b3e;
+    --positive-soft: #e6ecdf;
+    --warn: #8e5a26;
+    --warn-soft: #f1e3d0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+    background: var(--bg);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section.soft { background: var(--bg-soft); }
+  section.hero { padding: 80px 0; border-bottom: none; background: var(--bg); }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  h1 { font-size: 52px; line-height: 1.05; margin: 0 0 20px; font-weight: 500; }
+  h2 { font-size: 38px; line-height: 1.15; margin: 0 0 18px; font-weight: 500; }
+  h3 { font-size: 24px; line-height: 1.2; margin: 28px 0 14px; }
+  h4 { font-size: 16px; font-weight: 600; margin: 14px 0 8px; font-family: 'Inter', sans-serif; letter-spacing: 0.01em; }
+
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  .lede { font-size: 17px; color: var(--ink); max-width: 780px; line-height: 1.55; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+  }
+  a { color: var(--gold-dark); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+  /* Hero */
+  .hero-mark { text-align: center; margin-bottom: 36px; }
+  .hero-mark img { height: 60px; }
+  .hero-x { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); margin: 0 14px; }
+  .hero-shopify { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--ink-soft); font-weight: 600; letter-spacing: 0.02em; }
+  .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .hero-meta-item { font-size: 13px; }
+  .hero-meta-item .k { color: var(--muted); margin-bottom: 4px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; font-weight: 600; }
+  .hero-meta-item .v { font-weight: 500; color: var(--ink); font-size: 14px; }
+
+  /* Tooltip system */
+  .tip {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--gold-dark);
+    font-size: 11px;
+    text-align: center;
+    line-height: 16px;
+    margin-left: 6px;
+    cursor: help;
+    position: relative;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    vertical-align: middle;
+    border: 1px solid var(--gold);
+  }
+  .tip:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.55;
+    width: 300px;
+    white-space: normal;
+    text-align: left;
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 12px 32px rgba(31, 26, 20, 0.25);
+    font-family: 'Inter', sans-serif;
+  }
+  .tip:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--ink);
+    z-index: 101;
+  }
+  /* Right-aligned tooltips for inputs (so they don't cut off) */
+  .input-row .tip:hover::after {
+    left: auto;
+    right: -8px;
+    transform: none;
+  }
+  .input-row .tip:hover::before {
+    left: auto;
+    right: 4px;
+    transform: none;
+  }
+
+  /* Card grids */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin: 24px 0; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  @media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+  .stat {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px;
+    position: relative;
+  }
+  .stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+  .stat .v { font-size: 48px; font-weight: 600; line-height: 1.0; letter-spacing: -0.02em; font-family: 'Cormorant Garamond', serif; color: var(--ink); }
+  .stat .sub { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+  .stat.positive { background: var(--positive-soft); border-color: var(--positive); }
+  .stat.positive .v { color: var(--positive); }
+  .stat.warn { background: var(--warn-soft); border-color: var(--warn); }
+  .stat.warn .v { color: var(--warn); }
+  .stat.gold { background: var(--gold-soft); border-color: var(--gold); }
+  .stat.gold .v { color: var(--gold-dark); }
+
+  /* Card */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .card.rec { background: var(--gold-soft); border-color: var(--gold); }
+  .card h4 { margin-top: 0; }
+  .card ul { padding-left: 18px; margin: 8px 0; }
+  .card li { margin: 6px 0; color: var(--ink-soft); }
+  .card .meta { font-size: 12px; color: var(--muted); margin: 4px 0 14px; font-style: italic; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; font-family: 'Inter', sans-serif; }
+  thead { background: var(--bg-soft); }
+  th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; font-size: 12px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.total { background: var(--gold-soft); font-weight: 600; }
+  tr.total td { color: var(--ink); }
+
+  /* Forcing functions */
+  .numbered-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 30px 0; }
+  @media (max-width: 720px) { .numbered-list { grid-template-columns: 1fr; } }
+  .numbered-item {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px;
+    position: relative;
+  }
+  .numbered-item .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 12px;
+    line-height: 1;
+    font-weight: 500;
+  }
+  .numbered-item h4 { margin: 0 0 8px; font-size: 17px; }
+  .numbered-item p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+  /* TCO Calculator */
+  .calc-section {
+    background: var(--bg-card);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 36px;
+    margin: 32px 0;
+  }
+  .calc-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .calc-header h3 { margin: 0; font-size: 26px; }
+  .calc-hint { font-size: 12px; color: var(--muted); font-family: 'Inter', sans-serif; }
+  .calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px; }
+  @media (max-width: 720px) { .calc-inputs { grid-template-columns: 1fr; } }
+
+  /* Side-by-side comparison table */
+  .compare-table { margin-bottom: 36px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 4px; }
+  .compare-head { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px; padding: 18px 26px; background: var(--bg-soft); border-bottom: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+  .compare-head .ch-mag { color: var(--warn); }
+  .compare-head .ch-plus { color: var(--gold-dark); }
+  .compare-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 20px; align-items: center; padding: 16px 26px; border-bottom: 1px solid var(--line); min-height: 64px; transition: background 0.15s ease; }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row:hover { background: var(--bg-soft); }
+  .compare-row .cr-label { font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; }
+  .compare-row .cr-cell { display: flex; align-items: center; justify-content: flex-start; gap: 4px; }
+  .compare-row input { width: 130px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; background: var(--bg-card); color: var(--ink); }
+  .compare-row input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168, 144, 96, 0.15); }
+  .compare-row .prefix, .compare-row .suffix { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .compare-row .none { font-size: 13px; color: var(--muted); font-style: italic; }
+  .compare-row .elim { font-size: 13px; color: var(--positive); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  @media (max-width: 720px) { .compare-head, .compare-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 22px; } }
+  .input-group {
+    background: var(--bg-soft);
+    padding: 22px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+  .input-group h4 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .input-group.magento h4 { color: var(--warn); }
+  .input-group.plus h4 { color: var(--gold-dark); }
+  .input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    position: relative;
+    min-height: 56px;
+  }
+  .input-row:last-child { border-bottom: none; }
+  .input-row .label-wrap { font-size: 13px; color: var(--ink-soft); flex: 1; padding-right: 12px; display: flex; align-items: center; }
+  .input-row input {
+    width: 130px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    background: var(--bg-card);
+    color: var(--ink);
+  }
+  .input-row input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168, 144, 96, 0.15); }
+  .input-row .prefix, .input-row .suffix { font-size: 12px; color: var(--muted); margin: 0 4px; }
+
+  .calc-output {
+    background: var(--gold-soft);
+    border-radius: 4px;
+    padding: 28px;
+    border: 1px solid var(--gold);
+  }
+  .calc-output h4 { margin-top: 0; color: var(--ink); }
+  .calc-output-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(168, 144, 96, 0.3); font-size: 14px; font-family: 'Inter', sans-serif; }
+  .calc-output-row:last-child { border-bottom: none; }
+  .calc-output-row.total { font-size: 20px; font-weight: 700; padding-top: 14px; }
+  .calc-output-row.savings { color: var(--positive); font-weight: 600; font-size: 36px; padding-top: 24px; border-top: 3px solid var(--gold); font-family: 'Cormorant Garamond', serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .calc-output-row .label { color: var(--ink-soft); }
+  .calc-output-row .value { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
+
+  /* Map */
+  .map-step {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .map-step.target { border-color: var(--gold); background: var(--gold-soft); border-width: 2px; }
+  .map-when {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 160px;
+    padding-top: 4px;
+  }
+  .map-body h4 { margin: 0 0 6px; font-size: 16px; }
+  .map-body p { font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+
+  /* Callouts */
+  .callout {
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 18px 22px;
+    border-radius: 4px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .callout strong { color: var(--ink); }
+  .footnote { color: var(--muted); font-size: 12px; margin-top: 16px; line-height: 1.55; font-family: 'Inter', sans-serif; }
+
+  /* Partner cards */
+  .partner-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+  }
+  .partner-card.rec { border-color: var(--gold); background: var(--gold-soft); border-width: 2px; }
+  .partner-card .partner-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .partner-card .partner-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 8px; color: var(--ink); }
+  .partner-card .partner-cost { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; margin: 12px 0; color: var(--ink); line-height: 1; }
+  .partner-card .partner-meta { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+  }
+  .pill.rec { background: var(--gold); color: var(--bg-card); }
+
+  footer { padding: 48px 0; text-align: center; color: var(--muted); font-size: 13px; background: var(--bg-soft); border-top: 1px solid var(--line); }
+  footer p { color: var(--muted); }
+  footer strong { color: var(--ink); }
+
+  ul { padding-left: 22px; }
+  ul li { margin: 6px 0; color: var(--ink-soft); }
+
+  /* Assumptions table */
+  .assumptions-list { background: var(--bg-card); border: 1px solid var(--line); border-radius: 4px; padding: 0; margin: 24px 0; }
+  .assumption-row { display: grid; grid-template-columns: 1fr 1.5fr 2fr; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--line); font-size: 13px; align-items: start; }
+  .assumption-row:last-child { border-bottom: none; }
+  .assumption-row .a-label { font-weight: 600; color: var(--ink); }
+  .assumption-row .a-value { color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .assumption-row .a-source { color: var(--ink-soft); font-style: italic; }
+  @media (max-width: 720px) { .assumption-row { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Tabs */
+  .tabs-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0 32px;
+  }
+  .tabs-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 18px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active {
+    color: var(--gold-dark);
+    border-bottom-color: var(--gold);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .vpf-result-card {
+    background: var(--gold-soft);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    padding: 32px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .vpf-result-card .vpf-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .vpf-result-card .vpf-figure {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    color: var(--gold-dark);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .vpf-result-card .vpf-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .vpf-band {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media (max-width: 720px) { .vpf-band { grid-template-columns: 1fr; } }
+  .vpf-band .band {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .vpf-band .band.active { border-color: var(--gold); background: var(--gold-soft); }
+  .vpf-band .band-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .vpf-band .band-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .vpf-band .band-sub { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+  /* ---- PRINT / PDF ---- */
+  @media print {
+    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #fff; }
+    @page { margin: 14mm; }
+    .tabs { display: none !important; }              /* hide the tab nav */
+    .tab-content { display: block !important; }        /* show every tab */
+    .tab-content { page-break-before: always; }        /* each section starts fresh */
+    #tab-tco { page-break-before: avoid; }             /* first section flows after hero */
+    section { padding: 18px 0; }
+    /* keep visual blocks whole — no splitting across pages */
+    .stat, .card, .calc-panel, .vpf-result-card, .map-step, .partner-card,
+    .callout, .flag, .assumption-row, .vpf-band .band, .grid-3 > *, .grid-2 > *, .grid-4 > * {
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    table { break-inside: auto; }
+    tr, thead { break-inside: avoid; page-break-inside: avoid; }
+    h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+    a { color: inherit; text-decoration: none; }
+    /* keep big numbers on one line so cards read cleanly */
+    .stat .v { font-size: 22px !important; line-height: 1.15; white-space: nowrap; }
+    .grid-4 .stat .v { font-size: 19px !important; }
+    .partner-card .partner-cost, .vpf-figure { font-size: 24px !important; white-space: nowrap; }
+    h1 { font-size: 30px; }
+    /* keep a full row of cards together on one page */
+    .grid-3, .grid-2, .grid-4, .vpf-band, .calc { break-inside: avoid; page-break-inside: avoid; }
+  }
+
+</style>
+</head>
+<body>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-mark">
+      <span class="hero-shopify" style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--ink);letter-spacing:0.04em;">REPEAT Cashmere</span>
+      <span class="hero-x">&times;</span>
+      <span class="hero-shopify">Shopify Plus</span>
+    </div>
+    <div style="text-align:center;">
+      <span class="eyebrow">Total Cost of Ownership &amp; ROI</span>
+      <h1>Salesforce today vs. Shopify Plus tomorrow.</h1>
+      <p class="lede" style="margin: 0 auto; font-size: 19px;">Live numbers. Editable inputs. Built from our discovery call.</p>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="k">Annual GMV</div><div class="v">~€4.2M ( ~$4.5M )</div></div>
+      <div class="hero-meta-item"><div class="k">Orders / AOV</div><div class="v">16,300 · €258</div></div>
+      <div class="hero-meta-item"><div class="k">Today</div><div class="v">Salesforce Commerce Cloud</div></div>
+      <div class="hero-meta-item"><div class="k">Markets</div><div class="v">EU · Switzerland · US</div></div>
+      <div class="hero-meta-item"><div class="k">Launch goal</div><div class="v">End 2027</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TAB NAV -->
+<nav class="tabs-nav">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-tab="tco">TCO &amp; ROI</button>
+    <button class="tab-btn" data-tab="pricing">Pricing &amp; Stores</button>
+    <button class="tab-btn" data-tab="growth">Growth &amp; Uplift</button>
+    <button class="tab-btn" data-tab="map">Mutual Action Plan</button>
+    <button class="tab-btn" data-tab="appendix">Appendix</button>
+  </div>
+</nav>
+
+<!-- ============ TAB: TCO & ROI ============ -->
+<div class="tab-content active" id="tab-tco">
+
+<section>
+  <div class="container">
+    <h2>The bottom line.</h2>
+    <p class="lede">Salesforce Commerce Cloud is a revenue-share model with layered per-seat and dev costs — powerful, but heavy for a small team. Shopify Plus is a flat, transparent base with most of what you need out of the box. Here's the gap, before we even count the growth upside.</p>
+    <div class="grid-3">
+      <div class="stat positive">
+        <div class="k">Est. annual operating savings</div>
+        <div class="v" id="s_savings">$186,000</div>
+        <div class="sub">Salesforce total vs. Shopify Plus total per year (editable below)</div>
+      </div>
+      <div class="stat gold">
+        <div class="k">Growth upside / yr (illustrative)</div>
+        <div class="v" id="s_uplift">$585,000</div>
+        <div class="sub">Shop Pay conversion + agentic AI channel on ~$4.5M GMV</div>
+      </div>
+      <div class="stat">
+        <div class="k">3-year net (savings − build)</div>
+        <div class="v" id="s_3yr">$508,000</div>
+        <div class="sub">3 yrs of savings less one-time implementation</div>
+      </div>
+    </div>
+    <p class="footnote">Salesforce figures are estimates to confirm on our Sept 10 call — Ron hasn't shared the revenue-share rate yet. Every input below is editable so we can true it up live. Currency: EUR converted to USD at ~1.08 for a like-for-like view with Shopify's USD pricing.</p>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="container">
+    <div class="eyebrow">Current state</div>
+    <h2>Why you're looking.</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>What you told us</h4>
+        <ul>
+          <li><strong>SFCC is too large &amp; complex</strong> for REPEAT's small team</li>
+          <li><strong>Per-seat user fees</strong> under Salesforce's newer policy are hefty</li>
+          <li>Revenue-share pricing bundles platform, hosting, apps &amp; dev — hard to see the true cost</li>
+          <li>Priorities: <strong>page-load speed, flexibility, reliability</strong>, clean marketing/email integration, ERP integration, easy for a lean team</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Where Shopify fits</h4>
+        <ul>
+          <li><strong>Flat $2,300/mo base</strong> — no revenue share at your volume (VPF only above ~$7.9M/yr)</li>
+          <li><strong>~80% out of the box</strong> — less custom dev, lighter load on your team</li>
+          <li><strong>One admin</strong> unifies your 8+ regional stores, marketplace orders &amp; customers</li>
+          <li>Deep app ecosystem (Klaviyo etc.) that connects natively, plus ERP integration via a partner</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Live TCO model</div>
+    <h2>Salesforce today vs. Shopify Plus.</h2>
+    <p class="lede" style="font-size:18px;">Edit any number — the page updates live. Salesforce lines default to industry estimates; we'll replace them with your real figures on the call.</p>
+
+    <div class="calc-section">
+      <div class="calc-header">
+        <h3>Annual operating cost</h3>
+        <div class="calc-hint">USD · Salesforce = estimate, to confirm 9/10</div>
+      </div>
+
+      <div class="compare-table">
+        <div class="compare-head">
+          <div>Line item</div>
+          <div class="ch-mag">Salesforce (today)</div>
+          <div class="ch-plus">Shopify Plus (future)</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Annual GMV <span class="tip" data-tip="From your data sheet: €4.2M. Shown ~$4.5M at 1.08. Drives revenue-share and processing math on both sides.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="gmv" value="4500000"></div>
+          <div class="cr-cell"><span class="none">same GMV</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Platform / license <span class="tip" data-tip="Salesforce: revenue-share % of GMV (default 2.0% estimate — confirm with Ron). Shopify Plus: $2,300/mo base = $27,600/yr; VPF only applies above ~$7.9M/yr, so base applies at your volume.">i</span></div>
+          <div class="cr-cell"><input type="number" id="sf_revshare" value="2.0" step="0.1"><span class="suffix">% GMV</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_base" value="2300"><span class="suffix">/mo</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Marketing engine <span class="tip" data-tip="Salesforce Marketing Cloud (est. — you use it today). Shopify: Klaviyo or similar connects natively; est. included in apps below, so $0 here to avoid double-count.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="sf_marketing" value="24000"><span class="suffix">/yr</span></div>
+          <div class="cr-cell"><span class="none">in apps below</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Per-seat user fees <span class="tip" data-tip="Salesforce's newer policy adds per-user account fees you flagged as hefty. Estimate — confirm your seat count. Shopify Plus: unlimited staff accounts included.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="sf_seats" value="12000"><span class="suffix">/yr</span></div>
+          <div class="cr-cell"><span class="elim">included</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Apps / add-ons <span class="tip" data-tip="Salesforce: bundled in revenue share ($0 to avoid double-count). Shopify: Klaviyo + supporting apps; ~80% of needs are native. Editable.">i</span></div>
+          <div class="cr-cell"><span class="none">in rev-share</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_apps" value="9000"><span class="suffix">/yr</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Dev / agency (ongoing) <span class="tip" data-tip="Salesforce: dedicated developers for a demanding, custom setup (estimate — a big part of your true cost). Shopify: partner retainer for ongoing changes; less custom work needed thanks to native features. This is the developer-cost comparison you asked for.">i</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="sf_dev" value="120000"><span class="suffix">/yr</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_dev" value="60000"><span class="suffix">/yr</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Expansion stores (beyond 10) <span class="tip" data-tip="10 stores included (1 main + 9 expansion), same brand. You run ~8 today (NL, DE, FR, 2×CH, US, UK, EU-EN) + Canada planned. Model any beyond 10 at ~$300/mo each. Separate brands need their own Plus contract.">i</span></div>
+          <div class="cr-cell"><span class="none">n/a</span></div>
+          <div class="cr-cell"><input type="number" id="plus_stores" value="1"><span class="suffix">× $300/mo</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Payment processing rate <span class="tip" data-tip="Salesforce via Adyen ~2.0% (competitive in NL/DE). Shopify Payments 2.25% + 30¢ unlocks Shop Pay; or keep Adyen as a third-party gateway at +0.2% (no Shop Pay). Roughly at parity — the win is conversion uplift, not raw rate.">i</span></div>
+          <div class="cr-cell"><input type="number" id="sf_rate" value="2.0" step="0.05"><span class="suffix">%</span></div>
+          <div class="cr-cell"><input type="number" id="plus_rate" value="2.25" step="0.05"><span class="suffix">%</span></div>
+        </div>
+
+        <div class="compare-row">
+          <div class="cr-label">Implementation (one-time) <span class="tip" data-tip="Shopify est. ~$50K one-time; Ron expects it may run ~$100K given custom integrations and demanding requirements. To refine with the partner's build scope. Salesforce build already sunk.">i</span></div>
+          <div class="cr-cell"><span class="none">sunk</span></div>
+          <div class="cr-cell"><span class="prefix">$</span><input type="number" id="plus_impl" value="50000"></div>
+        </div>
+      </div>
+
+      <div class="calc-output">
+        <h4>Annual operating cost — calculated</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+          <div>
+            <div style="font-family:Inter,sans-serif;font-size:11px;color:var(--warn);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Salesforce (today)</div>
+            <div class="calc-output-row"><span class="label">Platform (rev-share)</span><span class="value" id="o_sf_plat">$90,000</span></div>
+            <div class="calc-output-row"><span class="label">Marketing Cloud</span><span class="value" id="o_sf_mkt">$24,000</span></div>
+            <div class="calc-output-row"><span class="label">Per-seat fees</span><span class="value" id="o_sf_seats">$12,000</span></div>
+            <div class="calc-output-row"><span class="label">Dev / agency</span><span class="value" id="o_sf_dev">$120,000</span></div>
+            <div class="calc-output-row"><span class="label">Processing</span><span class="value" id="o_sf_proc">$90,000</span></div>
+            <div class="calc-output-row total"><span class="label">Salesforce total / yr</span><span class="value" id="o_sf_total">$336,000</span></div>
+          </div>
+          <div>
+            <div style="font-family:Inter,sans-serif;font-size:11px;color:var(--gold-dark);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Shopify Plus (future)</div>
+            <div class="calc-output-row"><span class="label">Plus base (VPF or base)</span><span class="value" id="o_plus_lic">$27,600</span></div>
+            <div class="calc-output-row"><span class="label">Apps (Klaviyo etc.)</span><span class="value" id="o_plus_apps">$9,000</span></div>
+            <div class="calc-output-row"><span class="label">Dev / partner</span><span class="value" id="o_plus_dev">$60,000</span></div>
+            <div class="calc-output-row"><span class="label">Expansion stores</span><span class="value" id="o_plus_stores">$3,600</span></div>
+            <div class="calc-output-row"><span class="label">Processing</span><span class="value" id="o_plus_proc">$101,250</span></div>
+            <div class="calc-output-row total"><span class="label">Plus total / yr</span><span class="value" id="o_plus_total">$201,450</span></div>
+            <div class="calc-output-row" style="margin-top:8px;color:var(--ink-soft);"><span class="label">+ Implementation <span style="font-size:11px;color:var(--muted);">(one-time, Yr 1)</span></span><span class="value" id="o_plus_impl">$50,000</span></div>
+          </div>
+        </div>
+        <div class="calc-output-row savings">
+          <span class="label" style="font-size:18px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;font-family:Inter,sans-serif;">REPEAT saves / year</span>
+          <span class="value" id="o_savings">+$134,550 / yr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="container">
+    <div class="eyebrow">Three-year picture</div>
+    <h2>Salesforce vs. Shopify Plus, cumulative.</h2>
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th class="num">Year 1 (2027)</th><th class="num">Year 2</th><th class="num">Year 3</th><th class="num">3-year total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Salesforce (stay)</td><td class="num" id="y_sf1">$336,000</td><td class="num" id="y_sf2">$336,000</td><td class="num" id="y_sf3">$336,000</td><td class="num" id="y_sft">$1,008,000</td></tr>
+        <tr><td>Shopify Plus (incl. build in Yr 1)</td><td class="num" id="y_pl1">$251,450</td><td class="num" id="y_pl2">$201,450</td><td class="num" id="y_pl3">$201,450</td><td class="num" id="y_plt">$654,350</td></tr>
+        <tr class="total"><td>REPEAT saves</td><td class="num" id="y_sv1">+$84,550</td><td class="num" id="y_sv2">+$134,550</td><td class="num" id="y_sv3">+$134,550</td><td class="num" id="y_svt">+$353,650</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Operating savings only — before the growth upside on the next tab. Salesforce lines are placeholders until we confirm your real revenue-share, seat and dev figures.</p>
+  </div>
+</section>
+</div><!-- /#tab-tco -->
+
+<!-- ============ TAB: PRICING & STORES ============ -->
+<div class="tab-content" id="tab-pricing">
+<section>
+  <div class="container">
+    <h2>Pricing &amp; stores.</h2>
+    <div class="grid-3">
+      <div class="stat gold"><div class="k">Plus base</div><div class="v">$2,300<span style="font-size:20px;">/mo</span></div><div class="sub">~$27,600/yr · flat at your volume</div></div>
+      <div class="stat"><div class="k">Standard card</div><div class="v">2.25%<span style="font-size:20px;"> + 30¢</span></div><div class="sub">2.9% Amex · unlocks Shop Pay</div></div>
+      <div class="stat"><div class="k">Stores included</div><div class="v">10</div><div class="sub">1 main + 9 expansion, same brand</div></div>
+    </div>
+
+    <h3>Variable Platform Fee — and your peak months</h3>
+    <p>You pay the <strong>higher of</strong> the $2,300 base or the VPF on that month's revenue. VPF (online) is <strong>0.35%</strong>, and only bites when a month's revenue exceeds ~$657K. At ~$4.5M/yr you're on the base almost every month — the one to watch is a <strong>Black Friday / holiday spike</strong>.</p>
+    <div class="vpf-band">
+      <div class="band active"><div class="band-label">Typical month (~$375K)</div><div class="band-value">$2,300</div><div class="band-sub">Base applies · VPF would be ~$1,313</div></div>
+      <div class="band"><div class="band-label">Strong month (~$700K)</div><div class="band-value">$2,450</div><div class="band-sub">VPF 0.35% just edges above base</div></div>
+      <div class="band"><div class="band-label">BFCM peak (~$1M)</div><div class="band-value">$3,500</div><div class="band-sub">VPF applies for that month only</div></div>
+    </div>
+    <p class="footnote">Illustrative. So you're never blindsided: a very heavy peak month is the only time you'd pay above the $2,300 base. Free months / custom offers are negotiable.</p>
+
+    <h3>Card rates vs. your Adyen setup</h3>
+    <table>
+      <thead><tr><th>Card type</th><th class="num">Shopify Payments</th><th class="num">Adyen (today)</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Standard (Visa/MC)</td><td class="num">2.25% + 30¢</td><td class="num">~2.0% + €0.25</td><td>Adyen competitive in NL/DE</td></tr>
+        <tr><td>Amex</td><td class="num">2.9% + 30¢</td><td class="num">~ in line</td><td>—</td></tr>
+        <tr><td>Direct debit (iDEAL etc.)</td><td class="num">via Shopify Payments</td><td class="num">~€0.25</td><td>low fixed fee</td></tr>
+        <tr><td>Keep Adyen as gateway</td><td class="num">+0.2% fee</td><td class="num">—</td><td><strong>no Shop Pay</strong> if third-party</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>Honest read:</strong> your Adyen rates are competitive, so raw processing is roughly at parity. The reason to move to Shopify Payments is <strong>Shop Pay conversion + the Shop app + agentic checkout</strong> (next tab) — not a lower headline rate.</div>
+
+    <h3>Expansion stores</h3>
+    <p>Your regional footprint — Dutch, German, French, two Swiss, US, UK and a generic EU-English store (~8 today, with Canada planned) — maps to <strong>1 main store + expansion stores</strong>, all the same REPEAT brand. <strong>10 are included.</strong> Beyond 10, each additional store is <strong>~$300/mo (~$3,600/yr)</strong> — or a revenue-share option; negotiable.</p>
+    <table>
+      <thead><tr><th>Stores</th><th class="num">Beyond included 10</th><th class="num">Added cost /yr</th></tr></thead>
+      <tbody>
+        <tr><td>Today (~8–9)</td><td class="num">0</td><td class="num">$0</td></tr>
+        <tr><td>Add Canada (~10)</td><td class="num">0</td><td class="num">$0</td></tr>
+        <tr class="total"><td>Grow to 11</td><td class="num">1</td><td class="num">$3,600</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Apps &amp; themes are billed per store. A separate brand (not REPEAT) would need its own Plus contract, not an expansion store.</p>
+  </div>
+</section>
+</div><!-- /#tab-pricing -->
+
+<!-- ============ TAB: GROWTH & UPLIFT ============ -->
+<div class="tab-content" id="tab-growth">
+<section>
+  <div class="container">
+    <div class="eyebrow">The upside the TCO doesn't count</div>
+    <h2>Growth &amp; uplift.</h2>
+    <p class="lede">Cost parity is the floor. The real case for Shopify is revenue you don't get on Salesforce — starting with agentic commerce and Shop Pay. Figures below are illustrative on ~$4.5M GMV; we'll tune them together.</p>
+
+    <div class="grid-2">
+      <div class="card rec">
+        <div class="pill rec">Emphasis</div>
+        <h4 style="margin-top:12px;">Agentic storefront (AI channels)</h4>
+        <p>Shopify's Universal Commerce Protocol syndicates your catalog to AI assistants (ChatGPT and beyond) — product discovery, cart and checkout happen <em>inside</em> the AI channel. <strong>$0 subscription; you pay only standard payment rates per sale.</strong> A brand-new acquisition surface Salesforce doesn't natively offer.</p>
+        <div class="stat gold" style="margin-top:16px;"><div class="k">Illustrative new-channel GMV</div><div class="v" id="g_agentic">$135,000</div><div class="sub">3% of GMV via agentic — editable</div></div>
+      </div>
+      <div class="card">
+        <h4>Shop Pay conversion</h4>
+        <p>One-click checkout for 200M+ shoppers, with the highest checkout completion in Shopify's network. Less friction on a €258 AOV cashmere purchase = more completed orders — at your current 1.4–2.1% conversion, small lifts compound.</p>
+        <div class="stat positive" style="margin-top:16px;"><div class="k">Illustrative uplift GMV</div><div class="v" id="g_shoppay">$450,000</div><div class="sub">+10% conversion on GMV — editable</div></div>
+      </div>
+    </div>
+
+    <div class="calc-section" style="border-color:var(--positive);">
+      <div class="calc-header"><h3>Tune the upside</h3><div class="calc-hint">illustrative — not a guarantee</div></div>
+      <div class="calc-inputs">
+        <div class="input-group plus">
+          <h4>Levers</h4>
+          <div class="input-row"><span class="label-wrap">Shop Pay conversion uplift <span class="tip" data-tip="Modeled as a % lift on GMV from higher checkout completion. Conservative default 10%.">i</span></span><input type="number" id="up_conv" value="10" step="1"><span class="suffix">%</span></div>
+          <div class="input-row"><span class="label-wrap">Agentic new-channel GMV <span class="tip" data-tip="Incremental GMV from selling in AI channels via UCP. Default 3% of GMV.">i</span></span><input type="number" id="up_agentic" value="3" step="0.5"><span class="suffix">%</span></div>
+          <div class="input-row"><span class="label-wrap">Gross margin <span class="tip" data-tip="Applied to incremental GMV to show gross-profit impact.">i</span></span><input type="number" id="up_margin" value="55" step="1"><span class="suffix">%</span></div>
+        </div>
+        <div class="calc-output" style="background:var(--positive-soft);border-color:var(--positive);">
+          <h4>Annual upside</h4>
+          <div class="calc-output-row"><span class="label">Shop Pay uplift GMV</span><span class="value" id="o_up_conv">$450,000</span></div>
+          <div class="calc-output-row"><span class="label">Agentic channel GMV</span><span class="value" id="o_up_agentic">$135,000</span></div>
+          <div class="calc-output-row total"><span class="label">Incremental GMV / yr</span><span class="value" id="o_up_gmv">$585,000</span></div>
+          <div class="calc-output-row savings" style="color:var(--positive);"><span class="label" style="font-size:16px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;font-family:Inter,sans-serif;">Incremental gross profit</span><span class="value" id="o_up_gp">$321,750</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card"><h4>Shop app marketplace</h4><p>Your products surface to Shop app shoppers with related-store referrals — the #2 shopping marketplace behind Amazon.</p></div>
+      <div class="card"><h4>High-intent audiences</h4><p>Export Shopify-built high-intent customer lists into Google / Meta / TikTok — you pay on conversion.</p></div>
+      <div class="card"><h4>Unification</h4><p>All regional stores, marketplace orders and customer data in one admin — a real win for a lean team.</p></div>
+    </div>
+  </div>
+</section>
+</div><!-- /#tab-growth -->
+
+<!-- ============ TAB: MAP ============ -->
+<div class="tab-content" id="tab-map">
+<section>
+  <div class="container">
+    <div class="eyebrow">Mutual Action Plan</div>
+    <h2>Path to an end-2027 launch.</h2>
+    <p class="lede">Working backward from your launch goal, with a partner engaged early so the build (and the developer-cost comparison you asked for) is scoped properly.</p>
+
+    <div class="map-step target">
+      <div class="map-when">Sep 10, 2026 · booked</div>
+      <div class="map-body"><h4>TCO &amp; pricing review</h4><p>Walk this model live, replace the Salesforce estimates with your real revenue-share, seat and dev figures, and agree the shortlist of must-have integrations.</p></div>
+    </div>
+    <div class="map-step">
+      <div class="map-when">Sep – Oct 2026</div>
+      <div class="map-body"><h4>Complete inputs + partner intro</h4><p>You send the apps list and current Salesforce costs; I introduce an implementation partner to scope data migration, ERP integration and your custom requirements — and give you a real developer-cost comparison vs. Salesforce.</p></div>
+    </div>
+    <div class="map-step">
+      <div class="map-when">Nov – Dec 2026</div>
+      <div class="map-body"><h4>Proposal + commercial review</h4><p>Final TCO with partner build cost, apps and card-rate comparison. Target sign by year-end to lock incentives (free months / custom offer).</p></div>
+    </div>
+    <div class="map-step">
+      <div class="map-when">Q1 2027</div>
+      <div class="map-body"><h4>Kickoff &amp; build</h4><p>Partner begins the build — storefront, regional/expansion stores, ERP + marketing integrations, migration.</p></div>
+    </div>
+    <div class="map-step">
+      <div class="map-when">Mid 2027</div>
+      <div class="map-body"><h4>UAT &amp; data migration</h4><p>Staging sign-off, catalog and customer/order migration, payments setup (Shopify Payments vs. Adyen decision).</p></div>
+    </div>
+    <div class="map-step target">
+      <div class="map-when">End 2027 · goal</div>
+      <div class="map-body"><h4>Go live on Shopify Plus</h4><p>Launch ahead of your next Salesforce renewal decision — with Shop Pay and agentic on from day one.</p></div>
+    </div>
+
+    <h3>Immediate next step</h3>
+    <div class="callout"><strong>Partner intro.</strong> The fastest way to firm up the two open questions — implementation cost (~$50K vs. Ron's ~$100K view) and developer availability/cost vs. Salesforce — is to get a partner scoping now. I'll line one up right after the Sept 10 review.</div>
+  </div>
+</section>
+</div><!-- /#tab-map -->
+
+<!-- ============ TAB: APPENDIX ============ -->
+<div class="tab-content" id="tab-appendix">
+<section>
+  <div class="container">
+    <div class="eyebrow">Appendix</div>
+    <h2>Assumptions &amp; inputs.</h2>
+    <div class="assumptions-list">
+      <div class="assumption-row"><div class="a-label">Annual GMV</div><div class="a-value">€4.2M (~$4.5M)</div><div class="a-source">Your TCO data sheet · FX ~1.08</div></div>
+      <div class="assumption-row"><div class="a-label">Orders / AOV</div><div class="a-value">16,300 · €258</div><div class="a-source">Your TCO data sheet</div></div>
+      <div class="assumption-row"><div class="a-label">Conversion rate</div><div class="a-value">1.4% – 2.1%</div><div class="a-source">Seasonal, per your sheet</div></div>
+      <div class="assumption-row"><div class="a-label">SKUs</div><div class="a-value">5,000 active</div><div class="a-source">Size-level, per your sheet</div></div>
+      <div class="assumption-row"><div class="a-label">Salesforce rev-share</div><div class="a-value">2.0% (est.)</div><div class="a-source">Placeholder — confirm with Ron</div></div>
+      <div class="assumption-row"><div class="a-label">Salesforce dev/agency</div><div class="a-value">$120K (est.)</div><div class="a-source">Dedicated devs + custom setup — confirm</div></div>
+      <div class="assumption-row"><div class="a-label">Plus base</div><div class="a-value">$2,300/mo</div><div class="a-source">Verified · VPF 0.35% above ~$7.9M/yr</div></div>
+      <div class="assumption-row"><div class="a-label">Card rate</div><div class="a-value">2.25% + 30¢ (2.9% Amex)</div><div class="a-source">Shopify Payments · +0.2% for 3rd-party</div></div>
+      <div class="assumption-row"><div class="a-label">Expansion stores</div><div class="a-value">10 incl · $300/mo beyond</div><div class="a-source">Same brand only</div></div>
+      <div class="assumption-row"><div class="a-label">Implementation</div><div class="a-value">~$50K (Ron: ~$100K)</div><div class="a-source">To refine with partner scope</div></div>
+    </div>
+
+    <h3>Everything from our discovery call — covered here</h3>
+    <div class="grid-2">
+      <div class="card">
+        <ul>
+          <li>✓ Salesforce vs. Shopify cost comparison (TCO tab)</li>
+          <li>✓ Marketing engine: Marketing Cloud vs. Klaviyo/apps</li>
+          <li>✓ Card rates vs. Adyen (Pricing tab)</li>
+          <li>✓ Expansion-store explanation for your regional stores</li>
+          <li>✓ VPF &amp; the peak/BFCM-month scenario</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul>
+          <li>✓ Developer availability &amp; cost vs. Salesforce (dev line + MAP)</li>
+          <li>✓ Implementation estimate (~$50K, range to ~$100K)</li>
+          <li>✓ Conversion / Shop Pay / Shop app / high-intent audiences</li>
+          <li>✓ Agentic storefront (Growth tab)</li>
+          <li>✓ Unification across regional stores &amp; marketplaces</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote">Prepared by Nicole DeGennaro · Shopify — for Repeat International (REPEAT Cashmere). Salesforce figures are estimates pending your inputs; all numbers editable and to be trued up on the Sept 10 TCO call. EUR→USD at ~1.08 for comparability with Shopify's USD pricing.</p>
+  </div>
+</section>
+</div><!-- /#tab-appendix -->
+
+<footer>
+  <div class="container"><p><strong>Repeat International × Shopify Plus</strong> — Total Cost of Ownership &amp; ROI · built from our discovery call · prepared by Nicole DeGennaro</p></div>
+</footer>
+
+<script>
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.tab-btn').forEach(function(x){x.classList.remove('active');});
+      document.querySelectorAll('.tab-content').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+  // Helpers
+  var $=function(id){return document.getElementById(id);};
+  var val=function(id){var e=$(id);return e?parseFloat(e.value)||0:0;};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function calc(){
+    var gmv=val('gmv');
+    // Salesforce
+    var sfPlat=gmv*val('sf_revshare')/100;
+    var sfMkt=val('sf_marketing');
+    var sfSeats=val('sf_seats');
+    var sfDev=val('sf_dev');
+    var sfProc=gmv*val('sf_rate')/100;
+    var sfTotal=sfPlat+sfMkt+sfSeats+sfDev+sfProc;
+    // Shopify Plus
+    var base=val('plus_base')*12;
+    var vpf=gmv*0.0035;
+    var lic=Math.max(base,vpf);
+    var apps=val('plus_apps');
+    var dev=val('plus_dev');
+    var stores=val('plus_stores')*300*12;
+    var proc=gmv*val('plus_rate')/100;
+    var impl=val('plus_impl');
+    var plusTotal=lic+apps+dev+stores+proc;
+    var savings=sfTotal-plusTotal;
+    // write TCO
+    $('o_sf_plat').textContent=fmt(sfPlat);
+    $('o_sf_mkt').textContent=fmt(sfMkt);
+    $('o_sf_seats').textContent=fmt(sfSeats);
+    $('o_sf_dev').textContent=fmt(sfDev);
+    $('o_sf_proc').textContent=fmt(sfProc);
+    $('o_sf_total').textContent=fmt(sfTotal);
+    $('o_plus_lic').textContent=fmt(lic);
+    $('o_plus_apps').textContent=fmt(apps);
+    $('o_plus_dev').textContent=fmt(dev);
+    $('o_plus_stores').textContent=fmt(stores);
+    $('o_plus_proc').textContent=fmt(proc);
+    $('o_plus_total').textContent=fmt(plusTotal);
+    $('o_plus_impl').textContent=fmt(impl);
+    $('o_savings').textContent=(savings>=0?'+':'')+fmt(savings)+' / yr';
+    // 3-year
+    var pl1=plusTotal+impl;
+    $('y_sf1').textContent=fmt(sfTotal);$('y_sf2').textContent=fmt(sfTotal);$('y_sf3').textContent=fmt(sfTotal);
+    $('y_sft').textContent=fmt(sfTotal*3);
+    $('y_pl1').textContent=fmt(pl1);$('y_pl2').textContent=fmt(plusTotal);$('y_pl3').textContent=fmt(plusTotal);
+    $('y_plt').textContent=fmt(pl1+plusTotal*2);
+    $('y_sv1').textContent=(sfTotal-pl1>=0?'+':'')+fmt(sfTotal-pl1);
+    $('y_sv2').textContent='+'+fmt(savings);$('y_sv3').textContent='+'+fmt(savings);
+    $('y_svt').textContent='+'+fmt(sfTotal*3-(pl1+plusTotal*2));
+    // top stats
+    $('s_savings').textContent=(savings>=0?'+':'')+fmt(savings).replace('$','$');
+    $('s_3yr').textContent=fmt(sfTotal*3-(pl1+plusTotal*2));
+    upside(gmv);
+  }
+  function upside(gmv){
+    var conv=gmv*val('up_conv')/100;
+    var ag=gmv*val('up_agentic')/100;
+    var total=conv+ag;
+    var gp=total*val('up_margin')/100;
+    if($('o_up_conv')){
+      $('o_up_conv').textContent=fmt(conv);
+      $('o_up_agentic').textContent=fmt(ag);
+      $('o_up_gmv').textContent=fmt(total);
+      $('o_up_gp').textContent=fmt(gp);
+      $('g_agentic').textContent=fmt(ag);
+      $('g_shoppay').textContent=fmt(conv);
+    }
+    if($('s_uplift'))$('s_uplift').textContent=fmt(total);
+  }
+  document.querySelectorAll('input[type=number]').forEach(function(i){i.addEventListener('input',calc);});
+  calc();
+</script>
+</body>
+</html>
