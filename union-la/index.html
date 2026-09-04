@@ -62,7 +62,7 @@
   .result .rk{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#d9ccff;font-weight:700}
   .result .rv{font-family:'Archivo';font-weight:900;font-size:3.6rem;line-height:1;margin:6px 0}
   .result .rp{font-size:1.05rem;color:#e6ddff}
-  .rbreak{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+  .rbreak{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
   .rbreak .rb{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:12px}
   .rbreak .rb .l{font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:#c9b8ff;font-weight:700}
   .rbreak .rb .v{font-family:'Archivo';font-weight:800;font-size:1.15rem;margin-top:4px}
@@ -162,6 +162,8 @@
       <div class="hint">USD · growth figures are illustrative until the Shop Pay Express pilot measures them on real traffic</div>
       <div class="crow"><label>Annual GMV<span class="sub">Current, on Shopify</span></label><div><span style="color:var(--muted)">$</span> <input type="number" id="gmv" value="4650000"></div></div>
       <div class="crow"><label>Third-party fee eliminated<span class="sub">Shopify surcharge on outside gateways</span></label><div><input type="number" id="fee" value="0.2" step="0.05"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Your current card rate<span class="sub">Authorize.net / processor blended — enter to compare</span></label><div><input type="number" id="cur_rate" value="2.25" step="0.05"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Shopify Payments rate<span class="sub">Plus published — 2.25% + 30¢</span></label><div><input type="number" id="sp_rate" value="2.25" step="0.05"> <span style="color:var(--muted)">%</span></div></div>
       <div class="crow"><label>Shop Pay conversion lift<span class="sub">~50% better × ~30% adoption ≈ 5% overall</span></label><div><input type="number" id="conv" value="5" step="0.5"> <span style="color:var(--muted)">%</span></div></div>
       <div class="crow"><label>Installments AOV lift<span class="sub">~50% higher AOV on installment orders</span></label><div><input type="number" id="inst" value="3" step="0.5"> <span style="color:var(--muted)">%</span></div></div>
       <div class="crow"><label>Shop app new channel<span class="sub">Discovery + drop notifications</span></label><div><input type="number" id="shop" value="1.5" step="0.5"> <span style="color:var(--muted)">%</span></div></div>
@@ -171,12 +173,13 @@
         <div class="rp num" id="r_pct">≈ 9.7% of GMV · savings + growth</div>
         <div class="rbreak">
           <div class="rb"><div class="l">Fee saved</div><div class="v num" id="r_fee">$9,300</div></div>
+          <div class="rb"><div class="l">Card rate</div><div class="v num" id="r_proc">$0</div></div>
           <div class="rb"><div class="l">Shop Pay</div><div class="v num" id="r_conv">$232,500</div></div>
           <div class="rb"><div class="l">Installments</div><div class="v num" id="r_inst">$139,500</div></div>
           <div class="rb"><div class="l">Shop app</div><div class="v num" id="r_shop">$69,750</div></div>
         </div>
       </div>
-      <p class="note">Fee saving is certain (0.2% you pay today). Growth levers are additive — order count, basket size, and a new channel are different mechanisms, not double-counted. Card-rate savings vs. your Authorize.net rate are on top and confirmed at underwriting.</p>
+      <p class="note">Fee saving is certain (0.2% you pay today). Enter your current Authorize.net rate above to see card-rate savings (defaults to parity at 2.25% = $0 until you do; if your rate is lower it simply nets to $0, and every other lever still stands). Growth levers are additive — order count, basket size, and a new channel are different mechanisms, not double-counted. Rates confirmed at underwriting; 30¢ per-transaction fee excluded from this view.</p>
     </div>
   </div>
 </section>
@@ -218,11 +221,14 @@
   function calc(){
     var g=val('gmv');
     var fee=g*val('fee')/100;
+    var proc=g*(val('cur_rate')-val('sp_rate'))/100;
+    if(proc<0)proc=0; // if their rate is lower, no processing savings (don't subtract)
     var conv=g*val('conv')/100;
     var inst=g*val('inst')/100;
     var shop=g*val('shop')/100;
-    var total=fee+conv+inst+shop;
+    var total=fee+proc+conv+inst+shop;
     $('r_fee').textContent=fmt(fee);
+    $('r_proc').textContent=fmt(proc);
     $('r_conv').textContent=fmt(conv);
     $('r_inst').textContent=fmt(inst);
     $('r_shop').textContent=fmt(shop);
