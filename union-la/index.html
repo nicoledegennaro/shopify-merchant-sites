@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UNION LA × Shop Pay — The One-Switch Upside</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#15131f; --muted:#6b6880; --line:#e7e5f0; --paper:#f6f5fb; --card:#fff;
+    --shop:#5a31f4; --shop-d:#4526bd; --shop-soft:#efeaff;
+    --green:#1f9d55; --green-soft:#e6f6ee; --amber:#e08a2b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.05;letter-spacing:-0.02em}
+  .num{font-variant-numeric:tabular-nums}
+  /* hero */
+  header{background:linear-gradient(160deg,#2a1a6e 0%,#5a31f4 60%,#7a52ff 100%);color:#fff;padding:56px 0 48px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-80px;top:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%)}
+  .kick{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#d9ccff;font-weight:700;margin-bottom:16px}
+  header h1{font-size:2.6rem;font-weight:800;margin-bottom:8px}
+  .bignum{font-family:'Archivo',sans-serif;font-weight:900;font-size:4.6rem;line-height:1;letter-spacing:-0.03em;margin:6px 0 2px}
+  .bigsub{font-size:1.1rem;color:#e6ddff;max-width:640px;margin-top:10px}
+  .hmeta{display:flex;gap:30px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2)}
+  .hmeta div .k{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#c9b8ff;font-weight:700;margin-bottom:3px}
+  .hmeta div .v{font-weight:700;font-size:1rem}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .ey{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--shop-d);font-weight:700;margin-bottom:10px}
+  h2.st{font-size:1.9rem;font-weight:800;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:1.05rem;max-width:720px;margin-bottom:8px}
+  .switch{background:var(--shop-soft);border:1px solid #d9ccff;border-radius:16px;padding:24px 26px;display:flex;gap:18px;align-items:center;margin-top:8px}
+  .switch .big{font-family:'Archivo';font-weight:900;font-size:2rem;color:var(--shop-d);white-space:nowrap}
+  .switch p{color:var(--ink);font-size:1rem}
+  /* levers */
+  .levers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .lev{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+  .lev.save{border-top:4px solid var(--green)}
+  .lev.grow{border-top:4px solid var(--shop)}
+  .lev .tag{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:12px}
+  .lev.save .tag{background:var(--green-soft);color:var(--green)}
+  .lev.grow .tag{background:var(--shop-soft);color:var(--shop-d)}
+  .lev h3{font-size:1.15rem;font-weight:800;margin-bottom:6px}
+  .lev .pct{font-family:'Archivo';font-weight:900;font-size:2.5rem;line-height:1;color:var(--ink);margin:8px 0 2px}
+  .lev.save .amt{color:var(--green)}.lev.grow .amt{color:var(--shop-d)}
+  .lev .amt{font-family:'Archivo';font-weight:800;font-size:1.5rem;margin-top:2px}
+  .lev p{font-size:.92rem;color:var(--muted);margin-top:8px}
+  /* calculator */
+  .calc{background:var(--card);border:2px solid var(--shop);border-radius:18px;padding:28px;margin-top:8px}
+  .calc h3{font-size:1.3rem;font-weight:800;margin-bottom:4px}
+  .calc .hint{font-size:.85rem;color:var(--muted);margin-bottom:18px}
+  .crow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px dashed var(--line);gap:14px}
+  .crow:last-of-type{border-bottom:none}
+  .crow label{font-size:.95rem;font-weight:500}
+  .crow .sub{display:block;font-size:.78rem;color:var(--muted);font-weight:400;margin-top:2px}
+  .crow input{width:130px;padding:9px 12px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:1rem;font-weight:600;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .crow input:focus{outline:none;border-color:var(--shop);box-shadow:0 0 0 3px rgba(90,49,244,.15)}
+  .result{background:linear-gradient(160deg,#2a1a6e,#5a31f4);color:#fff;border-radius:16px;padding:26px;margin-top:22px;text-align:center}
+  .result .rk{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#d9ccff;font-weight:700}
+  .result .rv{font-family:'Archivo';font-weight:900;font-size:3.6rem;line-height:1;margin:6px 0}
+  .result .rp{font-size:1.05rem;color:#e6ddff}
+  .rbreak{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+  .rbreak .rb{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:12px}
+  .rbreak .rb .l{font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:#c9b8ff;font-weight:700}
+  .rbreak .rb .v{font-family:'Archivo';font-weight:800;font-size:1.15rem;margin-top:4px}
+  @media(max-width:720px){.rbreak{grid-template-columns:1fr 1fr}}
+  /* extras */
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h4{font-family:'Archivo';font-weight:800;font-size:1.05rem;margin-bottom:6px}
+  .card p{font-size:.92rem;color:var(--muted)}
+  .pilot{background:var(--ink);color:#fff;border-radius:18px;padding:30px;margin-top:8px}
+  .pilot h3{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:8px}
+  .pilot p{color:#c9c6d8;max-width:680px}
+  .pilot .step{display:flex;gap:14px;align-items:baseline;margin-top:14px}
+  .pilot .n{font-family:'Archivo';font-weight:900;color:#9a7bff;font-size:1.2rem}
+  .note{font-size:.8rem;color:var(--muted);margin-top:16px;font-style:italic}
+  footer{padding:26px 0 46px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:720px){header h1{font-size:1.9rem}.bignum{font-size:3.2rem}.levers,.grid3{grid-template-columns:1fr}}
+  @media print{header{padding:30px 0}.calc,.lev,.card,.pilot,.result{break-inside:avoid}@page{margin:12mm}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">UNION Los Angeles &nbsp;×&nbsp; Shop Pay</div>
+    <h1>Flip one switch.</h1>
+    <div class="bignum num" id="hero_total">~$452K</div>
+    <div class="bigsub">in year-one upside — from turning on Shopify Payments. You're already doing <b>$4.65M</b> on Plus. You're just leaving the best part off.</div>
+    <div class="hmeta">
+      <div><div class="k">Annual GMV</div><div class="v num">$4.65M</div></div>
+      <div><div class="k">Plan</div><div class="v">Shopify Plus</div></div>
+      <div><div class="k">Payments today</div><div class="v">Authorize.net · Afterpay · Cash App</div></div>
+      <div><div class="k">Shop Pay</div><div class="v">Off ❌</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- THE SWITCH -->
+<section>
+  <div class="wrap">
+    <div class="ey">The catch</div>
+    <h2 class="st">Shop Pay only turns on with Shopify Payments.</h2>
+    <p class="lead">Right now every card order routes through an outside gateway — so you pay Shopify a <b>0.2% surcharge on all of it</b> and can't use Shop Pay, Shop Pay Installments, or the Shop app. One switch unlocks all four.</p>
+    <div class="switch">
+      <div class="big">1 switch →</div>
+      <p><b>Turn on Shopify Payments.</b> Keep Cash App Pay. Upgrade Afterpay into native installments. Unlock one-tap Shop Pay for the millions of your customers already in the network. Get listed on the Shop app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEVERS -->
+<section>
+  <div class="wrap">
+    <div class="ey">Where the money is</div>
+    <h2 class="st">Four levers. Savings + growth.</h2>
+    <div class="levers">
+      <div class="lev save">
+        <span class="tag">Hard savings · certain</span>
+        <h3>Kill the 0.2% third-party fee</h3>
+        <div class="pct num">0.2%</div>
+        <div class="amt num">+$9,300 / yr</div>
+        <p>0.2% × $4.65M — a surcharge you pay purely for using outside gateways. Gone the day you switch. ($27.9K over 3 yrs.)</p>
+      </div>
+      <div class="lev grow">
+        <span class="tag">Growth · more orders</span>
+        <h3>Shop Pay converts 50% better</h3>
+        <div class="pct num">+50%</div>
+        <div class="amt num">+$232,500 / yr</div>
+        <p>Shop Pay converts <b>~50% higher than guest checkout</b>. At ~30% adoption that's a ~5% overall sales lift on $4.65M.</p>
+      </div>
+      <div class="lev grow">
+        <span class="tag">Growth · bigger baskets</span>
+        <h3>Shop Pay Installments</h3>
+        <div class="pct num">+50%</div>
+        <div class="amt num">+$140,000 / yr</div>
+        <p>Installment orders average <b>~50% higher AOV</b> — perfect for high-ticket collab drops. Native BNPL, you're paid upfront. ~+3% GMV.</p>
+      </div>
+      <div class="lev grow">
+        <span class="tag">Growth · new channel</span>
+        <h3>Sell on the Shop app</h3>
+        <div class="pct num">150M+</div>
+        <div class="amt num">+$70,000 / yr</div>
+        <p>Listed in the <b>#2 shopping app behind Amazon</b>. Drop-day push notifications + store referrals = free acquisition. ~+1.5% GMV.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section>
+  <div class="wrap">
+    <div class="ey">Work your own numbers</div>
+    <h2 class="st">The math — editable.</h2>
+    <p class="lead">Every assumption is a dial. Drop in the real adoption rates and watch it move.</p>
+    <div class="calc">
+      <h3>Year-one upside calculator</h3>
+      <div class="hint">USD · growth figures are illustrative until the Shop Pay Express pilot measures them on real traffic</div>
+      <div class="crow"><label>Annual GMV<span class="sub">Current, on Shopify</span></label><div><span style="color:var(--muted)">$</span> <input type="number" id="gmv" value="4650000"></div></div>
+      <div class="crow"><label>Third-party fee eliminated<span class="sub">Shopify surcharge on outside gateways</span></label><div><input type="number" id="fee" value="0.2" step="0.05"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Shop Pay conversion lift<span class="sub">~50% better × ~30% adoption ≈ 5% overall</span></label><div><input type="number" id="conv" value="5" step="0.5"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Installments AOV lift<span class="sub">~50% higher AOV on installment orders</span></label><div><input type="number" id="inst" value="3" step="0.5"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Shop app new channel<span class="sub">Discovery + drop notifications</span></label><div><input type="number" id="shop" value="1.5" step="0.5"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="result">
+        <div class="rk">Year-one upside</div>
+        <div class="rv num" id="r_total">$451,800</div>
+        <div class="rp num" id="r_pct">≈ 9.7% of GMV · savings + growth</div>
+        <div class="rbreak">
+          <div class="rb"><div class="l">Fee saved</div><div class="v num" id="r_fee">$9,300</div></div>
+          <div class="rb"><div class="l">Shop Pay</div><div class="v num" id="r_conv">$232,500</div></div>
+          <div class="rb"><div class="l">Installments</div><div class="v num" id="r_inst">$139,500</div></div>
+          <div class="rb"><div class="l">Shop app</div><div class="v num" id="r_shop">$69,750</div></div>
+        </div>
+      </div>
+      <p class="note">Fee saving is certain (0.2% you pay today). Growth levers are additive — order count, basket size, and a new channel are different mechanisms, not double-counted. Card-rate savings vs. your Authorize.net rate are on top and confirmed at underwriting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEEP + GAIN -->
+<section>
+  <div class="wrap">
+    <div class="ey">You lose nothing</div>
+    <h2 class="st">Keep what works. Add what's missing.</h2>
+    <div class="grid3">
+      <div class="card"><h4>Cash App Pay ✓</h4><p>Stays — available as a wallet through Shopify Payments.</p></div>
+      <div class="card"><h4>Afterpay → Installments ✓</h4><p>You already proved BNPL demand. Shop Pay Installments brings it native — one checkout, paid upfront, Affirm carries the risk.</p></div>
+      <div class="card"><h4>Your customers, already in Shop ✓</h4><p>Sneaker/streetwear buyers shop Shopify everywhere — a large share already have Shop Pay saved and check out in <b>one tap</b>. Exact count is in your Shop channel insights.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="ey">Next step · de-risked</div>
+    <div class="pilot">
+      <h3>Start with Shop Pay Express — prove it on your own traffic.</h3>
+      <p>Don't take the 9.7% on faith. Turn on Shopify Payments + the Shop Pay accelerated button on cart and product pages, and measure the real lift before anything deeper. Low effort, fast, and the estimate becomes your data.</p>
+      <div class="step"><span class="n">1</span><div>Enable Shopify Payments + Shop Pay Express (accelerated button).</div></div>
+      <div class="step"><span class="n">2</span><div>Run it on your next drop — watch conversion, AOV, and Shop-app referrals.</div></div>
+      <div class="step"><span class="n">3</span><div>Roll installments + full Shop Pay checkout once the numbers are yours.</div></div>
+    </div>
+    <p class="note">Prepared by Nicole DeGennaro · Shopify — for UNION Los Angeles. Growth figures illustrative; fee saving certain. Card-rate comparison finalized with your current Authorize.net rate.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">UNION Los Angeles × Shop Pay — the one-switch upside · prepared by Nicole DeGennaro</div></footer>
+
+<script>
+  var $=function(i){return document.getElementById(i);};
+  var val=function(i){return parseFloat($(i).value)||0;};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function calc(){
+    var g=val('gmv');
+    var fee=g*val('fee')/100;
+    var conv=g*val('conv')/100;
+    var inst=g*val('inst')/100;
+    var shop=g*val('shop')/100;
+    var total=fee+conv+inst+shop;
+    $('r_fee').textContent=fmt(fee);
+    $('r_conv').textContent=fmt(conv);
+    $('r_inst').textContent=fmt(inst);
+    $('r_shop').textContent=fmt(shop);
+    $('r_total').textContent=fmt(total);
+    var pct=g?(total/g*100):0;
+    $('r_pct').textContent='≈ '+pct.toFixed(1)+'% of GMV · savings + growth';
+    // hero rounded to nearest $1K
+    $('hero_total').textContent='~$'+Math.round(total/1000)+'K';
+  }
+  document.querySelectorAll('input[type=number]').forEach(function(i){i.addEventListener('input',calc);});
+  calc();
+</script>
+</body>
+</html>
