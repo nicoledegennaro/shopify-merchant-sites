@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Learning Without Tears × Shopify — Mutual Action Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#182135; --muted:#5c6577; --line:#e4e7ef; --paper:#f6f7fb; --card:#fff;
+    --navy:#1b3a6b; --navy-d:#122a50; --coral:#e2603f; --amber:#e0902b;
+    --soft:#eef2f8; --green:#1f9d55; --green-soft:#e6f6ee;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.12}
+  header{background:linear-gradient(155deg,#1b3a6b 0%,#122a50 100%);color:#fff;padding:50px 0 44px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-70px;top:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(226,96,63,.28),transparent 70%)}
+  .kick{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#f0a98f;font-weight:700;margin-bottom:14px}
+  header h1{font-size:2.2rem;margin-bottom:10px;max-width:680px}
+  header p{color:#cdd8ea;max-width:640px;font-size:1.04rem}
+  .hmeta{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+  .hmeta .k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#9fb2cf;font-weight:700;margin-bottom:3px}
+  .hmeta .v{font-weight:700;font-size:.95rem}
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
+  .ey{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:8px}
+  h2.st{font-size:1.7rem;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:1.03rem;max-width:720px;margin-bottom:8px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h4{font-family:'Fraunces';font-size:1.05rem;margin-bottom:8px}
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding-left:20px;margin-bottom:8px;font-size:.94rem;color:#3a4557}
+  ul.clean li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--coral)}
+  /* MAP timeline */
+  .map .step{display:flex;gap:20px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+  .map .step.next{border:2px solid var(--coral);background:#fdf3ef}
+  .map .step.live{border-left:5px solid var(--green)}
+  .when{min-width:130px;font-size:.8rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;padding-top:3px}
+  .step.next .when{color:var(--coral)}
+  .body h4{font-family:'Fraunces';font-size:1.1rem;margin-bottom:4px}
+  .body p{font-size:.93rem;color:var(--muted)}
+  .owner{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-top:8px;margin-right:6px}
+  .o-lwt{background:#e7eefb;color:var(--navy)}
+  .o-shop{background:var(--green-soft);color:var(--green)}
+  .o-partner{background:#faeede;color:var(--amber)}
+  .pill{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--coral);color:#fff;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+  .callout{background:var(--soft);border-left:4px solid var(--navy);border-radius:10px;padding:16px 18px;margin-top:18px;font-size:.96rem}
+  .callout b{color:var(--navy-d)}
+  .note{font-size:.8rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:24px 0 46px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:720px){header h1{font-size:1.7rem}.grid2{grid-template-columns:1fr}.map .step{flex-direction:column;gap:6px}.when{min-width:0}}
+  @media print{.card,.map .step,.callout{break-inside:avoid}@page{margin:12mm}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">Learning Without Tears &nbsp;×&nbsp; Shopify</div>
+    <h1>Mutual Action Plan</h1>
+    <p>A shared path from today's technical discovery to launch — off Salesforce and live on Shopify before your contract renews. Clear owners, clear dates.</p>
+    <div class="hmeta">
+      <div><div class="k">Today</div><div class="v">Salesforce B2B Commerce + NetSuite</div></div>
+      <div><div class="k">Goal launch</div><div class="v">Nov / Dec 2027</div></div>
+      <div><div class="k">Deadline</div><div class="v">Before Jan 2028 SF renewal</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT WE'RE SOLVING -->
+<section>
+  <div class="wrap">
+    <div class="ey">What we're solving</div>
+    <h2 class="st">The move, in a nutshell.</h2>
+    <div class="grid2">
+      <div class="card">
+        <h4>Why you're leaving Salesforce</h4>
+        <ul class="clean">
+          <li>B2B store restricts B2C features — guest checkout, promo-code flexibility</li>
+          <li>Merchandising (kit comparison charts) needs slow, costly custom dev</li>
+          <li>Frontend is too rigid — drives support-call volume during the July–Sept surge</li>
+          <li>No native punch-out for district procurement (SAP Ariba)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>What stays the same</h4>
+        <ul class="clean">
+          <li>NetSuite remains your source of truth for phone &amp; email orders</li>
+          <li>District → school account structure &amp; B2B pricing logic preserved</li>
+          <li>Data keeps flowing to your data lake → PowerBI (reporting + commissions)</li>
+          <li>Shopify becomes the flexible storefront + checkout on top</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MAP -->
+<section>
+  <div class="wrap">
+    <div class="ey">The plan</div>
+    <h2 class="st">From discovery to launch.</h2>
+    <p class="lead">Working backward from a Nov/Dec 2027 go-live — comfortably ahead of your January 2028 Salesforce renewal.</p>
+
+    <div class="map">
+      <div class="step live">
+        <div class="when">Today · Sep 9</div>
+        <div class="body">
+          <h4>Technical discovery</h4>
+          <p>Validate the B2B use cases and integrations with a Shopify Solutions Engineer — district/school hierarchy &amp; pricing, NetSuite integration, SAP Ariba punch-out, merchandising, and the data-lake/reporting feed.</p>
+          <span class="owner o-shop">Shopify SE</span><span class="owner o-lwt">Karl · Ashley</span>
+        </div>
+      </div>
+
+      <div class="step next">
+        <div class="body" style="width:100%">
+          <span class="pill">Recommended next step</span>
+          <h4>Partner scoping — meet Simplistic</h4>
+          <p>Introduce <b>Simplistic</b>, a Shopify implementation partner, to scope the build: the NetSuite integration, punch-out, district/school B2B setup, merchandising, and data migration off Salesforce. This is the fastest way to turn today's requirements into a real timeline and cost — and to pressure-test feasibility on the trickier items (punch-out, ERP).</p>
+          <div style="margin-top:6px"><span class="owner o-shop">Nicole intro</span><span class="owner o-partner">Simplistic</span><span class="owner o-lwt">Karl</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="when">Oct – Nov 2026</div>
+        <div class="body">
+          <h4>Requirements + proposal</h4>
+          <p>Finalize the requirements list, confirm the integration architecture, and get Simplistic's scope, timeline, and cost. Shopify prepares plan/pricing (Plus) and a TCO vs. Salesforce.</p>
+          <span class="owner o-partner">Simplistic</span><span class="owner o-shop">Shopify</span><span class="owner o-lwt">LWT</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="when">Dec 2026 – Q1 2027</div>
+        <div class="body">
+          <h4>Decision, sign &amp; kickoff</h4>
+          <p>Align internally, sign the Plus agreement and the partner SOW, and kick off the build. Signing early protects the full runway to a 2027 launch.</p>
+          <span class="owner o-lwt">LWT</span><span class="owner o-shop">Shopify</span><span class="owner o-partner">Simplistic</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="when">Q1 – Q3 2027</div>
+        <div class="body">
+          <h4>Build &amp; integrate</h4>
+          <p>Storefront + B2B (district/school accounts, catalogs, pricing), NetSuite integration, punch-out, merchandising tools, and data-lake feed. Iterative reviews with your team.</p>
+          <span class="owner o-partner">Simplistic</span><span class="owner o-lwt">Karl</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="when">Q3 2027</div>
+        <div class="body">
+          <h4>UAT &amp; data migration</h4>
+          <p>Staging sign-off, catalog/customer/order migration from Salesforce, punch-out testing with a pilot district, and reporting validation.</p>
+          <span class="owner o-partner">Simplistic</span><span class="owner o-lwt">LWT</span>
+        </div>
+      </div>
+
+      <div class="step live">
+        <div class="when">Nov / Dec 2027</div>
+        <div class="body">
+          <h4>Go live on Shopify</h4>
+          <p>Launch ahead of the January 2028 Salesforce renewal — a full buffer to stabilize before the old contract lapses.</p>
+          <span class="owner o-lwt">LWT</span><span class="owner o-shop">Shopify</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout"><b>Immediate next step:</b> the intro to Simplistic. The two riskiest items — SAP Ariba punch-out and the NetSuite integration — are exactly what a partner scopes best, so getting them in now keeps the Nov/Dec 2027 launch realistic.</div>
+  </div>
+</section>
+
+<!-- OPEN ITEMS -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="ey">Open items to confirm</div>
+    <h2 class="st">What we'll nail down together.</h2>
+    <div class="grid2">
+      <div class="card"><h4>For today's discovery</h4><ul class="clean">
+        <li>District/school hierarchy depth &amp; how pricing is assigned</li>
+        <li>NetSuite: system of record, data direction, real-time vs. batch</li>
+        <li>Is Salesforce staying as CRM, or fully replaced?</li>
+        <li>Punch-out: SAP Ariba only, or others — and how critical?</li>
+      </ul></div>
+      <div class="card"><h4>For Simplistic scoping</h4><ul class="clean">
+        <li>Catalog size, order volume, July–Sept peak magnitude</li>
+        <li>Data-lake / PowerBI feed + sales-rep commission attribution</li>
+        <li>Net terms / PO / tax-exempt handling for districts</li>
+        <li>Merchandising: kit comparison charts &amp; custom content</li>
+      </ul></div>
+    </div>
+    <p class="note">Prepared by Nicole DeGennaro · Shopify — for Learning Without Tears. Dates are targets; finalized with the implementation partner. Contacts: Karl Filippini (tech/ops), Ashley Crump (merchandising).</p>
+  </div>
+</section>
+
+<footer><div class="wrap">Learning Without Tears × Shopify — Mutual Action Plan · prepared by Nicole DeGennaro</div></footer>
+</body>
+</html>
