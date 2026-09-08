@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Works Connection × Shopify — Revenue Uplift &amp; ROI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#15171c; --muted:#6a7078; --line:#e5e7ec; --paper:#f5f6f8; --card:#fff;
+    --moto:#e8541e; --moto-d:#b83e12; --dark:#1a1d24; --soft:#f0ede9;
+    --green:#1f9d55; --green-soft:#e6f6ee;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Archivo',sans-serif;letter-spacing:-0.02em;line-height:1.05}
+  .num{font-variant-numeric:tabular-nums}
+  header{background:linear-gradient(150deg,#1a1d24 0%,#2a2f3a 70%,#3a2318 100%);color:#fff;padding:52px 0 46px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(232,84,30,.35),transparent 70%)}
+  .kick{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#f2a07a;font-weight:800;margin-bottom:14px}
+  header h1{font-size:2.5rem;font-weight:900;margin-bottom:10px;max-width:680px}
+  header p{color:#cdd2db;max-width:640px;font-size:1.05rem}
+  .hmeta{display:flex;gap:26px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+  .hmeta .k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#9aa2b0;font-weight:700;margin-bottom:3px}
+  .hmeta .v{font-weight:700;font-size:.95rem}
+  section{padding:42px 0;border-bottom:1px solid var(--line)}
+  .ey{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moto-d);font-weight:800;margin-bottom:8px}
+  h2.st{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:1.03rem;max-width:730px;margin-bottom:8px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card.moto{border-top:4px solid var(--moto)}
+  .card h4{font-family:'Archivo';font-weight:800;font-size:1.05rem;margin-bottom:6px}
+  .card p{font-size:.92rem;color:var(--muted)}
+  .card .stat{font-family:'Archivo';font-weight:900;font-size:1.7rem;color:var(--moto-d);margin:4px 0}
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding-left:20px;margin-bottom:8px;font-size:.93rem;color:#3a414a}
+  ul.clean li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--moto)}
+  /* calc */
+  .calc{background:var(--card);border:2px solid var(--moto);border-radius:16px;padding:26px;margin-top:8px}
+  .calc h3{font-family:'Archivo';font-weight:800;font-size:1.3rem;margin-bottom:2px}
+  .calc .hint{font-size:.83rem;color:var(--muted);margin-bottom:16px}
+  .crow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);gap:14px}
+  .crow:last-of-type{border-bottom:none}
+  .crow label{font-size:.94rem;font-weight:500}
+  .crow label .sub{display:block;font-size:.76rem;color:var(--muted);font-weight:400;margin-top:2px}
+  .crow input{width:140px;padding:8px 11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:.98rem;font-weight:600;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .crow input:focus{outline:none;border-color:var(--moto);box-shadow:0 0 0 3px rgba(232,84,30,.15)}
+  .result{background:var(--dark);color:#fff;border-radius:16px;padding:26px;margin-top:22px;text-align:center}
+  .result .rk{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#f2a07a;font-weight:800}
+  .result .rv{font-family:'Archivo';font-weight:900;font-size:3.2rem;line-height:1;margin:6px 0}
+  .result .rp{font-size:1rem;color:#cdd2db}
+  .rbreak{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .rbreak .rb{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:12px}
+  .rbreak .rb .l{font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:#9aa2b0;font-weight:700}
+  .rbreak .rb .v{font-family:'Archivo';font-weight:800;font-size:1.15rem;margin-top:4px}
+  @media(max-width:720px){.rbreak{grid-template-columns:1fr}}
+  .callout{background:var(--soft);border-left:4px solid var(--moto);border-radius:10px;padding:16px 18px;margin-top:18px;font-size:.96rem}
+  .callout b{color:var(--moto-d)}
+  .note{font-size:.8rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:24px 0 46px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:720px){header h1{font-size:1.9rem}.grid2,.grid3{grid-template-columns:1fr}}
+  @media print{.card,.calc,.result,.callout{break-inside:avoid}@page{margin:12mm}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">Works Connection &nbsp;×&nbsp; Shopify</div>
+    <h1>Your DTC goal, and what it's worth.</h1>
+    <p>You want to grow direct-to-consumer from <b>18% to 40%</b> of sales. Here's what hitting that is worth — and why the platform cost is a rounding error against it.</p>
+    <div class="hmeta">
+      <div><div class="k">Revenue</div><div class="v">~$5M/yr</div></div>
+      <div><div class="k">DTC today → goal</div><div class="v">18% → 40%</div></div>
+      <div><div class="k">Today</div><div class="v">Custom site (~$800/mo)</div></div>
+      <div><div class="k">Model</div><div class="v">DTC + dealer/wholesale</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- THE OPPORTUNITY -->
+<section>
+  <div class="wrap">
+    <div class="ey">The opportunity</div>
+    <h2 class="st">DTC is where the margin is.</h2>
+    <p class="lead">Every point you move from distributor/marketplace sales to your own DTC store captures the margin you're currently handing to MotoSport, Rocky Mountain, and Dennis Kirk. Growing DTC from 18% to 40% of a ~$5M business is roughly <b>+$1.1M in direct revenue</b> — at a higher margin than wholesale. The platform is what makes that reachable.</p>
+    <div class="grid3">
+      <div class="card moto"><h4>DTC today</h4><div class="stat">~$900K</div><p>18% of ~$5M — on a custom site that's hard to change and has no modern conversion tools.</p></div>
+      <div class="card moto"><h4>DTC at goal</h4><div class="stat">~$2.0M</div><p>40% of ~$5M — the target Ryan set.</p></div>
+      <div class="card moto"><h4>The prize</h4><div class="stat">+$1.1M</div><p>Direct revenue shift — captured at DTC margin, not wholesale.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW SHOPIFY GETS YOU THERE -->
+<section>
+  <div class="wrap">
+    <div class="ey">How Shopify gets you there</div>
+    <h2 class="st">The levers that grow DTC.</h2>
+    <p class="lead">Straight from the audit of worksconnection.com — each of these lifts DTC conversion or captures more direct sales.</p>
+    <div class="grid2">
+      <div class="card"><h4>Fitment finder (Year/Make/Model + "My Garage")</h4><p>Today fitment is a buried brand widget — risky for a fitment-critical parts store. A clean vehicle gate (Convermax/PartsPal) means riders only see parts that fit their bike → higher conversion, fewer wrong orders and returns.</p></div>
+      <div class="card"><h4>Shop Pay + Installments</h4><p>No express checkout or financing today. Shop Pay = faster, higher-converting checkout; Installments lifts AOV on bigger kits (ties to your "free tee over $150" promo).</p></div>
+      <div class="card"><h4>Mobile-first</h4><p>Riders shop on their phones and today's menu reads clunky on mobile. A modern mobile theme converts the audience you already have.</p></div>
+      <div class="card"><h4>Reviews &amp; trust</h4><p>No ratings/UGC today. Native reviews build trust and SEO on race-proven parts.</p></div>
+      <div class="card"><h4>Owned marketing (Klaviyo / Attentive)</h4><p>No owned email/SMS motion today. Retain and re-sell to a passionate, race-driven rider base — repeat revenue you don't pay a marketplace for.</p></div>
+      <div class="card"><h4>Dealer self-serve (B2B)</h4><p>Dealers order via FTP downloads + forms today. Shopify B2B gives them self-serve ordering at their own pricing on the same platform — more wholesale captured online, less manual work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section>
+  <div class="wrap">
+    <div class="ey">Revenue uplift + ROI</div>
+    <h2 class="st">The math — editable.</h2>
+    <p class="lead">Adjust the assumptions. The platform cost is the last thing that matters once you see the uplift.</p>
+    <div class="calc">
+      <h3>DTC growth → revenue uplift</h3>
+      <div class="hint">USD · illustrative until we plug in your real conversion + margin data</div>
+      <div class="crow"><label>Total revenue<span class="sub">All channels</span></label><div>$ <input type="number" id="rev" value="5000000"></div></div>
+      <div class="crow"><label>DTC today<span class="sub">% of revenue on your own site</span></label><div><input type="number" id="cur" value="18" step="1"> %</div></div>
+      <div class="crow"><label>DTC goal<span class="sub">Ryan's target</span></label><div><input type="number" id="tgt" value="40" step="1"> %</div></div>
+      <div class="crow"><label>Conversion uplift on DTC<span class="sub">Fitment finder + Shop Pay + mobile</span></label><div><input type="number" id="conv" value="8" step="0.5"> %</div></div>
+      <div class="crow"><label>DTC gross margin<span class="sub">Higher than wholesale — you keep the distributor cut</span></label><div><input type="number" id="margin" value="55" step="1"> %</div></div>
+      <div class="crow"><label>Shopify platform cost<span class="sub">Per year, all-in (vs ~$9,600 today)</span></label><div>$ <input type="number" id="plat" value="15600"></div></div>
+
+      <div class="result">
+        <div class="rk">Incremental DTC gross profit / yr</div>
+        <div class="rv num" id="r_gp">$693,000</div>
+        <div class="rp num" id="r_roi">≈ 44× the platform cost</div>
+        <div class="rbreak">
+          <div class="rb"><div class="l">DTC today</div><div class="v num" id="r_cur">$900,000</div></div>
+          <div class="rb"><div class="l">DTC at goal + uplift</div><div class="v num" id="r_new">$2,160,000</div></div>
+          <div class="rb"><div class="l">Incremental DTC rev</div><div class="v num" id="r_inc">$1,260,000</div></div>
+        </div>
+      </div>
+      <p class="note">Growing DTC share is your strategy; Shopify is the platform that makes it achievable (fitment, checkout, mobile, marketing, B2B). Conversion/margin figures illustrative until we use your real numbers. DTC also carries higher margin than wholesale — so the gross-profit gain is larger than a pure revenue shift.</p>
+    </div>
+    <div class="callout"><b>The ROI answer Ryan asked for:</b> even a fraction of the 18%→40% goal returns many times the ~$6K/yr difference between your custom site and Shopify. The platform cost isn't the question — the DTC upside is.</div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="ey">Next steps</div>
+    <h2 class="st">The TCO call.</h2>
+    <ul class="clean">
+      <li>Plug in your real numbers — current DTC %, conversion rate, AOV, and DTC vs wholesale margin — to turn this into your exact ROI.</li>
+      <li>Confirm the drop-ship-direct plan (capturing distributor margin) and how DTC growth maps to it.</li>
+      <li>Scope fitment (Convermax/PartsPal), B2B dealer portal, and migration off the custom platform.</li>
+    </ul>
+    <p class="note">Prepared by Nicole DeGennaro · Shopify — for Works Connection. Contacts: Ryan Burke, Cory Skaggs (GM), Broc Phipps (digital). Figures illustrative pending your inputs; finalized on the TCO call.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">Works Connection × Shopify — Revenue Uplift &amp; ROI · prepared by Nicole DeGennaro</div></footer>
+
+<script>
+  var $=function(i){return document.getElementById(i);};
+  var val=function(i){return parseFloat($(i).value)||0;};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function calc(){
+    var rev=val('rev');
+    var cur=rev*val('cur')/100;
+    var tgt=rev*val('tgt')/100;
+    var neww=tgt*(1+val('conv')/100);
+    var inc=neww-cur;
+    var gp=inc*val('margin')/100;
+    var plat=val('plat');
+    $('r_cur').textContent=fmt(cur);
+    $('r_new').textContent=fmt(neww);
+    $('r_inc').textContent=fmt(inc);
+    $('r_gp').textContent=fmt(gp);
+    var roi=plat>0?(gp/plat):0;
+    $('r_roi').textContent='≈ '+roi.toFixed(0)+'× the platform cost';
+  }
+  document.querySelectorAll('input[type=number]').forEach(function(i){i.addEventListener('input',calc);});
+  calc();
+</script>
+</body>
+</html>
