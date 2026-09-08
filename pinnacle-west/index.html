@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pinnacle West × Shopify — Advanced vs Plus TCO &amp; ROI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#12212e; --muted:#5b6b78; --line:#e2e8ee; --paper:#f5f8fa; --card:#fff;
+    --navy:#153a5b; --navy-d:#0e2942; --teal:#137a6d; --amber:#e0902b;
+    --soft:#eaf1f6; --green:#1f9d55; --green-soft:#e6f6ee; --shop:#5a31f4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.12}
+  .num{font-variant-numeric:tabular-nums}
+  header{background:linear-gradient(155deg,#153a5b 0%,#0e2942 100%);color:#fff;padding:50px 0 44px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-70px;top:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(224,144,43,.22),transparent 70%)}
+  .kick{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#f0b968;font-weight:700;margin-bottom:14px}
+  header h1{font-size:2.2rem;margin-bottom:10px;max-width:660px}
+  header p{color:#cddcea;max-width:620px;font-size:1.04rem}
+  .hmeta{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+  .hmeta .k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#9fb6cb;font-weight:700;margin-bottom:3px}
+  .hmeta .v{font-weight:700;font-size:.95rem}
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
+  .ey{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:8px}
+  h2.st{font-size:1.7rem;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:1.03rem;max-width:720px;margin-bottom:8px}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  thead{background:var(--soft)}
+  th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--navy)}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tbody tr:last-child td{border-bottom:none}
+  tr.hl{background:var(--green-soft)}tr.hl td{font-weight:700}
+  .callout{background:var(--soft);border-left:4px solid var(--navy);border-radius:10px;padding:16px 18px;margin:16px 0;font-size:.96rem}
+  .callout b{color:var(--navy-d)}
+  /* calculator */
+  .calc{background:var(--card);border:2px solid var(--navy);border-radius:16px;padding:26px;margin-top:8px}
+  .calc h3{font-size:1.3rem;margin-bottom:2px}
+  .calc .hint{font-size:.83rem;color:var(--muted);margin-bottom:16px}
+  .crow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);gap:14px}
+  .crow:last-of-type{border-bottom:none}
+  .crow label{font-size:.94rem;font-weight:500}
+  .crow label .sub{display:block;font-size:.76rem;color:var(--muted);font-weight:400;margin-top:2px}
+  .crow input{width:140px;padding:8px 11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:.98rem;font-weight:600;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .crow input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(21,58,91,.14)}
+  .out{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .obox{border-radius:12px;padding:20px}
+  .obox.adv{background:var(--soft);border:1px solid var(--line)}
+  .obox.plus{background:var(--navy);color:#fff}
+  .obox h4{font-family:'Inter';font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+  .obox.adv h4{color:var(--navy)}.obox.plus h4{color:#f0b968}
+  .orow{display:flex;justify-content:space-between;font-size:.9rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .obox.adv .orow{border-color:var(--line)}
+  .orow.tot{font-weight:700;font-size:1.05rem;padding-top:10px;border-bottom:none}
+  .verdict{background:var(--green-soft);border:1px solid var(--green);border-radius:14px;padding:22px;margin-top:18px;text-align:center}
+  .verdict .vk{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700}
+  .verdict .vv{font-family:'Fraunces';font-size:2.6rem;font-weight:600;color:var(--green);line-height:1.05;margin:6px 0}
+  .verdict .vs{font-size:.95rem;color:var(--ink)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
+  .cardb{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .cardb.plus{border-top:4px solid var(--navy)}
+  .cardb h4{font-size:1.05rem;margin-bottom:6px;font-family:'Fraunces'}
+  .cardb p{font-size:.92rem;color:var(--muted)}
+  .cardb .stat{font-family:'Fraunces';font-size:1.7rem;color:var(--navy);font-weight:600;margin:4px 0}
+  ul.clean{list-style:none;margin-top:6px}
+  ul.clean li{position:relative;padding-left:20px;margin-bottom:8px;font-size:.94rem;color:#39485500;color:#3a4855}
+  ul.clean li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--amber)}
+  a{color:var(--teal);font-weight:600}
+  .tl{position:relative;padding-left:24px;margin-top:8px}
+  .tl::before{content:'';position:absolute;left:7px;top:5px;bottom:5px;width:2px;background:var(--line)}
+  .tl .s{position:relative;margin-bottom:14px}
+  .tl .s::before{content:'';position:absolute;left:-21px;top:3px;width:11px;height:11px;border-radius:50%;background:var(--amber);border:2px solid #fff;box-shadow:0 0 0 2px var(--amber)}
+  .tl .s.now::before{background:var(--navy);box-shadow:0 0 0 2px var(--navy)}
+  .tl .s.live::before{background:var(--green);box-shadow:0 0 0 2px var(--green)}
+  .tl .dt{font-weight:600;font-size:.94rem}.tl .ds{font-size:.9rem;color:var(--muted)}
+  .note{font-size:.8rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:24px 0 46px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:720px){header h1{font-size:1.7rem}.out,.grid2,.grid3{grid-template-columns:1fr}}
+  @media print{.calc,.cardb,.obox,.verdict,.callout,.tl .s{break-inside:avoid}@page{margin:12mm}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">Pinnacle West &nbsp;×&nbsp; Shopify</div>
+    <h1>Advanced vs. Plus — the real math.</h1>
+    <p>Straight numbers on both plans at your volume, plus the growth Plus unlocks — Shop Pay conversion, checkout extensibility, and selling chemical online with per-customer pricing and terms. Every input is editable.</p>
+    <div class="hmeta">
+      <div><div class="k">Online GMV</div><div class="v">~$200K/mo (~$2.4M/yr)</div></div>
+      <div><div class="k">Model</div><div class="v">B2B · ~75% phone today</div></div>
+      <div><div class="k">Moving from</div><div class="v">Magento 2</div></div>
+      <div><div class="k">Launch</div><div class="v">~2–3 weeks</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- HONEST COST -->
+<section>
+  <div class="wrap">
+    <div class="ey">Straight on cost</div>
+    <h2 class="st">At today's volume, Advanced is cheaper — here's exactly how much.</h2>
+    <p class="lead">No spin: the reduced Plus card rate doesn't outweigh its platform fee until you're much larger. So Plus isn't a "save money now" play — it's a "unlock growth" play. The gap:</p>
+    <table>
+      <thead><tr><th>Online GMV</th><th class="n">Advanced /yr</th><th class="n">Plus /yr</th><th class="n">Plus premium</th><th class="n">Yr 1 (3 mo free)</th></tr></thead>
+      <tbody>
+        <tr><td>$2.4M (today)</td><td class="n">$64,788</td><td class="n">$81,600</td><td class="n">+$16,812</td><td class="n">+$9,912</td></tr>
+        <tr><td>$4.8M (with chemical)</td><td class="n">$124,788</td><td class="n">$135,600</td><td class="n">+$10,812</td><td class="n">+$3,912</td></tr>
+        <tr class="hl"><td>~$9M (crossover)</td><td class="n">$229,788</td><td class="n">$229,100</td><td class="n">Plus wins</td><td class="n">cheaper</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>The real question isn't "which is cheaper today."</b> It's whether unlocking online chemical sales + self-serve B2B ordering is worth ~$10–17K/yr. Given ~75% of your business is still phone orders, the answer usually clears that bar fast — see below.</div>
+    <p class="note">Platform: Advanced $399/mo; Plus $2,300/mo base (VPF 0.35% only above ~$7.9M/yr — you're under it, so base applies). Card: Advanced 2.5% + 30¢ vs Plus 2.25% + 30¢. Illustrative; confirmed at underwriting.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section>
+  <div class="wrap">
+    <div class="ey">Live TCO + ROI</div>
+    <h2 class="st">Work your own numbers.</h2>
+    <p class="lead">Edit any input — plan costs and the growth upside recompute live.</p>
+    <div class="calc">
+      <h3>Plus vs. Advanced — full picture</h3>
+      <div class="hint">USD · growth figures illustrative until measured on your traffic</div>
+      <div class="crow"><label>Online GMV (base)<span class="sub">Web sales today — excludes phone</span></label><div>$ <input type="number" id="gmv" value="2400000"></div></div>
+      <div class="crow"><label>Chemical added online<span class="sub">New line — you estimated $100K–$2M</span></label><div>$ <input type="number" id="chem" value="500000"></div></div>
+      <div class="crow"><label>Shop Pay conversion lift<span class="sub">Faster one-tap checkout, saved info</span></label><div><input type="number" id="conv" value="5" step="0.5"> %</div></div>
+      <div class="crow"><label>Checkout extensibility AOV lift<span class="sub">Cart upsells / add-to-cart — Plus only</span></label><div><input type="number" id="aov" value="3" step="0.5"> %</div></div>
+      <div class="crow"><label>Gross margin<span class="sub">Applied to incremental revenue</span></label><div><input type="number" id="margin" value="25" step="1"> %</div></div>
+      <div class="crow"><label>Advanced card rate</label><div><input type="number" id="adv_rate" value="2.5" step="0.05"> %</div></div>
+      <div class="crow"><label>Plus card rate</label><div><input type="number" id="plus_rate" value="2.25" step="0.05"> %</div></div>
+
+      <div class="out">
+        <div class="obox adv">
+          <h4>Advanced</h4>
+          <div class="orow"><span>Platform</span><span class="num" id="a_plat">$4,788</span></div>
+          <div class="orow"><span>Card fees</span><span class="num" id="a_card">$60,000</span></div>
+          <div class="orow tot"><span>Total / yr</span><span class="num" id="a_tot">$64,788</span></div>
+        </div>
+        <div class="obox plus">
+          <h4>Shopify Plus</h4>
+          <div class="orow"><span>Platform (base or VPF)</span><span class="num" id="p_plat">$27,600</span></div>
+          <div class="orow"><span>Card fees</span><span class="num" id="p_card">$54,000</span></div>
+          <div class="orow tot"><span>Total / yr</span><span class="num" id="p_tot">$81,600</span></div>
+          <div class="orow" style="opacity:.85"><span>Yr 1 w/ 3 mo free</span><span class="num" id="p_y1">$74,700</span></div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <div class="vk">Plus premium vs. growth it unlocks</div>
+        <div class="vv num" id="v_net">+$142,750</div>
+        <div class="vs" id="v_line">Incremental gross profit from Plus-only growth, net of the Plus premium (year 1)</div>
+      </div>
+      <p class="note" id="be_line">Break-even: Plus pays for itself with ~$67K of incremental online revenue at 25% margin — a fraction of the chemical opportunity alone. Growth = Shop Pay conversion + checkout-extensibility AOV + chemical online.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PLUS -->
+<section>
+  <div class="wrap">
+    <div class="ey">Why Plus wins anyway</div>
+    <h2 class="st">What you want to do is Plus-only.</h2>
+    <div class="grid2">
+      <div class="cardb plus"><h4>Per-customer &amp; volume pricing</h4><p>Chemical is priced per customer by volume. Advanced gives <b>one</b> storefront price (your single contractor tier). Per-customer catalogs &amp; price lists are Plus B2B — the unlock to sell chemical online at all.</p></div>
+      <div class="cardb plus"><h4>Self-serve net terms</h4><p>Let a customer with a clean balance order on account at 6:30pm without calling their rep. Native on Plus B2B. On Advanced, terms only work by manually building each order — the opposite of self-serve.</p></div>
+      <div class="cardb plus"><h4>Checkout extensibility</h4><p>Cart upsells and add-to-cart AOV boosters you asked about — Plus only.</p></div>
+      <div class="cardb plus"><h4>Account team + Solutions Engineer</h4><p>Dedicated pre/post-launch support — directly useful for the Business Central + Salesforce work.</p></div>
+      <div class="cardb plus"><h4>Higher API rate limits</h4><p>Matters for reliable Business Central + Salesforce integrations at order volume.</p></div>
+      <div class="cardb plus"><h4>3 months free</h4><p>Magento → Plus migration promo applies to you — offsets most of year one.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH LEVERS -->
+<section>
+  <div class="wrap">
+    <div class="ey">The growth case</div>
+    <h2 class="st">Where the revenue comes from.</h2>
+    <div class="grid3">
+      <div class="cardb"><h4>Shop Pay conversion</h4><div class="stat">+5%</div><p>One-tap checkout with saved payment/address converts higher — even B2B buyers who already have Shop Pay. Less abandonment on reorders.</p></div>
+      <div class="cardb"><h4>Checkout extensibility AOV</h4><div class="stat">+3%</div><p>Upsell parts &amp; supplies at the cart (Plus only) — bigger baskets on every order.</p></div>
+      <div class="cardb"><h4>Chemical online</h4><div class="stat">$100K–$2M</div><p>A reorder-heavy, high-ticket line your customers <em>want</em> to buy after-hours — impossible on Advanced without per-customer pricing + terms.</p></div>
+    </div>
+    <div class="callout"><b>The biggest prize isn't in the calculator:</b> ~75–80% of your business still comes in by phone. Per-customer pricing + self-serve terms are what move a chunk of that online — capturing after-hours orders and freeing your reps from order entry. That operational win compounds on top of everything above.</div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section>
+  <div class="wrap">
+    <div class="ey">Your stack</div>
+    <h2 class="st">Connecting Business Central &amp; Salesforce.</h2>
+    <ul class="clean">
+      <li><b>Business Central (native):</b> Microsoft's own Shopify connector for Dynamics 365 Business Central — <a href="https://learn.microsoft.com/en-us/dynamics365/business-central/shopify/get-started">setup guide</a> (you already spotted the Shopify section in BC).</li>
+      <li><b>Salesforce (order records into your CRM):</b> via app or iPaaS — <a href="https://apps.shopify.com/search?q=salesforce">Shopify App Store</a>, or middleware like <a href="https://www.celigo.com">Celigo</a> / <a href="https://zapier.com/apps/shopify/integrations/salesforce">Zapier</a>.</li>
+      <li><b>B2B</b> (per-customer catalogs, pricing, net terms): <a href="https://help.shopify.com/en/manual/b2b">B2B on Shopify</a>.</li>
+      <li><b>Checkout extensibility:</b> <a href="https://help.shopify.com/en/manual/checkout-settings/checkout-extensibility">overview</a>.</li>
+      <li><b>API rate limits</b> (higher on Plus): <a href="https://shopify.dev/docs/api/usage/rate-limits">docs</a>.</li>
+    </ul>
+    <p class="note">The one to scope with a technical resource: checking a customer's available credit in Business Central before allowing an on-account online order. Doable — worth a scoping session.</p>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="ey">Next steps</div>
+    <h2 class="st">Decide in your launch window.</h2>
+    <div class="tl">
+      <div class="s now"><div class="dt">Tomorrow, 1pm PT · TCO call</div><div class="ds">Walk this live, plug in your real numbers, and bring your hesitations — I'll address them head-on. Technical resource on hand for BC / Salesforce.</div></div>
+      <div class="s"><div class="dt">This week</div><div class="ds">Confirm plan. If Plus, we lock the 3-months-free Magento promo and I set up the Plus contract walkthrough.</div></div>
+      <div class="s live"><div class="dt">~2–3 weeks · go live</div><div class="ds">Launch on the right plan — with pricing, terms, and integrations built once, correctly.</div></div>
+    </div>
+    <p class="note">Prepared by Nicole DeGennaro · Shopify — for Pinnacle West. Cost figures illustrative and confirmed at underwriting; growth figures illustrative until measured. VPF applies only above ~$7.9M/yr.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">Pinnacle West × Shopify — Advanced vs Plus TCO &amp; ROI · prepared by Nicole DeGennaro</div></footer>
+
+<script>
+  var $=function(i){return document.getElementById(i);};
+  var val=function(i){return parseFloat($(i).value)||0;};
+  var fmt=function(n){return (n<0?'-$':'$')+Math.abs(Math.round(n)).toLocaleString('en-US');};
+  function calc(){
+    var gmv=val('gmv'), chem=val('chem');
+    var online=gmv+chem;
+    var advRate=val('adv_rate')/100, plusRate=val('plus_rate')/100;
+    // plan costs
+    var advPlat=4788, plusBase=27600, vpf=online*0.0035;
+    var plusPlat=Math.max(plusBase, vpf);
+    var advCard=online*advRate, plusCard=online*plusRate;
+    var advTot=advPlat+advCard, plusTot=plusPlat+plusCard;
+    var plusY1=plusTot-6900; // 3 months free
+    $('a_plat').textContent=fmt(advPlat); $('a_card').textContent=fmt(advCard); $('a_tot').textContent=fmt(advTot);
+    $('p_plat').textContent=fmt(plusPlat); $('p_card').textContent=fmt(plusCard); $('p_tot').textContent=fmt(plusTot);
+    $('p_y1').textContent=fmt(plusY1);
+    var premium=plusY1-advTot; // year-1 premium
+    // growth (Plus-enabled)
+    var conv=gmv*val('conv')/100;
+    var aov=gmv*val('aov')/100;
+    var growthGMV=conv+aov+chem;
+    var gp=growthGMV*val('margin')/100;
+    var net=gp-premium;
+    $('v_net').textContent=fmt(net);
+    $('v_line').textContent='Incremental gross profit ('+fmt(gp)+') from Plus-only growth, net of the year-1 Plus premium ('+fmt(premium)+')';
+    var be=premium/(val('margin')/100||0.25);
+    $('be_line').textContent='Break-even: Plus pays for itself with ~'+fmt(be)+' of incremental online revenue at '+val('margin')+'% margin — a fraction of the chemical opportunity alone. Growth = Shop Pay conversion + checkout-extensibility AOV + chemical online.';
+  }
+  document.querySelectorAll('input[type=number]').forEach(function(i){i.addEventListener('input',calc);});
+  calc();
+</script>
+</body>
+</html>
