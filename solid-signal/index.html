@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solid Signal × Shopify Plus — Project Plan &amp; Launch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0f1e2e; --muted:#5a6b7a; --line:#e2e8ef; --paper:#f5f8fb; --card:#fff;
+    --blue:#1666c4; --blue-d:#0d4a95; --navy:#0f2440; --cyan:#12a3b8; --amber:#e0902b;
+    --soft:#eaf1f9; --green:#1f9d55; --purple:#6b4dd6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.12}
+  header{background:linear-gradient(150deg,#0f2440 0%,#0d4a95 60%,#1666c4 100%);color:#fff;padding:52px 0 46px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-70px;top:-70px;width:280px;height:280px;background:radial-gradient(circle,rgba(18,163,184,.35),transparent 70%)}
+  .kick{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#8fd3de;font-weight:700;margin-bottom:14px}
+  header h1{font-size:2.35rem;margin-bottom:10px;max-width:680px}
+  header p{color:#cddcec;max-width:640px;font-size:1.05rem}
+  .hmeta{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+  .hmeta .k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#9fbdd8;font-weight:700;margin-bottom:3px}
+  .hmeta .v{font-weight:700;font-size:.95rem}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .ey{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:8px}
+  h2.st{font-size:1.8rem;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:1.03rem;max-width:740px;margin-bottom:8px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:20px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card .ic{font-size:1.4rem;margin-bottom:8px}
+  .card h4{font-family:'Fraunces';font-size:1.08rem;margin-bottom:6px}
+  .card p{font-size:.92rem;color:var(--muted)}
+  /* GANTT */
+  .gantt-wrap{overflow-x:auto;margin-top:20px;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:18px 18px 8px}
+  .gantt{min-width:720px}
+  .grow{display:grid;grid-template-columns:200px repeat(7,1fr);align-items:center;min-height:40px}
+  .grow.ghead{border-bottom:2px solid var(--line);margin-bottom:8px;min-height:34px}
+  .grow.ghead>div{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);text-align:center;border-left:1px solid var(--line);padding:4px 0}
+  .grow.ghead>.glabel{border-left:none}
+  .glabel{font-size:.85rem;font-weight:600;color:var(--ink);padding-right:12px}
+  .glabel small{display:block;font-weight:400;color:var(--muted);font-size:.72rem}
+  .gcell{position:relative}
+  .gbar{grid-row:1;height:26px;border-radius:7px;color:#fff;font-size:.7rem;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(15,36,64,.18);white-space:nowrap}
+  .b-kick{background:var(--amber)}
+  .b-disc{background:var(--cyan)}
+  .b-design{background:var(--purple)}
+  .b-erp{background:var(--blue)}
+  .b-b2b{background:var(--blue-d)}
+  .b-mig{background:#c0743a}
+  .b-uat{background:#2f7d4f}
+  .b-launch{background:var(--green);border-radius:50%;width:26px;justify-self:center;font-size:1rem}
+  .grow:nth-child(even){background:var(--soft)}
+  .grow.ghead:nth-child(1){background:none}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.78rem;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+  /* phase cards */
+  .phase{display:flex;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px;align-items:flex-start}
+  .phase.launch{border:2px solid var(--green);background:#f0faf4}
+  .pwhen{min-width:120px;font-size:.78rem;font-weight:700;color:var(--blue-d);text-transform:uppercase;letter-spacing:.04em;padding-top:3px}
+  .phase.launch .pwhen{color:var(--green)}
+  .pbody h4{font-family:'Fraunces';font-size:1.1rem;margin-bottom:4px}
+  .pbody p{font-size:.92rem;color:var(--muted)}
+  .who{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-top:8px;margin-right:5px;background:var(--soft);color:var(--blue-d)}
+  .note{font-size:.8rem;color:var(--muted);margin-top:14px;font-style:italic}
+  footer{padding:24px 0 46px;font-size:.82rem;color:var(--muted)}
+  @media(max-width:720px){header h1{font-size:1.8rem}.grid3,.grid2{grid-template-columns:1fr}.phase{flex-direction:column;gap:6px}.pwhen{min-width:0}}
+  @media print{.gantt-wrap{overflow:visible}.card,.phase,.gantt-wrap{break-inside:avoid}@page{margin:10mm}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">Solid Signal &nbsp;×&nbsp; Shopify Plus</div>
+    <h1>Your path to launch.</h1>
+    <p>A clear, phased plan to move Solid Signal and Signal Connect onto Shopify Plus — modern storefront, B2B, subscriptions, and NetSuite connected — live by March 2027.</p>
+    <div class="hmeta">
+      <div><div class="k">Brands</div><div class="v">Solid Signal (D2C) · Signal Connect (B2B)</div></div>
+      <div><div class="k">Backbone</div><div class="v">NetSuite — connected, source of truth</div></div>
+      <div><div class="k">Build</div><div class="v">~6 months</div></div>
+      <div><div class="k">Go-live</div><div class="v">March 2027</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT WE'RE BUILDING -->
+<section>
+  <div class="wrap">
+    <div class="ey">What we're building</div>
+    <h2 class="st">One platform, every channel.</h2>
+    <div class="grid3">
+      <div class="card"><div class="ic">🛒</div><h4>Modern D2C storefront</h4><p>A fast, flexible Solid Signal store with Shop Pay one-click checkout.</p></div>
+      <div class="card"><div class="ic">🤝</div><h4>B2B — Signal Connect</h4><p>Account pricing, quotes and phone orders captured as draft orders, all synced to NetSuite.</p></div>
+      <div class="card"><div class="ic">🔁</div><h4>Subscriptions, uninterrupted</h4><p>Existing recurring plans migrate via card tokens — no disruption — new subs run natively.</p></div>
+      <div class="card"><div class="ic">🤖</div><h4>Agentic / AI channel</h4><p>Sell in AI shopping channels through Shopify's universal commerce — a new acquisition surface.</p></div>
+      <div class="card"><div class="ic">🔗</div><h4>NetSuite connected</h4><p>A custom connector keeps NetSuite the source of truth for orders, pricing and inventory.</p></div>
+      <div class="card"><div class="ic">🔎</div><h4>Search + support</h4><p>Searchspring for on-site search &amp; merchandising, Tidio for chat — carried over and connected.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE / GANTT -->
+<section>
+  <div class="wrap">
+    <div class="ey">The timeline</div>
+    <h2 class="st">From contract to go-live.</h2>
+    <p class="lead">Workstreams run in parallel so we hit a March 2027 launch. Sign locks the start; build begins after discovery.</p>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div class="grow ghead">
+          <div class="glabel">Workstream</div>
+          <div>Sep '26</div><div>Oct</div><div>Nov</div><div>Dec</div><div>Jan '27</div><div>Feb</div><div>Mar</div>
+        </div>
+        <div class="grow"><div class="glabel">Contract &amp; kickoff<small>Sign · post-date 9/30</small></div><div class="gbar b-kick" style="grid-column:2/3">Sign</div></div>
+        <div class="grow"><div class="glabel">Discovery &amp; scoping</div><div class="gbar b-disc" style="grid-column:3/4">Scope</div></div>
+        <div class="grow"><div class="glabel">Storefront &amp; design<small>SOVI Creative</small></div><div class="gbar b-design" style="grid-column:3/7">Design &amp; build</div></div>
+        <div class="grow"><div class="glabel">NetSuite integration<small>custom connector</small></div><div class="gbar b-erp" style="grid-column:3/7">Integration</div></div>
+        <div class="grow"><div class="glabel">B2B &amp; subscriptions</div><div class="gbar b-b2b" style="grid-column:4/7">Catalogs · terms · subs</div></div>
+        <div class="grow"><div class="glabel">Data migration</div><div class="gbar b-mig" style="grid-column:6/8">Migrate</div></div>
+        <div class="grow"><div class="glabel">Testing &amp; UAT</div><div class="gbar b-uat" style="grid-column:7/8">UAT</div></div>
+        <div class="grow"><div class="glabel">🚀 Launch</div><div class="gbar b-launch" style="grid-column:8/9">★</div></div>
+      </div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--amber)"></i>Contract</span>
+      <span><i style="background:var(--cyan)"></i>Discovery</span>
+      <span><i style="background:var(--purple)"></i>Design (SOVI)</span>
+      <span><i style="background:var(--blue)"></i>NetSuite</span>
+      <span><i style="background:var(--blue-d)"></i>B2B &amp; subs</span>
+      <span><i style="background:#c0743a"></i>Migration</span>
+      <span><i style="background:#2f7d4f"></i>UAT</span>
+      <span><i style="background:var(--green)"></i>Launch</span>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section>
+  <div class="wrap">
+    <div class="ey">The phases</div>
+    <h2 class="st">What happens in each stage.</h2>
+    <div class="phase">
+      <div class="pwhen">September</div>
+      <div class="pbody"><h4>Contract &amp; kickoff</h4><p>Sign the Plus agreement (locking your 2 free months), post-date the start to Sept 30, and align the team with SOVI Creative.</p><span class="who">Signal Group</span><span class="who">Shopify</span></div>
+    </div>
+    <div class="phase">
+      <div class="pwhen">October</div>
+      <div class="pbody"><h4>Discovery &amp; scoping</h4><p>Finalize requirements, design the NetSuite connector (orders, pricing, subscriptions), plan the subscription token migration, and select your theme.</p><span class="who">Signal Group</span><span class="who">Shopify SE</span><span class="who">SOVI</span></div>
+    </div>
+    <div class="phase">
+      <div class="pwhen">Oct – Jan</div>
+      <div class="pbody"><h4>Build</h4><p>Storefront &amp; theme (SOVI), the custom NetSuite connector, B2B catalogs &amp; pricing, subscriptions, Searchspring &amp; Tidio, and the agentic channel — in parallel.</p><span class="who">SOVI</span><span class="who">Signal Group (dev)</span></div>
+    </div>
+    <div class="phase">
+      <div class="pwhen">Jan – Feb</div>
+      <div class="pbody"><h4>Migration &amp; testing</h4><p>Migrate catalog, customers, orders and subscription tokens; then full UAT of checkout, B2B draft orders, NetSuite sync, subscriptions and payments.</p><span class="who">Signal Group</span><span class="who">SOVI</span></div>
+    </div>
+    <div class="phase launch">
+      <div class="pwhen">March 2027</div>
+      <div class="pbody"><h4>🚀 Go live on Shopify Plus</h4><p>Launch Solid Signal and Signal Connect — with Shop Pay, B2B, subscriptions and the agentic channel live from day one.</p><span class="who">Everyone</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="ey">Right now</div>
+    <h2 class="st">To keep March on track.</h2>
+    <div class="grid2">
+      <div class="card"><h4>Sign to lock the start</h4><p>Signing this quarter locks your 2 free months and the Sept 30 start — which protects the full runway to March.</p></div>
+      <div class="card"><h4>Kick off discovery</h4><p>Confirm the theme, and get the NetSuite connector design underway with your dev team and our Solutions Engineer.</p></div>
+    </div>
+    <p class="note">Prepared by Nicole DeGennaro · Shopify — for Solid Signal (Signal Group). Dates are targets, refined with your team and SOVI Creative. NetSuite remains your system of record throughout.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">Solid Signal × Shopify Plus — Project Plan &amp; Launch · prepared by Nicole DeGennaro</div></footer>
+</body>
+</html>
