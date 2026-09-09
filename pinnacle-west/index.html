@@ -84,6 +84,13 @@
   footer{padding:24px 0 46px;font-size:.82rem;color:var(--muted)}
   @media(max-width:720px){header h1{font-size:1.7rem}.out,.grid2,.grid3{grid-template-columns:1fr}}
   @media print{.calc,.cardb,.obox,.verdict,.callout,.tl .s{break-inside:avoid}@page{margin:12mm}body{background:#fff}}
+  .ptabs{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .ptabs .wrap{display:flex;gap:4px;overflow-x:auto}
+  .ptab{appearance:none;border:none;background:none;font-family:inherit;font-size:.9rem;font-weight:700;color:var(--muted);padding:14px 16px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent}
+  .ptab:hover{color:var(--ink)}
+  .ptab.active{color:var(--navy);border-bottom-color:var(--amber)}
+  .ptab-content{display:none}
+  .ptab-content.active{display:block}
 </style>
 </head>
 <body>
@@ -101,6 +108,13 @@
     </div>
   </div>
 </header>
+
+<nav class="ptabs"><div class="wrap">
+  <button class="ptab active" data-pt="plan">The Case</button>
+  <button class="ptab" data-pt="y2026">2026 Numbers</button>
+</div></nav>
+
+<div class="ptab-content active" id="pt-plan">
 
 <!-- RECOMMENDATION -->
 <section style="background:var(--soft)">
@@ -239,6 +253,64 @@
     <p class="note">Prepared by Nicole DeGennaro · Shopify — for Pinnacle West. Cost figures illustrative and confirmed at underwriting; growth figures illustrative until measured. VPF applies only above ~$7.9M/yr. Native B2B is available on Advanced (up to 3 catalogs) as of Apr 2026 — confirm it's enabled in your admin.</p>
   </div>
 </section>
+</div><!-- /#pt-plan -->
+
+<!-- 2026 NUMBERS TAB -->
+<div class="ptab-content" id="pt-y2026">
+<section>
+  <div class="wrap">
+    <div class="ey">2026 numbers · your actuals</div>
+    <h2 class="st">Advanced vs. Plus on your real online sales.</h2>
+    <p class="lead">Based on the figure you confirmed — <b>$350,000 in online sales for 2026</b> — plus the chemical opportunity ($30K–$100K+/mo). At this volume you're well under the VPF threshold, so Plus bills at the flat $2,300/mo base. Here's the honest side-by-side.</p>
+    <table>
+      <thead><tr><th>Online sales (yr)</th><th class="n">Advanced /yr</th><th class="n">Plus /yr</th><th class="n">Plus premium</th></tr></thead>
+      <tbody>
+        <tr><td>$350K (2026 est.)</td><td class="n">$13,538</td><td class="n">$35,475</td><td class="n">+$21,937 (≈$15K yr 1 w/ 3 mo free)</td></tr>
+        <tr><td>+ Chemical low → $710K</td><td class="n">$22,538</td><td class="n">$43,575</td><td class="n">+$21,037</td></tr>
+        <tr><td>+ Chemical high → $1.07M</td><td class="n">$31,538</td><td class="n">$51,675</td><td class="n">+$20,137</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Platform: Advanced $399/mo ($4,788/yr) · Plus $2,300/mo ($27,600/yr) flat — you're far under the ~$7.9M VPF threshold. Card (Shopify Payments): Advanced 2.5% + 30¢ vs Plus 2.25% + 30¢. Illustrative; confirmed at underwriting.</p>
+    <div class="callout"><b>Straight talk:</b> at your volume Plus is a real premium — about <b>$20–22K/yr more</b> than Advanced (~$15K in year one after the 3 free months). It doesn't pay for itself on cost at this scale; it's a capability decision about how you sell chemical.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="ey">The deciding question</div>
+    <h2 class="st">Does chemical need per-customer pricing?</h2>
+    <p class="lead">As of April 2026, <b>Advanced already includes B2B</b> — company accounts with approval, up to 3 catalogs, volume pricing, net terms, and self-serve ordering. So most of what you described runs on Advanced. Plus is only required for a few specific things.</p>
+    <div class="grid2">
+      <div class="cardb"><h4>Advanced can do it if…</h4><ul class="clean">
+        <li>Chemical priced in <b>3 or fewer shared volume tiers</b></li>
+        <li>Accounts <b>approved before</b> they see pricing/order</li>
+        <li><b>Self-serve order placement</b> + net terms</li>
+        <li>Phase-1 flow: customer places order → you set shipping &amp; final total → they pay via Shopify</li>
+      </ul></div>
+      <div class="cardb plus"><h4>You need Plus if…</h4><ul class="clean">
+        <li><b>Per-customer pricing</b> — every account priced differently (more than 3 price lists)</li>
+        <li>Catalog assigned <b>directly to a company/location</b></li>
+        <li><b>Deposits</b> or <b>partial payments</b> on an order</li>
+      </ul></div>
+    </div>
+    <div class="callout"><b>So the one answer that picks the plan:</b> is chemical priced <b>per account</b> (→ Plus) or in <b>≤3 volume tiers</b> (→ Advanced, and you save ~$22K/yr)?</div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="ey">Your questions, answered</div>
+    <h2 class="st">Integrations &amp; self-serve.</h2>
+    <div class="grid2">
+      <div class="cardb"><h4>Can BC + Salesforce integrations be added on Advanced AND Plus?</h4><p><b>Yes — both.</b> The Business Central connector and Salesforce sync aren't plan-gated. Plus adds higher API rate limits and a dedicated team for the build, but the connections work on either plan.</p></div>
+      <div class="cardb"><h4>Do we need Plus for customer self-serve order placement?</h4><p><b>No.</b> Self-serve B2B ordering, approval-gated company accounts, and net terms are on Advanced (since Apr 2026). Plus is only for per-customer pricing (&gt;3 catalogs), deposits, or partial payments.</p></div>
+      <div class="cardb"><h4>Order on account / net terms with the BC net-balance check?</h4><p>Net terms themselves are on Advanced. The <b>live BC credit-balance check</b> at checkout is a <b>custom integration either way</b> — a phase-2 build. Start with the "place order → you finalize shipping/total → pay via Shopify" flow (works on both plans).</p></div>
+      <div class="cardb"><h4>What about the chemical approval gate?</h4><p>Handled by only granting <b>approved companies</b> the chemical catalog — so a customer can't self-create an account and instantly get chemical pricing. Works on both plans.</p></div>
+    </div>
+    <p class="note">Confirms Ehren's 9/9 email. Cost figures illustrative; confirmed at underwriting. B2B on Advanced capped at 3 active catalogs — confirm it's enabled in your admin.</p>
+  </div>
+</section>
+</div><!-- /#pt-y2026 -->
 
 <footer><div class="wrap">Pinnacle West × Shopify — Advanced vs Plus TCO &amp; ROI · prepared by Nicole DeGennaro</div></footer>
 
@@ -273,6 +345,12 @@
   }
   document.querySelectorAll('input[type=number]').forEach(function(i){i.addEventListener('input',calc);});
   calc();
+  document.querySelectorAll('.ptab').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.ptab').forEach(function(x){x.classList.remove('active')});
+    document.querySelectorAll('.ptab-content').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');document.getElementById('pt-'+b.dataset.pt).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  })});
 </script>
 </body>
 </html>
