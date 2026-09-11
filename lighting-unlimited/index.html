@@ -212,18 +212,33 @@
 <section class="panel" id="next">
   <div class="wrap">
     <div class="num">Next Steps</div>
-    <h2 class="st">Plan forward — launch January 1</h2>
-    <p class="lead">Working backward from a January 1 go-live, with the partner engaged now so the DDI integration is scoped and the build starts in early October.</p>
+    <h2 class="st">What it actually takes to go live by January 1</h2>
+    <p class="lead">A ~16-week runway from mid-September. It's achievable — but tight through the holidays — so the sequence matters. The <b>DDI integration is the critical path</b>; everything else runs alongside it. Owners are noted on each step.</p>
     <div class="tl">
-      <div class="step now"><div class="dt">Sept 15 · booked</div><div class="ds">Partner intro &amp; scoping with Solo Media Group — the build, DDI integration and data migration, plus a real read on cost and effort.</div></div>
-      <div class="step"><div class="dt">Late September</div><div class="ds">Finalize scope + pricing and sign — this locks the current incentive and protects the runway to Jan 1.</div></div>
-      <div class="step"><div class="dt">Early October</div><div class="ds">Kickoff — build begins.</div></div>
-      <div class="step"><div class="dt">October – December</div><div class="ds">~3-month build: login-gated B2B portal, tiered pricing, net terms, DDI integration, catalog.</div></div>
-      <div class="step"><div class="dt">Mid-December</div><div class="ds">UAT &amp; testing — validate the B2B flows and integration before launch.</div></div>
-      <div class="step live"><div class="dt">January 1 · go-live</div><div class="ds">Launch on Shopify Plus.</div></div>
+      <div class="step now"><div class="dt">Sept 15 · booked</div><div class="ds"><b>Partner intro &amp; scoping (Solo Media).</b> Confirm the make-or-break item — does DDI expose an open API? — plus the pricing-tier model, catalog gating rules, and data-migration plan. Output: a fixed scope, cost, and timeline. <i>Solo Media · you · Shopify SE.</i></div></div>
+      <div class="step"><div class="dt">Sept 15–30 · sign</div><div class="ds"><b>Lock scope + sign Plus.</b> Solo Media returns the SOW; you sign the Plus contract to lock the incentive and free the team to start. In parallel, you pull together what the build needs (checklist below). <i>You (sign) · Solo Media (SOW).</i></div></div>
+      <div class="step"><div class="dt">Early October · kickoff</div><div class="ds"><b>Foundations.</b> Stand up the Plus store, environments and access; lock the DDI integration architecture (native connector vs. middleware vs. custom on the open API). <i>Solo Media · Harrison (DDI access).</i></div></div>
+      <div class="step"><div class="dt">October · DDI integration</div><div class="ds"><b>The long pole.</b> Build the connection so the storefront shows <b>real-time stock &amp; availability</b> on login and orders flow back into DDI as your source of truth. <i>Solo Media · Harrison.</i></div></div>
+      <div class="step"><div class="dt">Oct – Nov · B2B build</div><div class="ds"><b>The portal itself.</b> Company accounts + <b>login-gated catalogs</b> (respecting manufacturer rules), <b>per-customer / tier pricing</b> (bronze→platinum + category modifiers), <b>net terms</b>, and the storefront/theme. <i>Solo Media.</i></div></div>
+      <div class="step"><div class="dt">November · data migration</div><div class="ds"><b>Load the catalog.</b> Products, images and pricing rules imported; your customer/account list mapped to the correct tiers; manufacturer-gated brands hidden until login. <i>Solo Media · Harrison (data).</i></div></div>
+      <div class="step"><div class="dt">Late Nov – mid Dec · UAT</div><div class="ds"><b>Test everything that matters.</b> Stock accuracy, order-to-DDI flow, per-account pricing, login gating, net-terms checkout, and the municipal PO portal (if in v1). Fix and re-test. <i>You · Solo Media · Shopify SE.</i></div></div>
+      <div class="step"><div class="dt">Mid – late Dec · launch prep</div><div class="ds">Final data sync, content, train your team, staging sign-off, and the go-live checklist (domain, payments, redirects). <i>All.</i></div></div>
+      <div class="step live"><div class="dt">January 1 · go-live</div><div class="ds"><b>Launch on Shopify Plus</b> — the self-serve, login-gated B2B portal live for your accounts.</div></div>
     </div>
-    <div class="callout" style="margin-top:18px"><b>The one thing that protects Jan 1:</b> signing by end of September. If anything on your side would push that, let's flag it early and adjust. Helpful before Sept 15: your DDI / data details so Solo Media Group can scope fast.</div>
-    <p class="note">Also good to confirm: final tier structure for the catalogs, the must-have municipal portal, and whether POS across the four branches is in or out for v1.</p>
+
+    <div class="card" style="margin-top:20px">
+      <h3>What we need from you to hit Jan 1</h3>
+      <ul class="clean">
+        <li><b>DDI API access + documentation</b> (or confirmation of the open API) — the single biggest unblocker</li>
+        <li>Product catalog + images, and your <b>pricing rules / tiers</b></li>
+        <li>Your <b>customer/account list</b> with each account's tier</li>
+        <li><b>Manufacturer gating rules</b> — which brands are login-only</li>
+        <li>Decisions: final <b>tier count</b> (3 vs 4), <b>municipal PO portal</b> in/out for v1, <b>POS</b> in/out</li>
+        <li><b>Sign by end of September</b>, and reserve time for <b>UAT in December</b></li>
+      </ul>
+    </div>
+
+    <div class="callout" style="margin-top:18px"><b>Honest read:</b> Jan 1 is ~16 weeks including the holidays — doable, but the <b>DDI integration and an end-of-September signature</b> are what make or break it. If DDI turns out heavier than scoped, we protect the date by phasing — launch the core portal Jan 1 and add the municipal portal / POS right after.</div>
   </div>
 </section>
 
