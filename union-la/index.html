@@ -228,11 +228,11 @@
   <div class="wrap">
     <div class="kick">Prepared for the Shopify Payments conversation</div>
     <h1>Turn Shopify Payments — and Shop Pay — back on.</h1>
-    <p class="sub">You switched Shopify Payments on last fall, then back off inside five weeks. Since then your sales are up <b>31% year over year</b> to <b>$4.62M</b> — <b>$2.19M online</b> and <b>$1.66M in store</b>, nearly all of it on outside processors that can't use Shop Pay, on a fee Shopify Payments simply waives. Here's the math, in your numbers.</p>
+    <p class="sub">You switched Shopify Payments on last fall, then back off inside five weeks. Since then your sales are up <b>31% year over year</b> to <b>$4.62M</b> — <b>$2.19M online</b> and <b>$1.66M in store</b>, nearly all of it on outside processors that can't use Shop Pay. Here's the math, in your numbers.</p>
     <div class="stats">
       <div class="stat r"><div class="v">Off</div><div class="l">Shop Pay today — dark since Oct&nbsp;29, 2025 after a 5-week trial</div></div>
       <div class="stat p"><div class="v num">$4.62M</div><div class="l">annual Shopify GMV — $2.19M online + $1.66M retail</div></div>
-      <div class="stat g"><div class="v num">~$7,700</div><div class="l">/yr in third-party fees waived across online + retail</div></div>
+      <div class="stat g"><div class="v num">~$4,380</div><div class="l">/yr in third-party fee waived (online — in-person POS is exempt)</div></div>
       <div class="stat p"><div class="v num">+$329K</div><div class="l">est. added revenue at the 15% average Shop Pay lift (online)</div></div>
     </div>
   </div>
@@ -259,9 +259,9 @@
       </div>
       <div class="cost">
         <div class="ico">💸</div>
-        <div class="big">~$642/mo</div>
+        <div class="big">~$365/mo</div>
         <h4>A third-party fee you don't have to pay.</h4>
-        <p>On Plus, Shopify charges a 0.2% third-party transaction fee on volume routed outside Shopify Payments — roughly $642/month across the $3.85M of online + retail card volume. Move both onto Shopify Payments and it's waived entirely.</p>
+        <p>On Plus, Shopify charges a 0.2% third-party transaction fee on online orders routed through an outside gateway — about $365/month on your $2.19M online. (In-person POS is exempt from this fee.) Shopify Payments waives it entirely.</p>
       </div>
     </div>
   </div>
@@ -273,7 +273,7 @@
     <div class="oneNum">
       <div class="huge num">$4.62M</div>
       <div class="cap">in annual GMV on Shopify — online and in store, almost none of it on Shop Pay.</div>
-      <p>This is the whole argument in one number. Your business is growing 31% a year on Shopify, yet almost none of that volume runs on Shopify Payments — your online store ($2.19M) rides an outside gateway, and only <b>~$58K of your $1.66M</b> in retail is processed through Shopify today. A large share of streetwear buyers already have Shop Pay saved and check out in one tap on other stores; on Union LA none of that carries over. Consolidating online and retail turns that latent demand into your highest-converting checkout — and waives the fee on every channel.</p>
+      <p>This is the whole argument in one number. Your business is growing 31% a year on Shopify, yet almost none of that volume runs on Shopify Payments — your online store ($2.19M) rides an outside gateway, and only <b>~$58K of your $1.66M</b> in retail is processed through Shopify today. A large share of streetwear buyers already have Shop Pay saved and check out in one tap on other stores; on Union LA none of that carries over. Consolidating online and retail turns that latent demand into your highest-converting checkout — and puts every channel on one processor.</p>
       <span class="tagline">🔒 Today: your best-converting checkout is switched off</span>
     </div>
   </div>
@@ -318,18 +318,14 @@
   <div class="wrap">
     <div class="ey">Interactive ROI model</div>
     <h2 class="st">Run the numbers live.</h2>
-    <p class="lead">Built on Union LA's actuals — <b>$2.19M online</b> and <b>$1.66M retail</b> at a <b>$283.69</b> average order. Shop Pay lifts the online checkout; the 0.2% third-party fee is waived on both channels once they're on Shopify Payments. Adjust anything and the model recalculates instantly.</p>
+    <p class="lead">Built on Union LA's actuals — <b>$2.19M online</b> at a <b>$283.69</b> average order. Shop Pay lifts the online checkout, and the 0.2% third-party fee is waived on online orders (in-person POS is already exempt). Adjust anything and the model recalculates instantly.</p>
     <div class="calc">
       <div class="panel">
         <h3>Your inputs</h3>
-        <div class="phint">Conversion lift applies to the online store; fee savings apply to online + retail.</div>
+        <div class="phint">Conversion lift and the 0.2% fee both apply to the online store — in-person POS is exempt from the fee.</div>
         <div class="crow">
-          <label>Online store GMV / yr<span class="sub">Shop Pay conversion lift applies here</span></label>
+          <label>Online store GMV / yr<span class="sub">Shop Pay conversion lift + 0.2% fee apply here</span></label>
           <div class="ig"><span class="pre">$</span><input type="number" id="online" value="2190000"></div>
-        </div>
-        <div class="crow">
-          <label>Retail (POS) GMV / yr<span class="sub">5 locations — fee savings on Shopify Payments</span></label>
-          <div class="ig"><span class="pre">$</span><input type="number" id="pos" value="1660000"></div>
         </div>
         <div class="crow">
           <label>Average order value<span class="sub">blended, from the account</span></label>
@@ -351,20 +347,20 @@
       </div>
       <div class="panel rpanel">
         <h3>The impact</h3>
-        <div class="phint" style="color:#c9b8ff">Conversion lift on the online store + fee waived across both channels.</div>
+        <div class="phint" style="color:#c9b8ff">Conversion lift + the 0.2% fee waived, on the online store.</div>
         <div class="rline">
           <div class="rl">Added revenue — online conversion lift</div>
           <div class="rv num" id="o_rev">$328,500</div>
           <div class="rd num" id="o_orders">+1,158 orders / yr · ≈ $27,375 / month</div>
         </div>
         <div class="rline">
-          <div class="rl">Third-party fees waived — online + retail</div>
-          <div class="rv num" id="o_fee">$7,700</div>
-          <div class="rd num" id="o_fee_d">0.2% on $3.85M off Shopify Payments, gone</div>
+          <div class="rl">Third-party fee waived — online</div>
+          <div class="rv num" id="o_fee">$4,380</div>
+          <div class="rd num" id="o_fee_d">0.2% on $2.19M online, gone (POS exempt)</div>
         </div>
         <div class="rnet">
           <div class="rl">Net first-year impact</div>
-          <div class="rv num" id="o_net">$336,200</div>
+          <div class="rv num" id="o_net">$332,880</div>
         </div>
       </div>
     </div>
@@ -377,7 +373,7 @@
   <div class="wrap">
     <div class="ey">Conversion lift scenarios</div>
     <h2 class="st">Conservative, average, aggressive.</h2>
-    <p class="lead">Shopify's own data shows Shop Pay lifts conversion <b>up to 50%</b> vs guest checkout. We model well below that — applied to your $2.19M online store GMV across ~7,719 orders. Net includes the ~$7,700 in third-party fees waived across online + retail.</p>
+    <p class="lead">Shopify's own data shows Shop Pay lifts conversion <b>up to 50%</b> vs guest checkout. We model well below that — applied to your $2.19M online store GMV across ~7,719 orders. Net includes the ~$4,380 in third-party fees waived on the online store (in-person POS is exempt).</p>
     <div class="scn">
       <div class="sc">
         <div class="name">Conservative</div>
@@ -385,7 +381,7 @@
         <div class="row"><span class="rk">Added revenue / year</span><span class="rv">+$153,300</span></div>
         <div class="row"><span class="rk">Extra orders / yr</span><span class="rv">+540</span></div>
         <div class="row"><span class="rk">Extra orders / mo</span><span class="rv">+45</span></div>
-        <div class="row"><span class="rk">Net w/ fees waived</span><span class="rv">+$161,000</span></div>
+        <div class="row"><span class="rk">Net w/ fee waived</span><span class="rv">+$157,680</span></div>
       </div>
       <div class="sc mid">
         <div class="badge">Typical</div>
@@ -394,7 +390,7 @@
         <div class="row"><span class="rk">Added revenue / year</span><span class="rv">+$328,500</span></div>
         <div class="row"><span class="rk">Extra orders / yr</span><span class="rv">+1,158</span></div>
         <div class="row"><span class="rk">Extra orders / mo</span><span class="rv">+97</span></div>
-        <div class="row"><span class="rk">Net w/ fees waived</span><span class="rv">+$336,200</span></div>
+        <div class="row"><span class="rk">Net w/ fee waived</span><span class="rv">+$332,880</span></div>
       </div>
       <div class="sc">
         <div class="name">Aggressive</div>
@@ -402,7 +398,7 @@
         <div class="row"><span class="rk">Added revenue / year</span><span class="rv">+$547,500</span></div>
         <div class="row"><span class="rk">Extra orders / yr</span><span class="rv">+1,930</span></div>
         <div class="row"><span class="rk">Extra orders / mo</span><span class="rv">+161</span></div>
-        <div class="row"><span class="rk">Net w/ fees waived</span><span class="rv">+$555,200</span></div>
+        <div class="row"><span class="rk">Net w/ fee waived</span><span class="rv">+$551,880</span></div>
       </div>
     </div>
   </div>
@@ -442,13 +438,13 @@
         </div>
         <div class="body">
           <div class="metric"><span class="mk">Shop Pay conversion lift</span><span class="mv dash">— (online)</span></div>
-          <div class="metric"><span class="mk">Third-party fee waived</span><span class="mv pos">+$3,320</span></div>
+          <div class="metric"><span class="mk">Third-party fee (POS)</span><span class="mv dash">$0 — exempt</span></div>
           <div class="metric"><span class="mk">On Shopify today</span><span class="mv">~$58K of $1.66M</span></div>
         </div>
         <div class="net">
-          <div class="nl">Net first-year impact</div>
-          <div class="nv num">+$3,320</div>
-          <div class="nd">fee savings + one processor, one ledger</div>
+          <div class="nl">The win here</div>
+          <div class="nv num" style="font-size:1.5rem">Lower processing rate</div>
+          <div class="nd">card-rate savings vs your terminal provider + one ledger</div>
         </div>
         <div class="plus"><b>Also gains:</b> unified payouts, faster deposits, in-store + online in one system, Tap to Pay on iPhone.</div>
       </div>
@@ -461,18 +457,18 @@
         </div>
         <div class="body">
           <div class="metric"><span class="mk">Shop Pay conversion lift</span><span class="mv pos">+$328,500</span></div>
-          <div class="metric"><span class="mk">Third-party fee waived</span><span class="mv pos">+$7,700</span></div>
-          <div class="metric"><span class="mk">Channels unified</span><span class="mv">All $4.62M</span></div>
+          <div class="metric"><span class="mk">Third-party fee waived (online)</span><span class="mv pos">+$4,380</span></div>
+          <div class="metric"><span class="mk">Retail processing rate</span><span class="mv pos">+ savings</span></div>
         </div>
         <div class="net">
           <div class="nl">Net first-year impact</div>
-          <div class="nv num">+$336,200</div>
-          <div class="nd">every lever on, one source of truth</div>
+          <div class="nv num">+$332,880</div>
+          <div class="nd">+ retail card-rate savings &amp; one source of truth</div>
         </div>
         <div class="plus"><b>Everything above,</b> plus a single ledger across all $4.62M and every Shopify Payments feature live at once.</div>
       </div>
     </div>
-    <p class="scope-note">Conversion lift is modeled on the online store only (Shop Pay lifts online checkout, not in-store POS). Fee savings are 0.2% of the volume moved onto Shopify Payments in each scope. Retail-only shows fee savings and operational gains; the conversion upside requires the online store.</p>
+    <p class="scope-note">Conversion lift is modeled on the online store only (Shop Pay lifts online checkout, not in-store POS). The 0.2% third-party fee applies only to online orders on an outside gateway — in-person POS is exempt — so the fee saving is online-only (~$4,380/yr). Retail's win is a lower card-processing rate vs the current terminal provider plus consolidation, sized once we have the in-store rate.</p>
   </div>
 </section>
 
@@ -481,21 +477,21 @@
   <div class="wrap">
     <div class="ey">Fee savings</div>
     <h2 class="st">The 0.2% that disappears.</h2>
-    <p class="lead">When Shopify Payments is your processor, Shopify's third-party transaction fee is waived on every order routed through it — including Shop Pay, Shop Pay Installments, and PayPal Express, online and in store.</p>
+    <p class="lead">When Shopify Payments is your processor, Shopify's 0.2% third-party transaction fee is waived on your online orders — Shop Pay, Shop Pay Installments, and PayPal Express included. In-person POS orders are already exempt from this fee, so this is an online-only saving; retail wins on a lower processing rate instead.</p>
     <div class="feewrap">
       <div>
-        <div class="feerow strike"><span class="k">3rd-party transaction fee today</span><span class="v">0.20% / order</span></div>
+        <div class="feerow strike"><span class="k">3rd-party fee on online today</span><span class="v">0.20% / order</span></div>
         <div class="feerow zero"><span class="k">On Shopify Payments</span><span class="v">$0 — waived</span></div>
         <div class="feerow"><span class="k">Online ($2.19M)</span><span class="v num">~$4,380 / yr</span></div>
-        <div class="feerow"><span class="k">Retail ($1.66M)</span><span class="v num">~$3,320 / yr</span></div>
+        <div class="feerow"><span class="k">Retail ($1.66M) · POS exempt</span><span class="v num">$0 fee</span></div>
       </div>
       <div class="feekeep">
-        <div class="v num">$7,700</div>
-        <div class="l">you keep, every year — both channels</div>
-        <p>That's fee savings alone — before a single point of conversion lift — once online and retail card processing both sit on Shopify. It's the floor of the ROI, not the ceiling.</p>
+        <div class="v num">$4,380</div>
+        <div class="l">you keep, every year — online</div>
+        <p>That's the online fee saving alone, before a single point of conversion lift. In-person POS is exempt from this fee — retail's win is a lower processing rate, not a waived surcharge.</p>
       </div>
     </div>
-    <div class="retailnote">🏬 <b>The retail piece:</b> you run POS Pro across 5 locations, but only <b>~$58K of your $1.66M</b> in retail sales is processed through Shopify today — the rest routes through outside terminals. Bringing that volume onto Shopify Payments waives the third-party fee on it and puts online and in-store orders, customers, and payouts in a single ledger.</div>
+    <div class="retailnote">🏬 <b>The retail piece:</b> you run POS Pro across 5 locations, but only <b>~$58K of your $1.66M</b> in retail sales is processed through Shopify today — the rest routes through outside terminals. In-person POS is exempt from the 0.2% third-party fee, so the retail win isn't a waived surcharge — it's a <b>lower card-processing rate</b> vs your current terminal provider, plus online and in-store orders, customers, and payouts in one ledger. Share your current in-store rate and I'll size it.</div>
   </div>
 </section>
 
@@ -649,7 +645,7 @@
         <div class="n">7</div>
         <div>
           <h4>Deactivate the third-party gateway — this waives the fee</h4>
-          <p>Back on Settings → Payments, manage the third-party provider and deactivate it so Shopify Payments is your sole card gateway. This is the step that removes the 0.2% third-party transaction fee (~$7.7K/yr across online + retail).</p>
+          <p>Back on Settings → Payments, manage the third-party provider and deactivate it so Shopify Payments is your sole card gateway. This is the step that removes the 0.2% third-party transaction fee (~$4,380/yr on your online orders — in-person POS is already exempt).</p>
           <div class="mock">
             <div class="mr"><div class="prov"><span class="hex" style="color:var(--shop)">⬡</span> <b>Shopify Payments</b> <small>Active · sole card gateway</small></div><span class="act">Manage</span></div>
             <div class="mr"><div class="prov">▤ <b>Third-party gateway</b> <small>Third-party provider</small></div><span class="act red">Deactivate</span></div>
@@ -674,12 +670,12 @@
     <div class="ey">The bottom line</div>
     <h2 class="st">Switching pays for itself many times over.</h2>
     <div class="bl">
-      <div class="l">Net first-year impact · both channels · average scenario</div>
-      <div class="v num">+$336,200</div>
+      <div class="l">Net first-year impact · online · average scenario</div>
+      <div class="v num">+$332,880</div>
       <div class="parts">
         <span>+$328,500 online conversion lift @ 15%</span>
-        <span>+$7,700 third-party fees waived (online + retail)</span>
-        <span>on $4.62M Shopify GMV</span>
+        <span>+$4,380 third-party fee waived (online)</span>
+        <span>+ retail processing-rate savings</span>
       </div>
     </div>
   </div>
@@ -689,7 +685,7 @@
   <div class="wrap">
     <p class="fine">
       Prepared for Union Los Angeles · Shopify Payments opportunity · by Nicole DeGennaro.<br><br>
-      Figures are estimates built from the Union LA Shopify account and CRM shop profile (shop 510392, synced 2026-09-11): $4.62M annualized GMV, of which $2.19M is online store GMV and $1.66M is POS (retail) GMV across 5 POS Pro locations, up 31.4% YoY; $283.69 blended average order value; Shopify Payments activated 2025-09-23 and deactivated 2025-10-29; Shop Pay and Shop Pay Installments not currently adopted; $421.73K installments GMV through a third-party BNPL provider; retail GPV processed through Shopify of ~$57.5K against $1.66M in retail sales. Conversion-lift scenarios (7% / 15% / 25%) are illustrative and applied to online store GMV only, based on Shopify's published Shop Pay benchmark of up to 50% higher conversion vs guest checkout; conversion lift is realized on the online checkout, not on in-store POS. The 0.2% third-party transaction fee (Plus) is applied to the volume moved onto Shopify Payments in each scope — online ($2.19M ≈ $4,380/yr), retail ($1.66M ≈ $3,320/yr), or both ($3.85M ≈ $7,700/yr). Shop Pay reach figures under "What we typically see" (40% / 55% / 70%) are illustrative ranges typical of apparel/DTC stores applied to the $2.19M online GMV — not a measured figure for Union LA; the store's actual "Shop Pay Customer %, last 30 days" can be substituted when pulled. Actual results vary. Peer platform status is from public store-technology signals; Gymshark's scale is from Shopify's published enterprise materials.
+      Figures are estimates built from the Union LA Shopify account and CRM shop profile (shop 510392, synced 2026-09-11): $4.62M annualized GMV, of which $2.19M is online store GMV and $1.66M is POS (retail) GMV across 5 POS Pro locations, up 31.4% YoY; $283.69 blended average order value; Shopify Payments activated 2025-09-23 and deactivated 2025-10-29; Shop Pay and Shop Pay Installments not currently adopted; $421.73K installments GMV through a third-party BNPL provider; retail GPV processed through Shopify of ~$57.5K against $1.66M in retail sales. Conversion-lift scenarios (7% / 15% / 25%) are illustrative and applied to online store GMV only, based on Shopify's published Shop Pay benchmark of up to 50% higher conversion vs guest checkout; conversion lift is realized on the online checkout, not on in-store POS. The 0.2% third-party transaction fee (Plus) applies only to online orders processed through a third-party gateway (~$4,380/yr on $2.19M online); in-person POS orders are exempt from this fee, so there is no third-party-fee saving on retail — the retail opportunity is a lower card-processing rate vs the current terminal provider plus consolidation. Net-impact figures include only the online fee saving. Shop Pay reach figures under "What we typically see" (40% / 55% / 70%) are illustrative ranges typical of apparel/DTC stores applied to the $2.19M online GMV — not a measured figure for Union LA; the store's actual "Shop Pay Customer %, last 30 days" can be substituted when pulled. Actual results vary. Peer platform status is from public store-technology signals; Gymshark's scale is from Shopify's published enterprise materials.
     </p>
   </div>
 </footer>
@@ -699,17 +695,16 @@
   var val=function(i){return parseFloat($(i).value)||0;};
   var money=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
   function calc(){
-    var online=val('online'), pos=val('pos'), aov=val('aov'), feePct=val('fee'), lift=val('lift');
+    var online=val('online'), aov=val('aov'), feePct=val('fee'), lift=val('lift');
     var addedRev=online*lift/100;
     var onlineOrders=aov>0?online/aov:0;
     var extraOrders=onlineOrders*lift/100;
-    var combined=online+pos;
-    var feeYr=combined*feePct/100;
+    var feeYr=online*feePct/100;
     var net=addedRev+feeYr;
     $('o_rev').textContent=money(addedRev);
     $('o_orders').textContent='+'+Math.round(extraOrders).toLocaleString('en-US')+' orders / yr · ≈ '+money(addedRev/12)+' / month';
     $('o_fee').textContent=money(feeYr);
-    $('o_fee_d').textContent=feePct+'% on '+money(combined)+' off Shopify Payments, gone';
+    $('o_fee_d').textContent=feePct+'% on '+money(online)+' online, gone (POS exempt)';
     $('o_net').textContent=money(net);
   }
   document.querySelectorAll('#segs .seg').forEach(function(s){
@@ -726,7 +721,7 @@
     });
     calc();
   });
-  document.querySelectorAll('#online,#pos,#aov,#fee').forEach(function(i){i.addEventListener('input',calc);});
+  document.querySelectorAll('#online,#aov,#fee').forEach(function(i){i.addEventListener('input',calc);});
   calc();
 </script>
 </body>
