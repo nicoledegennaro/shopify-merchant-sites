@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sigma Pharmaceuticals × Shopify — Mutual Action Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#13202e; --muted:#5c6b7a; --faint:#94a2b0; --line:#e4e9ef; --paper:#f5f8fb; --card:#fff;
+    --navy:#12324f; --navy-d:#0c2338; --teal:#0e8f7e; --teal-soft:#e2f4f0;
+    --purple:#5a31f4; --purple-soft:#efeaff; --green:#0f8a43; --green-soft:#e4f5ea; --amber:#b26a00; --amber-soft:#fdf3e2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.08;letter-spacing:-0.02em}
+  .num{font-variant-numeric:tabular-nums}
+  header{background:linear-gradient(155deg,var(--navy) 0%,var(--navy-d) 70%);color:#fff;padding:50px 0 40px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;right:-70px;top:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(14,143,126,.35),transparent 70%)}
+  .kick{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#7fd8c9;font-weight:700;margin-bottom:14px}
+  header h1{font-size:2.3rem;font-weight:800;max-width:720px}
+  header p{color:#c6d3e0;margin-top:12px;max-width:680px;font-size:1.05rem}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-size:.83rem;font-weight:600;color:#e6eef6}
+  .pill b{color:#fff}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .ey{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px}
+  h2.st{font-size:1.7rem;font-weight:800;margin-bottom:10px}
+  .lead{color:var(--muted);font-size:1.04rem;max-width:740px}.lead b{color:var(--ink)}
+  .snap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
+  @media(max-width:760px){.snap{grid-template-columns:1fr}}
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .scard h4{font-size:.95rem;font-weight:800;margin-bottom:6px}
+  .scard p{font-size:.9rem;color:var(--muted)}
+  .agenda{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:14px;padding:22px 24px;margin-top:8px}
+  .agenda h3{font-size:1.15rem;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .agenda .when{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;background:var(--teal-soft);color:var(--teal);padding:4px 10px;border-radius:999px}
+  .agenda ol{margin:0;padding-left:20px}.agenda li{margin-bottom:9px;font-size:.98rem}
+  .agenda li b{color:var(--ink)}
+  /* MAP */
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0 20px;font-size:.82rem;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .dot.el{background:var(--teal)}.dot.bd{background:var(--purple)}
+  .step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .rail{flex:none;width:36px;display:flex;flex-direction:column;align-items:center}
+  .step .n{width:34px;height:34px;border-radius:50%;background:var(--paper);border:2px solid var(--line);color:var(--muted);font-family:'Archivo';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .step.done .n{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+  .step.prog .n{background:var(--amber-soft);border-color:var(--amber);color:var(--amber)}
+  .step.gate .n{background:var(--navy);border-color:var(--navy);color:#fff}
+  .step .body{flex:1}
+  .step .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+  .step h4{font-size:1.05rem;font-weight:800}
+  .track{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:999px}
+  .track.el{background:var(--teal-soft);color:var(--teal)}
+  .track.bd{background:var(--purple-soft);color:var(--purple)}
+  .step p{font-size:.93rem;color:var(--muted);margin-top:2px}
+  .step .foot{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:.8rem}
+  .step .owner{color:var(--navy);font-weight:700}
+  .step .badge{font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 9px;border-radius:999px;font-size:.68rem}
+  .badge.done{background:var(--green-soft);color:var(--green)}
+  .badge.prog{background:var(--amber-soft);color:var(--amber)}
+  .badge.gate{background:var(--navy);color:#fff}
+  .badge.next{background:var(--purple);color:#fff}
+  .badge.up{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+  .need{background:var(--teal-soft);border:1px solid #bfe6df;border-radius:16px;padding:24px}
+  .need h3{font-size:1.15rem;font-weight:800;color:#0b6b5e;margin-bottom:12px}
+  .need ul{margin:0;padding-left:20px}.need li{margin-bottom:9px;font-size:.96rem;color:#0b5a50}
+  .need li b{color:#0b3d37}
+  .callout{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.92rem;color:var(--muted)}
+  footer{padding:26px 0 48px;font-size:.8rem;color:var(--faint)}
+  @media(max-width:760px){header h1{font-size:1.8rem}h2.st{font-size:1.4rem}}
+  @media print{header{padding:28px 0}section{break-inside:avoid}.step,.agenda,.need,.scard{break-inside:avoid}header::after{display:none}.dot,.track,.badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{margin:13mm}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="kick">Mutual Action Plan · Prepared by Nicole DeGennaro, Shopify</div>
+  <h1>Sigma Pharmaceuticals × Shopify Plus</h1>
+  <p>Getting Sigma live on Shopify Plus — clearing the Restricted Categories Program in parallel with scoping the build with our partner, Simplistic. This is our shared plan: who does what, and what's next.</p>
+  <div class="meta">
+    <span class="pill">Plan: <b>Shopify Plus</b></span>
+    <span class="pill">Category: <b>Restricted — wholesale pharma distribution</b></span>
+    <span class="pill">Partner: <b>Simplistic</b></span>
+    <span class="pill">Sigma lead: <b>Nichole Moreau</b></span>
+  </div>
+</div></header>
+
+<!-- SNAPSHOT -->
+<section><div class="wrap">
+  <div class="ey">Where we are</div>
+  <h2 class="st">Two tracks, running in parallel.</h2>
+  <p class="lead">Sigma is a <b>wholesale pharmaceutical distributor</b> moving onto Shopify Plus. Because pharma is a regulated category, two things run side by side: <b>(1) eligibility</b> — clearing Shopify's Restricted Categories Program — and <b>(2) the build</b> — scoping the storefront with Simplistic. Neither has to wait entirely on the other, but <b>program approval is the gate to go live.</b></p>
+  <div class="snap">
+    <div class="scard"><h4>✓ Momentum</h4><p>Discovery done, supportability review underway, and the Due Diligence Questionnaire (DDQ) is complete and being submitted to the program.</p></div>
+    <div class="scard"><h4>🔑 The gate</h4><p>Approval into the Restricted Categories Program — driven by the DDQ, accreditation/licensing, and supportability review. Spots are limited, so timing matters.</p></div>
+    <div class="scard"><h4>🚀 In parallel</h4><p>Kick off scoping with Simplistic so the build is ready to move the moment eligibility clears — no time lost.</p></div>
+  </div>
+</div></section>
+
+<!-- TOMORROW'S CALL -->
+<section><div class="wrap">
+  <div class="ey">This call</div>
+  <h2 class="st">Agenda for today.</h2>
+  <div class="agenda">
+    <h3>Sigma × Shopify — working session <span class="when">Today</span></h3>
+    <ol>
+      <li><b>DDQ submitted → what happens next.</b> Confirm the questionnaire is in, and walk the Restricted Categories Program review: what the team evaluates, and expected timing.</li>
+      <li><b>Restricted-program next steps.</b> Line up any remaining accreditation/licensing items and close out the supportability review so nothing stalls approval.</li>
+      <li><b>Start scoping with Simplistic.</b> Introduce the partner and set a working session to scope the wholesale storefront (accounts, catalog, pricing, ordering) — in parallel with eligibility.</li>
+      <li><b>Timeline &amp; owners.</b> Agree target dates and who owns each open item (below).</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- THE PLAN -->
+<section><div class="wrap">
+  <div class="ey">The plan</div>
+  <h2 class="st">Milestones, owners &amp; status.</h2>
+  <div class="legend">
+    <span><span class="dot el"></span> Eligibility track</span>
+    <span><span class="dot bd"></span> Build track</span>
+  </div>
+
+  <div class="step done"><div class="rail"><div class="n">✓</div></div><div class="body">
+    <div class="top"><h4>Discovery &amp; Shopify resource intro</h4><span class="track el">Eligibility</span></div>
+    <p>Reviewed Sigma's model (wholesale distribution, not online pharmacy) and the fit for Shopify Plus.</p>
+    <div class="foot"><span class="owner">Shopify · Sigma</span><span class="badge done">Done</span></div>
+  </div></div>
+
+  <div class="step done"><div class="rail"><div class="n">✓</div></div><div class="body">
+    <div class="top"><h4>Due Diligence Questionnaire (DDQ) completed</h4><span class="track el">Eligibility</span></div>
+    <p>Nichole completed the DDQ, noting wholesale-distributor equivalents where the form assumed an online-pharmacy model. Nicole is submitting it to the program.</p>
+    <div class="foot"><span class="owner">Sigma (Nichole) → Shopify (Nicole)</span><span class="badge done">Submitted this week</span></div>
+  </div></div>
+
+  <div class="step prog"><div class="rail"><div class="n">2</div></div><div class="body">
+    <div class="top"><h4>Supportability review — sigmapharmaceuticals.com</h4><span class="track el">Eligibility</span></div>
+    <p>Standard site/product review for the category; close out any open items so it doesn't hold up approval.</p>
+    <div class="foot"><span class="owner">Shopify supportability · Sigma</span><span class="badge prog">In progress</span></div>
+  </div></div>
+
+  <div class="step prog"><div class="rail"><div class="n">3</div></div><div class="body">
+    <div class="top"><h4>Accreditation &amp; licensing</h4><span class="track el">Eligibility</span></div>
+    <p>Provide wholesale-distribution accreditation and state/federal licenses that support the program application.</p>
+    <div class="foot"><span class="owner">Sigma (Nichole)</span><span class="badge prog">In progress</span></div>
+  </div></div>
+
+  <div class="step gate"><div class="rail"><div class="n">🔑</div></div><div class="body">
+    <div class="top"><h4>Restricted Categories Program — approval</h4><span class="track el">Eligibility</span></div>
+    <p>Shopify reviews the DDQ + accreditation + supportability and approves Sigma into the program. <b>This is the gate to launch</b> — we'll confirm the timeline on today's call.</p>
+    <div class="foot"><span class="owner">Shopify (program team)</span><span class="badge gate">The gate</span></div>
+  </div></div>
+
+  <div class="step"><div class="rail"><div class="n">4</div></div><div class="body">
+    <div class="top"><h4>Scoping kickoff with Simplistic</h4><span class="track bd">Build</span></div>
+    <p>Partner intro + working session to scope the wholesale storefront: company accounts, catalog, customer-specific pricing, ordering workflow, and any integrations. Runs in parallel with eligibility.</p>
+    <div class="foot"><span class="owner">Simplistic · Sigma · Shopify</span><span class="badge next">Next — schedule from this call</span></div>
+  </div></div>
+
+  <div class="step"><div class="rail"><div class="n">5</div></div><div class="body">
+    <div class="top"><h4>Scope, plan &amp; pricing confirmed</h4><span class="track bd">Build</span></div>
+    <p>Simplistic delivers the build scope/estimate; confirm the Shopify Plus plan and commercial terms.</p>
+    <div class="foot"><span class="owner">Simplistic · Shopify · Sigma</span><span class="badge up">Upcoming</span></div>
+  </div></div>
+
+  <div class="step"><div class="rail"><div class="n">6</div></div><div class="body">
+    <div class="top"><h4>Build</h4><span class="track bd">Build</span></div>
+    <p>Simplistic builds the storefront on a Plus development store — ready to launch as soon as the program approval lands.</p>
+    <div class="foot"><span class="owner">Simplistic</span><span class="badge up">Upcoming</span></div>
+  </div></div>
+
+  <div class="step"><div class="rail"><div class="n">7</div></div><div class="body">
+    <div class="top"><h4>UAT &amp; launch</h4><span class="track bd">Build</span></div>
+    <p>Test, sign off, and go live on Shopify Plus once eligibility is cleared and the build is approved.</p>
+    <div class="foot"><span class="owner">All</span><span class="badge up">Upcoming</span></div>
+  </div></div>
+</div></section>
+
+<!-- WHAT WE NEED -->
+<section style="border-bottom:none"><div class="wrap">
+  <div class="ey">To keep this moving</div>
+  <h2 class="st">What we need from Sigma.</h2>
+  <div class="need">
+    <ul>
+      <li><b>Remaining accreditation / licensing docs</b> — anything still outstanding for the program application.</li>
+      <li><b>Close the supportability items</b> — a quick pass on any flags for sigmapharmaceuticals.com.</li>
+      <li><b>~60 minutes for the Simplistic scoping session</b> — pick a time (a week or two out is fine) so the build can start in parallel.</li>
+      <li><b>A point person for the build</b> — who Simplistic works with day-to-day on data, catalog, and sign-off.</li>
+    </ul>
+  </div>
+  <div class="callout"><b>The honest read:</b> the two levers that set the go-live date are the <b>Restricted Categories Program approval</b> (eligibility) and getting <b>Simplistic scoping started</b>. Running them in parallel — rather than waiting for approval before scoping — is how we keep the timeline tight without rushing the regulated pieces.</div>
+</div></section>
+
+<footer><div class="wrap">
+  Mutual Action Plan for Sigma Pharmaceuticals · prepared by Nicole DeGennaro, Shopify. Sigma is a wholesale pharmaceutical distributor; Shopify's Restricted Categories Program review (DDQ, accreditation, and supportability) governs eligibility and timing, and approval is required prior to launch. Implementation scope and pricing are finalized with the implementation partner (Simplistic) and confirmed on the order form.
+</div></footer>
+
+</body>
+</html>
