@@ -164,12 +164,15 @@
     <div class="row win"><div class="k">Third-party transaction fee — waived<small>0.2% on Plus, charged today on every Authorize.net order · gone on Shopify Payments</small></div><div class="v">+$39,800/yr</div></div>
     <div class="row win"><div class="k">Authorize.net gateway fees — eliminated<small>Monthly gateway + per-transaction fees you drop entirely (est.; confirm on your statement)</small></div><div class="v">+~$4,000/yr</div></div>
     <div class="panel" style="margin-bottom:12px">
-      <h3>Card-rate savings — editable (we finalize this from your statement)</h3>
-      <p style="font-size:.9rem;color:var(--muted);margin-bottom:12px">Shopify Payments on Plus is <b>2.25% + 30¢</b> standard / <b>2.95% + 30¢</b> Amex — blended roughly <b>2.40%</b> across your ~22% Amex mix. We don't know your current rate yet, so enter it here and the savings update live. (Every 0.10% ≈ ~$20K/yr on your volume.)</p>
-      <div class="crow"><label>Your current effective card rate</label><div><input type="number" id="cur_rate" step="0.01" placeholder="e.g. 2.60"> <span style="color:var(--muted)">%</span></div></div>
-      <div class="crow"><label>Shopify Payments blended rate</label><div><input type="number" id="sp_rate" step="0.01" value="2.40"> <span style="color:var(--muted)">%</span></div></div>
-      <div class="crow" style="border-bottom:none"><label>Annual card volume</label><div><span style="color:var(--muted)">$</span> <input type="number" id="card_vol" value="19930000"></div></div>
-      <div class="row win" style="margin:14px 0 0"><div class="k">Card-rate savings / yr<small>(your rate − Shopify rate) × card volume — enter your rate above</small></div><div class="v num" id="o_card">$0/yr</div></div>
+      <h3>Card-rate savings — editable (standard vs. Amex)</h3>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:12px">Shopify Payments on Plus is <b>2.25% + 30¢ standard</b> and <b>2.95% + 30¢ Amex</b>. We don't know your current rates yet — enter your current standard and Amex rates plus your Amex mix, and the savings weight each bucket automatically. (Every 0.10% ≈ ~$20K/yr on your total volume.)</p>
+      <div class="crow"><label>Annual card volume</label><div><span style="color:var(--muted)">$</span> <input type="number" id="card_vol" value="19930000"></div></div>
+      <div class="crow"><label>% of volume on Amex<span style="display:block;font-size:.78rem;color:var(--muted);font-weight:400">the rest counts as standard cards</span></label><div><input type="number" id="amex_pct" step="1" value="22"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Your current standard rate</label><div><input type="number" id="cur_std" step="0.01" placeholder="e.g. 2.50"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Shopify standard rate</label><div><input type="number" id="sp_std" step="0.01" value="2.25"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Your current Amex rate</label><div><input type="number" id="cur_amex" step="0.01" placeholder="e.g. 3.50"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow" style="border-bottom:none"><label>Shopify Amex rate</label><div><input type="number" id="sp_amex" step="0.01" value="2.95"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="row win" style="margin:14px 0 0"><div class="k">Card-rate savings / yr<small id="o_card_break">Standard $0 + Amex $0 — enter your current rates above</small></div><div class="v num" id="o_card">$0/yr</div></div>
     </div>
     <div class="row total"><div class="k">Hard savings — day one<small>Fee waiver + gateway fees + card-rate delta · before any conversion lift</small></div><div class="v num" id="o_hard">≈ $43,800/yr</div></div>
   </div>
@@ -304,13 +307,18 @@
   var money=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
   var FEE=39800, GATEWAY=4000;
   function cardSavings(){
-    var cur=parseFloat($('cur_rate').value)||0, sp=parseFloat($('sp_rate').value)||0, v=parseFloat($('card_vol').value)||0;
-    var s=(cur-sp)/100*v; return s>0?s:0;
+    var vol=parseFloat($('card_vol').value)||0, ap=parseFloat($('amex_pct').value)||0;
+    if(ap<0)ap=0; if(ap>100)ap=100;
+    var amexVol=vol*ap/100, stdVol=vol-amexVol;
+    var std=stdVol*((parseFloat($('cur_std').value)||0)-(parseFloat($('sp_std').value)||0))/100; if(std<0)std=0;
+    var amex=amexVol*((parseFloat($('cur_amex').value)||0)-(parseFloat($('sp_amex').value)||0))/100; if(amex<0)amex=0;
+    return {std:std,amex:amex,total:std+amex};
   }
   function calc(){
-    var cs=cardSavings(), hard=FEE+GATEWAY+cs;
-    $('o_card').textContent=money(cs)+'/yr';
-    $('o_hard').textContent=(cs>0?'':'≈ ')+money(hard)+'/yr';
+    var cs=cardSavings(), hard=FEE+GATEWAY+cs.total;
+    $('o_card').textContent=money(cs.total)+'/yr';
+    $('o_card_break').textContent='Standard '+money(cs.std)+' + Amex '+money(cs.amex)+(cs.total>0?'':' — enter your current rates above');
+    $('o_hard').textContent=(cs.total>0?'':'≈ ')+money(hard)+'/yr';
     $('o_hard2').textContent='+'+money(hard);
     var g=parseFloat($('gmv').value)||0, l=parseFloat($('lift').value)||0, rev=g*l/100;
     $('o_rev').textContent=money(rev);
@@ -326,7 +334,7 @@
     document.querySelectorAll('#seg button').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-v')===$('lift').value);});
     calc();
   });
-  ['gmv','cur_rate','sp_rate','card_vol'].forEach(function(id){$(id).addEventListener('input',calc);});
+  ['gmv','card_vol','amex_pct','cur_std','sp_std','cur_amex','sp_amex'].forEach(function(id){$(id).addEventListener('input',calc);});
   calc();
 </script>
 </body>
