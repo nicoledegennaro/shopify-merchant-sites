@@ -77,6 +77,41 @@
   .tl .dt{font-weight:600;font-size:.95rem}
   .tl .ds{font-size:.92rem;color:var(--muted)}
   .note{font-size:.82rem;color:var(--muted);margin-top:14px;font-style:italic}
+  /* ROI calc */
+  .calc2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 8px}
+  @media(max-width:720px){.calc2{grid-template-columns:1fr}}
+  .ipanel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+  .ipanel h3{font-size:1.05rem;margin-bottom:6px}
+  .seg2{display:flex;gap:8px;margin:10px 0 14px}
+  .seg2 button{flex:1;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 6px;font-family:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+  .seg2 button small{display:block;font-weight:600;font-size:.68rem;color:var(--muted)}
+  .seg2 button.on{border-color:var(--navy);background:var(--soft);color:var(--navy-d)}
+  .ci{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .ci:last-child{border-bottom:none}
+  .ci label{font-weight:600;color:var(--ink)}.ci label small{display:block;font-weight:400;color:var(--muted);font-size:.79rem}
+  .ci input{width:120px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;text-align:right;font-weight:600;font-family:inherit}
+  .result{background:linear-gradient(150deg,#16305a,#0f2444);color:#fff;border-radius:16px;padding:22px}
+  .result .rl{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);font-weight:700}
+  .result .rv{font-family:'Fraunces',serif;font-size:1.75rem;margin:2px 0 14px}
+  .result .rrow{border-top:1px solid rgba(255,255,255,.16);padding-top:12px}
+  .result .big{background:rgba(244,169,0,.16);border:1px solid rgba(244,169,0,.4);border-radius:12px;padding:14px 16px;margin-top:14px;text-align:center}
+  .result .big .rl{color:#ffe1a6}
+  .result .big .rv{font-size:2.3rem;color:#fff;margin:4px 0 0}
+  .scn2{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+  @media(max-width:720px){.scn2{grid-template-columns:1fr}}
+  .sc2{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+  .sc2.mid{border:2px solid var(--navy)}
+  .sc2 .n{font-weight:700;color:var(--muted);font-size:.82rem}
+  .sc2 .pb{font-family:'Fraunces',serif;font-size:1.55rem;color:var(--navy-d);margin:4px 0 2px}
+  .sc2 .s{font-size:.84rem;color:var(--muted)}
+  .ytable{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:10px}
+  .ytable th,.ytable td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .ytable th:first-child,.ytable td:first-child{text-align:left;color:var(--muted);font-weight:600}
+  .ytable thead th{font-family:'Fraunces',serif;font-weight:600;color:var(--navy-d);border-bottom:2px solid var(--navy)}
+  .ytable tr.cum td{border-top:2px solid var(--navy);font-weight:700}
+  .ytable td.pos{color:var(--green)}.ytable td.neg{color:#c0341d}
+  .ytable td.be{background:#e7f4ec;position:relative}
+  .betag{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:#cdeed8;border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:middle}
   footer{padding:24px 0 48px;font-size:.82rem;color:var(--muted)}
   @media(max-width:720px){header h1{font-size:1.7rem}.uc,.cols{grid-template-columns:1fr}}
 </style>
@@ -98,6 +133,7 @@
     <button class="tab" data-p="current">Current State</button>
     <button class="tab" data-p="usecases">Use Cases</button>
     <button class="tab" data-p="pricing">Plans &amp; Pricing</button>
+    <button class="tab" data-p="roi">ROI &amp; Payback</button>
     <button class="tab" data-p="next">Next Steps</button>
   </div>
 </nav>
@@ -206,19 +242,101 @@
       <div class="prow" style="border-top:2px solid var(--navy);margin-top:6px;padding-top:12px"><span><b>Effective platform cost</b> — B2B 0.18% × ~$19M</span><b>≈ $34,200/yr (~$2,850/mo)</b></div>
     </div>
     <div class="card">
-      <h3>Total cost of ownership</h3>
-      <p style="margin-bottom:12px">Two buckets: a <b>one-time build</b> with Solo Media, and your <b>ongoing Shopify Plus</b> platform. Plus fees and apps are billed to you directly by Shopify; Solo Media invoices the build against milestones. Shopify handles hosting, security and upgrades — no servers on your side.</p>
-      <div class="prow"><span><b>One-time — Solo Media build</b><br><span style="font-size:.85rem;color:var(--muted)">SOW SMG-2026-LU-001 · B2B portal + DDI integration + WordPress migration</span></span><b>$30,000–$35,000</b></div>
-      <div class="prow"><span style="font-size:.9rem;color:var(--muted)">Milestones at $35K draft — 40% kickoff / 35% portal + DDI / 25% launch</span><b>$14,000 / $12,250 / $8,750</b></div>
+      <h3>The numbers — Year 1 vs. ongoing</h3>
+      <p style="margin-bottom:12px">Two buckets: a <b>one-time build</b> with Solo Media, and your <b>ongoing Shopify Plus</b> platform (billed by Shopify). Shopify handles hosting, security and upgrades — no servers on your side.</p>
       <div class="prow"><span><b>Shopify Plus platform</b> — VPF 0.18% × ~$19M B2B</span><b>≈ $34,200/yr (~$2,850/mo)</b></div>
-      <div class="prow"><span>Apps (e.g., Matrixify for the DDI/CSV sync) — billed via Shopify</span><b>~$50–200/mo est.</b></div>
-      <div class="prow"><span style="color:var(--green)"><b>Shopify incentive — 1 month free on Plus</b> (sign by Sept 30)</span><b style="color:var(--green)">− $2,300</b></div>
-      <div class="prow" style="border-top:2px solid var(--navy);margin-top:6px;padding-top:12px"><span><b>Year 1 total</b> — platform + build + apps, after the 1-month-free credit</span><b>≈ $61,900–$66,900 + apps</b></div>
-      <div class="prow"><span><b>Year 2+ ongoing</b> — platform + apps</span><b>≈ $34,200/yr (~$2,850/mo) + apps</b></div>
+      <div class="prow"><span><b>One-time — Solo Media build</b><br><span style="font-size:.85rem;color:var(--muted)">SOW SMG-2026-LU-001 · B2B build + DDI integration + WordPress migration · milestones 40% / 35% / 25% = $14,000 / $12,250 / $8,750</span></span><b>$30,000–$35,000</b></div>
+      <div class="prow" style="border-top:2px solid var(--navy);margin-top:6px;padding-top:12px"><span><b>Year 1</b> — platform + build</span><b>≈ $64,200–$69,200</b></div>
+      <div class="prow"><span><b>Ongoing (Yr 2+)</b> — platform only; Shopify handles hosting, security &amp; upgrades</span><b>≈ $34,200/yr (~$2,850/mo)</b></div>
       <div class="prow"><span>Monthly view — Year 1 blended (build included)</span><b>~$5,350–$5,770/mo → ~$2,850/mo after</b></div>
+      <div class="callout" style="margin-top:14px;background:#e7f4ec;border-color:#bfe3cc"><b style="color:var(--green)">Two things that lower this:</b> the <b>1 month free on Plus</b> credits back ~$2,300 on a Sept 30 signature, and apps (e.g. Matrixify for the DDI/CSV sync) run only ~$50–200/mo — both kept <i>out</i> of the Year-1 figure above so it stays conservative.</div>
     </div>
     <p class="note">Solo Media SOW #SMG-2026-LU-001 is a draft: the current $35,000 figure assumes a scheduled CSV/Matrixify DDI sync (range $30K–$35K); if DDI exposes API endpoints for a real-time integration, Solo Media confirms any adjustment before an executed SOW. Includes 30 days of post-launch defect fixes; ongoing dev at $150/hr or a monthly retainer. Shopify POS is a separate future phase. The 1-month-free Plus incentive (a $2,300 credit) applies on a Sept 30 signature. Platform figure based on ~$19M B2B at the 0.18% VPF rate; card rates &amp; incentives confirmed on the order form.</p>
     <div class="callout" style="margin-top:14px;background:#e7f4ec;border-color:#bfe3cc"><b>Cash-flow &amp; signing:</b> the Plus agreement is <b>post-dated to Sept 30</b>, so you can sign as soon as you're ready and still lock the incentive. With the <b>1 month free</b>, your <b>first platform payment isn't due until ~Nov 30</b> — you build through the free month before any platform bill arrives.</div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="panel" id="roi">
+  <div class="wrap">
+    <div class="num">ROI &amp; Payback</div>
+    <h2 class="st">What you get back — and how fast</h2>
+    <p class="lead">A self-serve B2B portal pays for itself three ways: <b>incremental revenue</b> from accounts that reorder more when they can buy on their own, <b>recovered labor</b> as manual phone/counter/paper orders move online, and <b>revenue you'd otherwise lose</b> (the city contract that requires an online PO portal). The calculator below is fully editable — start with our conservative planning defaults, then flex them for the owner.</p>
+
+    <div class="calc2">
+      <div class="ipanel">
+        <h3>Your assumptions</h3>
+        <div class="seg2" id="seg2">
+          <button data-v="1">1%<small>Conservative</small></button>
+          <button class="on" data-v="3">3%<small>Moderate</small></button>
+          <button data-v="5">5%<small>Aggressive</small></button>
+        </div>
+        <div class="ci"><label>Annual B2B revenue</label><div><span style="color:var(--muted)">$</span> <input type="number" id="lu_rev" value="19000000"></div></div>
+        <div class="ci"><label>Revenue uplift from self-serve<small>incremental % of B2B revenue</small></label><div><input type="number" id="lu_uplift" step="0.5" value="3"> <span style="color:var(--muted)">%</span></div></div>
+        <div class="ci"><label>Your gross margin<small>distributor avg ~22–28%</small></label><div><input type="number" id="lu_margin" step="1" value="25"> <span style="color:var(--muted)">%</span></div></div>
+        <div class="ci"><label>Manual orders moved online / wk<small>phone + counter + paper tickets</small></label><div><input type="number" id="lu_ow" value="75"></div></div>
+        <div class="ci"><label>Minutes saved per order</label><div><input type="number" id="lu_mo" value="8"></div></div>
+        <div class="ci"><label>Loaded labor cost / hr</label><div><span style="color:var(--muted)">$</span> <input type="number" id="lu_lhr" value="28"></div></div>
+        <div class="ci"><label>Year-1 investment<small>Solo Media build + Year-1 Plus platform</small></label><div><span style="color:var(--muted)">$</span> <input type="number" id="lu_invest" value="66700"></div></div>
+      </div>
+      <div class="result">
+        <div class="rl">Added revenue / year</div>
+        <div class="rv num" id="o_revup">$570,000</div>
+        <div class="rrow"><div class="rl">Gross profit on that revenue</div><div class="rv num" id="o_gp" style="font-size:1.4rem">$142,500</div></div>
+        <div class="rrow"><div class="rl">Recovered labor / year</div><div class="rv num" id="o_labor" style="font-size:1.4rem">$14,560</div></div>
+        <div class="rrow"><div class="rl">Total annual benefit (profit + labor)</div><div class="rv num" id="o_benefit" style="font-size:1.6rem">$157,060</div></div>
+        <div class="big"><div class="rl">Payback on your investment</div><div class="rv num" id="o_payback">4.9 months</div></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:4px">Payback is measured against what actually recoups cash — <b>gross profit</b> on the incremental revenue plus <b>recovered labor</b> — not top-line revenue. Year-1 net, after the build and a first-year adoption ramp: <b id="o_y1net" style="font-style:normal;color:var(--green)">+$27,536</b>.</p>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.15rem;margin:24px 0 4px">Payback by scenario</h3>
+    <div class="scn2">
+      <div class="sc2"><div class="n">Conservative · +1%</div><div class="pb num" id="sc_c">12.5 mo</div><div class="s num" id="sc_cr">+$190,000 revenue/yr</div></div>
+      <div class="sc2 mid"><div class="n">Moderate · +3%</div><div class="pb num" id="sc_m">4.9 mo</div><div class="s num" id="sc_mr">+$570,000 revenue/yr</div></div>
+      <div class="sc2"><div class="n">Aggressive · +5%</div><div class="pb num" id="sc_a">3.1 mo</div><div class="s num" id="sc_ar">+$950,000 revenue/yr</div></div>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.15rem;margin:24px 0 4px">TCO &amp; break-even — by year</h3>
+    <p class="note" style="margin-top:0;font-style:normal">Operating years from launch, at the moderate (+3%) case. Year&nbsp;1 carries the one-time build and a first-year <b>adoption ramp</b> (benefit shown at ~60% as accounts come online); Year&nbsp;2+ is platform only (~$34,200/yr). Updates live with the calculator above.</p>
+    <div style="overflow-x:auto">
+      <table class="ytable">
+        <thead><tr><th>By year</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+        <tbody>
+          <tr><td>Cost (TCO)</td><td id="y1c">—</td><td id="y2c">—</td><td id="y3c">—</td></tr>
+          <tr><td>Benefit (profit + labor)</td><td id="y1b">—</td><td id="y2b">—</td><td id="y3b">—</td></tr>
+          <tr><td>Net for the year</td><td id="y1n">—</td><td id="y2n">—</td><td id="y3n">—</td></tr>
+          <tr class="cum"><td>Cumulative net</td><td id="y1cu">—</td><td id="y2cu">—</td><td id="y3cu">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="be_line" class="note" style="font-style:normal">&nbsp;</p>
+
+    <div class="card" style="margin-top:20px;border-left:4px solid var(--amber)">
+      <h3>The cost of standing still</h3>
+      <p style="margin-bottom:12px">Waiting isn't free — the status quo carries its own bill, straight from what you told us about how Lighting Unlimited runs today:</p>
+      <div class="prow"><span><b>Benefit not captured — every month you wait</b><br><span style="font-size:.85rem;color:var(--muted)">forgone gross profit on uplift + labor still spent keying orders by hand</span></span><b style="color:var(--amber-d)" id="o_wait">≈ $13,088/mo</b></div>
+      <ul class="clean" style="margin-top:14px">
+        <li><b>The city PO-portal contract is exposed.</b> You've already won municipal business that <b>requires an online ordering portal</b> — until it exists, that revenue isn't serviceable and stays at risk.</li>
+        <li><b>Manual order entry keeps eating hours.</b> Nearly every order today is a walk-in, phone call, or hand-written ticket on your pricing matrix — a cost that <b>grows with volume</b> and doesn't scale.</li>
+        <li><b>Growth means another hire, not another automation.</b> Without self-serve, more counter/account volume means adding headcount instead of letting customers order themselves.</li>
+        <li><b>Customers asking to self-serve can go elsewhere.</b> Accounts that want to log in and re-order may take repeat business to distributors who already offer it.</li>
+        <li><b>The Sept 30 incentive expires.</b> The <b>1 month free on Plus ($2,300 credit)</b> is tied to a Sept 30 signature — wait past it and Year 1 simply costs more.</li>
+      </ul>
+    </div>
+
+    <div class="callout" style="margin-top:16px;background:#e7f4ec;border-color:#bfe3cc"><b>Revenue you keep, not just grow:</b> you've already won a <b>city contract that requires an online PO portal</b> — without the portal that business isn't serviceable. That revenue is <b>defended by this build on day one</b>, before any uplift, and it isn't counted in the numbers above.</div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Why the revenue uplift is real (not wishful)</h3>
+      <ul class="clean">
+        <li><b>Reorder convenience.</b> Accounts that can log in and re-order at their own pricing buy more often — no waiting on a callback or a counter visit.</li>
+        <li><b>Bigger baskets.</b> A browsable, always-on catalog surfaces items a phone order skips; B2B buyers self-serving typically add lines they'd otherwise forget.</li>
+        <li><b>Capacity to grow without headcount.</b> Every order that self-serves frees your counter/phone team to chase new accounts and quotes instead of keying tickets.</li>
+        <li><b>Always open.</b> Customers order after hours and on weekends — demand you can't capture on the phone today.</li>
+      </ul>
+      <p class="note">Defaults are deliberately conservative planning figures, not a forecast — we modeled a small slice of your $19M and a distributor-typical margin. Swap in your real margin and order-volume numbers and the payback updates live. Labor savings assume orders that fully self-serve; partial time savings still count.</p>
+    </div>
   </div>
 </section>
 
@@ -228,10 +346,20 @@
     <div class="num">Next Steps</div>
     <h2 class="st">The path to launch — a Sept 30 start, live before year-end</h2>
     <p class="lead">Scope is locked in Solo Media's SOW, so this is a clean <b>Sept 30 start</b> and an <b>8–12 week parallel build</b> — live comfortably before the holidays (and ahead of Jan 1). The <b>DDI integration</b> and the <b>B2B order-review workflow</b> are the pacing items: a CSV sync compresses toward 8 weeks; a real-time DDI API pushes toward 12.</p>
+
+    <div class="card" style="border-left:4px solid var(--navy)">
+      <h3>The next three steps</h3>
+      <ol style="margin:0;padding-left:20px;color:#3a4553;font-size:.97rem">
+        <li style="margin-bottom:9px"><b>Green light.</b> Owner + CFO give the OK to move forward — targeting this week.</li>
+        <li style="margin-bottom:9px"><b>We create your account &amp; send the URL.</b> Nicole spins up your Shopify Plus store and sends you the link so you can log in and explore it firsthand.</li>
+        <li><b>Contract for your review.</b> Nicole sends the Plus agreement + Solo Media SOW over for you to review — sign by <b>Sept 30</b> to lock the 1 month free ($2,300).</li>
+      </ol>
+    </div>
+
     <div class="tl">
       <div class="step now"><div class="dt">Today · Sept 21 — partner + SE working session</div><div class="ds"><b>Walk the build.</b> Solo Media reviews the plan and the DDI integration approach; the <b>Statement of Work ($35,000 fixed, CSV-sync assumption)</b> is on the table. <i>Solo Media · Shopify SE · you.</i></div></div>
       <div class="step now"><div class="dt">Sept 22–24 · owner &amp; CFO review</div><div class="ds"><b>Take it up the chain.</b> Harrison walks the plan + SOW to the owner and new CFO; feedback back to us <b>Tuesday or Wednesday</b>. <i>You.</i></div></div>
-      <div class="step"><div class="dt">On a green light · account + contract</div><div class="ds"><b>We move fast.</b> Nicole spins up your Shopify Plus account and sends the Plus agreement + Solo Media SOW to sign. <i>Shopify · Solo Media.</i></div></div>
+      <div class="step"><div class="dt">On a green light · account + URL + contract</div><div class="ds"><b>We move fast.</b> Nicole spins up your Shopify Plus account and sends you the store URL to explore, plus the Plus agreement + Solo Media SOW for your review. <i>Shopify · Solo Media.</i></div></div>
       <div class="step"><div class="dt">Sept 30 · start date</div><div class="ds"><b>Sign &amp; kick off.</b> Execute the Plus agreement + SOW (40% / $14,000 kickoff). The Plus agreement is <b>post-dated to Sept 30</b>, so you can sign anytime before then to lock your <b>1 month free ($2,300)</b> — and with the free month, your <b>first platform payment isn't due until ~Nov 30</b>. <i>You (sign) · all.</i></div></div>
       <div class="step"><div class="dt">Weeks 1–2 · discovery &amp; setup</div><div class="ds">Requirements workshop, DDI data mapping (products, pricing, inventory, images, customers), the <b>API-vs-CSV integration decision</b>, and the Plus store + dev store stood up. <i>Solo Media · Harrison.</i></div></div>
       <div class="step"><div class="dt">Weeks 2–6 · the build</div><div class="ds">Storefront + <b>WordPress migration</b>, B2B <b>Companies &amp; Catalogs</b> (tiered + SKU pricing), the <b>order-review workflow</b> (review gate + payment holds via Flow), and net-terms invoicing. <i>Solo Media.</i></div></div>
@@ -245,7 +373,7 @@
       <ul class="clean">
         <li><b>Owner + CFO feedback by Tue/Wed</b> (Sept 22–24)</li>
         <li><b>Green light to create your Shopify Plus account</b></li>
-        <li><b>Sign the Plus agreement + Solo Media SOW by Sept 30</b> — locks the start date and your 1 month free ($2,300)</li>
+        <li><b>Review the Plus agreement + Solo Media SOW</b> (we'll send them over) — sign by Sept 30 to lock the start date and your 1 month free ($2,300)</li>
         <li><b>Facilitate DDI access</b> at kickoff — it's the pacing item that protects the date</li>
       </ul>
     </div>
@@ -259,6 +387,9 @@
         <li><b>"Is the DDI integration risky?"</b> Solo Media is a Shopify Platinum partner (500+ migrations, ERP integrations included). Worst case, we use the same CSV / scheduled-sync model you already run with SmartSheets — and DDI stays your source of truth.</li>
         <li><b>"Do we have to rip out our POS / payment processing?"</b> No. Online-first; your DDI POS keeps running in parallel. In-store/POS is a later phase.</li>
         <li><b>"Who maintains it — we have no IT?"</b> Shopify runs the platform (uptime, security, upgrades, servers). You edit content yourselves and Solo Media hands over documentation (optional retainer for ongoing custom work). Plus you get Shopify Plus support, a Customer Success Manager, and Nicole + Angel supporting you long-term.</li>
+        <li><b>"We just moved to a new payment processor a year ago — not doing that again."</b> You don't have to. This is a <b>new online channel</b>; your counter/in-store setup and the processor you just switched to keep running untouched. For the online store you can turn on Shopify Payments <i>or</i> keep your current processor as an approved third-party gateway on Plus (+~0.2%). Nothing here undoes last year's switch.</li>
+        <li><b>"We're spending elsewhere right now — hiring and a buyout."</b> This is sized to <b>protect</b> that spend, not compete with it. The build is a fixed one-time $30–35K on milestones (not upfront), and self-serve grows counter/account volume <b>without adding headcount</b> — so it stretches the hiring budget. With the Sept 30 incentive and the post-dated agreement, your <b>first platform payment isn't due until ~Nov 30</b>, easing cash flow while the buyout closes.</li>
+        <li><b>"What if we move off DDI to a new ERP around 2030?"</b> Shopify sits <b>on top of</b> your ERP through a defined sync — it isn't welded to DDI. If you move to NetSuite (already on your radar) or another ERP later, you <b>re-point the same integration</b> to the new system; the storefront, customer accounts, tier pricing and order history all stay put. You swap what feeds the store, not the store itself — and connectors exist for NetSuite and the other major ERPs.</li>
         <li><b>"Timeline?"</b> Jan 1 is feasible — an OK from the owners this week, a Sept 30 signature/kickoff, and DDI as the critical path, so the sooner we start the safer the date.</li>
       </ul>
     </div>
@@ -280,6 +411,71 @@
     t.classList.add('active');document.getElementById(t.dataset.p).classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
   }));
+
+  // ---- ROI calculator ----
+  const $=id=>document.getElementById(id);
+  const usd=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const signed=n=>(n>=0?'+':'−')+usd(Math.abs(n));
+  const ONGOING=34200;      // platform-only, Yr 2+
+  const RAMP=[0.6,1,1];     // first-year adoption ramp
+  const fmtMo=m=>(!isFinite(m)||m<=0)?'—':((m<1?'<1':(m<10?m.toFixed(1):Math.round(m)))+' mo');
+
+  function benefitFor(up){
+    const rev=+$('lu_rev').value||0, mg=+$('lu_margin').value||0;
+    const ow=+$('lu_ow').value||0, mo=+$('lu_mo').value||0, lhr=+$('lu_lhr').value||0;
+    const revup=rev*up/100, gp=revup*mg/100, labor=ow*(mo/60)*lhr*52;
+    return {revup, gp, labor, benefit:gp+labor};
+  }
+
+  function roi(){
+    const up=+$('lu_uplift').value||0, invest=+$('lu_invest').value||0, b=benefitFor(up);
+    $('o_revup').textContent=usd(b.revup);
+    $('o_gp').textContent=usd(b.gp);
+    $('o_labor').textContent=usd(b.labor);
+    $('o_benefit').textContent=usd(b.benefit);
+    const payMo=invest/(b.benefit/12);
+    $('o_payback').textContent=fmtMo(payMo);
+    $('o_wait').textContent='≈ '+usd(b.benefit/12)+'/mo';
+    // year-by-year
+    const cost=[invest,ONGOING,ONGOING];
+    let cum=0, beYear=0;
+    for(let i=0;i<3;i++){
+      const y=i+1, ben=b.benefit*RAMP[i], net=ben-cost[i]; cum+=net;
+      $('y'+y+'c').textContent=usd(cost[i]);
+      $('y'+y+'b').textContent=usd(ben);
+      const nEl=$('y'+y+'n'); nEl.textContent=signed(net); nEl.className=net>=0?'pos':'neg';
+      const cEl=$('y'+y+'cu'); cEl.textContent=signed(cum); cEl.className=cum>=0?'pos':'neg';
+      if(beYear===0 && cum>=0){ beYear=y; cEl.classList.add('be'); cEl.innerHTML=signed(cum)+' <span class="betag">break-even</span>'; }
+    }
+    $('be_line').innerHTML = beYear
+      ? 'At your steady run-rate the build is recovered in about <b>'+fmtMo(payMo)+'</b>; factoring the one-time build and a first-year adoption ramp, <b>cumulative net turns positive in Year '+beYear+'</b>.'
+      : 'At these assumptions cumulative net is still building at the end of Year 3 — raise the uplift or order-volume inputs to see the break-even year.';
+    const y1net=b.benefit*RAMP[0]-invest, yn=$('o_y1net');
+    yn.textContent=signed(y1net); yn.style.color=y1net>=0?'var(--green)':'#c0341d';
+  }
+
+  function scenarios(){
+    const invest=+$('lu_invest').value||0;
+    [['c',1],['m',3],['a',5]].forEach(([k,up])=>{
+      const b=benefitFor(up);
+      $('sc_'+k).textContent=fmtMo(invest/(b.benefit/12));
+      $('sc_'+k+'r').textContent='+'+usd(b.revup)+' revenue/yr';
+    });
+  }
+
+  document.querySelectorAll('#seg2 button').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('#seg2 button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on'); $('lu_uplift').value=btn.dataset.v; roi();
+  }));
+  ['lu_rev','lu_uplift','lu_margin','lu_ow','lu_mo','lu_lhr','lu_invest'].forEach(id=>{
+    $(id).addEventListener('input',()=>{
+      if(id==='lu_uplift'){
+        document.querySelectorAll('#seg2 button').forEach(b=>b.classList.toggle('on', b.dataset.v===$('lu_uplift').value));
+      }
+      roi(); scenarios();
+    });
+  });
+  roi(); scenarios();
 </script>
 </body>
 </html>
