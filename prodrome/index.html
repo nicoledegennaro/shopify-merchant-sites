@@ -157,7 +157,7 @@
   <div class="stats">
     <div class="stat r"><div class="v">Off</div><div class="l">Shop Pay today — despite an 81% returning-customer rate</div></div>
     <div class="stat p"><div class="v num">$19.93M</div><div class="l">annual GMV, currently on Authorize.net</div></div>
-    <div class="stat g"><div class="v num">~$44K</div><div class="l">/yr hard savings on day one (fee + gateway), before any lift</div></div>
+    <div class="stat g"><div class="v num">~$85K</div><div class="l">/yr hard savings on day one (fee + gateway + card-rate), before any lift</div></div>
     <div class="stat p"><div class="v num">+$199K</div><div class="l">added revenue per 1% Shop Pay conversion lift</div></div>
   </div>
 </div></header>
@@ -166,7 +166,7 @@
 <section id="bl"><div class="wrap">
   <div class="bl">
     <h2>The bottom line — it's a win/win</h2>
-    <p><b>~$44K/yr in hard savings the day you switch</b>, before a single point of conversion lift — and likely more once we compare your current card rate. Then add <b>Shop Pay</b> to a base that's <b>81% returning</b>, and the growth upside dwarfs the savings. There's <b>no platform migration and no rebuild</b> — you're already on Plus. <b>Most of your volume is one-time, so the fee waiver and Shop Pay land day one</b>; only the smaller <b>subscription portion</b> (on Appstle, native to Shopify) moves over gradually and hands-free via "slow-drip." <b>Activation is the only real action.</b></p>
+    <p><b>~$85K/yr in hard savings the day you switch</b>, before a single point of conversion lift — the fee waiver, gateway fees, and the card-rate delta at your current 2.5% / 3.0% rates. Then add <b>Shop Pay</b> to a base that's <b>81% returning</b>, and the growth upside dwarfs the savings. There's <b>no platform migration and no rebuild</b> — you're already on Plus. <b>Most of your volume is one-time, so the fee waiver and Shop Pay land day one</b>; only the smaller <b>subscription portion</b> (on Appstle, native to Shopify) moves over gradually and hands-free via "slow-drip." <b>Activation is the only real action.</b></p>
     <span class="tag">Savings + growth + zero rebuild = an easy yes</span>
   </div>
 </div></section>
@@ -181,16 +181,16 @@
     <div class="row win"><div class="k">Authorize.net gateway fees — eliminated<small>Monthly gateway + per-transaction fees you drop entirely (est.; confirm on your statement)</small></div><div class="v">+~$4,000/yr</div></div>
     <div class="panel" style="margin-bottom:12px">
       <h3>Card-rate savings — editable (standard vs. Amex)</h3>
-      <p style="font-size:.9rem;color:var(--muted);margin-bottom:12px">Shopify Payments on Plus is <b>2.25% + 30¢ standard</b> and <b>2.95% + 30¢ Amex</b>. We don't know your current rates yet — enter your current standard and Amex rates plus your Amex mix, and the savings weight each bucket automatically. (Every 0.10% ≈ ~$20K/yr on your total volume.)</p>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:12px">Shopify Payments on Plus is <b>2.25% + 30¢ standard</b> and <b>2.95% + 30¢ Amex</b>. Modeled at your current <b>2.5% standard</b> and <b>3.0% Amex</b> rates below — adjust if a recent statement shows different and the savings reweight each bucket automatically. (Every 0.10% ≈ ~$20K/yr on your total volume.)</p>
       <div class="crow"><label>Annual card volume</label><div><span style="color:var(--muted)">$</span> <input type="number" id="card_vol" value="19930000"></div></div>
       <div class="crow"><label>% of volume on Amex<span style="display:block;font-size:.78rem;color:var(--muted);font-weight:400">the rest counts as standard cards</span></label><div><input type="number" id="amex_pct" step="1" value="22"> <span style="color:var(--muted)">%</span></div></div>
-      <div class="crow"><label>Your current standard rate</label><div><input type="number" id="cur_std" step="0.01" placeholder="e.g. 2.50"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Your current standard rate</label><div><input type="number" id="cur_std" step="0.01" value="2.50" placeholder="e.g. 2.50"> <span style="color:var(--muted)">%</span></div></div>
       <div class="crow"><label>Shopify standard rate</label><div><input type="number" id="sp_std" step="0.01" value="2.25"> <span style="color:var(--muted)">%</span></div></div>
-      <div class="crow"><label>Your current Amex rate</label><div><input type="number" id="cur_amex" step="0.01" placeholder="e.g. 3.50"> <span style="color:var(--muted)">%</span></div></div>
+      <div class="crow"><label>Your current Amex rate</label><div><input type="number" id="cur_amex" step="0.01" value="3.00" placeholder="e.g. 3.50"> <span style="color:var(--muted)">%</span></div></div>
       <div class="crow" style="border-bottom:none"><label>Shopify Amex rate</label><div><input type="number" id="sp_amex" step="0.01" value="2.95"> <span style="color:var(--muted)">%</span></div></div>
-      <div class="row win" style="margin:14px 0 0"><div class="k">Card-rate savings / yr<small id="o_card_break">Standard $0 + Amex $0 — enter your current rates above</small></div><div class="v num" id="o_card">$0/yr</div></div>
+      <div class="row win" style="margin:14px 0 0"><div class="k">Card-rate savings / yr<small id="o_card_break">Standard $38,864 + Amex $2,192 — at 2.5% / 3.0% today</small></div><div class="v num" id="o_card">$41,056/yr</div></div>
     </div>
-    <div class="row total"><div class="k">Hard savings — day one<small>Fee waiver + gateway fees + card-rate delta · before any conversion lift</small></div><div class="v num" id="o_hard">≈ $43,800/yr</div></div>
+    <div class="row total"><div class="k">Hard savings — day one<small>Fee waiver + gateway fees + card-rate delta · before any conversion lift</small></div><div class="v num" id="o_hard">$84,856/yr</div></div>
   </div>
   <p class="note">Fee waiver = 0.2% × $19.93M annualized GMV (Plus third-party transaction fee). Authorize.net gateway fees are an estimate pending your statement. Card-rate savings depend on your current effective rate — send a recent processing statement and we'll make this line exact. In-person/manual/net-terms orders (if any) are exempt and excluded. Since most of your volume is one-time, the bulk of the fee waiver lands immediately (plus new subscriptions); the smaller existing-subscription base keeps billing on Authorize.net until it slow-drips over, so that slice phases in.</p>
 </div></section>
@@ -214,8 +214,8 @@
     <div class="panel rpanel">
       <h3>The impact</h3>
       <div class="rline"><div class="rl">Added revenue / year</div><div class="rv num" id="o_rev">$1,195,800</div></div>
-      <div class="rline"><div class="rl">Plus hard savings (fee + gateway + card)</div><div class="rv num" id="o_hard2">+$43,800</div></div>
-      <div class="rnet"><div class="rl">Year-one upside</div><div class="rv num" id="o_net">$1,239,800</div></div>
+      <div class="rline"><div class="rl">Plus hard savings (fee + gateway + card)</div><div class="rv num" id="o_hard2">+$84,856</div></div>
+      <div class="rnet"><div class="rl">Year-one upside</div><div class="rv num" id="o_net">$1,280,656</div></div>
     </div>
   </div>
   <div class="scn">
@@ -254,7 +254,7 @@
   <p class="lead">You're already on Shopify Plus, so there's no migration, no re-platform, and no downtime. Everything below is light and runs in parallel — the single go-live action is flipping the switch.</p>
   <div class="map">
     <div class="mstep done"><div class="n">✓</div><div><h4>Discovery &amp; savings analysis</h4><p>Your GMV, gateway mix, Amex share and returning-customer rate reviewed; savings + ROI modeled (this doc). <span class="who">Shopify — Nicole &amp; Angel</span></p></div><span class="badge">Done</span></div>
-    <div class="mstep"><div class="n">2</div><div><h4>Confirm your current card rate</h4><p>Send a recent merchant processing statement so we lock the exact card-rate savings on top of the ~$44K. <span class="who">Prodrome — Martin / Finance</span></p></div><span class="badge prog">In progress</span></div>
+    <div class="mstep"><div class="n">2</div><div><h4>Confirm your current card rate</h4><p>Send a recent merchant processing statement to confirm the card-rate line — modeled at 2.5% / 3.0% today (~$41K/yr), part of the ~$85K day-one savings. <span class="who">Prodrome — Martin / Finance</span></p></div><span class="badge prog">In progress</span></div>
     <div class="mstep"><div class="n">3</div><div><h4>Clear supportability (product claims)</h4><p>Tighten a small set of product claims to compliant wording so underwriting approves — routine for supplement brands (details below). <span class="who">Prodrome — Marketing/Compliance · Shopify supportability</span></p></div><span class="badge prog">In progress</span></div>
     <div class="mstep key"><div class="n">4</div><div><h4>Activate Shopify Payments</h4><p>Turn on Shopify Payments and deactivate Authorize.net — the step that waives the fee and switches Shop Pay on. Minutes in your admin. <span class="who">Prodrome</span></p></div><span class="badge next">The switch</span></div>
     <div class="mstep"><div class="n">5</div><div><h4>The subscription portion moves hands-free (slow-drip)</h4><p>Subscriptions are only a portion of your orders — the rest (one-time) is fully on Shopify Payments day one. For subs: existing ones keep billing on Authorize.net (now the secondary gateway); new subs and renewals bill on Shopify Payments and migrate one-by-one as cards renew. No customer re-entry, no rebuild — Appstle is native. <span class="who">Automatic · Shopify + Appstle</span></p></div><span class="badge">Hands-free</span></div>
@@ -336,7 +336,7 @@
 </div></section>
 
 <footer><div class="wrap"><p class="fine">
-  Prepared for Prodrome Sciences · Shopify Payments opportunity · by Nicole DeGennaro. Figures built from the Prodrome Shopify account (shop 61916610720): $19.93M annualized GMV, $516 AOV, ~22% of card volume on American Express, 81% returning-customer rate, currently processing through Authorize.net on Shopify Plus. Third-party fee waiver = 0.2% × $19.93M (Plus rate). Authorize.net gateway fees are an estimate pending your statement. Card-rate savings depend on your current effective processing rate. Conversion-lift ROI is illustrative, applied to annualized GMV, based on Shopify's published Shop Pay benchmark of up to 50% higher conversion vs guest checkout; actual results vary. Card rates are standard published Plus rates, confirmed at underwriting.
+  Prepared for Prodrome Sciences · Shopify Payments opportunity · by Nicole DeGennaro. Figures built from the Prodrome Shopify account (shop 61916610720): $19.93M annualized GMV, $516 AOV, ~22% of card volume on American Express, 81% returning-customer rate, currently processing through Authorize.net on Shopify Plus. Third-party fee waiver = 0.2% × $19.93M (Plus rate). Authorize.net gateway fees are an estimate pending your statement. Card-rate savings are modeled at a current 2.5% standard / 3.0% Amex rate, pending confirmation from a recent processing statement. Conversion-lift ROI is illustrative, applied to annualized GMV, based on Shopify's published Shop Pay benchmark of up to 50% higher conversion vs guest checkout; actual results vary. Card rates are standard published Plus rates, confirmed at underwriting.
 </p></div></footer>
 
 <script>
