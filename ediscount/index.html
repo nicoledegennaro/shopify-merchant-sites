@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>eDiscount × Shopify Plus</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Figtree:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#F7F4EE;
+    --surface:#FFFFFF;
+    --surface-2:#F0EADE;
+    --ink:#211A14;
+    --ink-2:#4C4238;
+    --muted:#8B8073;
+    --line:#E6DECF;
+    --line-strong:#D4C8B3;
+    --accent:#A6772E;
+    --accent-deep:#7E5720;
+    --on-accent:#FBF6EC;
+    --rival:#59676F;
+    --rival-soft:#EAEEF0;
+    --sh-tint:#F7F0E2;
+    --bc-tint:#EDF1F2;
+    --good:#3C7A54;
+    --caution:#B0543C;
+    --shadow:0 1px 2px rgba(33,26,20,.05), 0 8px 24px -16px rgba(33,26,20,.22);
+    --radius:14px;
+    --maxw:1120px;
+    --measure:64ch;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --ground:#15120D;
+      --surface:#1E1912;
+      --surface-2:#26201A;
+      --ink:#F0EADF;
+      --ink-2:#C9BDA9;
+      --muted:#948A7B;
+      --line:#2E271E;
+      --line-strong:#423826;
+      --accent:#D6A860;
+      --accent-deep:#E7C184;
+      --on-accent:#1A140C;
+      --rival:#A2AFB6;
+      --rival-soft:#222A2E;
+      --sh-tint:#2A2012;
+      --bc-tint:#1E2529;
+      --good:#6FBD95;
+      --caution:#DB8E74;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#15120D;
+    --surface:#1E1912;
+    --surface-2:#26201A;
+    --ink:#F0EADF;
+    --ink-2:#C9BDA9;
+    --muted:#948A7B;
+    --line:#2E271E;
+    --line-strong:#423826;
+    --accent:#D6A860;
+    --accent-deep:#E7C184;
+    --on-accent:#1A140C;
+    --rival:#A2AFB6;
+    --rival-soft:#222A2E;
+    --sh-tint:#2A2012;
+    --bc-tint:#1E2529;
+    --good:#6FBD95;
+    --caution:#DB8E74;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:"Figtree",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px;padding-block:0}
+  section{padding-block:34px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;text-wrap:balance;margin:0;line-height:1.05}
+  h1{font-size:clamp(2.6rem,6vw,4.2rem);letter-spacing:0;font-weight:600}
+  h2{font-size:clamp(1.9rem,3.6vw,2.6rem);letter-spacing:0}
+  h3{font-size:1.1rem;font-weight:600;font-family:"Figtree",sans-serif;letter-spacing:-.01em}
+  p{margin:0;max-width:var(--measure);color:var(--ink-2)}
+  strong{color:var(--ink);font-weight:600}
+  a{color:var(--accent-deep);text-underline-offset:3px}
+
+  .eyebrow{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+  .eyebrow.tech{color:var(--rival)}
+
+  .mast{display:flex;flex-direction:column;gap:18px;padding-top:42px}
+  .sprig{display:flex;align-items:center;gap:12px;color:var(--accent)}
+  .sprig svg{flex:none}
+  .mast .lede{font-size:1.14rem;max-width:62ch;margin-top:2px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:8px}
+  .tag{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;
+    color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+  .tag.lead{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+  .tag.warn{background:transparent;color:var(--caution);border-color:var(--caution)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px}
+  .stat .k{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted)}
+  .stat .v{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.5rem;font-weight:600;line-height:1;
+    font-variant-numeric:tabular-nums;letter-spacing:0}
+  .stat .s{font-size:.82rem;color:var(--ink-2)}
+
+  /* top-level tabs */
+  .toptabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);
+    padding-block:12px;border-bottom:1px solid var(--line)}
+  .toptablist{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .grouplab{font-family:"Spline Sans Mono",monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-deep);align-self:center;padding:0 4px 0 2px;white-space:nowrap}
+  .grouplab.tech{color:var(--rival)}
+  .tracksep{width:1px;align-self:stretch;min-height:28px;background:var(--line-strong);margin:0 5px}
+  .toptab{appearance:none;cursor:pointer;font-family:"Figtree",sans-serif;font-weight:600;font-size:.88rem;
+    color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:9px 16px;box-shadow:var(--shadow);transition:color .15s,background .15s,border-color .15s}
+  .toptab:hover{color:var(--ink);border-color:var(--line-strong)}
+  .toptab[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+  .toptab.tech:hover{border-color:var(--rival)}
+  .toptab.tech[aria-selected="true"]{background:var(--rival);color:var(--on-accent);border-color:var(--rival)}
+  .toptab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .toptab.tech:focus-visible{outline-color:var(--rival)}
+  .toppanel section:first-child{border-top:0;padding-top:26px}
+
+  /* track banner inside a panel */
+  .trackbar{display:flex;align-items:center;gap:10px;font-family:"Spline Sans Mono",monospace;font-size:.64rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--rival);margin-bottom:14px}
+  .trackbar .who{background:var(--rival-soft);border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--rival)}
+  .trackbar.ae{color:var(--accent-deep)}
+  .trackbar.ae .who{background:var(--sh-tint);color:var(--accent-deep);border-color:var(--line-strong)}
+
+  .callout{border-left:3px solid var(--good);padding:6px 0 6px 16px;margin-top:18px}
+  .callout p{color:var(--ink)}
+  .callout.amberline{border-color:var(--accent)}
+  .callout.warnline{border-color:var(--caution)}
+  .callout.slateline{border-color:var(--rival)}
+
+  /* discovery-call quotes */
+  .quote{border-left:3px solid var(--accent);padding:6px 0 6px 20px;margin-top:22px}
+  .quote p{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.34rem;line-height:1.32;color:var(--ink);font-style:italic;max-width:58ch}
+  .quote cite{display:block;font-family:"Spline Sans Mono",monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-style:normal;margin-top:10px}
+
+  /* tables */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-top:18px}
+  table{border-collapse:collapse;width:100%;min-width:620px;background:var(--surface)}
+  th,td{padding:13px 16px;text-align:left;border-top:1px solid var(--line);font-size:.9rem;vertical-align:top}
+  thead th{border-top:0;background:var(--surface-2);font-family:"Spline Sans Mono",monospace;font-size:.68rem;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td b{color:var(--ink)}
+  tbody tr:hover td{filter:brightness(.99)}
+  .vs th.bc,.map-tbl th.bc{color:var(--rival)}
+  .vs th.sh,.map-tbl th.sh{color:var(--accent-deep)}
+  .vs td.bc{background:var(--bc-tint);color:var(--ink-2)}
+  .vs td.sh{background:var(--sh-tint);color:var(--ink)}
+  .vs td.sh b{color:var(--ink)}
+  .map-tbl td.sh{background:var(--sh-tint)}
+
+  /* use-case cards */
+  .ucards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
+  .uc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+  .uc .uc-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .uc h3{font-size:1.06rem}
+  .uc .body p{font-size:.9rem}
+  .tworow{display:flex;flex-direction:column;gap:8px}
+  .tworow .r{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface-2)}
+  .tworow .r .l{font-family:"Spline Sans Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:3px}
+  .tworow .r.now .l{color:var(--rival)}
+  .tworow .r.sh{background:var(--sh-tint);border-color:var(--line-strong)}
+  .tworow .r.sh .l{color:var(--accent-deep)}
+  .tworow .r p{font-size:.86rem;color:var(--ink-2)}
+  .tworow .r b{color:var(--ink)}
+  .confirm{border-left:3px solid var(--good);padding:2px 0 2px 12px;margin-top:2px}
+  .confirm .l{font-family:"Spline Sans Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--good);display:block;margin-bottom:2px}
+  .confirm p{font-size:.86rem;color:var(--ink)}
+
+  /* checklist */
+  .check{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .check li{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:12px 14px;box-shadow:var(--shadow)}
+  .check .bx{flex:none;margin-top:1px;color:var(--rival)}
+  .check p{font-size:.88rem;color:var(--ink-2)}
+  .check b{color:var(--ink)}
+
+  /* timeline */
+  .timeline{position:relative;margin-top:24px;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:14px;width:2px;background:var(--line-strong)}
+  .phase{position:relative;padding-bottom:22px}
+  .phase:last-child{padding-bottom:0}
+  .phase .dot{position:absolute;left:-30px;top:3px;width:18px;height:18px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center}
+  .phase .dot::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .phase.hard .dot{border-color:var(--caution)}
+  .phase.hard .dot::after{background:var(--caution)}
+  .phase .ph-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+  .phase .when{font-family:"Spline Sans Mono",monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep)}
+  .phase.hard .when{color:var(--caution)}
+  .phase h3{font-size:1.05rem}
+  .phase p{font-size:.9rem;margin-top:5px}
+
+  /* positive callout box */
+  .flagbox{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px dashed var(--line-strong);
+    border-radius:var(--radius);padding:16px 18px;margin-top:22px}
+  .flagbox.key{border-style:solid;border-color:var(--accent);background:var(--sh-tint)}
+  .flagbox .lab{font-family:"Spline Sans Mono",monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);flex:none;padding-top:3px}
+  .flagbox p{font-size:.9rem;color:var(--ink)}
+
+  /* TCO */
+  .tco{display:grid;grid-template-columns:1.25fr .9fr;gap:24px;align-items:start;margin-top:20px}
+  .fy{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:16px}
+  .fy .cell .k{font-family:"Spline Sans Mono",monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .fy .cell .v{font-family:"Cormorant Garamond",serif;font-size:2.1rem;font-weight:600;line-height:1.02}
+  .fy .cell .v.save{color:var(--good)}
+  .fy .cell .v.rival{color:var(--rival)}
+  .fy .cell small{display:block;font-size:.8rem;color:var(--ink-2);margin-top:2px}
+  .fy .cell+.cell{border-top:1px solid var(--line);padding-top:14px}
+  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;font-family:"Spline Sans Mono",monospace;font-size:.84rem}
+  tr.sum td{background:var(--surface-2);font-weight:600}
+  td.good{color:var(--good);font-weight:600}
+  .note{font-size:.84rem;color:var(--muted);max-width:var(--measure)}
+
+  footer{border-top:1px solid var(--line);padding-block:30px 48px;margin-top:8px}
+  .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-end}
+  .next{background:var(--accent);color:var(--on-accent);border-radius:var(--radius);padding:18px 20px;max-width:440px}
+  .next .eyebrow{color:var(--on-accent);opacity:.85}
+  .next p{color:var(--on-accent)}
+  .sig{font-size:.86rem;color:var(--ink-2)}
+  .sig b{color:var(--ink)}
+
+  @media (max-width:860px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .ucards{grid-template-columns:1fr}
+    .check{grid-template-columns:1fr}
+    .tco{grid-template-columns:1fr}
+  }
+  @media (max-width:440px){ .stats{grid-template-columns:1fr 1fr} .wrap{padding-inline:16px} }
+  @media (prefers-reduced-motion:no-preference){ .stat,.uc{transition:transform .18s ease} .stat:hover,.uc:hover{transform:translateY(-2px)} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <section class="mast">
+    <div class="sprig">
+      <svg width="28" height="34" viewBox="0 0 28 34" fill="none" aria-hidden="true">
+        <rect x="10" y="1.5" width="8" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M11 6.5h6v3.2c2.6 1.1 4.4 3.6 4.4 6.6v12.2c0 2-1.6 3.6-3.6 3.6H10.2c-2 0-3.6-1.6-3.6-3.6V16.3c0-3 1.8-5.5 4.4-6.6V6.5Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6.6 18.5h14.8" stroke="currentColor" stroke-width="1.3" opacity=".6"/>
+        <circle cx="14" cy="24.5" r="3.1" fill="currentColor" opacity=".55"/>
+      </svg>
+      <span class="eyebrow" style="margin:0">eDiscount Perfumes &nbsp;×&nbsp; Shopify Plus</span>
+    </div>
+    <h1>Shopify Plus, mapped to eDiscount.</h1>
+    <p class="lede">A walkthrough we put together from our Sep 23 conversation — what moving to Shopify Plus would mean for your store, honestly side by side with BigCommerce, the costs, and a plan to be live before your January renewal. Built on your own numbers, so it's something you can share with your team.</p>
+    <div class="meta">
+      <span class="tag lead">For your team</span>
+      <span class="tag">Oct 13 · technical session</span>
+      <span class="tag">From the Sep 23 call</span>
+      <span class="tag warn">Renewal · Jan 2027</span>
+    </div>
+  </section>
+
+  <!-- HEADLINE NUMBERS -->
+  <section>
+    <p class="eyebrow">Your store, in four numbers</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="k">Online GMV / yr</span>
+        <span class="v">~$10M</span>
+        <span class="s">niche fragrances, $160–200 / bottle</span>
+      </div>
+      <div class="stat">
+        <span class="k">Average order</span>
+        <span class="v">~$165</span>
+        <span class="s">right in Shop Pay's sweet spot</span>
+      </div>
+      <div class="stat">
+        <span class="k">BigCommerce today</span>
+        <span class="v">~$60K</span>
+        <span class="s">enterprise, re-priced at renewal</span>
+      </div>
+      <div class="stat">
+        <span class="k">Renewal</span>
+        <span class="v">Jan ’27</span>
+        <span class="s">the date we'll be live before</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP-LEVEL TAB NAV -->
+  <nav class="toptabs" aria-label="Sections">
+    <div class="toptablist" role="tablist" aria-label="Walkthrough sections">
+      <span class="grouplab" aria-hidden="true">Your business · Nicole</span>
+      <button class="toptab" role="tab" id="t-vs" aria-controls="p-vs" aria-selected="true" tabindex="0">Why Shopify</button>
+      <button class="toptab" role="tab" id="t-use" aria-controls="p-use" aria-selected="false" tabindex="-1">How it helps you</button>
+      <button class="toptab" role="tab" id="t-tco" aria-controls="p-tco" aria-selected="false" tabindex="-1">Cost &amp; ROI</button>
+      <button class="toptab" role="tab" id="t-map" aria-controls="p-map" aria-selected="false" tabindex="-1">The plan</button>
+      <span class="tracksep" aria-hidden="true"></span>
+      <span class="grouplab tech" aria-hidden="true">Technical · Angel</span>
+      <button class="toptab tech" role="tab" id="t-tech" aria-controls="p-tech" aria-selected="false" tabindex="-1">Integrations &amp; APIs</button>
+      <button class="toptab tech" role="tab" id="t-agenda" aria-controls="p-agenda" aria-selected="false" tabindex="-1">Technical session</button>
+    </div>
+  </nav>
+
+  <!-- ===================== NICOLE'S TRACK ===================== -->
+
+  <!-- PANEL · WHY SHOPIFY -->
+  <div class="toppanel" id="p-vs" role="tabpanel" aria-labelledby="t-vs" tabindex="0">
+    <section>
+      <div class="trackbar ae"><span class="who">With Nicole · Account Executive</span></div>
+      <p class="eyebrow">The honest comparison</p>
+      <h2>Why look at Shopify at all?</h2>
+      <p style="margin-top:12px">BigCommerce isn't a bad platform — it's one you may have outgrown on cost and day-to-day control. Here's the straight comparison, including where BigCommerce genuinely holds its own, so you can trust the rest of the walkthrough.</p>
+
+      <blockquote class="quote">
+        <p>“It's not so much that we're not happy with BigCommerce — it's the devil you know. But I know Shopify's more app-driven, there are more tools, and a lot of our vendors say, ‘if you were on Shopify, we could offer you this.’”</p>
+        <cite>Alan Feldman · Sep 23 discovery call</cite>
+      </blockquote>
+
+      <div class="tablewrap vs">
+        <table>
+          <thead><tr><th>What matters to you</th><th class="bc">BigCommerce — today</th><th class="sh">Shopify Plus</th></tr></thead>
+          <tbody>
+            <tr><td><b>Pricing model</b></td><td class="bc">Custom enterprise quote, re-negotiated each renewal — ~$60K/yr, and climbing at January</td><td class="sh">Published formula: greater of ~$2,300/mo or 0.35% of sales, capped at $40K/mo — <b>~$33–38K/yr est.</b></td></tr>
+            <tr><td><b>Everyday edits</b></td><td class="bc">New modules &amp; changes often carry dev cost — as you put it, "if we need work done… there would be costs"</td><td class="sh">App + theme editor; your merch team edits directly, no developer gatekeeping for routine work</td></tr>
+            <tr><td><b>Under-the-hood / API</b></td><td class="bc"><b>Genuine strength:</b> deep API access your developers value — "lift up the hood"</td><td class="sh">Admin + Storefront GraphQL APIs, Functions, webhooks, Hydrogen headless; higher rate limits on Plus — <b>covered in the Technical track</b></td></tr>
+            <tr><td><b>App ecosystem</b></td><td class="bc">Smaller marketplace; some vendors integrate but less deeply</td><td class="sh">8,000+ apps; deeper native integrations (Gorgias and the rest of your stack)</td></tr>
+            <tr><td><b>Checkout &amp; conversion</b></td><td class="bc">Standard checkout</td><td class="sh">Shop Pay — up to ~50% higher conversion for its users — plus Checkout Extensibility</td></tr>
+            <tr><td><b>AI &amp; discovery</b></td><td class="bc">Behind on agentic / AI commerce</td><td class="sh">Shop App, Audiences, Search &amp; AI discoverability, agentic-commerce ready</td></tr>
+            <tr><td><b>Expansion / sandbox</b></td><td class="bc">Additional stores cost extra</td><td class="sh">9 expansion stores included — staging, dev/test, regional or B2B</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout amberline">
+        <p><strong>The real question isn't the feature list — it's how your team works day-to-day.</strong> Shopify's app-driven model lets your merch team make changes without a dev ticket, while your developers keep the under-the-hood control they value through the APIs. Both can be true at once — we prove the second half in the <em>Technical track</em>.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL · HOW IT HELPS YOU -->
+  <div class="toppanel" id="p-use" role="tabpanel" aria-labelledby="t-use" tabindex="0" hidden>
+    <section>
+      <div class="trackbar ae"><span class="who">With Nicole · Account Executive</span></div>
+      <p class="eyebrow">Shopify, mapped to how you run</p>
+      <h2>What this actually does for eDiscount.</h2>
+      <p style="margin-top:12px">Not a feature tour — the things your business actually needs, where you are on BigCommerce today, and what changes on Shopify Plus. Each one ends with what we'll tailor to you together.</p>
+
+      <blockquote class="quote">
+        <p>“I use Gorgias for customer service — it's a much more sophisticated tool when it's integrated with a Shopify platform.”</p>
+        <cite>Alan Feldman · Sep 23 discovery call</cite>
+      </blockquote>
+
+      <div class="ucards">
+        <div class="uc">
+          <div class="uc-h"><h3>1 · A clean move, nothing lost</h3></div>
+          <div class="body"><p>Your catalog, customers and order history come across to Shopify — and your SEO is preserved, so you don't lose the ranking you've built.</p></div>
+          <div class="tworow">
+            <div class="r now"><span class="l">Today</span><p>Enterprise BigCommerce store, renewing in January.</p></div>
+            <div class="r sh"><span class="l">On Shopify Plus</span><p>A partner-led rebuild with <b>SEO continuity</b> and full data migration — live before your renewal.</p></div>
+          </div>
+          <div class="confirm"><span class="l">What we'll tailor with you</span><p>Catalog size, your current theme/headless setup, and how much order history to bring.</p></div>
+        </div>
+
+        <div class="uc">
+          <div class="uc-h"><h3>2 · Change your store yourself</h3></div>
+          <div class="body"><p>Your team shouldn't pay a developer every time they add a module or change the store.</p></div>
+          <div class="tworow">
+            <div class="r now"><span class="l">Today</span><p>Changes route through dev — "costs associated."</p></div>
+            <div class="r sh"><span class="l">On Shopify Plus</span><p>Merchandisers edit directly via apps + theme editor; your developers still own the deep work.</p></div>
+          </div>
+          <div class="confirm"><span class="l">What we'll tailor with you</span><p>The routine edits that cost you dev time today — we'll make those self-serve.</p></div>
+        </div>
+
+        <div class="uc">
+          <div class="uc-h"><h3>3 · Your tools, integrated deeper</h3></div>
+          <div class="body"><p>The vendors you already use — Gorgias for support, and others — plug in more natively on Shopify. Consolidate without breaking anything.</p></div>
+          <div class="tworow">
+            <div class="r now"><span class="l">Today</span><p>Mixed integrations across a smaller marketplace.</p></div>
+            <div class="r sh"><span class="l">On Shopify Plus</span><p>Native Gorgias + deeper app coverage; net-better, nothing lost in the move.</p></div>
+          </div>
+          <div class="confirm"><span class="l">What we'll tailor with you</span><p>Your full app/vendor list, so every tool has a home on day one.</p></div>
+        </div>
+
+        <div class="uc">
+          <div class="uc-h"><h3>4 · Sell more, not just spend less</h3></div>
+          <div class="body"><p>The move isn't only about cost. Shop Pay and AI-driven discovery open revenue your current platform can't reach.</p></div>
+          <div class="tworow">
+            <div class="r now"><span class="l">Today</span><p>Standard checkout; limited AI discovery.</p></div>
+            <div class="r sh"><span class="l">On Shopify Plus</span><p><b>Shop Pay ~50% higher conversion</b> at your AOV; agentic / AI shopping you flagged as the future.</p></div>
+          </div>
+          <div class="confirm"><span class="l">What we'll tailor with you</span><p>We'll size the upside against your real margin.</p></div>
+        </div>
+
+        <div class="uc">
+          <div class="uc-h"><h3>5 · Room to grow, included</h3></div>
+          <div class="body"><p>Plus includes nine expansion stores — your staging / dev / test "sandbox" equivalent, and more.</p></div>
+          <div class="tworow">
+            <div class="r now"><span class="l">Today</span><p>Extra environments cost extra.</p></div>
+            <div class="r sh"><span class="l">On Shopify Plus</span><p>9 stores included for staging, dev/test, plus regional or B2B if you want them.</p></div>
+          </div>
+          <div class="confirm"><span class="l">What we'll tailor with you</span><p>Whether you want B2B or regional storefronts, or just dev/test parity.</p></div>
+        </div>
+
+        <div class="uc">
+          <div class="uc-h"><h3>6 · A move that respects your Q4</h3></div>
+          <div class="body"><p>Your busy season stays untouched. The new store is built alongside BigCommerce and launches when you're ready.</p></div>
+          <div class="tworow">
+            <div class="r now"><span class="l">The concern</span><p>Nothing can ship Nov–Dec; your team is wary of disruption.</p></div>
+            <div class="r sh"><span class="l">The path</span><p>Partner-led build <b>in parallel</b>, Oct–Dec — launch cleanly before January.</p></div>
+          </div>
+          <div class="confirm"><span class="l">What we'll tailor with you</span><p>The right implementation partner for your team — an intro whenever you're ready.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL · COST & ROI -->
+  <div class="toppanel" id="p-tco" role="tabpanel" aria-labelledby="t-tco" tabindex="0" hidden>
+    <section>
+      <div class="trackbar ae"><span class="who">With Nicole · Account Executive</span></div>
+      <p class="eyebrow">Total cost &amp; return</p>
+      <h2>Lower, and predictable.</h2>
+      <p style="margin-top:12px">Two cost stories worth keeping separate. BigCommerce's is the <strong>opaque ~$60K enterprise quote, re-negotiated every January</strong> — plus dev costs for changes. Shopify's 0.35% model raised a fair question from you on the call — that it looks <em>unpredictable</em>. We answer that head-on below, because at your volume it behaves like a predictable floor, and it still lands lower.</p>
+
+      <blockquote class="quote">
+        <p>“That sort of leaves us with kind of an unpredictable cost structure — I'm curious why you'd say we'd be better off with this than a flat rate.”</p>
+        <cite>Alan Feldman · Sep 23 discovery call</cite>
+      </blockquote>
+
+      <div class="tco">
+        <div class="tablewrap" style="margin-top:0">
+          <table>
+            <thead><tr><th>Line item</th><th class="r">Shopify Plus</th><th class="r">BigCommerce</th></tr></thead>
+            <tbody>
+              <tr><td><b>Platform</b><br><span class="note">Shopify: greater of ~$2,300/mo (3-yr) or 0.35% of sales, capped $40K/mo — the ~$33K/yr figure from our call</span></td><td class="r">~$33K</td><td class="r">~$55K+</td></tr>
+              <tr><td><b>Apps</b><br><span class="note">After stack consolidation — est., firmed with your list</span></td><td class="r">~$5K</td><td class="r">incl. / varies</td></tr>
+              <tr class="sum"><td><b>Ongoing / yr</b></td><td class="r">~$33–38K</td><td class="r">~$60K</td></tr>
+              <tr><td><b>Est. ongoing saving</b><br><span class="note">plus predictability — no renewal re-price</span></td><td class="r good">~$22–27K/yr</td><td class="r">—</td></tr>
+              <tr><td><b>Implementation</b> <span class="note">(one-time, partner)</span><br><span class="note">Scoped at the partner intro</span></td><td class="r">$40–90K</td><td class="r">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fy" aria-label="Headline economics">
+          <div class="cell"><span class="k">Ongoing saving</span><span class="v save">~$22–27K/yr</span><small>Shopify ~$33–38K vs BigCommerce ~$60K</small></div>
+          <div class="cell"><span class="k">BigCommerce renewal</span><span class="v rival">re-priced</span><small>the January pressure you remove</small></div>
+          <div class="cell"><span class="k">Shop Pay lift</span><span class="v save">~50%</span><small>higher conversion for Shop Pay users, at your AOV</small></div>
+        </div>
+      </div>
+
+      <div class="callout amberline">
+        <p><strong>On the "unpredictable" question, straight:</strong> yes, the fee scales with sales (0.35%) — it's not flat. But at ~$10M / ~$800K+ a month, you're <b>at or above the $2,300 floor nearly every month</b>, so in practice it behaves like a predictable minimum with a known annual total (~$33K). Budget from the year, not the month. And unlike BigCommerce's enterprise re-quote, it's a published formula capped at $40K/mo — no January renegotiation. <b>Your monthly breakdown lets us map it exactly, month by month, including the December peak.</b></p>
+      </div>
+
+      <h3 style="margin-top:28px;font-size:1.05rem">Growth upside — illustrative, on $10M online</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Conversion lift</th><th class="r">Added revenue / yr</th><th class="r">Gross profit <small>(at 25% est.)</small></th><th class="r">vs platform cost</th></tr></thead>
+          <tbody>
+            <tr><td><b>+1%</b></td><td class="r">+$100K</td><td class="r">+$25K</td><td class="r good">covers it</td></tr>
+            <tr><td><b>+2%</b></td><td class="r">+$200K</td><td class="r">+$50K</td><td class="r good">~1.5×</td></tr>
+            <tr><td><b>+3%</b></td><td class="r">+$300K</td><td class="r">+$75K</td><td class="r good">~2×</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:14px"><b>Assumptions, to be confirmed:</b> ~$10M online at ~$165 AOV; Shop Pay drives the lift; contribution margin assumed <b>~25%</b> for a discount-fragrance model — <b>your real margin is the input we need</b>. The exact platform fee depends on your monthly sales split (floor vs 0.35% by month).</p>
+
+      <div class="flagbox key">
+        <span class="lab">To make this exact</span>
+        <p>Share <strong>last year's monthly sales breakdown</strong> and we'll replace every "~" on this tab with your real number — the precise monthly platform fee, including December, and your true first-year total.</p>
+      </div>
+
+      <blockquote class="quote">
+        <p>“No matter what kind of headache I'm anticipating, if the savings are there, we won't be able to resist going further into this.”</p>
+        <cite>Alan Feldman · Sep 23 discovery call</cite>
+      </blockquote>
+    </section>
+  </div>
+
+  <!-- PANEL · THE PLAN -->
+  <div class="toppanel" id="p-map" role="tabpanel" aria-labelledby="t-map" tabindex="0" hidden>
+    <section>
+      <div class="trackbar ae"><span class="who">With Nicole · Account Executive</span></div>
+      <p class="eyebrow">The path to launch</p>
+      <h2>Live before January.</h2>
+      <p style="margin-top:12px">Your Q4 freeze isn't a blocker — it's the reason to build <em>in parallel</em>. BigCommerce stays untouched and live through the holidays while the new store is built alongside it, ready to launch before the January renewal.</p>
+
+      <blockquote class="quote">
+        <p>“A dedicated project manager creating essentially a parallel store on the side — while we work toward unveiling it going into 2027 as early as possible.”</p>
+        <cite>Alan Feldman · Sep 23 discovery call</cite>
+      </blockquote>
+
+      <div class="timeline">
+        <div class="phase">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="ph-h"><span class="when">Oct 13 · Today</span><h3>Technical session</h3></div>
+          <p>A working session with your team — confirm the use cases and walk through how your integrations and APIs map onto Shopify, with Angel and your developers in the room.</p>
+        </div>
+        <div class="phase">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="ph-h"><span class="when">Late Oct</span><h3>Partner intro + full TCO</h3></div>
+          <p>An intro to an implementation partner to scope the build, and a complete TCO built on your real monthly numbers — the predictable-cost case in full.</p>
+        </div>
+        <div class="phase">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="ph-h"><span class="when">Nov – Dec</span><h3>Partner-led build, in parallel</h3></div>
+          <p>Your new store built alongside BigCommerce — respecting the Q4 freeze. SEO mapping, app re-validation, a data-migration dry run, and the developer API work.</p>
+        </div>
+        <div class="phase">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="ph-h"><span class="when">Early Jan ’27</span><h3>Launch &amp; cutover</h3></div>
+          <p>Go live before the renewal — so the January decision is "we've already seen it work," not "let's start."</p>
+        </div>
+        <div class="phase hard">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="ph-h"><span class="when">Jan 2027 · Hard date</span><h3>BigCommerce renewal</h3></div>
+          <p>The date everything is sequenced against. Be live before it, and the renewal becomes a non-event.</p>
+        </div>
+      </div>
+
+      <div class="flagbox key">
+        <span class="lab">Your point of contact</span>
+        <p><strong>Nicole</strong> is your account lead throughout — questions, resources, anything that comes up. <strong>Angel</strong>, a Solutions Engineer, joins for the technical side, and a Shopify implementation partner handles the build whenever you're ready for the intro.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== ANGEL'S TRACK ===================== -->
+
+  <!-- PANEL · INTEGRATIONS & APIs -->
+  <div class="toppanel" id="p-tech" role="tabpanel" aria-labelledby="t-tech" tabindex="0" hidden>
+    <section>
+      <div class="trackbar"><span class="who">Technical track · with Angel Guerrero, Solutions Engineer</span></div>
+      <p class="eyebrow tech">Your build on Shopify</p>
+      <h2>Integrations &amp; APIs, mapped honestly.</h2>
+      <p style="margin-top:12px">You asked to bring your developers and Solo Media into this session — so here's how what you've built maps onto Shopify. The goal isn't to claim everything works the same way; it's to show each capability's Shopify equivalent and name the real differences.</p>
+
+      <blockquote class="quote">
+        <p>“If you wanted to send an introduction to the technical person as well, I'd love that — we might have some questions from our team.”</p>
+        <cite>Alan Feldman · Sep 23 discovery call</cite>
+      </blockquote>
+
+      <div class="tablewrap map-tbl">
+        <table>
+          <thead><tr><th>What you rely on</th><th>BigCommerce today</th><th class="sh">Shopify Plus equivalent</th></tr></thead>
+          <tbody>
+            <tr><td><b>Catalog &amp; orders</b></td><td>REST / GraphQL catalog API</td><td class="sh">Admin API (GraphQL + REST), Bulk Operations for large catalogs</td></tr>
+            <tr><td><b>Headless / storefront</b></td><td>Storefront API, custom front end</td><td class="sh">Storefront API (GraphQL) + Hydrogen / Oxygen if headless</td></tr>
+            <tr><td><b>Custom checkout logic</b></td><td>Checkout SDK / scripts</td><td class="sh">Checkout Extensibility + Functions (no more checkout.liquid)</td></tr>
+            <tr><td><b>Event-driven sync</b></td><td>Webhooks</td><td class="sh">Webhooks + Flow automation; EventBridge / PubSub delivery on Plus</td></tr>
+            <tr><td><b>Custom data model</b></td><td>Custom fields</td><td class="sh">Metafields + Metaobjects (structured custom data)</td></tr>
+            <tr><td><b>Throughput / rate limits</b></td><td>Enterprise API limits</td><td class="sh">Higher limits on Plus — GraphQL cost-based, REST bucket ×2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout slateline">
+        <p><strong>Where there are real differences, we'll name them.</strong> A couple we already expect to talk through: migrating custom checkout logic to Checkout Extensibility, and GraphQL rate-limit math at your peak (Black Friday / December) volumes. We'd rather surface those openly than paper over them — that's the point of having your developers in the room.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL · TECHNICAL SESSION -->
+  <div class="toppanel" id="p-agenda" role="tabpanel" aria-labelledby="t-agenda" tabindex="0" hidden>
+    <section>
+      <div class="trackbar"><span class="who">Technical track · with Angel Guerrero, Solutions Engineer</span></div>
+      <p class="eyebrow tech">Oct 13 · the technical half</p>
+      <h2>What we'll walk through together.</h2>
+      <p style="margin-top:12px">So the session is useful for your developers, here's the agenda. If your team can bring notes on any of these ahead of time, we'll get through them faster — but none of it is homework, we can work through it live.</p>
+
+      <ul class="check">
+        <li><span class="bx" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p><b>What you've custom-built</b> on BigCommerce — each piece, and who maintains it.</p></li>
+        <li><span class="bx" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p><b>Themed or headless</b> storefront today — and which front-end framework.</p></li>
+        <li><span class="bx" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p><b>Your integrations:</b> ERP / PIM, email/ESP, reviews, loyalty, subscriptions, tax, search, OMS.</p></li>
+        <li><span class="bx" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p><b>Peak throughput</b> &amp; API call volumes — and any real-time sync requirements.</p></li>
+        <li><span class="bx" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p><b>Your data model:</b> custom fields / attributes that need to map to metafields.</p></li>
+        <li><span class="bx" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p><b>Fulfillment / warehouse</b> connections &amp; shipping logic.</p></li>
+      </ul>
+
+      <div class="callout slateline">
+        <p><strong>Also worth a quick look:</strong> who processes your payments today and your current card rates — not covered on our first call. It lets us compare payments side by side (including the extra transaction fee BigCommerce adds unless you're on its own payment rate), so the cost picture is complete, not just the subscription.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-grid">
+      <div class="next">
+        <p class="eyebrow">Where this goes next</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.2">The Oct 13 session, then a TCO on your real numbers</p>
+        <p style="font-size:.9rem;margin-top:6px">From there: an intro to an implementation partner, and a plan to be live before your January renewal — on your timeline.</p>
+      </div>
+      <div class="sig">
+        <p class="sig"><b>Nicole DeGennaro</b> · Senior Account Executive, Shopify<br>
+        with <b>Angel Guerrero</b> · Solutions Engineer<br>
+        Figures are estimates until we run them on your numbers.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var lists=[].slice.call(document.querySelectorAll('[role="tablist"]'));
+  lists.forEach(function(list){
+    var tabs=[].slice.call(list.querySelectorAll(':scope > [role="tab"]'));
+    if(!tabs.length)return;
+    function sel(t){
+      tabs.forEach(function(x){
+        var on=x===t;
+        x.setAttribute('aria-selected',on?'true':'false');
+        x.tabIndex=on?0:-1;
+        var p=document.getElementById(x.getAttribute('aria-controls'));
+        if(p)p.hidden=!on;
+      });
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(t);});
+      t.addEventListener('keydown',function(e){
+        var n;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown')n=tabs[(i+1)%tabs.length];
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=tabs[(i-1+tabs.length)%tabs.length];
+        else if(e.key==='Home')n=tabs[0];
+        else if(e.key==='End')n=tabs[tabs.length-1];
+        if(n){e.preventDefault();sel(n);n.focus();}
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
