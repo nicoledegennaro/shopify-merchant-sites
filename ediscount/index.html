@@ -201,6 +201,39 @@
   }
   @media (max-width:440px){ .stats{grid-template-columns:1fr 1fr} .wrap{padding-inline:16px} }
   @media (prefers-reduced-motion:no-preference){ .stat,.uc{transition:transform .18s ease} .stat:hover,.uc:hover{transform:translateY(-2px)} }
+
+  /* ---- Clean PDF / print: reveal every tab, hide the tab bar, force light ---- */
+  @media print{
+    :root,:root[data-theme="dark"],:root[data-theme="light"]{
+      --ground:#FFFFFF;--surface:#FFFFFF;--surface-2:#F4F0E7;
+      --ink:#1A140E;--ink-2:#3B332A;--muted:#6B6256;
+      --line:#D9D0C0;--line-strong:#C2B69E;
+      --accent:#8A5E1F;--accent-deep:#6E4C1A;--on-accent:#FFFFFF;
+      --rival:#495660;--rival-soft:#EAEEF0;
+      --sh-tint:#F7F0E1;--bc-tint:#EDF1F2;--good:#2E6A44;--caution:#974731;
+      --shadow:none;
+    }
+    @page{margin:13mm 12mm}
+    html,body{background:#fff!important}
+    body{font-size:11.5px;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .wrap{max-width:none;padding-inline:0}
+    .toptabs{display:none!important}
+    .toppanel[hidden]{display:block!important}
+    .toppanel{break-before:page}
+    .toppanel section:first-child{padding-top:14px}
+    .mast{padding-top:4px}
+    h1{font-size:30px}
+    h2{font-size:21px}
+    section{padding-block:15px}
+    .stat,.uc,.fy,.shotfig,.flagbox,.tablewrap,.next,.callout{box-shadow:none!important}
+    .stat,.uc,.phase,.callout,.flagbox,.confirm,.shotfig,.timeline,tr{break-inside:avoid}
+    .stat:hover,.uc:hover{transform:none!important}
+    .tablewrap{overflow:visible!important}
+    table{min-width:0!important}
+    h2,h3{break-after:avoid}
+    .shotfig img{max-height:300px;width:auto;margin:0 auto}
+    a[href]{color:var(--ink)!important;text-decoration:none}
+  }
 </style>
 </head>
 <body>
