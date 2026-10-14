@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Viviano Flower Shop TCO &amp; ROI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#F6F7F3;
+    --surface:#FFFFFF;
+    --surface-2:#EEF1E9;
+    --ink:#17231D;
+    --ink-2:#44524A;
+    --muted:#6E7B72;
+    --line:#DCE1D5;
+    --line-strong:#C7CEBE;
+    --accent:#2F6E4F;
+    --accent-deep:#235239;
+    --on-accent:#F3F7F1;
+    --berry:#A23E5A;
+    --amber:#9B6A1C;
+    --good:#2F6E4F;
+    --shadow:0 1px 2px rgba(23,35,29,.05), 0 8px 24px -16px rgba(23,35,29,.22);
+    --radius:14px;
+    --maxw:1080px;
+    --measure:63ch;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --ground:#111611;
+      --surface:#19201A;
+      --surface-2:#212a22;
+      --ink:#ECF1E8;
+      --ink-2:#B9C5BB;
+      --muted:#8C998E;
+      --line:#2A342C;
+      --line-strong:#3A463C;
+      --accent:#6FBD95;
+      --accent-deep:#8ED0AE;
+      --on-accent:#0E140F;
+      --berry:#DB92A8;
+      --amber:#D9A94F;
+      --good:#6FBD95;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#111611;
+    --surface:#19201A;
+    --surface-2:#212a22;
+    --ink:#ECF1E8;
+    --ink-2:#B9C5BB;
+    --muted:#8C998E;
+    --line:#2A342C;
+    --line-strong:#3A463C;
+    --accent:#6FBD95;
+    --accent-deep:#8ED0AE;
+    --on-accent:#0E140F;
+    --berry:#DB92A8;
+    --amber:#D9A94F;
+    --good:#6FBD95;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:"Figtree",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:22px;padding-block:0}
+  section{padding-block:34px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;text-wrap:balance;margin:0;line-height:1.1}
+  h1{font-size:clamp(2.1rem,5.2vw,3.3rem);letter-spacing:-.01em}
+  h2{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.01em}
+  h3{font-size:1.08rem;font-weight:600}
+  p{margin:0;max-width:var(--measure);color:var(--ink-2)}
+  strong{color:var(--ink);font-weight:600}
+  a{color:var(--accent-deep);text-underline-offset:3px}
+
+  .eyebrow{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 14px}
+
+  .mast{display:flex;flex-direction:column;gap:20px;padding-top:40px}
+  .sprig{display:flex;align-items:center;gap:12px;color:var(--accent)}
+  .sprig svg{flex:none}
+  .mast .lede{font-size:1.12rem;max-width:60ch;margin-top:4px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:6px}
+  .tag{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;
+    color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+  .tag.lead{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:4px}
+  .stat .k{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--muted)}
+  .stat .v{font-family:"Fraunces",Georgia,serif;font-size:2.1rem;font-weight:500;line-height:1;
+    font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .stat .s{font-size:.82rem;color:var(--ink-2)}
+
+  /* top-level tabs */
+  .toptabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);
+    padding-block:12px;border-bottom:1px solid var(--line)}
+  .toptablist{display:flex;flex-wrap:wrap;gap:7px}
+  .toptab{appearance:none;cursor:pointer;font-family:"Figtree",sans-serif;font-weight:600;font-size:.88rem;
+    color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:9px 16px;box-shadow:var(--shadow);transition:color .15s,background .15s,border-color .15s}
+  .toptab:hover{color:var(--ink);border-color:var(--line-strong)}
+  .toptab[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+  .toptab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .toppanel section:first-child{border-top:0;padding-top:24px}
+
+  .lead-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:28px;align-items:start}
+  .callout{border-left:3px solid var(--good);padding:4px 0 4px 16px;margin-top:18px}
+  .callout p{color:var(--ink)}
+  .callout.amberline{border-color:var(--amber)}
+
+  .ledger{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .ledger .cap{padding:12px 16px 2px;font-family:"Spline Sans Mono",monospace;font-size:.66rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .ledger .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 16px;border-top:1px solid var(--line)}
+  .ledger .row.first{border-top:0}
+  .ledger .row .lab{color:var(--ink-2);font-size:.92rem}
+  .ledger .row .lab small{color:var(--muted);font-size:.78rem}
+  .ledger .row .val{font-family:"Spline Sans Mono",ui-monospace,monospace;font-weight:500;font-variant-numeric:tabular-nums;font-size:1rem}
+  .ledger .row.total{background:var(--surface-2)}
+  .ledger .row.total .lab{color:var(--ink);font-weight:600}
+  .ledger .row.total .val{color:var(--good);font-size:1.08rem}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-top:8px}
+  table{border-collapse:collapse;width:100%;min-width:560px;background:var(--surface)}
+  th,td{padding:12px 16px;text-align:left;border-top:1px solid var(--line);font-size:.92rem;vertical-align:top}
+  thead th{border-top:0;background:var(--surface-2);font-family:"Spline Sans Mono",monospace;font-size:.68rem;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;font-family:"Spline Sans Mono",monospace;font-size:.86rem}
+  tbody tr:hover{background:var(--surface-2)}
+  td b{color:var(--ink)}
+  tr.sum td{background:var(--surface-2);font-weight:600}
+  tr.sum td b{color:var(--ink)}
+  td.good{color:var(--good);font-weight:600}
+  td.amber{color:var(--amber);font-weight:600}
+  .note{font-size:.84rem;color:var(--muted);max-width:var(--measure)}
+
+  .fy{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:22px 22px;margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fy .cell{display:flex;flex-direction:column;gap:4px}
+  .fy .cell+.cell{border-left:1px solid var(--line);padding-left:18px}
+  .fy .cell .k{font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .fy .cell .v{font-family:"Fraunces",serif;font-size:1.9rem;font-weight:500;line-height:1.02}
+  .fy .cell .v.plus{color:var(--amber)}
+  .fy .cell .v.minus{color:var(--good)}
+  .fy .cell .v.even{color:var(--ink)}
+  .fy .cell .v.hero{color:var(--good);font-size:2.3rem}
+  .fy .cell small{font-size:.82rem;color:var(--ink-2);font-family:"Figtree",sans-serif}
+
+  .stays{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px dashed var(--line-strong);
+    border-radius:var(--radius);padding:16px 18px;margin-top:20px}
+  .stays .lab{font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:none;padding-top:3px}
+  .stays p{font-size:.9rem}
+
+  .group-h{font-family:"Spline Sans Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:24px 0 12px}
+  .group-h.first{margin-top:8px}
+  .levers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .lever{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}
+  .lever .ic{color:var(--accent);flex:none;margin-top:2px}
+  .lever h3{font-size:1rem}
+  .lever p{font-size:.9rem;margin-top:4px}
+  .lever .big{font-family:"Fraunces",serif;color:var(--accent-deep);font-weight:600}
+
+  .phase2{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border:1px dashed var(--line-strong);
+    border-radius:var(--radius);padding:16px 18px;margin-top:22px}
+  .phase2 .lab{font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:none;padding-top:3px}
+  .phase2 p{font-size:.9rem}
+
+  /* use-case tabs (nested) */
+  .tabs{margin-top:24px}
+  .tablist{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line)}
+  .tab{appearance:none;border:0;background:transparent;cursor:pointer;font-family:"Spline Sans Mono",monospace;
+    font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:11px 13px;
+    border-bottom:2px solid transparent;margin-bottom:-1px;border-radius:7px 7px 0 0;transition:color .15s,background .15s}
+  .tab:hover{color:var(--ink-2);background:var(--surface-2)}
+  .tab[aria-selected="true"]{color:var(--accent-deep);border-bottom-color:var(--accent)}
+  .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .tabpanel{padding-top:22px}
+  .tabpanel .use{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:start}
+  .tabpanel h3{font-size:1.3rem;font-family:"Fraunces",serif;font-weight:500}
+  .tabpanel .lead-copy{margin-top:10px}
+  .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .steps li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .steps .lab{font-family:"Spline Sans Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .steps .today .lab{color:var(--amber)}
+  .steps .on .lab{color:var(--accent-deep)}
+  .steps p{font-size:.9rem;color:var(--ink-2)}
+  .steps b{color:var(--ink)}
+
+  /* systems map */
+  .map{margin-top:14px;display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .lane{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+  .lane .lane-h{font-family:"Spline Sans Mono",monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .nodes{display:grid;gap:12px}
+  .nodes.four{grid-template-columns:repeat(4,1fr)}
+  .nodes.three{grid-template-columns:repeat(3,1fr)}
+  .node{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface-2)}
+  .node .nt{font-weight:600;color:var(--ink);font-size:.92rem}
+  .node .nd{font-size:.8rem;color:var(--ink-2);margin-top:3px}
+  .node.accent{background:var(--accent);border-color:var(--accent)}
+  .node.accent .nt{color:var(--on-accent)}
+  .node.accent .nd{color:var(--on-accent);opacity:.92}
+  .node.dashed{border-style:dashed;border-color:var(--line-strong);background:transparent}
+  .node.dashed .nt{color:var(--muted)}
+  .node.dashed .nd{color:var(--muted)}
+  .spine{width:2px;height:28px;background:var(--line-strong);align-self:center;position:relative;flex:none}
+  .spine::after{content:"";position:absolute;bottom:2px;left:50%;transform:translateX(-50%) rotate(45deg);width:7px;height:7px;border-right:2px solid var(--line-strong);border-bottom:2px solid var(--line-strong)}
+  .bar{background:var(--accent-deep);color:var(--on-accent);border-radius:12px;padding:15px 18px;text-align:center;box-shadow:var(--shadow)}
+  .bar b{color:var(--on-accent);font-size:1.02rem}
+  .bar .sub{display:block;font-size:.82rem;opacity:.9;margin-top:3px}
+  .map-note{font-size:.84rem;color:var(--muted);max-width:var(--measure);margin-top:16px}
+
+  footer{border-top:1px solid var(--line);padding-block:30px 46px;margin-top:8px}
+  .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-end}
+  .next{background:var(--accent);color:var(--on-accent);border-radius:var(--radius);padding:18px 20px;max-width:380px}
+  .next .eyebrow{color:var(--on-accent);opacity:.85}
+  .next p{color:var(--on-accent)}
+  .sig{font-size:.86rem;color:var(--ink-2)}
+  .sig b{color:var(--ink)}
+
+  @media (max-width:760px){
+    .tabpanel .use{grid-template-columns:1fr}
+    .nodes.four,.nodes.three{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:440px){ .nodes.four,.nodes.three{grid-template-columns:1fr} }
+
+  @media (max-width:860px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .lead-grid{grid-template-columns:1fr}
+    .fy{grid-template-columns:1fr}
+    .fy .cell+.cell{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:16px}
+    .levers{grid-template-columns:1fr}
+  }
+  @media (max-width:440px){ .stats{grid-template-columns:1fr 1fr} .wrap{padding-inline:16px} }
+  @media (prefers-reduced-motion:no-preference){ .lever,.stat{transition:transform .18s ease} .lever:hover,.stat:hover{transform:translateY(-2px)} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <section class="mast">
+    <div class="sprig">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <path d="M15 28V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M15 14C15 14 9 13 6.5 8.5C11.5 8 15 11 15 14Z" fill="currentColor" opacity=".9"/>
+        <path d="M15 11C15 11 21 10 23.5 5.5C18.5 5 15 8 15 11Z" fill="currentColor" opacity=".7"/>
+        <path d="M15 19C15 19 10.5 18 8.5 14.5C12.5 14 15 16.3 15 19Z" fill="currentColor" opacity=".6"/>
+        <circle cx="15" cy="7" r="2.3" fill="currentColor"/>
+      </svg>
+      <span class="eyebrow" style="margin:0">Viviano Flower Shop &nbsp;×&nbsp; Shopify</span>
+    </div>
+    <h1>Total Cost of Ownership &amp; ROI</h1>
+    <p class="lede">A working cost-and-return model for taking Viviano online on Shopify — <strong>web first</strong>, with MAS, phone orders, and your in-store setup left exactly as they are. Built from your own numbers and your latest Heartland (Global) cost-plus pricing, not a template.</p>
+    <div class="meta">
+      <span class="tag lead">Scope · Web first</span>
+      <span class="tag">Prepared for Paul Viviano</span>
+      <span class="tag">Updated Oct 9, 2026</span>
+      <span class="tag">Repriced Oct&nbsp;2026 · cost-plus</span>
+      <span class="tag">Nicole DeGennaro · Shopify</span>
+    </div>
+  </section>
+
+  <!-- HEADLINE NUMBERS -->
+  <section>
+    <p class="eyebrow">Your new rates, read back</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="k">Repriced card markup</span>
+        <span class="v" style="font-size:1.5rem">0.35% + 15¢</span>
+        <span class="s">over interchange · cut from 1.09% + 40¢</span>
+      </div>
+      <div class="stat">
+        <span class="k">Pricing model</span>
+        <span class="v" style="font-size:1.5rem">Cost-plus</span>
+        <span class="s">interchange + fixed markup, passed through</span>
+      </div>
+      <div class="stat">
+        <span class="k">Average ticket</span>
+        <span class="v">$110</span>
+        <span class="s">online, card-not-present</span>
+      </div>
+      <div class="stat">
+        <span class="k">Online volume / yr</span>
+        <span class="v">~$3.3M</span>
+        <span class="s">~30K orders, about ⅓ of card sales</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP-LEVEL TAB NAV -->
+  <nav class="toptabs" aria-label="Sections">
+    <div class="toptablist" role="tablist" aria-label="Quicksite sections">
+      <button class="toptab" role="tab" id="t-rate" aria-controls="p-rate" aria-selected="true" tabindex="0">Rate reality</button>
+      <button class="toptab" role="tab" id="t-tco" aria-controls="p-tco" aria-selected="false" tabindex="-1">Total cost</button>
+      <button class="toptab" role="tab" id="t-roi" aria-controls="p-roi" aria-selected="false" tabindex="-1">ROI</button>
+      <button class="toptab" role="tab" id="t-uses" aria-controls="p-uses" aria-selected="false" tabindex="-1">Use cases</button>
+      <button class="toptab" role="tab" id="t-map" aria-controls="p-map" aria-selected="false" tabindex="-1">The map</button>
+    </div>
+  </nav>
+
+  <!-- PANEL · RATE REALITY -->
+  <div class="toppanel" id="p-rate" role="tabpanel" aria-labelledby="t-rate" tabindex="0">
+    <section>
+      <div class="lead-grid">
+        <div>
+          <p class="eyebrow">The honest starting point</p>
+          <h2>Your card deal just got better — Shopify won’t beat it.</h2>
+          <p style="margin-top:14px">Your new Heartland schedule reprices you to <strong>cost-plus</strong>: you pay true interchange at cost, plus a fixed markup — now just <strong>0.35% + 15¢</strong>, cut from 1.09% + 40¢, with Amex and debit per-item down to 15¢ too. That’s a near-wholesale margin. It’s a genuinely strong deal.</p>
+          <p style="margin-top:12px">Shopify Payments rolls interchange and margin into one flat <strong>2.25% + 30¢</strong>. Lined up at your <strong>$110 ticket</strong> on the online third, Shopify lands a touch <strong>higher</strong> — on the order of <strong>+$4–7K a year</strong>. A modest cost, not a saving.</p>
+          <div class="callout amberline">
+            <p><strong>So this isn’t a card-savings pitch — the opposite.</strong> Moving the online third to Shopify Payments is a small added cost, and it’s in the TCO as one. The entire return comes from conversion, displaced website spend, and unification — the next tabs.</p>
+          </div>
+        </div>
+        <div class="ledger" aria-label="Online card cost, today vs Shopify">
+          <div class="cap">Online card cost · per $100</div>
+          <div class="row first"><span class="lab">Today — cost-plus <small>(interchange + 0.35% + 15¢, est.)</small></span><span class="val">~$2.40</span></div>
+          <div class="row"><span class="lab">Shopify Payments <small>2.25% + 30¢ at $110</small></span><span class="val">~$2.52</span></div>
+          <div class="row total"><span class="lab">Net change</span><span class="val">+ ~$0.12</span></div>
+        </div>
+      </div>
+      <div class="stays" style="margin-top:20px">
+        <span class="lab">Worth a look</span>
+        <p>Because your processor rate is now this good, on <strong>Shopify Plus</strong> you may be better off <strong>keeping Global as a third-party gateway</strong> (interchange + your 0.35% + 15¢, plus Shopify’s ~0.2% Plus gateway fee) than switching to Shopify Payments. I’ll model both and we use whichever nets lower — one statement under the new pricing locks the exact delta.</p>
+      </div>
+      <p class="note" style="margin-top:16px">The “today” per-$100 figure assumes a typical card-not-present interchange blend; your real statement firms it up. Phone and in-store stay on your repriced Global deal and aren’t part of a web-first move.</p>
+    </section>
+  </div>
+
+  <!-- PANEL · TOTAL COST -->
+  <div class="toppanel" id="p-tco" role="tabpanel" aria-labelledby="t-tco" tabindex="0" hidden>
+    <section>
+      <p class="eyebrow">Total cost of ownership · web first</p>
+      <h2>The complete first-year and ongoing cost.</h2>
+      <p style="margin-top:12px">Everything you’d actually pay, and everything Shopify displaces against it. Estimated for planning — exact figures get finalized in your quote (plan term and any build-period promo).</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Line item</th><th class="r">Year 1</th><th class="r">Ongoing / yr</th></tr></thead>
+          <tbody>
+            <tr><td><b>Shopify Plus</b><br><span class="note">Greater of plan floor or 0.35% of revenue; at ~$3.3M online the floor applies</span></td><td class="r">$27,600</td><td class="r">$27,600</td></tr>
+            <tr><td><b>Apps</b><br><span class="note">Delivery-date picker, one-to-many recipients, gift messages; B2B native on Plus</span></td><td class="r">$1,800</td><td class="r">$1,800</td></tr>
+            <tr><td><b>Online card processing</b><br><span class="note">Shopify Payments runs modestly above your repriced cost-plus deal (est. +$4–7K); see Rate reality</span></td><td class="r amber">+$5,000</td><td class="r amber">+$5,000</td></tr>
+            <tr><td><b>Implementation</b> <span class="note">(one-time)</span><br><span class="note">Floral build, MAS API integration, data migration</span></td><td class="r">$15K–40K</td><td class="r">—</td></tr>
+            <tr class="sum"><td><b>Gross Shopify cost</b></td><td class="r">$49K–74K</td><td class="r">$34,400</td></tr>
+            <tr><td>Less — <b>Xpressions hosting &amp; SEO displaced</b> <span class="note">($499/mo, confirmed)</span></td><td class="r good">−$5,988</td><td class="r good">−$5,988</td></tr>
+            <tr><td>Less — <b>variable Xpressions development</b> <span class="note">(portals, backend, change requests — pending your spreadsheet)</span></td><td class="r good">− TBD</td><td class="r good">− TBD</td></tr>
+            <tr class="sum"><td><b>Net Shopify cost</b> <span class="note">(before dev displacement &amp; any return)</span></td><td class="r">~$43K–68K</td><td class="r">~$28,400</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stays">
+        <span class="lab">Excluded — unchanged</span>
+        <p><strong>MAS, phone, and your servers don’t change, so they’re not in the math.</strong> MAS stays your system of record at <b>$550/mo + 20¢ per web order (~$6K/yr)</b> and already runs an <b>API that interfaces with your website</b> — Shopify connects through that same API. Phone orders keep flowing MAS → Heartland on your repriced cost-plus deal, and your in-house backup appliance stays. None of it is an added Shopify cost, and none of it a saving.</p>
+      </div>
+      <div class="phase2">
+        <span class="lab">Later · Phase 2</span>
+        <p><strong>If you ever unify in-store too,</strong> the card gap only gets wider now — your in-store and debit volume is even cheaper under the new cost-plus deal, so moving it to a flat rate would add on the order of <b>+$20–25K/yr</b>, plus <b>~$6K/yr</b> POS Pro. That’s a separate decision for when unification and lift clearly outweigh it. Web-first keeps the door open without paying for it.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL · ROI -->
+  <div class="toppanel" id="p-roi" role="tabpanel" aria-labelledby="t-roi" tabindex="0" hidden>
+    <section>
+      <p class="eyebrow">Return on investment</p>
+      <h2>The one number that turns cost into return.</h2>
+      <p style="margin-top:12px">With your repriced card deal, the platform costs a little <strong>more</strong> on fees, not less — so it pays for itself purely on <strong>conversion</strong> and displaced website spend. The question is simple: how much more of the online traffic you already have do you need to convert to cover the net cost? At your scale, not much.</p>
+
+      <div class="fy" aria-label="ROI headlines">
+        <div class="cell"><span class="k">Break-even</span><span class="v hero">~1.9%</span><small>lift in online sales covers the full ~$28,400/yr net platform cost</small></div>
+        <div class="cell"><span class="k">Build payback</span><span class="v">~7 mo</span><small>the one-time build returns in about 7 months at the base case (~20 at conservative)</small></div>
+        <div class="cell"><span class="k">Base-case net</span><span class="v minus">+$46K/yr</span><small>at a +5% online lift, after the full platform cost</small></div>
+      </div>
+
+      <h3 style="margin-top:30px">What different conversion lifts return</h3>
+      <p class="note" style="margin-top:8px">Illustrative — Shop Pay converts up to <b>50% higher than guest checkout</b> for buyers who use it, so even a few points across your online third is realistic. Net is after the ~$28,400/yr net platform cost.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Scenario</th><th class="r">Online lift</th><th class="r">Added revenue / yr</th><th class="r">Gross profit (45%)</th><th class="r">Net / yr</th><th class="r">ROI</th></tr></thead>
+          <tbody>
+            <tr><td><b>Conservative</b></td><td class="r">+3%</td><td class="r">+$99K</td><td class="r">+$45K</td><td class="r good">+$16K</td><td class="r good">~47%</td></tr>
+            <tr><td><b>Base</b></td><td class="r">+5%</td><td class="r">+$165K</td><td class="r">+$74K</td><td class="r good">+$46K</td><td class="r good">~133%</td></tr>
+            <tr><td><b>Upside</b></td><td class="r">+8%</td><td class="r">+$264K</td><td class="r">+$119K</td><td class="r good">+$90K</td><td class="r good">~263%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout amberline">
+        <p><strong>What’s not even in these numbers yet:</strong> the variable Xpressions development you displace (pending your spreadsheet), SEO/AI discoverability, carrier-calculated shipping, and a native B2B/wholesale channel. Every one of those pushes the return up from here.</p>
+      </div>
+      <p class="note" style="margin-top:18px"><b>Assumptions, so you can check my work:</b> ~$3.3M online / ~30,000 orders a year at a $110 ticket; Shopify online 2.25% + 30¢ runs ~$5K/yr above your repriced cost-plus deal (a cost, not a saving); contribution margin assumed <b>~45%</b> — tell me your real number and I’ll re-run it; net platform cost = $34,400 gross − ~$6,000 hosting displaced = ~$28,400/yr; ROI = net ÷ gross platform cost. Conversion lifts are illustrative, not promised.</p>
+    </section>
+
+    <section>
+      <p class="eyebrow">Where the lift comes from</p>
+      <h2>The return is conversion, not cost.</h2>
+      <p style="margin-top:12px">Your website already works — but a clunky, guest-heavy checkout quietly costs you orders. This is the biggest opportunity in front of you: take the traffic you already have and convert more of it. That’s what moves the ROI table above.</p>
+
+      <p class="group-h first">The real win — conversion &amp; friction</p>
+      <div class="levers">
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><h3>Shop Pay — the headline</h3><p>Converts <span class="big">up to 50% higher than guest checkout</span>, and it lands entirely on the online third you’re moving. The same traffic, more orders.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><h3>Less friction, fewer drop-offs</h3><p>Returning buyers are recognized and one-click their way through — stripping out the guest-checkout friction that costs conversions on the custom site today.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M9 20V10" stroke="currentColor" stroke-width="2"/></svg></span>
+          <div><h3>Checkout Extensibility — built for florists</h3><p>Your checkout, your rules: delivery-date picker, gift and card messages, local-delivery logic — and it’s where the corporate &amp; funeral-home portals you built with Xpressions live natively.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="2.4" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="2.4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="17" r="2.4" stroke="currentColor" stroke-width="2"/><path d="M7 9.5v2.5h10V9.5M12 12v2.5" stroke="currentColor" stroke-width="2"/></svg></span>
+          <div><h3>One-to-many recipients</h3><p>The “50 arrangements to 50 addresses” corporate and holiday case handled in a single order, not fifty.</p></div>
+        </div>
+      </div>
+
+      <p class="group-h">Growth &amp; unification</p>
+      <div class="levers">
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="6" y="3" width="12" height="18" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <div><h3>Shop App</h3><p>Your store becomes discoverable in Shop, with order tracking buyers actually use — a new channel you don’t have today.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <div><h3>Shopify Audiences</h3><p>Find high-intent flower buyers and retarget them across Shopify’s network — real acquisition, not guesswork. (Plus)</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></span>
+          <div><h3>Search &amp; AI discoverability</h3><p>Show up when buyers ask an assistant “where do I order flowers near me” — exactly what your digital advisor flagged.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13.5" y="4.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3.5" y="14.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13.5" y="14.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="2"/></svg></span>
+          <div><h3>One admin</h3><p>Your <b>online store</b> now, a native <b>B2B / wholesale channel</b> when you’re ready, and <b>POS</b> if and when in-store ever moves — all over the MAS data you keep.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL · USE CASES -->
+  <div class="toppanel" id="p-uses" role="tabpanel" aria-labelledby="t-uses" tabindex="0" hidden>
+    <section>
+      <p class="eyebrow">Shopify, mapped to how you run</p>
+      <h2>What this looks like for Viviano, use case by use case.</h2>
+      <p style="margin-top:12px">Not a feature list — your actual business, your side of the screen. Each tab is one way Viviano takes orders today and how it runs on Shopify, web first.</p>
+
+      <div class="tabs">
+        <div class="tablist" role="tablist" aria-label="Viviano use cases">
+          <button class="tab" role="tab" id="tab-online" aria-controls="panel-online" aria-selected="true" tabindex="0">Online store</button>
+          <button class="tab" role="tab" id="tab-b2b" aria-controls="panel-b2b" aria-selected="false" tabindex="-1">Corporate &amp; funeral</button>
+          <button class="tab" role="tab" id="tab-multi" aria-controls="panel-multi" aria-selected="false" tabindex="-1">Multi-recipient</button>
+          <button class="tab" role="tab" id="tab-ops" aria-controls="panel-ops" aria-selected="false" tabindex="-1">Phone &amp; in-store</button>
+          <button class="tab" role="tab" id="tab-growth" aria-controls="panel-growth" aria-selected="false" tabindex="-1">Discovery &amp; growth</button>
+        </div>
+
+        <div class="tabpanel" id="panel-online" role="tabpanel" aria-labelledby="tab-online" tabindex="0">
+          <div class="use">
+            <div>
+              <h3>Your online store — the web third</h3>
+              <p class="lead-copy">About <strong>$3.3M and ~30,000 orders a year</strong> run through your website today, on a custom build with a guest-heavy checkout. This is the volume that moves to Shopify first.</p>
+              <div class="callout"><p><strong>The win:</strong> the same traffic you already have, converting higher — one-click Shop Pay, a floral-native checkout, and carrier-calculated shipping. This is where the ROI comes from.</p></div>
+              <p style="margin-top:14px"><span class="tag lead">Online Store + Shop Pay</span> <span class="tag">Checkout Extensibility</span></p>
+            </div>
+            <ul class="steps">
+              <li class="today"><span class="lab">Today</span><p>Custom Xpressions site, <b>guest checkout</b>, limited floral logic.</p></li>
+              <li class="on"><span class="lab">On Shopify</span><p>One-click <b>Shop Pay</b>, delivery-date picker, gift &amp; card messages, local-delivery rules, carrier-calculated shipping.</p></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="panel-b2b" role="tabpanel" aria-labelledby="tab-b2b" tabindex="0" hidden>
+          <div class="use">
+            <div>
+              <h3>Corporate &amp; funeral-home portals</h3>
+              <p class="lead-copy">Xpressions built and maintains custom portals for your corporate and funeral-home accounts — a <strong>variable development cost that changes every year</strong>.</p>
+              <div class="callout"><p><strong>The win:</strong> native B2B replaces that custom build — company accounts, per-account pricing, net terms, a gated catalog — with nothing custom to maintain or re-quote annually.</p></div>
+              <p style="margin-top:14px"><span class="tag lead">B2B / wholesale (Plus)</span> <span class="tag">Company price lists</span></p>
+            </div>
+            <ul class="steps">
+              <li class="today"><span class="lab">Today</span><p>Custom portals maintained by Xpressions, <b>re-quoted yearly</b>.</p></li>
+              <li class="on"><span class="lab">On Shopify</span><p>Company accounts with their own login, <b>price lists, net terms</b> and reorder flows — native on Plus, in one admin alongside the online store.</p></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="panel-multi" role="tabpanel" aria-labelledby="tab-multi" tabindex="0" hidden>
+          <div class="use">
+            <div>
+              <h3>Multi-recipient &amp; holiday sends</h3>
+              <p class="lead-copy">Corporate gifting and holidays mean one buyer sending <strong>many arrangements to many addresses</strong> — handled by hand or as dozens of separate orders today.</p>
+              <div class="callout"><p><strong>The win:</strong> one order fans out to every recipient — each with its own address, delivery date and card message. Big for corporate accounts and peak holidays.</p></div>
+              <p style="margin-top:14px"><span class="tag lead">One-to-many recipients app</span></p>
+            </div>
+            <ul class="steps">
+              <li class="today"><span class="lab">Today</span><p>50 arrangements to 50 addresses = <b>50 orders</b>, entered manually.</p></li>
+              <li class="on"><span class="lab">On Shopify</span><p>A <b>single order</b> with many recipients, dates and messages — one checkout, one payment.</p></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="panel-ops" role="tabpanel" aria-labelledby="tab-ops" tabindex="0" hidden>
+          <div class="use">
+            <div>
+              <h3>Phone &amp; in-store — unchanged</h3>
+              <p class="lead-copy">Web-first is deliberately low-risk: your phone and in-store operations <strong>keep running exactly as they do now</strong>.</p>
+              <div class="callout"><p><strong>The win:</strong> nothing moves that doesn’t need to. MAS stays your system of record through its API, phone keeps flowing MAS → Heartland, and your backup appliance stays.</p></div>
+              <p style="margin-top:14px"><span class="tag lead">MAS API</span> <span class="tag">Phase 2 · Shopify POS</span></p>
+            </div>
+            <ul class="steps">
+              <li class="today"><span class="lab">Today</span><p>Phone orders entered in <b>MAS → Heartland</b>; in-store on your current setup.</p></li>
+              <li class="on"><span class="lab">On Shopify (web first)</span><p><b>No change.</b> In-store on Shopify POS is a later, separate decision — not part of this.</p></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tabpanel" id="panel-growth" role="tabpanel" aria-labelledby="tab-growth" tabindex="0" hidden>
+          <div class="use">
+            <div>
+              <h3>Discovery &amp; growth</h3>
+              <p class="lead-copy">Today new customers find you through a custom site with <strong>weak SEO</strong> and no presence in Shopify’s buyer network.</p>
+              <div class="callout"><p><strong>The win:</strong> acquisition channels you don’t have now — and discoverability when a buyer asks an AI assistant where to order flowers near them.</p></div>
+              <p style="margin-top:14px"><span class="tag lead">Shop App</span> <span class="tag">Shopify Audiences (Plus)</span> <span class="tag">SEO &amp; AI</span></p>
+            </div>
+            <ul class="steps">
+              <li class="today"><span class="lab">Today</span><p>Discovery limited to the custom site’s organic reach.</p></li>
+              <li class="on"><span class="lab">On Shopify</span><p><b>Shop App</b> presence, <b>Audiences</b> retargeting across Shopify’s network, and strong <b>SEO / AI</b> discoverability.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PANEL · THE MAP -->
+  <div class="toppanel" id="p-map" role="tabpanel" aria-labelledby="t-map" tabindex="0" hidden>
+    <section>
+      <p class="eyebrow">How this fits together</p>
+      <h2>The map — web first, around MAS.</h2>
+      <p style="margin-top:12px">Shopify takes the web channels; MAS stays the system of record and connects through the API it already runs. Phone and in-store don’t change.</p>
+
+      <div class="map">
+        <div class="lane">
+          <p class="lane-h">Who’s buying</p>
+          <div class="nodes four">
+            <div class="node"><div class="nt">Web shoppers</div><div class="nd">Your online third</div></div>
+            <div class="node"><div class="nt">Corporate &amp; funeral</div><div class="nd">Account buyers</div></div>
+            <div class="node"><div class="nt">Phone callers</div><div class="nd">Order by phone</div></div>
+            <div class="node"><div class="nt">In-store</div><div class="nd">Walk-ins</div></div>
+          </div>
+        </div>
+
+        <div class="spine" aria-hidden="true"></div>
+
+        <div class="lane">
+          <p class="lane-h">How the order comes in</p>
+          <div class="nodes four">
+            <div class="node accent"><div class="nt">Online Store + Shop Pay</div><div class="nd">Web shoppers</div></div>
+            <div class="node accent"><div class="nt">B2B wholesale</div><div class="nd">Corporate &amp; funeral · Plus</div></div>
+            <div class="node"><div class="nt">Phone → MAS</div><div class="nd">Unchanged</div></div>
+            <div class="node dashed"><div class="nt">POS</div><div class="nd">In-store · Phase 2</div></div>
+          </div>
+        </div>
+
+        <div class="spine" aria-hidden="true"></div>
+
+        <div class="lane" style="border:0;background:transparent;box-shadow:none;padding:0">
+          <div class="bar"><b>One Shopify admin</b><span class="sub">One catalog, one customer list — online + B2B orders in a single place</span></div>
+        </div>
+
+        <div class="spine" aria-hidden="true"></div>
+
+        <div class="lane">
+          <p class="lane-h">System of record &amp; payments</p>
+          <div class="nodes three">
+            <div class="node"><div class="nt">MAS — via API ⇄</div><div class="nd">System of record: orders, inventory. $550/mo + 20¢/web order. Shopify syncs both ways through this.</div></div>
+            <div class="node"><div class="nt">Shopify Payments</div><div class="nd">Online card payments — or keep Global as a gateway on Plus</div></div>
+            <div class="node"><div class="nt">Heartland (Global)</div><div class="nd">Phone + in-store, repriced cost-plus — unchanged</div></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="map-note">Web-first scope: the two accent channels go live on Shopify and sync to MAS through its existing API. Phone stays MAS → Heartland and in-store stays on your current setup; Shopify POS is a later, optional step (the dashed box).</p>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-grid">
+      <div class="next">
+        <p class="eyebrow">Next</p>
+        <p style="font-family:'Fraunces',serif;font-size:1.25rem;line-height:1.25">Thursday, 2–3 PM ET</p>
+        <p style="font-size:.9rem;margin-top:6px">30 min on this cost-and-return comparison, then 30 min on the floral use cases. Two inputs sharpen it: your Xpressions development spreadsheet, and one card statement under the new cost-plus pricing.</p>
+      </div>
+      <div class="sig">
+        <p class="sig"><b>Nicole DeGennaro</b> · Senior Account Executive, Shopify<br>
+        Working estimate — figures confirmed in your formal quote.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var lists=[].slice.call(document.querySelectorAll('[role="tablist"]'));
+  lists.forEach(function(list){
+    var tabs=[].slice.call(list.querySelectorAll(':scope > [role="tab"]'));
+    if(!tabs.length)return;
+    function sel(t){
+      tabs.forEach(function(x){
+        var on=x===t;
+        x.setAttribute('aria-selected',on?'true':'false');
+        x.tabIndex=on?0:-1;
+        var p=document.getElementById(x.getAttribute('aria-controls'));
+        if(p)p.hidden=!on;
+      });
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(t);});
+      t.addEventListener('keydown',function(e){
+        var n;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown')n=tabs[(i+1)%tabs.length];
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=tabs[(i-1+tabs.length)%tabs.length];
+        else if(e.key==='Home')n=tabs[0];
+        else if(e.key==='End')n=tabs[tabs.length-1];
+        if(n){e.preventDefault();sel(n);n.focus();}
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
