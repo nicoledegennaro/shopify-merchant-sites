@@ -316,6 +316,7 @@
       <button class="toptab" role="tab" id="t-roi" aria-controls="p-roi" aria-selected="false" tabindex="-1">ROI</button>
       <button class="toptab" role="tab" id="t-uses" aria-controls="p-uses" aria-selected="false" tabindex="-1">Use cases</button>
       <button class="toptab" role="tab" id="t-map" aria-controls="p-map" aria-selected="false" tabindex="-1">The map</button>
+      <button class="toptab" role="tab" id="t-time" aria-controls="p-time" aria-selected="false" tabindex="-1">Timeline</button>
     </div>
   </nav>
 
@@ -413,7 +414,7 @@
         <table>
           <thead><tr><th>Line item</th><th class="r">Year 1</th><th class="r">Ongoing / yr</th></tr></thead>
           <tbody>
-            <tr><td><b>Shopify Plus</b><br><span class="note">Greater of plan floor or 0.35% of revenue; at ~$3.3M online the floor applies</span></td><td class="r">$27,600</td><td class="r">$27,600</td></tr>
+            <tr><td><b>Shopify Plus</b><br><span class="note">Greater of the $2,300/mo plan floor or the 0.35% variable platform fee (VPF). At ~$3.3M online the floor applies; the VPF only overtakes it above ~$7.9M/yr online.</span></td><td class="r">$27,600</td><td class="r">$27,600</td></tr>
             <tr><td><b>Apps</b><br><span class="note">Delivery-date picker, one-to-many recipients, gift messages; B2B native on Plus</span></td><td class="r">$1,800</td><td class="r">$1,800</td></tr>
             <tr><td><b>Online card processing</b><br><span class="note">Shopify Payments runs modestly above your repriced cost-plus deal (est. +$4–7K); see Rate reality</span></td><td class="r amber">+$5,000</td><td class="r amber">+$5,000</td></tr>
             <tr><td><b>Implementation</b> <span class="note">(one-time)</span><br><span class="note">Floral build, MAS API integration, data migration</span></td><td class="r">$15K–40K</td><td class="r">—</td></tr>
@@ -649,13 +650,48 @@
           <p class="lane-h">System of record &amp; payments</p>
           <div class="nodes three">
             <div class="node"><div class="nt">MAS — via API ⇄</div><div class="nd">System of record: orders, inventory. $550/mo + 20¢/web order. Shopify syncs both ways through this.</div></div>
-            <div class="node"><div class="nt">Shopify Payments</div><div class="nd">Online card payments — or keep Global as a gateway on Plus</div></div>
+            <div class="node"><div class="nt">Shopify Payments</div><div class="nd">Online card payments</div></div>
             <div class="node"><div class="nt">Heartland (Global)</div><div class="nd">Phone + in-store, repriced cost-plus — unchanged</div></div>
           </div>
         </div>
       </div>
 
       <p class="map-note">Web-first scope: the two accent channels go live on Shopify and sync to MAS through its existing API. Phone stays MAS → Heartland and in-store stays on your current setup; Shopify POS is a later, optional step (the dashed box).</p>
+    </section>
+  </div>
+
+  <!-- PANEL · TIMELINE -->
+  <div class="toppanel" id="p-time" role="tabpanel" aria-labelledby="t-time" tabindex="0" hidden>
+    <section>
+      <p class="eyebrow">What happens next · path to live</p>
+      <h2>From signature this quarter to live in March.</h2>
+      <p style="margin-top:12px">A web-first path with nothing run in series that doesn’t have to be. Dates firm up at signing.</p>
+
+      <ol class="steps" style="margin-top:20px">
+        <li class="today"><span class="lab">Now → Nov 30, 2026 · this quarter</span><p><b>Sign the web-first move.</b> Close this quarter, signature by Nov 30.</p></li>
+        <li class="on"><span class="lab">Right after · in parallel</span><p><b>Partner intros + platform demo, together.</b> Meet your implementation partner and walk the live platform at the same time — not one after the other.</p></li>
+        <li class="on"><span class="lab">Then</span><p><b>Pricing review.</b> Confirm plan term and any build-period promo; one card statement under your new cost-plus pricing locks the exact numbers.</p></li>
+        <li class="on"><span class="lab">At kickoff</span><p><b>Post-dated contract.</b> Dated to the build start, so billing begins when the work does — not at signing.</p></li>
+        <li class="on"><span class="lab">~3 months · build period</span><p><b>Build.</b> Floral storefront, MAS API integration, data migration, checkout (delivery dates, gift messages, one-to-many), and the corporate &amp; funeral portals.</p></li>
+        <li class="on"><span class="lab">March 2027 · live</span><p><b>Go live — web first.</b> The online store launches on Shopify and syncs to MAS. Phone and in-store carry on exactly as they do today.</p></li>
+      </ol>
+    </section>
+
+    <section>
+      <p class="eyebrow">After you’re live</p>
+      <h2>How a Phase 2 could unify the rest.</h2>
+      <p style="margin-top:12px">Web-first means you prove Shopify on the online third first. Once it’s earning, unifying the rest is an easy, optional next step — never a prerequisite.</p>
+
+      <p class="group-h first">Later · Phase 2 — when it earns it</p>
+      <div class="phase2">
+        <span class="lab">In-store</span>
+        <p><strong>Shopify POS.</strong> Bring walk-in and counter sales onto the same platform — one catalog, one customer list, one set of reports across web and store (~$6K/yr POS Pro). A separate decision for when the lift clearly outweighs the wider card gap on your already-cheap in-store volume.</p>
+      </div>
+      <div class="phase2" style="margin-top:12px">
+        <span class="lab">Wholesale</span>
+        <p><strong>Full B2B / wholesale channel.</strong> Grow the corporate &amp; funeral-home accounts into native B2B — company logins, custom price lists, and net terms — on the Plus plan you’re already on, with no new platform to add.</p>
+      </div>
+      <p class="note" style="margin-top:14px">Both sit on the same Shopify admin you go live with in March. Phase 2 is there when you want it, and costs you nothing until you do.</p>
     </section>
   </div>
 
