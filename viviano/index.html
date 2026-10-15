@@ -166,6 +166,10 @@
   .stays .lab{font-family:"Spline Sans Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:none;padding-top:3px}
   .stays p{font-size:.9rem}
 
+  .media{margin:22px auto 0;max-width:480px}
+  .media img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .media figcaption{font-family:"Spline Sans Mono",monospace;font-size:.76rem;letter-spacing:.02em;color:var(--muted);margin-top:9px;text-align:center}
+
   .group-h{font-family:"Spline Sans Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:24px 0 12px}
   .group-h.first{margin-top:8px}
   .levers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -266,7 +270,7 @@
       <span class="eyebrow" style="margin:0">Viviano Flower Shop &nbsp;×&nbsp; Shopify</span>
     </div>
     <h1>Total Cost of Ownership &amp; ROI</h1>
-    <p class="lede">A working cost-and-return model for taking Viviano online on Shopify — <strong>web first</strong>, with MAS, phone orders, and your in-store setup left exactly as they are. Built from your own numbers and your latest Heartland (Global) cost-plus pricing, not a template.</p>
+    <p class="lede">The case for taking Viviano online on Shopify — <strong>web first</strong>: what the platform actually is, why it’s worth the move, and the honest cost-and-return behind it. MAS, phone orders, and your in-store setup stay exactly as they are. Built from your own numbers and your latest Heartland (Global) cost-plus pricing, not a template.</p>
     <div class="meta">
       <span class="tag lead">Scope · Web first</span>
       <span class="tag">Prepared for Paul Viviano</span>
@@ -306,7 +310,8 @@
   <!-- TOP-LEVEL TAB NAV -->
   <nav class="toptabs" aria-label="Sections">
     <div class="toptablist" role="tablist" aria-label="Quicksite sections">
-      <button class="toptab" role="tab" id="t-rate" aria-controls="p-rate" aria-selected="true" tabindex="0">Rate reality</button>
+      <button class="toptab" role="tab" id="t-why" aria-controls="p-why" aria-selected="true" tabindex="0">Why move</button>
+      <button class="toptab" role="tab" id="t-rate" aria-controls="p-rate" aria-selected="false" tabindex="-1">Rate reality</button>
       <button class="toptab" role="tab" id="t-tco" aria-controls="p-tco" aria-selected="false" tabindex="-1">Total cost</button>
       <button class="toptab" role="tab" id="t-roi" aria-controls="p-roi" aria-selected="false" tabindex="-1">ROI</button>
       <button class="toptab" role="tab" id="t-uses" aria-controls="p-uses" aria-selected="false" tabindex="-1">Use cases</button>
@@ -314,8 +319,93 @@
     </div>
   </nav>
 
+  <!-- PANEL · WHY MOVE -->
+  <div class="toppanel" id="p-why" role="tabpanel" aria-labelledby="t-why" tabindex="0">
+    <section>
+      <div class="lead-grid">
+        <div>
+          <p class="eyebrow">What you’d actually be moving to</p>
+          <h2>Shopify isn’t a redesign — it’s a different kind of system.</h2>
+          <p style="margin-top:14px">Today Viviano runs on a <strong>custom site that Xpressions builds and maintains</strong>. It works — but every improvement is a change request you scope, pay for, and wait on, and the hosting, security patches, and uptime are all yours to own. You’re quietly funding a small software team to keep one website running.</p>
+          <p style="margin-top:12px">Shopify is a <strong>hosted commerce platform</strong>. The store, the checkout, the servers, PCI compliance, and a constant stream of new features come as the <em>product</em> — not as projects you commission one at a time. You stop maintaining software and go back to running a flower business.</p>
+          <div class="callout">
+            <p><strong>That’s the move:</strong> from a site someone builds and bills you for, to a platform that’s built, secured, and improved for you — so the team spends its days selling flowers, not running a server.</p>
+          </div>
+        </div>
+        <div class="stays" style="margin-top:0;flex-direction:column;gap:8px">
+          <span class="lab">The one-line reason</span>
+          <p>Your two biggest revenue days of the year — <strong>Valentine’s and Mother’s Day</strong> — are the two hardest days on a website. On Shopify, holding that spike isn’t your problem to engineer: it’s the same infrastructure that absorbs Black&nbsp;Friday for millions of stores.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">From a custom build to a platform</p>
+      <h2>What actually changes when you move.</h2>
+      <p style="margin-top:12px">Same business, same catalog, same MAS in the background. What changes is <strong>who carries the work</strong> of keeping the storefront running.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>What it takes to run a store</th><th>Today · custom Xpressions build</th><th>On Shopify</th></tr></thead>
+          <tbody>
+            <tr><td><b>Hosting, servers &amp; uptime</b></td><td>Yours to run and pay for</td><td class="good">Included — Shopify’s infrastructure</td></tr>
+            <tr><td><b>Security patches &amp; PCI</b></td><td>Your responsibility</td><td class="good">Carried at the platform level</td></tr>
+            <tr><td><b>New features &amp; fixes</b></td><td>Scoped, quoted, waited on</td><td class="good">Shipped to you automatically</td></tr>
+            <tr><td><b>The two big floral days</b></td><td>Your site has to hold the spike</td><td class="good">Scales the same as it does for BFCM</td></tr>
+            <tr><td><b>Checkout &amp; mobile</b></td><td>Guest-heavy, custom</td><td class="good">Shop Pay, mobile-first, always current</td></tr>
+            <tr><td><b>Adding a capability</b></td><td>A development project</td><td class="good">Usually an app, often same day</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:14px">None of this is about card fees — those don’t go down (see <strong>Rate reality</strong>). The case for moving is reliability, conversion, and getting out of the business of maintaining your own storefront.</p>
+    </section>
+
+    <section>
+      <p class="eyebrow">The value, past the numbers</p>
+      <h2>What you get that you can’t get today.</h2>
+      <p style="margin-top:12px">The <strong>Total cost</strong> and <strong>ROI</strong> tabs put dollars on this. Here’s the plain version — the reasons to move that hold even before you run the math.</p>
+
+      <p class="group-h first">Why it matters for Viviano</p>
+      <div class="levers">
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 5.3L18 9l-4 3.8 1 5.9-5-3-5 3 1-5.9L2 9l5.6-.7L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+          <div><h3>It holds on the days that pay the bills</h3><p>Valentine’s and Mother’s Day are make-or-break for a florist. The platform that runs Black Friday for millions of stores doesn’t flinch at your spike — no scramble, no 2&nbsp;AM call.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 13l4 4 8-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><h3>A checkout that actually converts</h3><p>Most flower orders are last-minute and on a phone. <span class="big">Shop Pay</span> and a mobile-first checkout turn more of the traffic you already have into orders — the engine behind the ROI tab.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.3 11.8l1.9 1.9 3.6-3.9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><h3>Maintenance off your plate</h3><p>No hosting bills, no patching, no “the site’s down.” The recurring and variable development you pay Xpressions for simply goes away — real money and real time back.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13.5" y="4.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3.5" y="14.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13.5" y="14.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="2"/></svg></span>
+          <div><h3>One platform as you grow</h3><p>Online now, a native <b>B2B / wholesale</b> channel for your corporate and funeral accounts when you’re ready, and <b>POS</b> if in-store ever moves — one admin, over the MAS data you keep.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <div><h3>An app for almost everything</h3><p>Delivery-date pickers, multi-recipient sends, gift messaging — installed from an ecosystem of thousands, not custom-built and re-quoted every year.</p></div>
+        </div>
+        <div class="lever">
+          <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><h3>It gets better without you paying for it</h3><p>Hundreds of platform improvements a year — plus AI tools like <b>Sidekick</b> — arrive as part of Shopify. You ride the roadmap instead of funding one.</p></div>
+        </div>
+      </div>
+
+      <figure class="media">
+        <img src="viviano-shoppay.gif" width="960" height="540" loading="lazy" alt="The same Viviano flower order shown in a standard guest checkout beside Shop Pay — both start the same, but Shop Pay finishes in one tap.">
+        <figcaption>Shop Pay (right) vs. a standard guest checkout — the same order, finished in one tap.</figcaption>
+      </figure>
+
+      <div class="stays" style="margin-top:22px">
+        <span class="lab">Low-risk by design</span>
+        <p><strong>You’re not betting the whole business — this is web first.</strong> Only the online third moves; phone and in-store stay exactly as they run today. If Shopify proves itself on the web, on the days that matter most, unifying the rest is a later, optional decision — never a prerequisite.</p>
+      </div>
+    </section>
+  </div>
+
   <!-- PANEL · RATE REALITY -->
-  <div class="toppanel" id="p-rate" role="tabpanel" aria-labelledby="t-rate" tabindex="0">
+  <div class="toppanel" id="p-rate" role="tabpanel" aria-labelledby="t-rate" tabindex="0" hidden>
     <section>
       <div class="lead-grid">
         <div>
