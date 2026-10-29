@@ -107,6 +107,13 @@
   .card { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 23px; box-shadow: var(--shadow); }
   .card h3 { margin-bottom: 8px; }
   .card p:last-child { margin-bottom: 0; }
+  .plan-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .plan-cost { margin: 14px 0 4px; font-size: 13.5px; }
+  .plan-cost > div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; color: var(--ink-soft); border-bottom: 1px solid var(--line-soft); }
+  .plan-cost .num { color: var(--ink); font-weight: 600; }
+  .plan-cost .plan-total { border-bottom: 0; border-top: 2px solid var(--line); margin-top: 2px; padding-top: 8px; font-weight: 700; color: var(--ink); }
+  .plan-cost .plan-total .num { font-size: 15px; }
+  .card.recommended { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-lg); }
 
   .stat { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 19px 21px; box-shadow: var(--shadow); }
   .stat .v { font-family: 'Spectral', serif; font-size: 32px; font-weight: 600; letter-spacing: -.015em; line-height: 1; }
@@ -362,33 +369,70 @@
     <!-- PLANS & CARD RATES -->
     <section class="tab-content" id="tab-plans" role="tabpanel" aria-labelledby="btn-plans">
       <div class="section-label">Plans &amp; card rates — at ~$16M</div>
-      <h2>At your volume, the card rate is the whole game.</h2>
-      <p class="lead mt-s">On ~$16M of in-store sales, processing dwarfs every subscription fee — so the plan question is really "<strong>which plan gives the best card rate for the lowest all-in cost</strong>," and whether it beats Platinum. Here's every plan, in-store, on your numbers.</p>
-
-      <div class="table-scroll mt-m">
-        <table class="compare">
-          <thead>
-            <tr><th>Annual</th><th class="r">Grow</th><th class="r col-best">Advanced</th><th class="r">Plus</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="row-head">Platform fee</td><td class="r">$1,068<span class="sub">$89/mo</span></td><td class="r col-best">$4,308<span class="sub">$359/mo</span></td><td class="r">$40,000<span class="sub">0.25% of GMV*</span></td></tr>
-            <tr><td class="row-head">POS Pro — 5 stores</td><td class="r">$4,020<span class="sub">$67/loc/mo</span></td><td class="r col-best">$4,020</td><td class="r">Included</td></tr>
-            <tr><td class="row-head">In-store card rate</td><td class="r">2.5% + 10¢</td><td class="r col-best">2.4% + 10¢</td><td class="r">2.3% + 10¢</td></tr>
-            <tr><td class="row-head">Processing on $16M</td><td class="r">$400,000</td><td class="r col-best">$384,000</td><td class="r">$368,000</td></tr>
-            <tr class="total"><td>All-in / year</td><td class="r">~$405,100</td><td class="r col-best">~$392,300</td><td class="r">~$408,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note mt-s">*At ~$16M, Shopify Plus uses a Variable Platform Fee (0.25% of GMV ≈ $40,000/yr) instead of the $2,300/mo base. Per-order 10¢ is identical on every plan, so it's left out. Figures are list USD — your signed rate at this volume is negotiable.</p>
+      <h2>Three ways to buy — and why we'd put you on Plus.</h2>
+      <p class="lead mt-s">At ~$16M, processing dwarfs the subscription, so the plan is really about the <strong>card rate</strong> and what grows with you. All three land in a tight band — here's each in full, and why <strong>Plus</strong> is the one we'd recommend for where Prairie Gardens is headed.</p>
 
       <div class="grid grid-3 mt-m">
-        <div class="stat accent"><div class="v">Advanced</div><div class="k">lowest all-in at $16M — the cost-optimal pick for in-store volume</div></div>
-        <div class="stat"><div class="v"><span class="num">$16K</span></div><div class="k">per year that every 0.1% of card rate is worth on $16M</div></div>
-        <div class="stat clay"><div class="v">Platinum?</div><div class="k">send your current rate and we'll compare it head-to-head</div></div>
+        <div class="card">
+          <div class="plan-head"><h3>Grow</h3><span class="pill green">$89/mo</span></div>
+          <div class="plan-cost">
+            <div><span>Plan fee</span><span class="num">$1,068/yr</span></div>
+            <div><span>POS Pro × 5</span><span class="num">$4,020/yr</span></div>
+            <div><span>Processing · 2.5%</span><span class="num">$400,000/yr</span></div>
+            <div class="plan-total"><span>Total</span><span class="num">$405,088/yr</span></div>
+          </div>
+          <ul class="clean">
+            <li>In-person <b>2.5% + 10¢</b> (online 2.7% + 30¢)</li>
+            <li>Up to <b>5</b> staff accounts</li>
+            <li>Up to 87% off shipping; up to $7,500 in credits</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="plan-head"><h3>Advanced</h3><span class="pill green">$359/mo</span></div>
+          <div class="plan-cost">
+            <div><span>Plan fee</span><span class="num">$4,308/yr</span></div>
+            <div><span>POS Pro × 5</span><span class="num">$4,020/yr</span></div>
+            <div><span>Processing · 2.4%</span><span class="num">$384,000/yr</span></div>
+            <div class="plan-total"><span>Total</span><span class="num">$392,328/yr</span></div>
+          </div>
+          <ul class="clean">
+            <li>Lower in-person <b>2.4% + 10¢</b> (online 2.5% + 30¢)</li>
+            <li>Up to <b>15</b> staff accounts</li>
+            <li>Live 3rd-party shipping rates; tailor store by region; up to $10,000 in credits</li>
+          </ul>
+        </div>
+
+        <div class="card recommended">
+          <div class="plan-head"><h3>Plus</h3><span class="pill pos">★ Recommended</span></div>
+          <p class="note" style="margin:6px 0 0;">from $2,300/mo — VPF applies at your volume</p>
+          <div class="plan-cost">
+            <div><span>Platform (VPF 0.25%)</span><span class="num">$40,000/yr</span></div>
+            <div><span>POS Pro · all 5</span><span class="num">Included</span></div>
+            <div><span>Processing · 2.3%</span><span class="num">$368,000/yr</span></div>
+            <div class="plan-total"><span>Total (list)</span><span class="num">$408,000/yr</span></div>
+          </div>
+          <ul class="clean">
+            <li><b>Lowest</b> rate <b>2.3% + 10¢</b> in-store (from 2.25% + 30¢ online) — <b>negotiable at $16M</b></li>
+            <li><b>Unlimited</b> staff accounts + priority <b>24/7 phone support</b></li>
+            <li>Full account team: <b>AE, SE, Activation Engineer, CSM</b></li>
+            <li><b>POS Pro free</b> across all 5 locations</li>
+            <li>Fully customizable checkout (upsells, gift notes); <b>unlimited B2B catalogs</b> for wholesale — room for the loyalty/wholesale ambitions</li>
+            <li><b>Highest API limits</b></li>
+            <li><b>Shopify Audiences</b> — high-potential customer lists from Shop data to export to your ad platforms</li>
+          </ul>
+        </div>
       </div>
+      <p class="note mt-s">At ~$16M, Plus uses a Variable Platform Fee (0.25% of GMV ≈ $40,000/yr) instead of the $2,300/mo base. Per-order 10¢ is identical on every plan, so it's left out. Figures are list USD — the Plus card rate is negotiable at your volume.</p>
 
       <div class="callout mt-m">
-        <p><b>The deal-breaker, handled directly:</b> you said if the card rate isn't competitive it's a dealbreaker — fair. Because each 0.1% = ~$16,000/yr here, <b>Advanced's 2.4% is the sweet spot</b> (its lower rate more than pays for its higher fee vs. Grow). <b>Plus</b> only makes sense if you want wholesale/B2B or expansion storefronts — the Variable Platform Fee makes it the priciest at this volume. Share the Platinum rate and we'll show the exact gap.</p>
+        <p><b>Why we'd put you on Plus:</b> at list it's ~$16K/yr more than Advanced — but at $16M the <b>card rate is the whole game</b>, and Plus's rate is <b>negotiable at your volume</b> (every 0.1% = ~$16,000/yr), so a negotiated rate below 2.3% closes or beats that gap. On top of the lowest rate you get <b>POS Pro free across all 5 stores</b>, a <b>full account team</b> (AE, SE, Activation Engineer, CSM), the <b>highest API limits</b>, <b>customizable checkout</b>, <b>unlimited B2B catalogs</b> for the wholesale and "I Belong" loyalty ambitions, and <b>Shopify Audiences</b>. For a modernizing five-store retailer with room to grow, that's the platform to build on.</p>
+      </div>
+
+      <div class="grid grid-3 mt-m">
+        <div class="stat accent"><div class="v">Plus</div><div class="k">our recommendation — lowest (negotiable) rate, included POS, and headroom to grow</div></div>
+        <div class="stat"><div class="v"><span class="num">$16K</span></div><div class="k">per year every 0.1% of card rate is worth on $16M — the negotiated rate is the swing</div></div>
+        <div class="stat clay"><div class="v">Platinum?</div><div class="k">send your current rate and we'll compare it head-to-head</div></div>
       </div>
 
       <div class="grid grid-2 mt-m">
