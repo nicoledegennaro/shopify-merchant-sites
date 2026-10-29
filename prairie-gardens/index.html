@@ -1,0 +1,529 @@
+<title>Prairie Gardens × Shopify</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1e7;
+    --bg-card: #fffdf6;
+    --bg-soft: #e9e4d2;
+    --bg-deep: #1e3a2a;
+    --ink: #1e3a2a;
+    --ink-soft: #425546;
+    --muted: #7b8a7c;
+    --accent: #3f7d4e;
+    --accent-dark: #2c5c39;
+    --accent-soft: #d9e8d4;
+    --clay: #bb6a3c;
+    --clay-soft: #f0ddcc;
+    --line: #dcd5bf;
+    --line-soft: #ebe6d5;
+    --positive: #2e7d4f;
+    --positive-soft: #d8ecdc;
+    --warn: #b0682a;
+    --warn-soft: #f3e5d0;
+    --shadow: 0 1px 2px rgba(30,58,42,.05), 0 8px 28px rgba(30,58,42,.07);
+    --shadow-lg: 0 2px 6px rgba(30,58,42,.08), 0 18px 48px rgba(30,58,42,.12);
+  }
+  :root:not([data-theme="light"]) { @media (prefers-color-scheme: dark) {
+    --bg: #14201a; --bg-card: #1c2c23; --bg-soft: #24362b; --bg-deep: #0f1912;
+    --ink: #eef3ea; --ink-soft: #bcccbe; --muted: #83977f;
+    --accent: #5aae6c; --accent-dark: #4a9a5b; --accent-soft: #1d3827;
+    --clay: #d58a56; --clay-soft: #3a2817; --line: #2c4133; --line-soft: #1f3025;
+    --positive: #63c084; --positive-soft: #16351f; --warn: #d79350; --warn-soft: #3a2a17;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.3); --shadow-lg: 0 2px 6px rgba(0,0,0,.34), 0 18px 48px rgba(0,0,0,.42);
+  }}
+  :root[data-theme="dark"] {
+    --bg: #14201a; --bg-card: #1c2c23; --bg-soft: #24362b; --bg-deep: #0f1912;
+    --ink: #eef3ea; --ink-soft: #bcccbe; --muted: #83977f;
+    --accent: #5aae6c; --accent-dark: #4a9a5b; --accent-soft: #1d3827;
+    --clay: #d58a56; --clay-soft: #3a2817; --line: #2c4133; --line-soft: #1f3025;
+    --positive: #63c084; --positive-soft: #16351f; --warn: #d79350; --warn-soft: #3a2a17;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.3); --shadow-lg: 0 2px 6px rgba(0,0,0,.34), 0 18px 48px rgba(0,0,0,.42);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.58; -webkit-font-smoothing: antialiased; font-size: 16px; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+  h1, h2, h3 { font-family: 'Spectral', Georgia, serif; font-weight: 600; line-height: 1.1; color: var(--ink); text-wrap: balance; margin: 0; }
+  h1 { font-size: 50px; letter-spacing: -0.015em; }
+  h2 { font-size: 34px; letter-spacing: -0.01em; }
+  h3 { font-size: 21px; }
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  a { color: var(--accent-dark); }
+  .num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  .topbar { background: var(--bg-deep); color: #e7f0e3; }
+  .topbar .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 600; color: #eef6ea; }
+  .brand .leaf { width: 24px; height: 24px; flex: none; }
+  .topbar .meta { font-size: 12.5px; color: #9bb59d; font-weight: 500; }
+  .topbar .meta b { color: #e7f0e3; }
+
+  .hero { background: linear-gradient(170deg, var(--bg-deep) 0%, #24472f 100%); color: #eef6ea; padding: 54px 0 118px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 54px; background: var(--bg); clip-path: polygon(0 60%, 8% 48%, 16% 58%, 26% 66%, 36% 52%, 46% 60%, 56% 68%, 66% 54%, 76% 62%, 86% 50%, 94% 60%, 100% 66%, 100% 100%, 0 100%); }
+  .hero .eyebrow { font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: #9fd0a9; font-weight: 600; margin-bottom: 16px; }
+  .hero h1 { color: #f6fbf3; max-width: 18ch; }
+  .hero .lede { font-size: 19px; line-height: 1.5; color: #c7dcc5; max-width: 58ch; margin-top: 18px; }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; position: relative; z-index: 2; }
+  .hero-stat { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 18px; min-width: 140px; }
+  .hero-stat .v { font-family: 'Spectral', serif; font-size: 29px; font-weight: 600; color: #f6fbf3; }
+  .hero-stat .k { font-size: 12.5px; color: #a9c7ab; margin-top: 3px; }
+
+  .tabs-wrap { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(150%) blur(10px); border-bottom: 1px solid var(--line); margin-top: -54px; }
+  .tabs-nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 7px 0; }
+  .tabs-nav::-webkit-scrollbar { display: none; }
+  .tab-btn { flex: none; appearance: none; border: 0; background: transparent; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 600; color: var(--muted); padding: 9px 15px; border-radius: 9px; white-space: nowrap; transition: all .14s; }
+  .tab-btn:hover { color: var(--ink); background: var(--bg-soft); }
+  .tab-btn[aria-selected="true"] { color: #fff; background: var(--accent-dark); }
+  .tab-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  main { padding: 52px 0 40px; }
+  .tab-content { display: none; animation: fade .3s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .tab-content, .hero, * { animation: none !important; } }
+
+  .section-label { font-size: 12.5px; text-transform: uppercase; letter-spacing: .13em; color: var(--accent-dark); font-weight: 600; margin-bottom: 12px; }
+  .lead { font-size: 19px; line-height: 1.55; color: var(--ink-soft); max-width: 62ch; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+  .rule { height: 1px; background: var(--line); border: 0; margin: 42px 0; }
+  .mt-s { margin-top: 20px; } .mt-m { margin-top: 34px; }
+
+  .grid { display: grid; gap: 18px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 760px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+  .card { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 23px; box-shadow: var(--shadow); }
+  .card h3 { margin-bottom: 8px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .stat { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 19px 21px; box-shadow: var(--shadow); }
+  .stat .v { font-family: 'Spectral', serif; font-size: 32px; font-weight: 600; letter-spacing: -.015em; line-height: 1; }
+  .stat .k { font-size: 13px; color: var(--muted); margin-top: 9px; line-height: 1.4; }
+  .stat.accent { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 32%, transparent); }
+  .stat.accent .v { color: var(--accent-dark); }
+  .stat.clay { background: var(--clay-soft); border-color: color-mix(in srgb, var(--clay) 34%, transparent); }
+  .stat.clay .v { color: var(--clay); }
+  .stat.positive { background: var(--positive-soft); border-color: color-mix(in srgb, var(--positive) 30%, transparent); }
+  .stat.positive .v { color: var(--positive); }
+
+  .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 100px; }
+  .pill.green { background: var(--accent-soft); color: var(--accent-dark); }
+  .pill.clay { background: var(--clay-soft); color: var(--clay); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+  .pill.pos { background: var(--positive-soft); color: var(--positive); }
+
+  ul.clean { list-style: none; padding: 0; margin: 14px 0 0; }
+  ul.clean li { position: relative; padding-left: 24px; margin-bottom: 10px; color: var(--ink-soft); }
+  ul.clean li::before { content: ""; position: absolute; left: 3px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  ul.clean li b { color: var(--ink); font-weight: 600; }
+
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+  table.compare { width: 100%; border-collapse: collapse; background: var(--bg-card); font-size: 14.5px; min-width: 560px; }
+  table.compare th, table.compare td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line-soft); }
+  table.compare thead th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); font-weight: 600; }
+  table.compare tbody tr:last-child td { border-bottom: 0; }
+  table.compare td.r, table.compare th.r { text-align: right; font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+  table.compare .row-head { font-weight: 600; color: var(--ink); }
+  table.compare td .sub { display: block; font-size: 12px; color: var(--muted); font-family: 'Inter', sans-serif; }
+  table.compare tr.total td { background: var(--bg-soft); font-weight: 700; color: var(--ink); border-top: 2px solid var(--line); }
+  .col-best { background: color-mix(in srgb, var(--accent-soft) 50%, transparent); }
+
+  .callout { border-left: 3px solid var(--accent); background: var(--bg-soft); padding: 15px 20px; border-radius: 0 12px 12px 0; margin: 22px 0; }
+  .callout p { margin: 0; color: var(--ink-soft); }
+  .callout p b { color: var(--ink); }
+  .note { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+  .timeline { position: relative; margin-top: 22px; }
+  .timeline::before { content: ""; position: absolute; left: 13px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+  .tl-item { position: relative; padding-left: 44px; margin-bottom: 20px; }
+  .tl-item::before { content: ""; position: absolute; left: 7px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--accent); }
+  .tl-item.done::before { background: var(--accent); }
+  .tl-item .when { font-size: 12.5px; font-weight: 600; color: var(--accent-dark); text-transform: uppercase; letter-spacing: .04em; }
+  .tl-item h3 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; margin: 3px 0 4px; }
+  .tl-item p { margin: 0; font-size: 14px; }
+
+  figure { margin: 30px 0 0; }
+  svg.flow { width: 100%; height: auto; display: block; }
+  svg.flow a { cursor: pointer; }
+  svg.flow a:hover .flow-chip { stroke: var(--accent-dark); stroke-width: 2.2; }
+  svg.flow a:hover text { fill: var(--accent-dark); }
+  .flow-box { fill: var(--bg-card); stroke: var(--accent); stroke-width: 1.6; }
+  .flow-spine { fill: var(--accent-dark); }
+  .flow-chip { fill: var(--bg-soft); stroke: var(--line); stroke-width: 1.4; }
+  .flow-arrow { stroke: var(--muted); stroke-width: 2; fill: none; }
+  .flow-conn { stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 3 4; fill: none; }
+  .ft { font-family: 'Inter', sans-serif; fill: var(--ink); font-weight: 600; font-size: 15px; text-anchor: middle; }
+  .ft-sub { font-family: 'Inter', sans-serif; fill: var(--muted); font-weight: 500; font-size: 12px; text-anchor: middle; }
+  .ft-spine { font-family: 'Spectral', serif; fill: #f3faef; font-weight: 600; font-size: 18px; text-anchor: middle; }
+  .ft-chip { font-family: 'Inter', sans-serif; fill: var(--ink); font-weight: 600; font-size: 13.5px; text-anchor: middle; }
+  .ft-chip-sub { font-family: 'Inter', sans-serif; fill: var(--muted); font-size: 11.5px; text-anchor: middle; }
+
+  footer { background: var(--bg-deep); color: #a9c7ab; padding: 32px 0; font-size: 13px; margin-top: 48px; }
+  footer .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer b { color: #e7f0e3; }
+
+  @media (max-width: 680px) { h1 { font-size: 36px; } h2 { font-size: 27px; } .container { padding: 0 20px; } .hero { padding: 38px 0 96px; } }
+</style>
+
+<div class="topbar">
+  <div class="container">
+    <div class="brand">
+      <svg class="leaf" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" stroke="#9fd0a9" stroke-width="1.6" fill="none"/><path d="M12 12c2.5 0 5-1.5 6.5-4" stroke="#9fd0a9" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Prairie Gardens &amp; Jeffrey Alans &nbsp;×&nbsp; Shopify
+    </div>
+    <div class="meta">Prepared for the <b>Oct 29 technical follow-up</b> · Nicole DeGennaro, Shopify</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">POS &amp; commerce overview</div>
+    <h1>One modern system across all five stores.</h1>
+    <p class="lede">A first look at moving off the 35-year-old AS/400 and dumb terminals onto Shopify — point of sale, live inventory, and online in one place, for Prairie Gardens and the four Jeffrey Alans stores.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="v"><span class="num">5</span></div><div class="k">retail stores + 1 DC</div></div>
+      <div class="hero-stat"><div class="v">~<span class="num">$16M</span></div><div class="k">annual retail volume</div></div>
+      <div class="hero-stat"><div class="v"><span class="num">35</span> yrs</div><div class="k">on IBM AS/400</div></div>
+      <div class="hero-stat"><div class="v"><span class="num">Shopify</span></div><div class="k">already live for gift cards</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-wrap">
+  <div class="container">
+    <div class="tabs-nav" role="tablist" aria-label="Sections">
+      <button class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-overview" id="btn-overview">Overview</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-flow" id="btn-flow">How it connects</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-plans" id="btn-plans">Plans &amp; card rates</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-pos" id="btn-pos">POS &amp; rollout</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-next" id="btn-next">Next steps</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <!-- OVERVIEW -->
+    <section class="tab-content active" id="tab-overview" role="tabpanel" aria-labelledby="btn-overview">
+      <div class="section-label">Where Prairie Gardens is today</div>
+      <h2>A proven business on aging technology.</h2>
+      <p class="lead mt-s">Five stores and a distribution center have run for 35 years on an <strong>IBM AS/400</strong> with Data Sim dumb terminals — reliable, but inventory is only seen <strong>end of day</strong>, the AS/400 expertise is retiring with Jim, and it's held together with "bubble gum and duct tape." The goal: move to a modern, PC/tablet-based system you can grow on over the next decade.</p>
+
+      <div class="grid grid-3 mt-m">
+        <div class="card">
+          <span class="pill warn">Today</span>
+          <h3 class="mt-s">Current stack</h3>
+          <ul class="clean">
+            <li><b>IBM AS/400</b> — POS, inventory, GL &amp; AP (system of record)</li>
+            <li><b>Data Sim</b> dumb terminals, batch-synced each evening</li>
+            <li><b>Platinum</b> card processor (reliable — the bar to beat)</li>
+            <li><b>Shopify</b> already live for gift cards · <b>QuickBooks</b> in the mix</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill green">Why change</span>
+          <h3 class="mt-s">The drivers</h3>
+          <ul class="clean">
+            <li>AS/400 knowledge is <b>retiring</b>; hard to hire for</li>
+            <li>No <b>live inventory</b> — buyers decide on end-of-day numbers</li>
+            <li>Want to <b>modernize</b> and keep e-commerce, BOPIS, wholesale open</li>
+            <li>A real <b>loyalty program</b> ("I Belong") instead of a name only</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill clay">Keep in mind</span>
+          <h3 class="mt-s">Must-handle details</h3>
+          <ul class="clean">
+            <li><b>Sets</b> — buy a 3-pack, sell singly, track each (~2–3k SKUs)</li>
+            <li><b>Distribution center</b> + direct-to-store receiving</li>
+            <li><b>Floral design</b> — raw stems → finished arrangements</li>
+            <li><b>Markdowns</b>, ad/sale files, buyer reports</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout mt-m">
+        <p><b>The honest framing:</b> Shopify won't replace the AS/400 100% on day one — it covers roughly <b>80% natively</b>, with apps and a QuickBooks connector filling the rest. The aim tomorrow isn't a line-by-line bake-off against Epicor; it's a clear picture of <b>how the pieces fit</b>, what each plan costs at your volume, and whether the card rate is competitive.</p>
+      </div>
+    </section>
+
+    <!-- HOW IT CONNECTS -->
+    <section class="tab-content" id="tab-flow" role="tabpanel" aria-labelledby="btn-flow">
+      <div class="section-label">The bubble diagram you asked for</div>
+      <h2>How merchandise, stores, and systems connect.</h2>
+      <p class="lead mt-s">From a vendor delivery to the customer's car — with Shopify as the one live layer across all five stores and the distribution center, QuickBooks for the books, and the AS/400 retired.</p>
+
+      <figure>
+        <svg class="flow" viewBox="0 0 1000 450" role="img" aria-label="Flow: vendors to distribution center and floral design, to five retail stores and POS, to the customer — all on Shopify, connected to QuickBooks, replacing the AS/400.">
+          <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/></marker></defs>
+
+          <!-- stage boxes -->
+          <rect class="flow-box" x="16" y="30" width="216" height="96" rx="13"/>
+          <text class="ft" x="124" y="66">Vendors</text>
+          <text class="ft-sub" x="124" y="88">Merchandise in —</text>
+          <text class="ft-sub" x="124" y="105">to DC &amp; direct to store</text>
+
+          <rect class="flow-box" x="262" y="30" width="216" height="96" rx="13"/>
+          <text class="ft" x="370" y="60">Distribution Center</text>
+          <text class="ft" x="370" y="80">+ Floral Design</text>
+          <text class="ft-sub" x="370" y="102">receive · build · distribute</text>
+
+          <rect class="flow-box" x="508" y="30" width="216" height="96" rx="13"/>
+          <text class="ft" x="616" y="60">5 Retail Stores</text>
+          <text class="ft-sub" x="616" y="82">Prairie Gardens +</text>
+          <text class="ft-sub" x="616" y="99">4 Jeffrey Alans · POS</text>
+
+          <rect class="flow-box" x="754" y="30" width="216" height="96" rx="13"/>
+          <text class="ft" x="862" y="60">Customer</text>
+          <text class="ft-sub" x="862" y="82">card · check · cash</text>
+          <text class="ft-sub" x="862" y="99">gift cards · online</text>
+
+          <!-- arrows between stages -->
+          <line class="flow-arrow" x1="232" y1="78" x2="262" y2="78" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="478" y1="78" x2="508" y2="78" marker-end="url(#arrow)"/>
+          <line class="flow-arrow" x1="724" y1="78" x2="754" y2="78" marker-end="url(#arrow)"/>
+
+          <!-- connectors down to spine -->
+          <line class="flow-conn" x1="124" y1="126" x2="124" y2="196"/>
+          <line class="flow-conn" x1="370" y1="126" x2="370" y2="196"/>
+          <line class="flow-conn" x1="616" y1="126" x2="616" y2="196"/>
+          <line class="flow-conn" x1="862" y1="126" x2="862" y2="196"/>
+
+          <!-- spine -->
+          <rect class="flow-spine" x="16" y="196" width="954" height="76" rx="14"/>
+          <text class="ft-spine" x="493" y="230">Shopify</text>
+          <text x="493" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#bfe0c3" font-weight="500">one live inventory · point of sale · online — across all 5 stores + the DC</text>
+
+          <!-- connectors down to chips -->
+          <line class="flow-conn" x1="166" y1="272" x2="166" y2="312"/>
+          <line class="flow-conn" x1="500" y1="272" x2="500" y2="312"/>
+          <line class="flow-conn" x1="827" y1="272" x2="827" y2="312"/>
+
+          <!-- chips -->
+          <a href="https://apps.shopify.com/search?q=quickbooks" target="_blank" rel="noopener" aria-label="QuickBooks connectors on the Shopify App Store">
+            <rect class="flow-chip" x="16" y="312" width="300" height="82" rx="12"/>
+            <text class="ft-chip" x="166" y="346">QuickBooks ↗</text>
+            <text class="ft-chip-sub" x="166" y="366">accounting — real-time via connector</text>
+          </a>
+
+          <a href="https://help.shopify.com/en/manual/payments/shopify-payments" target="_blank" rel="noopener" aria-label="Shopify Payments documentation">
+            <rect class="flow-chip" x="350" y="312" width="300" height="82" rx="12"/>
+            <text class="ft-chip" x="500" y="346">Card processing ↗</text>
+            <text class="ft-chip-sub" x="500" y="366">Shopify Payments — or keep Platinum</text>
+          </a>
+
+          <a href="https://apps.shopify.com/search?q=loyalty" target="_blank" rel="noopener" aria-label="Loyalty apps on the Shopify App Store">
+            <rect class="flow-chip" x="678" y="312" width="292" height="82" rx="12"/>
+            <text class="ft-chip" x="824" y="346">Loyalty — "I Belong" ↗</text>
+            <text class="ft-chip-sub" x="824" y="366">targeted offers, repeat visits (app)</text>
+          </a>
+
+          <text x="493" y="426" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="var(--clay)" font-weight="600">Retires the 35-year-old IBM AS/400 + Data Sim terminals</text>
+        </svg>
+      </figure>
+
+      <div class="grid grid-2 mt-m">
+        <div class="card">
+          <h3>What Shopify handles natively (~80%)</h3>
+          <ul class="clean">
+            <li>POS across all 5 stores with <b>live, shared inventory</b></li>
+            <li>Receiving, transfers (DC → store), and store-direct receiving</li>
+            <li>Markdowns, sale/ad pricing by date, discounts</li>
+            <li>Buyer reporting — on-hand, sell-through, reorder signals</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Where apps / partners fill the gap (~20%)</h3>
+          <ul class="clean">
+            <li><b>Sets</b> (buy-as-pack, sell-single) and floral build via <a href="https://apps.shopify.com/search?q=bundles" target="_blank" rel="noopener">bundle apps</a></li>
+            <li><a href="https://apps.shopify.com/search?q=loyalty" target="_blank" rel="noopener"><b>Loyalty</b> app</a> to make "I Belong" real and targeted</li>
+            <li><a href="https://apps.shopify.com/search?q=quickbooks" target="_blank" rel="noopener"><b>QuickBooks</b> connector</a> for the books (~$50–200/mo)</li>
+            <li>An <b>inventory/ERP</b> path as you retire the AS/400 (SE + partner to advise)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANS & CARD RATES -->
+    <section class="tab-content" id="tab-plans" role="tabpanel" aria-labelledby="btn-plans">
+      <div class="section-label">Plans &amp; card rates — at ~$16M</div>
+      <h2>At your volume, the card rate is the whole game.</h2>
+      <p class="lead mt-s">On ~$16M of in-store sales, processing dwarfs every subscription fee — so the plan question is really "<strong>which plan gives the best card rate for the lowest all-in cost</strong>," and whether it beats Platinum. Here's every plan, in-store, on your numbers.</p>
+
+      <div class="table-scroll mt-m">
+        <table class="compare">
+          <thead>
+            <tr><th>Annual</th><th class="r">Grow</th><th class="r col-best">Advanced</th><th class="r">Plus</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="row-head">Platform fee</td><td class="r">$1,068<span class="sub">$89/mo</span></td><td class="r col-best">$4,308<span class="sub">$359/mo</span></td><td class="r">$40,000<span class="sub">0.25% of GMV*</span></td></tr>
+            <tr><td class="row-head">POS Pro — 5 stores</td><td class="r">$4,020<span class="sub">$67/loc/mo</span></td><td class="r col-best">$4,020</td><td class="r">Included</td></tr>
+            <tr><td class="row-head">In-store card rate</td><td class="r">2.5% + 10¢</td><td class="r col-best">2.4% + 10¢</td><td class="r">2.3% + 10¢</td></tr>
+            <tr><td class="row-head">Processing on $16M</td><td class="r">$400,000</td><td class="r col-best">$384,000</td><td class="r">$368,000</td></tr>
+            <tr class="total"><td>All-in / year</td><td class="r">~$405,100</td><td class="r col-best">~$392,300</td><td class="r">~$408,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note mt-s">*At ~$16M, Shopify Plus uses a Variable Platform Fee (0.25% of GMV ≈ $40,000/yr) instead of the $2,300/mo base. Per-order 10¢ is identical on every plan, so it's left out. Figures are list USD — your signed rate at this volume is negotiable.</p>
+
+      <div class="grid grid-3 mt-m">
+        <div class="stat accent"><div class="v">Advanced</div><div class="k">lowest all-in at $16M — the cost-optimal pick for in-store volume</div></div>
+        <div class="stat"><div class="v"><span class="num">$16K</span></div><div class="k">per year that every 0.1% of card rate is worth on $16M</div></div>
+        <div class="stat clay"><div class="v">Platinum?</div><div class="k">send your current rate and we'll compare it head-to-head</div></div>
+      </div>
+
+      <div class="callout mt-m">
+        <p><b>The deal-breaker, handled directly:</b> you said if the card rate isn't competitive it's a dealbreaker — fair. Because each 0.1% = ~$16,000/yr here, <b>Advanced's 2.4% is the sweet spot</b> (its lower rate more than pays for its higher fee vs. Grow). <b>Plus</b> only makes sense if you want wholesale/B2B or expansion storefronts — the Variable Platform Fee makes it the priciest at this volume. Share the Platinum rate and we'll show the exact gap.</p>
+      </div>
+
+      <div class="grid grid-2 mt-m">
+        <div class="card">
+          <h3>Why move processing to Shopify Payments</h3>
+          <ul class="clean">
+            <li><b>No more finger-pointing</b> — one vendor for POS + payments, nothing to reconcile between systems at day's end</li>
+            <li>Rates published and <b>negotiable at $16M</b></li>
+            <li>Still accept <b>card, debit, check, and cash</b> at the counter</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Or keep Platinum</h3>
+          <ul class="clean">
+            <li>Supported, but an outside processor usually means <b>manual entry + end-of-day reconciliation</b> between the terminal and Shopify</li>
+            <li>You lose the single-vendor simplicity above</li>
+            <li>We'll only recommend switching if the <b>rate + reliability</b> genuinely win</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- POS & ROLLOUT -->
+    <section class="tab-content" id="tab-pos" role="tabpanel" aria-labelledby="btn-pos">
+      <div class="section-label">POS &amp; rollout · 5 stores</div>
+      <h2>Modern tablets, phased store by store.</h2>
+      <p class="lead mt-s">Shopify POS runs on iPads — a clean, modern counter that replaces the dumb terminals. POS Pro is <strong>per location, not per register</strong>, so extra checkouts in a store cost nothing more, and each paid location includes a free card reader.</p>
+
+      <div class="grid grid-4 mt-m">
+        <div class="stat"><div class="v"><span class="num">$67</span></div><div class="k">/location/mo POS Pro (annual) — not per register</div></div>
+        <div class="stat accent"><div class="v"><span class="num">5</span></div><div class="k">locations, unlimited checkouts each</div></div>
+        <div class="stat clay"><div class="v"><span class="num">1</span></div><div class="k">free card reader per paid location</div></div>
+        <div class="stat positive"><div class="v"><span class="num">~$1.5K</span></div><div class="k">migration support credit (POS Pro yearly)</div></div>
+      </div>
+
+      <div class="grid grid-2 mt-m">
+        <div class="card">
+          <h3>Phased, around your peak seasons</h3>
+          <div class="timeline">
+            <div class="tl-item done">
+              <div class="when">Now → winter</div>
+              <h3>Scope &amp; pilot one store</h3>
+              <p>Lock requirements (Jim's AS/400 list), set up one store, migrate data, train staff. Nothing touches the stores during peak.</p>
+            </div>
+            <div class="tl-item">
+              <div class="when">Avoid Apr 1 – Jun 1 &amp; Oct 1 – Jan 1</div>
+              <h3>Protected peak windows</h3>
+              <p>Spring and holiday are off-limits for changes — fully live and confident before each.</p>
+            </div>
+            <div class="tl-item">
+              <div class="when">Within ~12 months</div>
+              <h3>Roll out the remaining stores + DC</h3>
+              <p>Store-by-store, with inventory management solid so buyers can trust the numbers going into peak.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Built for how you actually sell</h3>
+          <ul class="clean">
+            <li><b>Quick keys</b> for no-tag small items and top sellers</li>
+            <li><b>Sets</b> and floral bundles handled via apps</li>
+            <li><b>Markdowns &amp; dated sale pricing</b> across stores at once</li>
+            <li><b>Loyalty</b> ("I Belong") that recognizes customers and targets offers</li>
+            <li><b>Rollout &amp; training</b> via a Shopify partner — remote or on-site (separate cost; we'll introduce a few)</li>
+          </ul>
+          <div class="callout" style="margin-bottom:0;">
+            <p><b>On the AS/400:</b> we'll map which functions Shopify covers natively, which need an app, and the path to retire it — so you're never mid-migration without a working system.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section class="tab-content" id="tab-next" role="tabpanel" aria-labelledby="btn-next">
+      <div class="section-label">Next steps</div>
+      <h2>From today's look to a confident decision.</h2>
+      <p class="lead mt-s">The goal right now isn't a full bake-off — it's a clear feel for your best couple of options, so when you're ready to move you already know the direction.</p>
+
+      <div class="table-scroll mt-m">
+        <table class="compare">
+          <thead><tr><th>When</th><th>Step</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td class="row-head">By Monday</td><td>AS/400 function list (GL, AP, retail, buyer reports, sets…)<span class="sub">so we map coverage precisely</span></td><td>Jim / Prairie Gardens</td></tr>
+            <tr><td class="row-head">Before the call</td><td>Share the Platinum card rate<span class="sub">so the comparison is real, not hypothetical</span></td><td>Prairie Gardens</td></tr>
+            <tr><td class="row-head">Thu Oct 29, 10 CT / 11 ET</td><td>Technical follow-up — this overview, QuickBooks, card-rate comparison, apps<span class="sub">3+ of the team in the room</span></td><td>Shopify + Prairie Gardens</td></tr>
+            <tr><td class="row-head">Follow-on</td><td>Intro to a Shopify partner — scope, timeline, on-site vs. remote, cost<span class="sub">realistic rollout estimate</span></td><td>Shopify</td></tr>
+            <tr class="total"><td>Within ~12 mo</td><td>Decision &amp; phased rollout — live before a peak season</td><td>Prairie Gardens</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-2 mt-m">
+        <div class="card">
+          <h3>What we'll bring</h3>
+          <ul class="clean">
+            <li>This systems overview + the plan &amp; <b>card-rate comparison on your $16M</b></li>
+            <li>The <b>QuickBooks</b> connector details and cost</li>
+            <li>A <b>Solutions Engineer</b> to work the AS/400 coverage + app picks</li>
+            <li>Partner options for migration &amp; training</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Dig in anytime</h3>
+          <ul class="clean">
+            <li><a href="https://help.shopify.com">help.shopify.com</a> — searchable help center, with source docs</li>
+            <li><a href="https://shopify.dev">shopify.dev</a> — technical / developer documentation</li>
+            <li><a href="https://www.shopify.com/pos">shopify.com/pos</a> — POS overview &amp; hardware</li>
+            <li><a href="https://www.shopify.com/pricing">shopify.com/pricing</a> — plans &amp; rates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div>Prepared by <b>Nicole DeGennaro</b> · Shopify · for Prairie Gardens &amp; Jeffrey Alans</div>
+    <div class="note" style="color:#86a588;">Modeled estimates on list pricing (USD) for discussion on Oct 29 — not a formal quote.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.tab-content'));
+  function select(id) {
+    btns.forEach(function (b) { b.setAttribute('aria-selected', b.getAttribute('aria-controls') === id ? 'true' : 'false'); });
+    panels.forEach(function (p) { p.classList.toggle('active', p.id === id); });
+    try { history.replaceState(null, '', '#' + id.replace('tab-', '')); } catch (e) {}
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { select(b.getAttribute('aria-controls')); });
+    b.addEventListener('keydown', function (e) {
+      var i = btns.indexOf(b);
+      if (e.key === 'ArrowRight') { e.preventDefault(); btns[(i + 1) % btns.length].click(); btns[(i + 1) % btns.length].focus(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); btns[(i - 1 + btns.length) % btns.length].click(); btns[(i - 1 + btns.length) % btns.length].focus(); }
+    });
+  });
+  var hash = (location.hash || '').replace('#', '');
+  if (hash && document.getElementById('tab-' + hash)) select('tab-' + hash);
+})();
+</script>
